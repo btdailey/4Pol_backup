@@ -1,0 +1,111 @@
+# Makefile for the ROOT test programs.  # This Makefile shows nicely how to compile and link applications
+# using the ROOT libraries on all supported platforms.
+#
+# Copyright (c) 2000 Rene Brun and Fons Rademakers
+#
+# Author: Fons Rademakers, 29/2/2000
+
+include Makefile1.arch
+
+#------------------------------------------------------------------------------
+#brings in the few minossoft things i need
+#BOOSTFLAGS = -I boost_1_48_0
+
+ifdef ANITA_UTIL_INSTALL_DIR
+ANITA_UTIL_LIB_DIR=${ANITA_UTIL_INSTALL_DIR}/lib
+ANITA_UTIL_INC_DIR=${ANITA_UTIL_INSTALL_DIR}/include
+LD_ANITA_UTIL=-L$(ANITA_UTIL_LIB_DIR)
+INC_ANITA_UTIL=-I$(ANITA_UTIL_INC_DIR)
+else
+ANITA_UTIL_LIB_DIR=/usr/local/lib
+ANITA_UTIL_INC_DIR=/usr/local/include
+#ifdef EVENT_READER_DIR
+#LD_ANITA_UTIL=-L$(EVENT_READER_DIR)
+#INC_ANITA_UTIL=-I$(EVENT_READER_DIR)
+#endif
+endif
+
+
+#Toggles the FFT functions on and off
+USE_FFT_TOOLS=1
+
+ifdef USE_FFT_TOOLS
+FFTLIBS = -lRootFftwWrapper -lfftw3
+FFTFLAG = -DUSE_FFT_TOOLS
+else
+FFTLIBS =
+FFTFLAG =
+endif
+
+
+
+##CXXFLAGS += -g -O2 $(INC_ANITA_UTIL) $(BOOSTFLAGS)
+CXXFLAGS     += -g -pg $(ROOTCFLAGS) $(FFTFLAG) $(INC_ANITA_UTIL) $(SYSINCLUDES) -I$(ANITA_ANALYSIS_HOOVER) -I$(EVENT_SIMULATION_DIR) 
+OPTFLAGS  = -O2
+DBGFLAGS  = -pipe -Wall -W -Woverloaded-virtual -g -ggdb -O0 -fno-inline
+
+DBGCXXFLAGS = $(DBGFLAGS) $(ROOTCFLAGS) $(BOOSTFLAGS)
+
+LDFLAGS      += -g $(LD_ANITA_UTIL) -lAnitaEvent -I$(BOOST_ROOT) $(ROOTLDFLAGS) -Llib -L. 
+
+
+LIBS =  -L/home/dailey.110/analysis_oindree  $(ROOTLIBS) -lMathMore -lMinuit  -lMyCorrelator_oindree  -L/data/anita/btdailey/eventCorrelator -lAnitaCorrelator   -lAnitaEvent -lStephenAnalysisTools $(SYSLIBS) $(LD_ANITA_UTIL) $(FFTLIBS) -L$(ANITA_ANALYSIS_HOOVER) 
+
+HEADERS	  = analysis_info_4pol.h
+##ANITA_DATA_HEADERS = include/RawAnitaEvent.h include/UsefulAnitaEvent.h include/RawAnitaHeader.h include/AnitaConventions.h include/AnitaGeomTool.h include/AnitaPacketUtil.h include/simpleStructs.h
+ICEMCO    = applyCuts_TD.o
+ICEMCS    = applyCuts_TD.cc 
+ICEMC     = applyCuts_TD$(ExeSuf)
+
+OBJS          = $(CONDTRKO) $(ICEMCO) 
+
+PROGRAMS      = $(ICEMC)
+
+
+#------------------------------------------------------------------------------
+
+.SUFFIXES: .$(SrcSuf) .$(ObjSuf) .$(DllSuf)
+
+##ANITADATALIB = libAnitaEvent.$(DllSuf)
+
+##$(ANITADATALIB):
+	@cd anita_data_format; make all; make install
+
+all:            $(PROGRAMS)
+
+$(ICEMC):       $(ICEMCO)
+		$(LD) $(LDFLAGS) $(ICEMCO) $(LIBS) $(OutPutOpt) $(ICEMC)
+		@echo "$@ done"
+
+.PHONY: clean
+clean:
+		@rm -f $(OBJS) core
+##@cd anita_data_format; make clean
+
+distclean:      clean
+		@rm -f $(PROGRAMS) $(ICEMCSO) $(ICEMCLIB) *Dict.* *.def *.exp \
+		   *.ps *.so *.lib *.dll *.d *.log .def so_locations
+		@rm -rf cxx_repository core*
+
+.PHONY: debug
+debug: CXXFLAGS = $(DBGCXXFLAGS)
+debug: LDFLAGS = -O0 -g -ggdb
+debug: 		$(ICEMC)
+		@echo "Compile in $@ mode done"
+
+
+.PHONY: run
+run:
+	  ./$(ICEMC)
+
+
+	
+.SUFFIXES: .$(SrcSuf)
+
+###
+
+icemc.$(ObjSuf): 
+
+
+.$(SrcSuf).$(ObjSuf):
+	$(CXX) $(CXXFLAGS) -c $<

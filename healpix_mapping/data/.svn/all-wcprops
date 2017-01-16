@@ -1,0 +1,269 @@
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/RadioSim/!svn/ver/78/icemc/data
+END
+gains.root
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/RadioSim/!svn/ver/78/icemc/data/gains.root
+END
+westland_attenlength_down.txt
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/RadioSim/!svn/ver/78/icemc/data/westland_attenlength_down.txt
+END
+iceshelf_attenlength_down.txt
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/RadioSim/!svn/ver/78/icemc/data/iceshelf_attenlength_down.txt
+END
+50ohm_horn_height.txt
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/RadioSim/!svn/ver/78/icemc/data/50ohm_horn_height.txt
+END
+anita2gpsdata_1.root
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/RadioSim/!svn/ver/78/icemc/data/anita2gpsdata_1.root
+END
+anitagps.txt
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/RadioSim/!svn/ver/78/icemc/data/anitagps.txt
+END
+vv_az
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/RadioSim/!svn/ver/78/icemc/data/vv_az
+END
+bands_nobanding.root
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/RadioSim/!svn/ver/78/icemc/data/bands_nobanding.root
+END
+shortBands.root
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/RadioSim/!svn/ver/78/icemc/data/shortBands.root
+END
+50ohm_horn_gain.txt
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/RadioSim/!svn/ver/78/icemc/data/50ohm_horn_gain.txt
+END
+icesheet_attenlength_down.txt
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/RadioSim/!svn/ver/78/icemc/data/icesheet_attenlength_down.txt
+END
+hv_0
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/RadioSim/!svn/ver/78/icemc/data/hv_0
+END
+vh_0
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/RadioSim/!svn/ver/78/icemc/data/vh_0
+END
+diode_anita1.root
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/RadioSim/!svn/ver/78/icemc/data/diode_anita1.root
+END
+bands_anita1.root
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/RadioSim/!svn/ver/78/icemc/data/bands_anita1.root
+END
+surfatten_run294_ch23v.dat
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/RadioSim/!svn/ver/78/icemc/data/surfatten_run294_ch23v.dat
+END
+tau_decay_tauola.dat
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/RadioSim/!svn/ver/78/icemc/data/tau_decay_tauola.dat
+END
+vv_0
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/RadioSim/!svn/ver/78/icemc/data/vv_0
+END
+icethic.asc
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/RadioSim/!svn/ver/78/icemc/data/icethic.asc
+END
+BalloonGPS.txt
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/RadioSim/!svn/ver/78/icemc/data/BalloonGPS.txt
+END
+atmosphere.dat
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/RadioSim/!svn/ver/78/icemc/data/atmosphere.dat
+END
+turfrate_icemc.root
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/RadioSim/!svn/ver/78/icemc/data/turfrate_icemc.root
+END
+hh_el
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/RadioSim/!svn/ver/78/icemc/data/hh_el
+END
+stations.txt
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/RadioSim/!svn/ver/78/icemc/data/stations.txt
+END
+anita2gpsdata_2.root
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/RadioSim/!svn/ver/78/icemc/data/anita2gpsdata_2.root
+END
+diode_nobanding.root
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/RadioSim/!svn/ver/78/icemc/data/diode_nobanding.root
+END
+anita1flightdata.root
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/RadioSim/!svn/ver/78/icemc/data/anita1flightdata.root
+END
+water.asc
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/RadioSim/!svn/ver/78/icemc/data/water.asc
+END
+numbers.txt
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/RadioSim/!svn/ver/78/icemc/data/numbers.txt
+END
+hh_az
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/RadioSim/!svn/ver/78/icemc/data/hh_az
+END
+outcr
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/RadioSim/!svn/ver/78/icemc/data/outcr
+END
+pulser.root
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/RadioSim/!svn/ver/78/icemc/data/pulser.root
+END
+noise.root
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/RadioSim/!svn/ver/78/icemc/data/noise.root
+END
+westland_attenlength_up.txt
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/RadioSim/!svn/ver/78/icemc/data/westland_attenlength_up.txt
+END
+iceshelf_attenlength_up.txt
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/RadioSim/!svn/ver/78/icemc/data/iceshelf_attenlength_up.txt
+END
+diode_anita2.root
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/RadioSim/!svn/ver/78/icemc/data/diode_anita2.root
+END
+ryanIceData.root
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/RadioSim/!svn/ver/78/icemc/data/ryanIceData.root
+END
+bands_anita2.root
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/RadioSim/!svn/ver/78/icemc/data/bands_anita2.root
+END
+threshscans.root
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/RadioSim/!svn/ver/78/icemc/data/threshscans.root
+END
+icesheet_attenlength_up.txt
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/RadioSim/!svn/ver/78/icemc/data/icesheet_attenlength_up.txt
+END
+gpsFileAnita2.root
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/RadioSim/!svn/ver/78/icemc/data/gpsFileAnita2.root
+END
+vv_el
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/RadioSim/!svn/ver/78/icemc/data/vv_el
+END
+hh_0
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/RadioSim/!svn/ver/78/icemc/data/hh_0
+END
+groundbed.asc
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/RadioSim/!svn/ver/78/icemc/data/groundbed.asc
+END

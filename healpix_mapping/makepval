@@ -1,0 +1,91 @@
+# Makefile for the ROOT test programs.  # This Makefile shows nicely how to compile and link applications
+# using the ROOT libraries on all supported platforms.
+#
+# Copyright (c) 2000 Rene Brun and Fons Rademakers
+#
+# Author: Fons Rademakers, 29/2/2000
+
+include Makefile.arch
+
+#------------------------------------------------------------------------------
+#brings in the few minossoft things i need
+#BOOSTFLAGS = -I boost_1_48_0
+ifdef ANITA_UTIL_INSTALL_DIR
+ANITA_UTIL_LIB_DIR=${ANITA_UTIL_INSTALL_DIR}/lib
+ANITA_UTIL_INC_DIR=${ANITA_UTIL_INSTALL_DIR}/include
+LD_ANITA_UTIL=-L$(ANITA_UTIL_LIB_DIR)
+INC_ANITA_UTIL=-I$(ANITA_UTIL_INC_DIR)
+else
+ANITA_UTIL_LIB_DIR=/usr/local/lib
+ANITA_UTIL_INC_DIR=/usr/local/include
+ifdef EVENT_READER_DIR
+LD_ANITA_UTIL=-L$(EVENT_READER_DIR)
+INC_ANITA_UTIL=-I$(EVENT_READER_DIR)
+endif
+endif
+
+
+HEADERS	  = analysis_info_4pol.h
+CXXFLAGS = -g -O2 $(BOOSTFLAGS) $(ROOTCFLAGS) $(FFTFLAG) $(INC_ANITA_UTIL) $(SYSINCLUDES) -I$(ANITA_ANALYSIS_HOOVER) -I$(EVENT_SIMULATION_DIR)  -I/home/dailey.110/Healpix_3.30/src/cxx/generic_gcc/include -I/data/anita/btdailey/Healpix_stuff/cfitsio/include -I/home/dailey.110/Healpix_3.30/include
+
+OPTFLAGS  = -O2
+DBGFLAGS  = -pipe -Wall -W -Woverloaded-virtual -g -ggdb -O0 -fno-inline
+
+DBGCXXFLAGS = $(DBGFLAGS)  $(ROOTCFLAGS) $(BOOSTFLAGS)
+
+LIBS = -lchealpix -lcfitsio -L/home/dailey.110/analysis_oindre/   -L/home/dailey.110/Healpix_3.30/src/cxx/generic_gcc/lib -L/data/anita/btdailey/Healpix_stuff/cfitsio/lib  $(ROOTLIBS) -lMathMore -lMinuit -L/data/anita/btdailey/analysis_info/data $(SYSLIBS) $(LD_ANITA_UTIL) $(FFTLIBS) -L$(ANITA_ANALYSIS_HOOVER)  -L/home/dailey.110/Healpix_3.30/lib 
+
+ICEMCO    = pval.o vector.o position.o earthmodel1.o balloon.o icemodel.o trigger.o signal.o ray.o Spectra.o anita.o roughness.o secondaries.o Primaries.o Tools.o counting.o Settings.o poly34.o classdict.o
+ICEMCS    =  pval.cc vector.cc position.cc earthmodel1.cc balloon.cc icemodel.cc trigger.cc signal.cc ray.cc Spectra.cc anita.cc roughness.cc secondaries.cc Primaries.cc Tools.cc counting.cc Settings.cc poly34.cpp
+
+ICEMC     = pval$(ExeSuf)
+
+OBJS          = $(CONDTRKO) $(ICEMCO) 
+
+PROGRAMS      = $(ICEMC)
+
+#------------------------------------------------------------------------------
+
+.SUFFIXES: .$(SrcSuf) .$(ObjSuf) .$(DllSuf)
+
+all:         $(PROGRAMS)
+
+$(ICEMC):       $(ICEMCO)
+		$(LD) $(LDFLAGS) $(ICEMCO) $(LIBS) $(OutPutOpt)$(ICEMC)
+		@echo "$@ done"
+
+.PHONY: clean
+clean:
+		@rm -f $(OBJS) core
+
+distclean:      clean
+		@rm -f $(PROGRAMS) $(ICEMCSO) $(ICEMCLIB) *Dict.* *.def *.exp \
+		   *.ps *.so *.lib *.dll *.d *.log .def so_locations
+		@rm -rf cxx_repository core*
+
+.PHONY: debug
+debug: CXXFLAGS = $(DBGCXXFLAGS)
+debug: LDFLAGS = -O0 -g -ggdb
+debug: 		$(ICEMC)
+		@echo "Compile in $@ mode done"
+
+
+.PHONY: run
+run:
+	  ./$(ICEMC)
+
+
+
+.SUFFIXES: .$(SrcSuf)
+
+###
+
+icemc.$(ObjSuf): 
+
+classdict.C:	$(HEADERS)
+	@echo "Generating dictionary…"
+	@rm -f classdict*
+	rootcint classdict.C -c $(HEADERS) LinkDef_plots.h
+
+.$(SrcSuf).$(ObjSuf):
+	$(CXX) $(CXXFLAGS) -c $<
