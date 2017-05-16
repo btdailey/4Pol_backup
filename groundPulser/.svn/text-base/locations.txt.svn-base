@@ -1,0 +1,23 @@
+ANITA II ground pulser locations.
+
+Borehole:
+
+Long = 167.056;
+Lat = -77.861;
+Alt = -49;
+
+Surface:
+
+Before 1229811720 UNIX time
+
+Long=167.05531;
+Lat=-77.86185;
+Alt=-24.;
+
+After 1229811720 UNIX time
+
+Long=167.054183;
+Lat=-77.86153;
+Alt=-24.;
+
+Surface antenna was moved once at 1229811720 UNIX time from south to north side of the LDB payload 2 building.
