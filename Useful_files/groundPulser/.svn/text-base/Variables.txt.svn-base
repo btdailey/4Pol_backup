@@ -1,0 +1,95 @@
+File anitaII_ground_pulser.root
+
+For each logged ground pulser event the following information is saved:
+
+All variables are branches on the tree "gp_log" of anitaII_ground_pulser.root file.
+------------------------------------------------------------------------
+
+gps_time : Time of the most recent GPS update in seconds since midnight UTC.
+
+gps_lat  : The last known latitude in degrees of the payload.
+
+gps_lon  : The last known longitude in degrees of the payload.
+
+gps_surface_dist : Distance to the payload from surface antenna calculated using the last known payload location.
+
+gps_borehole_dist : Distance to the payload from borehole antenna calculated using the last known payload location.
+
+
+fit_time : The time for which the payload's position 
+	   was be extrapolated. In UNIX epoch seconds.
+
+surface_fit : The extrapolated distance in meters from the surface antenna to the 
+	    payload at fit_time.
+
+borehole_fit: The extrapolated distance in meters from the borehole antenna to the 
+	    payload at fit_time.
+
+elevation_fit : The extrapolated elevation in degrees of the payload above the horizon at fit_time.
+
+azimuth : The extrapolated azimuth in degrees of the payload above the horizon at fit_time.
+
+trigger_time : Time of the delay generator trigger recorded by the system. In UNIX seconds.
+	The delay generator is always triggered on PPS, but system records time about 10-100 ms later
+	due to delays in router and such.
+
+
+sg_freq : -1 if the impulse was sent, frequency of the tone bursts sent otherwise.
+
+sg_level : The amplitude in mV set fot the CW generator for the tone bursts. Not necessary related to the CW generator
+	output and has nothing to do with amplitude at the surface antenna output. 
+
+
+surface_attenuation : dB's attenuation set for the surface antenna.
+
+antenna : The polarization of the signal of the surface antenna.
+    
+     antenna = -1 : Seavey turned off.
+     antenna = 0  : Horizontal polarization.
+     antenna = 1  : Vertical polarization.
+     antenna = 3  : Seavey sending pulses at 45 degree polarization.
+     antenna = 13 : Seavey sending pulses at 45 degree polarization, but manual log
+	indicates problems with telemetry updates. Data might be unreliable.
+
+surface_dither : Additional offset (in ns) applied to the time at which the 
+	       surface signal is sent. Negative means the signal is sent earlier than calcuilated.
+
+surface_t_delay : Time delay programmed into the surface antenna delay generator in sec. The signal should leave the surface
+	antenna 258 ns later.
+
+borehole_dither: Additional offset (in ns) applied to the time at which the 
+	       borehole signal is sent. Negative means the signal is sent earlier than calcuilated.
+
+borehole_t_delay : Time delay programmed into the borehole antenna delay generator in sec. The signal should leave the borehole
+	antenna 775 ns later.
+
+borehole_attenuation : attenuation (in dB) on the borehole pulser.
+
+borehole_pulses_per_second : Number of borehole pulses sent per second.
+			   borehole_pulses_per_second = 0: No borehole pulses are sent
+			   borehole_pulses_per_second = 4: Pulsing on
+			   the 150 ms, 350 ms, 550 ms and 750 ms. The signal will
+			   arrive to the borehole antenna 775 ns after
+			   the delay generator is triggered.
+			   borehole_pulses_per_second = 14: same as 4, but indicates some problems
+			   with telemetry update at the biginning of the flight
+			   borehole_pulses_per_second = 24: same as 4, but indicates periods when LOS communication
+			   was not reliable.
+
+borehole_transmission_type :  3 = 6kV FID pulser
+
+gps_age : time in sec since last telemetry update.
+
+
+There are some manually applied corrections to the ground pulser log. Mainly the transmission modes, so the times can be off by about a 
+minute or so. Borehole attenuation was always charnged manually. There are very few pulses sent, but not logged.
+
+
+The ROOT file is indexed by trig_time variable. An entry for the ground pulser can be retrieved by UNIX time. If there is no
+entry present, the ground pulser system was off.
+
+
+Files BHEvents.txt, Seavey45Events.txt, SeaveyHEvents.txt and SeaveyVEvents.txt contain event numbers from ANITA II data stream that
+corresponds to the ground pulser events. Those are the events that triggered the payload (RF or PPS2) within 100 ns time window of 
+predetermined time taking into account a distance error calculated after the flight. These files can be used for the ground pulser
+data analysis or to cut off the ground pulser events. 
