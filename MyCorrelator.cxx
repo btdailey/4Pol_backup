@@ -192,8 +192,8 @@ int printAndresFlag=0;
 double step_size_cos_fine;
 double max_theta_cos;
 double min_theta_cos;
-int notchFilterFlag=1;//0 for no-fill,1 for rayleigh, 2 for wiener, 3 for interpolated, 4 no-notch,5 for sine subtraction
-int phase_flag=0;//0=old phase, 1 = new (random) phase, 2 = interp phase, 3= geometric, 4=simple shift to zero mean
+int notchFilterFlag=3;//0 for no-fill,1 for rayleigh, 2 for wiener, 3 for interpolated, 4 no-notch,5 for sine subtraction
+int phase_flag=3;//0=old phase, 1 = new (random) phase, 2 = interp phase, 3= geometric, 4=simple shift to zero mean
 int simdata_flag=0;
 int thermalSample=0;
 int cos_reconstruction_flag=1;
@@ -760,10 +760,10 @@ void MyCorrelator::getGraphsThisEvent(int windowWaveformFlag, double &snrPeak, d
    
     TGraph *gr1 = fUsefulEventPtr->getGraph(ant,AnitaPol::kVertical);
     TGraph *gr1Horiz=fUsefulEventPtr->getGraph(ant,AnitaPol::kHorizontal);
-   
+    //cout<<"ant is "<<ant<<" V is "<<gr1->GetY()[0]<<"\n";
     TGraph *grInterp=FFTtools::getInterpolatedGraph(gr1,deltaTInt);
     TGraph *grInterpHoriz=FFTtools::getInterpolatedGraph(gr1Horiz, deltaTInt);//interpolate
-   
+    //cout<<"ant is "<<ant<<" V is "<<grInterp->GetY()[0]<<"\n";
    
     TGraph *gr_changing = new TGraph(grInterp->GetN(),grInterp->GetX(),grInterp->GetY());
     TGraph *gr_changingHoriz = new TGraph(grInterpHoriz->GetN(),grInterpHoriz->GetX(),grInterpHoriz->GetY());
@@ -879,8 +879,8 @@ void MyCorrelator::getGraphsThisEvent(int windowWaveformFlag, double &snrPeak, d
     double peak2peak=getPeak2Peak(grFiltered);
     double corVal=peak2peak/2.;
     
-    snrPeak_test = getSNR(grFiltered,rmsNoise);
-    
+    //snrPeak_test = getSNR(grFiltered,rmsNoise);
+    //cout<<"ant is "<<ant<<" rmsnoise is "<<rmsNoise<<"\n";
     //get max snr, antenna
     // if (corVal>maxPeakVal){
     if(snrPeak_test > snrPeak_max){
@@ -889,6 +889,7 @@ void MyCorrelator::getGraphsThisEvent(int windowWaveformFlag, double &snrPeak, d
       snrPeak=getSNR(grFiltered,rmsNoise);
       maxSignalPeak=maxPeakVal;
       peakAnt=ant;
+      noiseBeforeFilter = rmsNoise;
     }
    
     //window the waveform if need be
@@ -910,7 +911,7 @@ void MyCorrelator::getGraphsThisEvent(int windowWaveformFlag, double &snrPeak, d
     if (grEvHorizUnfiltered[ant]) delete grEvHorizUnfiltered[ant];
 
     //grEv[pol][ant]=new TGraph(grFiltered->GetN(),times,volts);
-
+    //cout<<"volts[0] is "<<volts[0]<<"\n";
     grEv[vpol][ant]=new TGraph(grFiltered->GetN(),times,volts);
     grEv[hpol][ant]=new TGraph(grFilteredHoriz->GetN(),timesHoriz,voltsHoriz);
     grEv[lpol][ant]=new TGraph(grFiltered->GetN(),times,volts);  //change this later to be lpol 
@@ -929,7 +930,7 @@ void MyCorrelator::getGraphsThisEvent(int windowWaveformFlag, double &snrPeak, d
      
    
   }//ant  
-  noiseBeforeFilter = rmsNoise;
+  //noiseBeforeFilter = rmsNoise;
   // myfile.close();
   cout<<"noiseBeforeFilter is "<<noiseBeforeFilter<<"\n";
   cout<<"peakAntenna is "<<peakAnt<<"\n";
@@ -2205,12 +2206,12 @@ double MyCorrelator::getRMSOfRange(TGraph *gr, double xLow, double xHigh)
 ///////////////////////////////
 void MyCorrelator::GetInterpolatedGraphs(int whichPolarization){
  TGraph *gr_holder;
- Double_t deltaTInt=1./(2.6*4);
+ Double_t deltaTInt=1./(2.61*4);
 
  vector<double> normalization;
  vector<double> normalization2;
  for(int i=0;i<NUM_ANTS_WITH_NADIRS;i++){
-   //cout<<"grEv x0,y0 are "<<grEv[whichPolarization][i]->GetX()[0]<<" "<<grEv[whichPolarization][i]->GetY()[0]<<"\n";
+   //cout<<"grEv x0,xlast are "<<grEv[whichPolarization][i]->GetX()[0]<<" "<<grEv[whichPolarization][i]->GetX()[255]<<"\n";
    gr_holder = FFTtools::getInterpolatedGraph(grEv[whichPolarization][i],deltaTInt);
    /*
     for(int n=0;n<gr_holder->GetN();n++){
@@ -2218,6 +2219,7 @@ void MyCorrelator::GetInterpolatedGraphs(int whichPolarization){
      if(n >2*gr_holder->GetN()/3) gr_holder->GetY()[n]=0.;
    }
    */
+  
    if(grEvInterp[whichPolarization][i]) delete grEvInterp[whichPolarization][i];
    grEvInterp[whichPolarization][i] = new TGraph(gr_holder->GetN(),gr_holder->GetX(),gr_holder->GetY());
    //cout<<"ant is "<<i<<" x0 and y0 are "<<gr_holder->GetX()[0]<<" "<<gr_holder->GetY()[0]<<"\n";
@@ -2268,11 +2270,62 @@ void MyCorrelator::getCorrelationNormalizationBack(TGraph *gr1, vector<double> &
     sum+=pow(volts[N-1-i],2);
     normalization.push_back(sqrt(sum));
 
+    }
+
+}
+///////
+TGraph *MyCorrelator::getPowerinOverlap(TGraph *gr1, TGraph *gr2, int ant1, int ant2)
+{
+  double v1_sq=1.;
+  double v2_sq=1.;
+  
+  TGraph *holder = FFTtools::getCorrelationGraph(gr1,gr2);
+  //TGraph *tester = FFTtools::getCorrelationGraph(grEvInterp[whichPolarization][ant1],grEvInterp[whichPolarization][ant2]);
+  //cout<<"first time is "<<tester->GetX()[0]<<"\n";
+  //cout<<"last time is "<<tester->GetX()[tester->GetN()-1]<<"\n";
+  int N = gr1->GetN();
+  int N2 = holder->GetN();
+  double offset =gr1->GetX()[0] - gr2->GetX()[0];
+  //cout<<"offset is "<<offset<<"\n";
+  //cout<<"N, N2 are "<<N<<" "<<N2<<"\n";
+  double time=0.;
+  /* for(int j=0;j<N;j++){
+    cout<<"j is "<<j<<" CorrNormalization "<<CorrNormalization[ant1][j]<<" gr1 time,volts is "<<gr1->GetX()[j]<<" "<<gr1->GetY()[j]<<"\n";
+  }
+   for(int j=0;j<N;j++){
+     cout<<"j is "<<j<<" CorrNormalization "<<CorrNormalization[ant2][j]<<" gr2 time,volts is "<<gr2->GetX()[j]<<" "<<gr2->GetY()[j]<<"\n";
+  }
+  */
+   int k=0;
+   int k2=1023;
+  for(int j=N;j<3*N;j++){
+     time = holder->GetX()[j];
+    // if(time<=offset){
+    if(j>N && j <2*N){
+      v1_sq = CorrNormalization[ant1][k];
+      v2_sq = CorrNormalizationBack[ant2][k];
+      k++;
+      // cout<<"v1,v2 are "<<v1_sq<<" "<<v2_sq<<" ";
+      // cout<<"j is "<<j<<" time is "<<time<<" v1 is "<<v1_sq<<"\n";
+    }
+    
+    //if(time>offset){
+    if(j>=2*N && j<3*N){ 
+      v1_sq = CorrNormalizationBack[ant1][k2];
+      v2_sq = CorrNormalization[ant2][k2];
+      k2--;
+      //cout<<"v1,v2 are "<<v1_sq<<" "<<v2_sq<<" ";
+      // cout<<"j is "<<j<<" time is "<<time<<" v1 back now is "<<v1_sq<<"\n";
+    }
+    //cout<<" time, corrval is "<<time<<" "<<holder->GetY()[j]<<"\n";
+    holder->GetY()[j] *= 1./(v1_sq * v2_sq);
+    //cout<<"time, corrval is "<<time<<" "<<holder->GetY()[j]<<"\n";
   }
 
-  
+  return holder;
 }
-////////////////////////////////
+
+////////
 double MyCorrelator::getPowerinOverlap(TGraph *gr1, TGraph *gr2, double delay, int ant1, int ant2){
   //new normalization for correlation. Only uses power in overlapped bins.
   
@@ -2304,7 +2357,7 @@ double MyCorrelator::getPowerinOverlap(TGraph *gr1, TGraph *gr2, double delay, i
   //total_volts2= sqrt(total_volts2);
  
   double bin_delay = delay/delta_t;//delay from angle
-
+  //cout<<"bin_delay is "<<bin_delay<<"\n";
   double offset = (times2[0]-times1[0])/delta_t;
   //cout<<"offset is "<<offset<<" (times2 -times 1 is "<<times2[0]-times1[0]<<"\n";
   double corr_Val=0.;
@@ -2315,8 +2368,12 @@ double MyCorrelator::getPowerinOverlap(TGraph *gr1, TGraph *gr2, double delay, i
   int num_bins=0;
   //cout<<"delay, deltat,bin_Delay, offset is "<<delay<<" "<<delta_t<<" "<<bin_delay<<" "<<offset<<"\n";
   double total_delay = bin_delay+offset;
+  //cout<<"total_delay is "<<total_delay<<"\n";
   //cout<<"total_Delay is "<<total_delay<<"\n";
   //cout<<"delta_T is "<<delta_t<<"\n";
+
+  TGraph *tester = FFTtools::getCorrelationGraph(gr1,gr2);
+  //cout<<"delay is "<<delay<<" total delay is "<<total_delay<<" tester has "<<tester->GetN()<<" points, "<<N<<"\n";
   for(int i=0;i<N;i++){
 
     bin1 = i;
@@ -2358,15 +2415,20 @@ double MyCorrelator::getPowerinOverlap(TGraph *gr1, TGraph *gr2, double delay, i
   }
   if(total_delay >0.){
     //cout<<"normalization[(int) total delay] is "<<CorrNormalizationBack[ant1][N-index_try-1]<<" "<<CorrNormalization[ant2][N-index_try-1]<<"\n";
+    //cout<<" j is "<<delay<<"\n";
     v1_sq = CorrNormalizationBack[ant1][N-index_try-1];
     v2_sq = CorrNormalization[ant2][N-index_try-1];
   }
+  //cout<<"index_try is "<<index_try<<" corr_Val is "<<corr_Val<<" tester val is "<<tester->GetX()[N+index_try+3]<<","<<tester->GetY()[N+index_try+3]<<"\n";
+
   // cout<<"N is "<<N<<" total delay is "<<total_delay<<"\n";
   /*for(int j=0;j<N;j++){
     cout<<"j is "<<j<<" front1 "<<normalization[j]<<" back1 "<<normalization3[j]<<" front2 "<<normalization2[j]<<" back2 "<<normalization4[j]<<"\n";
     }
   */
   //cout<<"corr_val, v1_sq, v2_sq are "<<corr_Val<<" "<<v1_sq<<" "<<v2_sq<<" \n";
+  //cout<<"returning "<<corr_Val/(v1_sq*v2_sq)<<" tester woudl be "<<tester->GetY()[N+index_try+3]/(v1_sq*v2_sq)<<"\n";
+  //cout<<"j is "<<delay<<" v1_sq, v2_sq are "<<v1_sq<<" "<<v2_sq<<" normalized is "<<corr_Val/(v1_sq*v2_sq)<<"\n";
   return corr_Val/(v1_sq*v2_sq);
   //return corr_Val/(total_volts1*total_volts2);
   //cout<<"numbins is "<<num_bins<<"\n";
@@ -2578,7 +2640,7 @@ double MyCorrelator::getPowerSNRCoherent(TGraph *gr, int &noiseFlag){
   }
   noiseFlag=0;
   if(gr->GetX()[end_noise_bin] - gr->GetX()[0] < 10) noiseFlag=1;
-  cout<<"signal starts at "<<start_bin<<" noise ends at "<<end_noise_bin<<" noise starts at "<<gr->GetX()[0] <<" noise ending at "<<gr->GetX()[end_noise_bin]<<"\n";
+  //cout<<"signal starts at "<<start_bin<<" noise ends at "<<end_noise_bin<<" noise starts at "<<gr->GetX()[0] <<" noise ending at "<<gr->GetX()[end_noise_bin]<<"\n";
   
   return max_power/noise_power;
 }
@@ -2774,6 +2836,7 @@ TGraph *MyCorrelator::complicatedNotchFilter(TGraph *grWave, Double_t minFreq, D
 	//cout<<"using Abby filter \n";
 	z1=meanamp*v1*sqrt(-2*log(rsquared)/rsquared);
 	z2=meanamp*v2*sqrt(-2*log(rsquared)/rsquared);
+	//cout<<"tempF is "<<tempF<<"\n";
 	//cout<<"meanamp is "<<meanamp<<" rsquared is "<<rsquared<<"\n";
 	//cout<<"real part was "<<theFFT[i].re<<" is now "<<z1<<"\n";
 	//cout<<"im part was "<<theFFT[i].im<<" is now "<<z2<<"\n";
@@ -3193,7 +3256,7 @@ double MyCorrelator::getCoherentPolarization(TGraph *grV, TGraph *grH, double &p
   double *hV;
     
   int nentries=grV->GetN();
-  // cout<<"nentries is "<<nentries<<"\n";
+  //cout<<"nentries is "<<nentries<<"\n";
   if (grH->GetN() < nentries) nentries=grH->GetN();
 
   // vT = grV->GetX();
@@ -3206,6 +3269,7 @@ double MyCorrelator::getCoherentPolarization(TGraph *grV, TGraph *grH, double &p
    
     vValV = vV[i];
     vValH = hV[i];
+    //cout<<"vValV is "<<i<<" "<<vValV<<"\n";
     //cout<<"vH and hV are "<<vV[i]<<" "<<hV[i];
     // cout<<" ValV and H are "<<vValV<<" "<<vValH<<"\n";
     vValH*=pow(10,-1.*sqrt(5)/10)*(0.863);//what is this?
@@ -3899,6 +3963,7 @@ void MyCorrelator::getClosestNAntennas(int nantennasToUse, double peakPhi, vecto
 /////////////////////////
 void MyCorrelator::getGroupsofAntennas(int nAntennasToUse, int nadirFlag){
   vector<int> antenna_group (nAntennasToUse,0);
+  antenna_group_holder.clear();
 
   int old_group_switch=0;
  
@@ -3927,7 +3992,7 @@ void MyCorrelator::getGroupsofAntennas(int nAntennasToUse, int nadirFlag){
   //antenna_group_holder.clear();
   //unique_phis.clear();
   antenna_groups_size=(int) antenna_group_holder.size();
-  cout<<"antenna_groups_size is "<<antenna_groups_size<<"\n";
+  //cout<<"antenna_groups_size is "<<antenna_groups_size<<"\n";
 }
 
 ////////////////////////////////////
@@ -5262,7 +5327,7 @@ void MyCorrelator::adaptiveFilterPartialPayload(int pol, double dBCut, int nfreq
    */
  
  }//n=0
- cout<<" phi_sector is "<<phi_sector<<"\n";
+ //cout<<" phi_sector is "<<phi_sector<<"\n";
  grBaselines_avg[phi_sector] = new TGraph(n_set,bX,bY);
  grBaselines_avg2dB[phi_sector] = new TGraph(n_set,bX,bY2dB);
  
@@ -6344,7 +6409,10 @@ TGraph *MyCorrelator::makeCoherentlySummedWaveform(int myEventNumber, double pea
   cout<<"max_timeExpected is "<<max_timeExpected<<"\n";
   
   int nsToLeaveOut=(int) ceil(max_timeExpected);
-  //nsToLeaveOut=20;
+  if(newnotchflag==0){
+    nsToLeaveOut=20;
+  }
+  // nsToLeaveOut=20;
   int factorToLeaveOut=int(nsToLeaveOut*2.6);
   //interpolate!!
   for (int i=0;i<nantennas;i++){
@@ -6508,6 +6576,8 @@ int MyCorrelator::pointThisEvent(int eventNumber, int drawMaps, analysis_info_4p
   double theta=0;
   double mcmphi=0;
   double mcmtheta=0;
+  double preFilter_power=0.;
+  double postFilter_power=0.;
   cout<<"finished setting up \n";
   fUsefulAdu5Ptr->getThetaAndPhiWaveWillyBorehole(mcmtheta,mcmphi);
  
@@ -6596,8 +6666,9 @@ int MyCorrelator::pointThisEvent(int eventNumber, int drawMaps, analysis_info_4p
   TGraph *grDeconvolvedCoherent;
   TGraph *grDeconvolvedCoherentHoriz;
   double bandWidth=26;//MHz band (really half bandwidth) for adaptive filtering
-  double dBCut=2.0;
-  cout<<"CHANGED dBCut to 2! \n";
+  double dBCut=4.0;
+  if(newnotchflag==0) dBCut=2.0;
+  cout<<"CHANGED dBCut to 4! \n";
   int nfreq=5;//change this
   double frequencies[nfreq];
   double frequenciesHoriz[nfreq];
@@ -6653,6 +6724,9 @@ int MyCorrelator::pointThisEvent(int eventNumber, int drawMaps, analysis_info_4p
   int nAntennasToUse=9;//9;
   if(newnotchflag==0){
     nAntennasToUse=39;
+    //notchFilterFlag=1;
+    //phase_flag=0;
+   
   }
   if(printFlag==1) cout<<"nAntennasToUse is "<<nAntennasToUse<<"\n";
   vector<int> whichAntennasToUse (nAntennasToUse,0);
@@ -6662,7 +6736,7 @@ int MyCorrelator::pointThisEvent(int eventNumber, int drawMaps, analysis_info_4p
   
   if(groupFlag==0) {
     getGroupsofAntennas(nAntennasToUse,nadirFlag);
-    groupFlag=1;
+    //groupFlag=1;
   }
 
   
@@ -6670,7 +6744,7 @@ int MyCorrelator::pointThisEvent(int eventNumber, int drawMaps, analysis_info_4p
     notchFilterFlag=4;
   }
 
-  cout<<"antenna_groups.size() is "<<antenna_groups_size<<"\n";
+  //cout<<"antenna_groups.size() is "<<antenna_groups_size<<"\n";
   for(int antenna_groups=0;antenna_groups<antenna_groups_size;antenna_groups++){//go through all phi sectors
       
     peakPhi = (double) unique_phis[antenna_groups];
@@ -6681,7 +6755,7 @@ int MyCorrelator::pointThisEvent(int eventNumber, int drawMaps, analysis_info_4p
 	//cout<<"using antenna "<<whichAntennasToUse[k]<<"\n";
 	
       }
-      cout<<"antenna_group is "<<antenna_groups<<"\n";
+      //cout<<"antenna_group is "<<antenna_groups<<"\n";
       //find frequencies to cut, put them into frequencies
       adaptiveFilterPartialPayload(0, dBCut, nfreq,frequencies,bandwidth,magPeak,drawMaps, bandWidth, peakPhi, nAntennasToUse,whichAntennasToUse,
 				   meanFreqVert,myEventNumber,nadirFlag, antenna_groups);
@@ -6739,6 +6813,16 @@ int MyCorrelator::pointThisEvent(int eventNumber, int drawMaps, analysis_info_4p
   getTriggeredL2Phi(fHeadPtr,triggeredPhi);
   getTriggeredAnt(triggeredPhi,triggeredAnt);
  
+  preFilter_power=0.;
+  postFilter_power=0.;
+  for(int i=0;i<40;i++){
+    if(i==1) i++;
+    if(triggeredAnt[i]==1){
+      preFilter_power +=integrateTDPower(grEv[0][i]);
+    }
+  }
+
+
   //do adaptive filter
     
   vector<int> whichAntennasToUse_1 (1,0); //was 40
@@ -6977,8 +7061,14 @@ int MyCorrelator::pointThisEvent(int eventNumber, int drawMaps, analysis_info_4p
    vector <double>().swap(uniquePhaseHoriz_bandwidth);
 
 
-   
-  
+    for(int i=0;i<40;i++){
+    if(i==1) i++;
+    if(triggeredAnt[i]==1){
+      postFilter_power +=integrateTDPower(grEv[0][i]);
+    }
+  }
+    pol4_Ptr->preFilter_power = preFilter_power;
+    pol4_Ptr->postFilter_power = postFilter_power;
    /////////Start loop over whichPol?
     int theta_bin_V=0;
    int phi_bin_V=0;
@@ -6987,8 +7077,8 @@ int MyCorrelator::pointThisEvent(int eventNumber, int drawMaps, analysis_info_4p
    double peakVal_box=0.;
    int theta_bin=0;
    int phi_bin=0;
-
-   for(int whichPolarization=0;whichPolarization<NPOL_ANALYSIS;whichPolarization++){ //oindree -- starting big whichPolarization loop here but think about it 
+    for(int whichPolarization=0;whichPolarization<2;whichPolarization++){ //oindree -- starting big whichPolarization loop here but think about it 
+   //for(int whichPolarization=0;whichPolarization<NPOL_ANALYSIS;whichPolarization++){ //oindree -- starting big whichPolarization loop here but think about it 
     whichAntennasCoherent.clear();
          cout<<"going through whichPol == "<<whichPolarization<<"\n";
      for(int ant1=0;ant1<NUM_ANTS_WITH_NADIRS;ant1++){
@@ -7006,7 +7096,7 @@ int MyCorrelator::pointThisEvent(int eventNumber, int drawMaps, analysis_info_4p
      if(whichPolarization==0){
        sprintf(namer,"36_after");
        DrawFreqDomain(grEv[whichPolarization][36], myEventNumber,namer);
-     }
+s     }
      */
      // cout<<"made it past clearing loops \n";
      GetInterpolatedGraphs(whichPolarization);
@@ -7103,6 +7193,7 @@ int MyCorrelator::pointThisEvent(int eventNumber, int drawMaps, analysis_info_4p
      //cout<<"\n getting SNR coherent \n";
      int badnoiseFlag=0;
      SNR_coherent = getPowerSNRCoherent(grCoherent[whichPolarization],badnoiseFlag);
+     cout<<"power SNR_coherent is "<<SNR_coherent<<"\n";
      cout<<"noiseFlag is "<<badnoiseFlag<<"\n";
      // cout<<"\n";
      SNR_coherent2 = getPowerSNR2(grCoherent[whichPolarization]);
@@ -7113,9 +7204,10 @@ int MyCorrelator::pointThisEvent(int eventNumber, int drawMaps, analysis_info_4p
       if(whichPolarization == 0){
 	grCoherent[1] = makeCoherentlySummedWaveform(myEventNumber, peakThetaInterp, peakPhiInterp,  nadirFlag, 1, 9,drawMaps,1);//10
 	
-
+	cout<<"Theta,phi are "<<peakThetaInterp<<" "<<peakPhiInterp<<"\n";
 	polAngleCoherent=getCoherentPolarization(grCoherent[0], grCoherent[1], polFractionCoherent);
 	
+	cout<<"polFractionCoherent is "<<polFractionCoherent<<"\n";
 
       }
       else if (whichPolarization==1){
@@ -7269,11 +7361,14 @@ int MyCorrelator::pointThisEvent(int eventNumber, int drawMaps, analysis_info_4p
      cout<<"varnerflag 1,2 are "<<varnerflag<<" "<<varnerflag2<<"\n";
      if (printFlag==1) cout<<"polanglecoherent: "<<fabs(polAngleCoherent)<<endl;
      
-     if(drawMaps==1){
+     if(drawMaps==0){
        double sourceLon,sourceLat,sourceAlt;
        int  eventTracer=traceBackToContinent_Brian(myEventNumber, peakThetaFinal,peakPhiFinal, sourceLon, sourceLat, sourceAlt);
        cout<<"distance from source is "<<distance_from_source<<"\n";
        cout<<"sourceLon, Lat, Alt are "<<sourceLon<<" "<<sourceLat<<" "<<sourceAlt<<"\n";
+
+       pol4_Ptr->sourceLat[whichPolarization] = sourceLat;
+       pol4_Ptr->sourceLon[whichPolarization] = sourceLon;
      }
 
      ////////////////////////Fill outputs
@@ -7422,7 +7517,8 @@ int MyCorrelator::pointThisEvent(int eventNumber, int drawMaps, analysis_info_4p
   //peakHilbertFlag=0;
   //polFractionFlag=0;
 
-  cout<<"ratioFirstToSecondPeak is "<<ratioFirstToSecondPeak<<"\n";
+  //cout<<"ratioFirstToSecondPeak is "<<ratioFirstToSecondPeak<<"\n";
+  //cout<<"thetaMap is "<<thetaMap<<"\n";
   //set pointing flags
   //if (ratioFirstToSecondPeak>(1/(0.9))) ratioOfPeaksPassFlag=1;
   //if (thetaMap>-35 && thetaMap<0) elevationAnglePassFlag=1;
@@ -7657,8 +7753,10 @@ void MyCorrelator::doRefinedMap(int myEventNumber,
 	     if((angle1 <NUM_DEGREES_OFF_CENTER && angle2 <NUM_DEGREES_OFF_CENTER)||thermalSample==1 ){
 	  
 	       if(!grCor[ant1][ant2]){
-		 bin=0;
-		
+
+		 grCor[ant1][ant2] = getPowerinOverlap(grEvInterp[whichPolarization][ant1],grEvInterp[whichPolarization][ant2],ant1,ant2);
+		 /*	 bin=0;
+		 
 		 for(double j=-20;j<20;j+=bin_spacing){
 		   //cout<<"j is "<<j<<"\n";
 		   if(bin <num_bins){
@@ -7667,6 +7765,7 @@ void MyCorrelator::doRefinedMap(int myEventNumber,
 		     corrVal[bin] = getPowerinOverlap(grEvInterp[whichPolarization][ant1],grEvInterp[whichPolarization][ant2],j,ant1,ant2);
 		     //cout<<"bin time, corrVal are "<<bin<<" "<<time_delay[bin]<<" "<<corrVal[bin]<<"\n";
 		     //cout<<"j is "<<j<<" "<<j/bin_spacing<<"\n";
+		     
 		   }
 		   bin++;
 		 }
@@ -7676,7 +7775,7 @@ void MyCorrelator::doRefinedMap(int myEventNumber,
 		 grCor[ant1][ant2] = new TGraph(bin,time_delay,corrVal);
 		 
 		 //delete holderplot;
-		 
+		 */
 	       }
 	       /*
 		 if (!grCor[ant1][ant2]){ 
@@ -7733,6 +7832,7 @@ void MyCorrelator::doRefinedMap(int myEventNumber,
 		  else{
 		    // mapCorValRefined[ctrTheta][ctrPhi]+=corVal/(rms[ant1]*rms[ant2]);
 		    if(normalization==1){
+		      //cout<<"ant1,and2 are "<<ant1<<" "<<ant2<<" timeExpected is "<<timeExpected<<" corVal is "<<corVal<<"\n";
 		      mapCorValRefined[ctrTheta][ctrPhi]+=corVal;
 		    }
 		    else{
@@ -8096,6 +8196,13 @@ void MyCorrelator::doCorrelationMap(int myEventNumber,
 	      bin=0;
 	      //cout<<"ant1 and 2 are "<<ant1<<" "<<ant2<<"\n";
 	      //cout<<"getting correlation value! \n";
+	      
+	       
+	    }
+	    //cout<<"ant1, 2 are "<<ant1<<" "<<ant2<<"\n";
+	    grCor[ant1][ant2] = getPowerinOverlap(grEvInterp[whichPolarization][ant1],grEvInterp[whichPolarization][ant2],ant1,ant2);
+	    
+	    /*
 	      for(double j=-20;j<=20;j+=bin_spacing){
 		
 		if(bin <num_bins){
@@ -8105,18 +8212,20 @@ void MyCorrelator::doCorrelationMap(int myEventNumber,
 		  corrVal[bin] = getPowerinOverlap(grEvInterp[whichPolarization][ant1],grEvInterp[whichPolarization][ant2],j,ant1,ant2);
 		  //cout<<"ant1, ant2, bin, corVal is "<<ant1<<" "<<ant2<<" "<<bin<<" "<<corrVal[bin]<<"\n";
 		  
-		 
+		  //cout<<"time_delay, corrVal is "<<time_delay[bin]<<" "<<corrVal[bin]<<"\n";
 		  // cout<<"j is "<<j<<" corVal is "<<corrVal[bin]<<"\n";
 		  
-	      }
+		}
 		bin++;
 	      }
 	      
 	     
-	    grCor[ant1][ant2] = new TGraph(bin,time_delay,corrVal);
+	      grCor[ant1][ant2] = new TGraph(bin,time_delay,corrVal);
+	    */
+	    
 	   
 	    
-	    }
+	  
 	  }//normalization
 	  //cout<<"gr corr has "<<grCor[ant1][ant2]->GetN()<<" numpoints \n";
 	  else{
@@ -8435,7 +8544,7 @@ void MyCorrelator::doCorrelationMap(int myEventNumber,
 	}//allowed flag
       }//end trig==1 cut loop
     }//end ant2loop
-  }//end ant1loop
+   }//end ant1loop
   //cout<<"max delay for ANITA is "<<max_delay<<"\n";
   /*
   if(whichPolarization==0){
@@ -9208,14 +9317,14 @@ int MyCorrelator::traceBackToContinent_Brian(int eventNumber, double thetaWave, 
      
     
      if(sourceLat > -60){
-       cout<<"MISSED ANTARCTICA! \n";
+       cout<<"MISSED ANTARCTICA! LAT \n";
        return 0;
      }
     
      surface_height =  fRampdemReader->SurfaceAboveGeoid(sourceLon,sourceLat);
     
       if(surface_height <-9990){
-       cout<<"MISSED ANTARCTICA! \n";
+       cout<<"MISSED ANTARCTICA! HEIGHT \n";
        return 0;
      }
      if(surface_height > sourceAlt){
@@ -13661,6 +13770,7 @@ void MyCorrelator::GetPatrickEvents(int eventCtrStart, int eventCtrEnd, int ther
       n_counter=0;
       n=(int)10*(gRandom->Rndm());
     }
+    n=11;
     /* if (thermalFlag==2){//all non-rf 
       if ((fHeadPtr->trigType&(1<<0))==0 && isCalPulser(fHeadPtr->eventNumber)==0 
 	  && isMcMBoreholeOrSeaveyFromList(fHeadPtr->eventNumber)==0 && isTaylor(fHeadPtr->eventNumber)==0

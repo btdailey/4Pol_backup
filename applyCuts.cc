@@ -215,7 +215,7 @@ int main() {
   //read in root file
    
    int run=1;
-   string temp = "/data/anita/btdailey/final_filter/simulated/Kotera_4pol_partial_1213/output%d_0.root";
+   string temp = "/data/anita/btdailey/final_filter/simulated/Kotera_4pol_partial_large_0301/output%d_0.root";
    char *rootfile;
   
    rootfile = Form(temp.c_str(),run);
@@ -227,9 +227,9 @@ int main() {
   simPointed_Tree->Add(rootfile);
   //extras
   
-     for(int extra=4000;extra<300000;extra+=4000){
+     for(int extra=3000;extra<360000;extra+=3000){
     
-       sprintf(rootfile,"/data/anita/btdailey/final_filter/simulated/Kotera_4pol_partial_1213/output%d_%d.root",run,extra);
+       sprintf(rootfile,"/data/anita/btdailey/final_filter/simulated/Kotera_4pol_partial_large_0301/output%d_%d.root",run,extra);
 	 TFile *fpTest = TFile::Open(rootfile);
 	 if(!fpTest){ 
 	   //cout<<"broke at extra "<<extra<<"\n";
@@ -251,7 +251,7 @@ int main() {
   //read in root file
    
      run=12;
-   temp = "/data/anita/btdailey/final_filter/10sample/geom_4pol_partial_1213/output%d_0.root";
+   temp = "/data/anita/btdailey/final_filter/10sample/geom_4pol_partial_0301/output%d_0.root";
   
   
    rootfile = Form(temp.c_str(),run);
@@ -262,11 +262,11 @@ int main() {
   pol4_Tree->Add(rootfile);
   Pointed_Tree->Add(rootfile);
   //extras
-    for(int extra=13;extra<200;extra++){
+    for(int extra=13;extra<263;extra++){
 	 
-	 for(int delta=0;delta<20000;delta+=3000){
+	 for(int delta=0;delta<200000;delta+=3000){
 	   
-	   sprintf(rootfile,"/data/anita/btdailey/final_filter/10sample/geom_4pol_partial_1213/output%d_%d.root",extra,delta);
+	   sprintf(rootfile,"/data/anita/btdailey/final_filter/10sample/geom_4pol_partial_0301/output%d_%d.root",extra,delta);
 	   
 	 TFile *fpTest = TFile::Open(rootfile);
 	 if(!fpTest){ 
@@ -285,7 +285,7 @@ int main() {
 	  }//delta
        }//extra
   
-    for(int extra=200;extra<261;extra++){
+    /*for(int extra=200;extra<261;extra++){
       
       for(int delta=0;delta<15000;delta+=1000){
 	
@@ -308,11 +308,33 @@ int main() {
 	  }//delta
        }//extra
     
-  
+      for(int extra=261;extra<263;extra++){
+	 
+	 for(int delta=0;delta<20000;delta+=3000){
+	   
+	   sprintf(rootfile,"/data/anita/btdailey/final_filter/10sample/geom_4pol_partial_1213/output%d_%d.root",extra,delta);
+	   
+	 TFile *fpTest = TFile::Open(rootfile);
+	 if(!fpTest){ 
+	   cout<<"broke at extra "<<extra<<"_"<<delta<<"\n";
+	   break;
+	   //break;
+	 }
+	 else {
+	   delete fpTest;
+	   
+	   
+	   
+	   pol4_Tree->Add(rootfile);
+	   Pointed_Tree->Add(rootfile);
+	 }
+	  }//delta
+       }//extra
+    */
       //////THESE TREES ARE FILLED FOR EVENTS PASSING ALL CUTS!////////////
       char filename[150];
  
-      sprintf(filename,"/data/anita/btdailey/passingCuts/10sample_partial_HPol_passedcuts_110.root");
+      sprintf(filename,"/data/anita/btdailey/passingCuts/10sample_partial_passedcuts_0301.root");
   
       cout<<"outputting to file: "<<filename<<endl;
       TFile *rootfile_out = new TFile(filename,"RECREATE");
@@ -327,7 +349,7 @@ int main() {
 
       char filename_sim[150];
  
-      sprintf(filename_sim,"/data/anita/btdailey/passingCuts/sim_HPol_passedcuts_110.root");
+      sprintf(filename_sim,"/data/anita/btdailey/passingCuts/sim_passedcuts_0301.root");
   
       cout<<"outputting to file: "<<filename_sim<<endl;
       TFile *rootfile_sim = new TFile(filename_sim,"RECREATE");
@@ -379,9 +401,9 @@ int main() {
      int n_old=0;
 
 
-     int polarization =1;
-     //for(int m=0;m<nevents0;m++){
-     for(int m=1369290;m<nevents0;m++){
+     int polarization =0;
+     for(int m=0;m<nevents0;m++){
+     //for(int m=1369290;m<nevents0;m++){
        // for(int m=0;m<0;m++){
        	if (m % (nevents0 / 100) == 0){
 	  cout << m << " events. " <<(double(m)/double(nevents0)) * 100 << "% complete.\n";

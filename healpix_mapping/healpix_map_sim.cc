@@ -366,7 +366,7 @@ int main(int argc, char **argv) {
   //read in root file
   string filter_name;
  
-  string temp = "/data/anita/btdailey/passingCuts/sim_passedcuts_1215.root";
+  string temp = "/data/anita/btdailey/passingCuts/sim_passedcuts_0301.root";
   char *rootfile;
   rootfile = Form(temp.c_str(),filter_name.c_str());
     
@@ -481,6 +481,8 @@ int main(int argc, char **argv) {
 
       vector< vector <double> > ratio_vector (n_pix_int+1, vector<double>(1));
       vector< vector <double> > polFrac_vector (n_pix_int+1, vector<double>(1));
+      vector< vector <int> > eventNumber_vector (n_pix_int+1, vector<int>(1));
+
 
        vector<double> peakVal_vector0;
       vector<double> peakHilbert_vector0; 
@@ -491,6 +493,8 @@ int main(int argc, char **argv) {
 
       vector<double> ratio_vector0; 
       vector<double> polFrac_vector0;
+       vector<int> eventNumber_vector0;
+       vector<double> weight_vector0;
       double BASE0;
 
       // vector< vector <double> > areas_vector (n_pix_int_1, vector<double>(1));
@@ -636,17 +640,19 @@ int main(int argc, char **argv) {
 
       ////////////ROOT OUTPUT
       char filename[150];//simCWdata/largesample/CW2/abby/
-      sprintf(filename,"HealPix_sim_partial_1215.root");
+      sprintf(filename,"HealPix_sim_partial_0301.root");
       cout<<"outputting to file: "<<filename<<endl;
       TFile *rootfile_out = new TFile(filename,"RECREATE");
   
       TTree *Binned_tree = new TTree("Binned_Tree","variables used for optimization"); 
+      Binned_tree->Branch("eventNumber_vector",&eventNumber_vector0);
       Binned_tree->Branch("peakHilbert_vector",&peakHilbert_vector0);
       Binned_tree->Branch("SNR_vector",&SNR_vector0);
       Binned_tree->Branch("peakVal_vector",&peakVal_vector0);
       Binned_tree->Branch("healpix_bin_weights",&healpix_bin_weights0);
       Binned_tree->Branch("ratio_vector",&ratio_vector0);
       Binned_tree->Branch("polFrac_vector",&polFrac_vector0);
+      Binned_tree->Branch("weight_vector",&weight_vector0);
       //Binned_tree->Branch("areas_vector",&areas_vector);
       Binned_tree->Branch("BASE",&BASE0);
 
@@ -1070,7 +1076,7 @@ int main(int argc, char **argv) {
 		   
 		     //cout<<area_pix[i]<<" "<<areas[i]<<"\n";
 		   
-		   healpix_bin_weights[area_pix[i]].push_back(weight*areas[i]);
+		   healpix_bin_weights[area_pix[i]].push_back(areas[i]);
 		   numevents[area_pix[i]]=numevents[area_pix[i]]+1;
 		   
 		   num_binned++;
@@ -1082,6 +1088,7 @@ int main(int argc, char **argv) {
 		     SNR_vector[area_pix[i]].push_back(snrCoherent);
 		     ratio_vector[area_pix[i]].push_back(ratioFirstToSecondPeak);
 		     polFrac_vector[area_pix[i]].push_back(polFractionCoherent);
+		     eventNumber_vector[area_pix[i]].push_back(pol4_Ptr->eventNumber);
 		     weight_vector[area_pix[i]].push_back(weight);
 		   }
 		 }
@@ -1098,6 +1105,8 @@ int main(int argc, char **argv) {
 		 peakHilbert_vector[pixel_num_event].push_back(peakHilbertCoherent*distance_from_source/1.E6);
 		 healpix_bin_weights[pixel_num_event].push_back(1);
 		 SNR_vector[pixel_num_event].push_back(snrCoherent);
+		 eventNumber_vector[pixel_num_event].push_back(pol4_Ptr->eventNumber);
+		 weight_vector[pixel_num_event].push_back(weight);
 	       }
 	     }
 	   }
@@ -1117,7 +1126,8 @@ int main(int argc, char **argv) {
 	SNR_vector0=SNR_vector[m];
 	ratio_vector0=ratio_vector[m];
 	polFrac_vector0=polFrac_vector[m];
-
+	eventNumber_vector0=eventNumber_vector[m];
+	weight_vector0 = weight_vector[m];
 	Binned_tree->Fill();
 
       }
@@ -1243,8 +1253,8 @@ int main(int argc, char **argv) {
        //hhealpix_error->Draw("same");
       //point->Draw("same");
       //anitapoint->Draw("same");
-      c2->Print("healpix_map_sim.png");
-      c2->Print("healpix_map_sim.eps");
+      c2->Print("healpix_map_sim_0301.png");
+      c2->Print("healpix_map_sim_0301.eps");
       
 
      

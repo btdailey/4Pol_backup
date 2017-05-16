@@ -364,7 +364,9 @@ int main(int argc, char **argv) {
   //read in root file
   string filter_name;
  
-  string temp = "/data/anita/btdailey/passingCuts/10sample_partial_passedcuts_1215.root";
+  //string temp = "/data/anita/btdailey/passingCuts/10sample_partial_passedcuts_1215.root";
+  //string temp = "/data/anita/btdailey/passingCuts/10sample_partial_HPol_passedcuts_110.root";
+  string temp = "/data/anita/btdailey/passingCuts/10sample_partial_passedcuts_0301.root";
   char *rootfile;
   rootfile = Form(temp.c_str(),filter_name.c_str());
     
@@ -635,7 +637,7 @@ int main(int argc, char **argv) {
 
       ////////////ROOT OUTPUT
       char filename[150];//simCWdata/largesample/CW2/abby/
-      sprintf(filename,"HealPix_partial_111.root");
+      sprintf(filename,"HealPix_partial_0301_test.root");
       cout<<"outputting to file: "<<filename<<endl;
       TFile *rootfile_out = new TFile(filename,"RECREATE");
   
@@ -652,7 +654,7 @@ int main(int argc, char **argv) {
 
       //////////////////
 
-
+      int polarization=0;//0==VPol, 1 = Hpol
 
       for(int m=0;m<nevents0;m+=1){
       //	for(int m=0;m<1;m+=1){
@@ -671,22 +673,22 @@ int main(int argc, char **argv) {
 
 	//cout<<"eventnumber is "<<pol4_Ptr->eventNumber<<"\n";
 	//cout<<"anita is at "<<anitaLat<<" "<<anitaLon<<" "<<anitaAlt<<"\n";
-	lat = pol4_Ptr->sourceLat[0];
-	lon = pol4_Ptr->sourceLon[0];
+	lat = pol4_Ptr->sourceLat[polarization];
+	lon = pol4_Ptr->sourceLon[polarization];
 	
 	
 
 
-	distance_from_source = pol4_Ptr->distance_from_source[0];
-	peakHilbertCoherent = pol4_Ptr->peakHilbertCoherent[0];
-	snrCoherent = pol4_Ptr->SNR_coherent[0];
-	peakVal = pol4_Ptr->peakVal[0];
-	phiMap = pol4_Ptr->phiMap[0];
-	thetaMap = pol4_Ptr->thetaMap[0];
-	ratioFirstToSecondPeak=pol4_Ptr->ratioFirstToSecondPeak[0];
-	thetaMap=pol4_Ptr->thetaMap[0];
+	distance_from_source = pol4_Ptr->distance_from_source[polarization];
+	peakHilbertCoherent = pol4_Ptr->peakHilbertCoherent[polarization];
+	snrCoherent = pol4_Ptr->SNR_coherent[polarization];
+	peakVal = pol4_Ptr->peakVal[polarization];
+	phiMap = pol4_Ptr->phiMap[polarization];
+	thetaMap = pol4_Ptr->thetaMap[polarization];
+	ratioFirstToSecondPeak=pol4_Ptr->ratioFirstToSecondPeak[polarization];
+	thetaMap=pol4_Ptr->thetaMap[polarization];
       
-	polFractionCoherent=pol4_Ptr->polFractionCoherent[0];
+	polFractionCoherent=pol4_Ptr->polFractionCoherent[polarization];
        
 	
 	float limit =0.85;
@@ -765,7 +767,7 @@ int main(int argc, char **argv) {
 	 //cout<<"\n\n";
 	 
 	 errorpoints_return = ErrorPoints(xholder_temp,yholder_temp,zholder_temp,eta,theta_error, phi_error,anitaAlt/1000,event_bin_height);//get error ellipse
-	 
+	 //if (pol4_Ptr->eventNumber == 2489558) cout<<"event is "<<pol4_Ptr->eventNumber<<"error points is "<<errorpoints_return<<"\n";
 	 if(errorpoints_return <4) errorellipse_ctr++;//keep track of number of events that only intersect earth 2 times
 
 	   
@@ -1037,7 +1039,7 @@ int main(int argc, char **argv) {
 		 
 		 if(area_pix[i]>0){
 		   cout<<" eventnumber is "<<pol4_Ptr->eventNumber<<" area is "<<area_pix[i]<<" "<<areas[i]<<"\n";
-		   if(areas[i]<.5) areas[i]=0.;
+		   //if(areas[i]<.5) areas[i]=0.;
 		   weight_frac[area_pix[i]]+=areas[i];
 		   num_frac[area_pix[i]]++;
 		 }
@@ -1259,7 +1261,7 @@ int main(int argc, char **argv) {
       //haxes->Draw();
       hhealpix_map->Draw("zcol");
       for(int j=0;j<pointctr;j++){
-	point_sources[j]->Draw("same");
+	//point_sources[j]->Draw("same");
       }
       for(int j=0;j<pointctr1;j++){
 	//point_boundaries[j]->Draw("same");
@@ -1267,8 +1269,8 @@ int main(int argc, char **argv) {
        //hhealpix_error->Draw("same");
       //point->Draw("same");
       //anitapoint->Draw("same");
-      c2->Print("healpix_map_events.png");
-      c2->Print("healpix_map.eps");
+      c2->Print("healpix_map_0301_HPol.png");
+      c2->Print("healpix_map_0301_HPol.eps");
       
       
      

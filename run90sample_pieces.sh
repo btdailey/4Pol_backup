@@ -32,21 +32,22 @@ then OUTPUT_DIR=subtraction
 fi
 
 if ((PHASE == 0))
-then PHASE_DIR=sim_final_CW
+then PHASE_DIR=no_phase_change
     elif((PHASE == 1))
-then PHASE_DIR=pulser_new
+then PHASE_DIR=random_phase
     elif((PHASE == 2))
-then PHASE_DIR=pulser_response
+then PHASE_DIR=interpolated_phase
     elif((PHASE == 3))
-then PHASE_DIR=90sample
+then PHASE_DIR=geometric_method
     elif((PHASE == 4))
-then PHASE_DIR=thermal_shifted_mean_zero_simple_interp
+then PHASE_DIR=shifted_method ##NOT IMPLEMENTED IN CURRENT CODE
 fi
+
 echo $OUTPUT_DIR
 echo "exited and trying to move file!"
 
 cp /tmp/90sample/$RUNNUMBER/$SIMFILE/$FILTER/$PHASE/$FILENAME/output* /data/anita/btdailey/final_filter/$PHASE_DIR/$OUTPUT_DIR
 #mv $LOCAL_DIR/tmp/$CWDIR/$FILTER/$FILENAME/output* /data/anita/dailey.110/filter_study/saturated/noCW
-rm -rf /tmp/90sample$RUNNUMBER/$SIMFILE/$FILTER/$PHASE/
+rm -rf /tmp/90sample/$RUNNUMBER/$SIMFILE/$FILTER/$PHASE/
 
 

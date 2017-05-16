@@ -347,8 +347,7 @@ int main(int argc, char **argv) {
       
       vector< vector<double> >Lats_boundary1;
       vector< vector<double> >Lons_boundary1;
-      
-      
+           
 
   ////////////////////
   //read in root file
@@ -358,7 +357,8 @@ int main(int argc, char **argv) {
   //read in root file
    
    int  run=12;
-   string temp = "/data/anita/btdailey/final_filter/10sample/geom_4pol_partial_1213/output%d_0.root";
+   // string temp = "/data/anita/btdailey/final_filter/10sample/geom_4pol_partial_1213/output%d_0.root";
+   string temp = "/data/anita/btdailey/final_filter/10sample/geom_4pol_partial_0301/output%d_0.root";
   
   
   char *rootfile = Form(temp.c_str(),run);
@@ -369,52 +369,30 @@ int main(int argc, char **argv) {
   pol4_Tree->Add(rootfile);
   Pointed_Tree->Add(rootfile);
   //extras
-    for(int extra=13;extra<200;extra++){
+  for(int extra=13;extra<263;extra++){
 	 
-	 for(int delta=0;delta<20000;delta+=3000){
-	   
-	   sprintf(rootfile,"/data/anita/btdailey/final_filter/10sample/geom_4pol_partial_1213/output%d_%d.root",extra,delta);
-	   
-	 TFile *fpTest = TFile::Open(rootfile);
-	 if(!fpTest){ 
-	   cout<<"broke at extra "<<extra<<"_"<<delta<<"\n";
-	   break;
-	   //break;
-	 }
-	 else {
-	   delete fpTest;
-	   
-	   
-	   
-	   pol4_Tree->Add(rootfile);
-	   Pointed_Tree->Add(rootfile);
-	 }
-	  }//delta
-       }//extra
-  
-    for(int extra=200;extra<261;extra++){
+    for(int delta=0;delta<20000;delta+=3000){
       
-      for(int delta=0;delta<15000;delta+=1000){
+      sprintf(rootfile,"/data/anita/btdailey/final_filter/10sample/geom_4pol_partial_0301/output%d_%d.root",extra,delta);
+      
+      TFile *fpTest = TFile::Open(rootfile);
+      if(!fpTest){ 
+	cout<<"broke at extra "<<extra<<"_"<<delta<<"\n";
+	break;
+	//break;
+      }
+      else {
+	delete fpTest;
 	
-	sprintf(rootfile,"/data/anita/btdailey/final_filter/10sample/geom_4pol_partial_1213/output%d_%d.root",extra,delta);
 	
-	TFile *fpTest = TFile::Open(rootfile);
-	if(!fpTest){ 
-	  cout<<"broke at extra "<<extra<<"_"<<delta<<"\n";
-	  break;
-	  //break;
-	}
-	else {
-	  delete fpTest;
-	   
-	   
-	   
-	   pol4_Tree->Add(rootfile);
-	   Pointed_Tree->Add(rootfile);
-	 }
-	  }//delta
-       }//extra
-
+	
+	pol4_Tree->Add(rootfile);
+	Pointed_Tree->Add(rootfile);
+      }
+    }//delta
+  }//extra
+  
+  
  
   
      
@@ -438,7 +416,8 @@ int main(int argc, char **argv) {
   vector< vector <double> > healpix_bin_weights (n_pix_int+1, vector<double>(1));
   vector< vector <int> > eventNumber_vector (n_pix_int+1, vector<int>(1));
 
-  temp = "HealPix_partial_1215.root";
+  //temp = "HealPix_partial_1215.root";
+  temp = "HealPix_partial_0301.root";
  
   rootfile = Form(temp.c_str(),filter_name.c_str());
     
@@ -544,7 +523,7 @@ int main(int argc, char **argv) {
    int traced_last=0;
    int triggered_last=0;
    int varner_last=0;
-   int baseNoise_last=0;
+   int badNoise_last=0;
 
    double snrPeak;
    
@@ -571,7 +550,7 @@ int main(int argc, char **argv) {
    vector<double> cut_val_vector;
 
    int rotatedFlag=0;
-   myfile.open("Cut_values.txt");
+   myfile.open("Cut_values_0301.txt");
    
    while (myfile >>healpix_bin >> cut_val){
      healpix_bin_vector.push_back(healpix_bin);
@@ -580,7 +559,10 @@ int main(int argc, char **argv) {
    }
    cout<<"number of events in sample is "<<nevents0<<"\n";
       //////////////////
+   int inserted_flag=0;
+   int polarization=0;//Vpol=0, HPol=1;
    for(int m=0;m<nevents0;m++){
+     //for(int m=849360;m<nevents0;m++){
      //for(int m=1369290;m<nevents0;m++){
        // for(int m=0;m<0;m++){
        	if (m % (nevents0 / 100) == 0){
@@ -593,13 +575,51 @@ int main(int argc, char **argv) {
        
        //cout<<"Anita is at "<<AnitaLat<<" "<<AnitaLon<<" "<<AnitaAlt<<"\n";
        eventNumber_cut = pol4_Ptr->eventNumber;
-       peakHilbertCoherent=pol4_Ptr->peakHilbertCoherent[0];
-       peakVal=pol4_Ptr->peakVal[0];
-       ratioFirstToSecondPeak=pol4_Ptr->ratioFirstToSecondPeak[0];
-       thetaMap=pol4_Ptr->thetaMap[0];
-       phiMap = pol4_Ptr->phiMap[0];
-       snrcoherent = pol4_Ptr->SNR_coherent[0];
-       polFractionCoherent=pol4_Ptr->polFractionCoherent[0];
+
+       area_pix.clear();
+       areas.clear();
+       //cout<<"pixel_event_num was "<<pixel_num_event<<" ";
+       	for(int j=3008;j<n_pix_int;j++){
+	  //cout<<"j is "<<j<<"\n";
+	  // cout<<"area_pix, areas size is "<<area_pix.size()<<" "<<areas.size()<<"\n";
+	  for(int k=0;k<eventNumber_vector[j].size();k++){
+	    //cout<<"eventnumber is "<<eventNumber_vector[j][k]<<"\n";
+	    if(eventNumber_vector[j][k]==eventNumber_cut){
+	      area_pix.push_back(j);
+	      areas.push_back(healpix_bin_weights[j][k]);
+	      // cout<<"eventnumber is "<<eventNumber_vector[j][k]<<" "<<eventNumber_cut<<" pix and area is "<<j<<" "<<healpix_bin_weights[j][k]<<"\n";
+	    }
+	  }
+	}
+
+
+
+	for(int j=0;j<area_pix.size();j++){
+	  if(j==0){
+	    pixel_num_event = area_pix[0];
+	   
+	  }
+
+	  if(areas[j] > areas[0]){
+	    pixel_num_event = area_pix[j];
+	  }
+	  //cout<<"changed to "<<pixel_num_event;
+	}
+	//	cout<<"\n";
+	
+	//cout<<"pixel_event_num is now "<<pixel_num_event<<"\n";
+
+       inserted_flag=0;
+       if(eventNumber_cut == 4586631 || eventNumber_cut == 8381355 || eventNumber_cut == 9362397 ||  eventNumber_cut == 10345208 || eventNumber_cut == 11207106 || eventNumber_cut == 12943715 || eventNumber_cut == 13662401 || eventNumber_cut == 15406954 || eventNumber_cut == 19480638 || eventNumber_cut == 20564174 || eventNumber_cut == 24699044 || eventNumber_cut == 25887362 || eventNumber_cut == 14577785 || eventNumber_cut == 15636066){
+	 inserted_flag=1;
+       }      
+       peakHilbertCoherent=pol4_Ptr->peakHilbertCoherent[polarization];
+       peakVal=pol4_Ptr->peakVal[polarization];
+       ratioFirstToSecondPeak=pol4_Ptr->ratioFirstToSecondPeak[polarization];
+       thetaMap=pol4_Ptr->thetaMap[polarization];
+       phiMap = pol4_Ptr->phiMap[polarization];
+       snrcoherent = pol4_Ptr->SNR_coherent[polarization];
+       polFractionCoherent=pol4_Ptr->polFractionCoherent[polarization];
        anitaLat = pol4_Ptr->anitaLat;
        anitaLon = pol4_Ptr->anitaLon;
        anitaAlt = pol4_Ptr->anitaAlt;
@@ -609,13 +629,13 @@ int main(int argc, char **argv) {
 	 anitaLon = anitaLon+180;
 
        //if(peakHilbertCoherent != peakHilbertCoherent) cout<<"eventnumber is "<<eventNumber_cut<<" snr is "<<snrcoherent<<"\n";
-       hwTriggerFlag=pol4_Ptr->hwTriggerFlag[0];
-       snrPeak = pol4_Ptr->snrPeakAfterFilter[0];
+       hwTriggerFlag=pol4_Ptr->hwTriggerFlag[polarization];
+       snrPeak = pol4_Ptr->snrPeakAfterFilter[polarization];
        
-       varnerFlag = pol4_Ptr->varnerFlag[0];
-       didIFilter = pol4_Ptr->didIFilter[0];
-       eventTracedFlag2 = pol4_Ptr->eventTracedFlag[0];
-       varnerFlag2 = pol4_Ptr->varnerFlag2[0];
+       varnerFlag = pol4_Ptr->varnerFlag[polarization];
+       didIFilter = pol4_Ptr->didIFilter[polarization];
+       eventTracedFlag2 = pol4_Ptr->eventTracedFlag[polarization];
+       varnerFlag2 = pol4_Ptr->varnerFlag2[polarization];
       
       
        mainrfcmflag=  pol4_Ptr->mainrfcmflag;
@@ -623,11 +643,11 @@ int main(int argc, char **argv) {
        dcoffsetflag=pol4_Ptr->dcoffsetflag;
        shorttraceflag=pol4_Ptr->shorttraceflag;
        nadirrfcmflag=pol4_Ptr->nadirrfcmflag;
-       badNoiseFlag = pol4_Ptr->noiseFlag[0];
+       badNoiseFlag = pol4_Ptr->noiseFlag[polarization];
 
 
-       	lat = pol4_Ptr->sourceLat[0];
-	lon = pol4_Ptr->sourceLon[0];
+       	lat = pol4_Ptr->sourceLat[polarization];
+	lon = pol4_Ptr->sourceLon[polarization];
 	
 	//////////Get Pixel Num for Event//////
 	lat = 90-lat;
@@ -638,8 +658,8 @@ int main(int argc, char **argv) {
 	SphericaltoCart(phi,theta,x_map,y_map);
 
 	pixel_num=ang2pix_ring(n_side,theta,phi);
-	pixel_num_event = pixel_num;
-
+	//pixel_num_event = pixel_num;
+	
 	y_int=100000;
 
 	 for(int i =0;i<healpix_bin_vector.size();i++){
@@ -647,20 +667,29 @@ int main(int argc, char **argv) {
 	   }
 	 //cout<<"pixel_num, y_int is "<<pixel_num<<" "<<y_int<<"\n";
 
+	 if(inserted_flag==1){
+	  cout<<"event_number is "<<eventNumber_cut<<" values are "<<ratioFirstToSecondPeak<<" "<<peakVal<<" "<<peakHilbertCoherent<<" "<<thetaMap<<" "<<polFractionCoherent<<"\n";
+
+	}
+
+
        if ( !mainrfcmflag || shorttraceflag !=0 || dcoffsetflag != 0 || bigenoughpeakflag !=1){
 	 cout<<"quality cut event \n";
 	 continue;
+	 if(inserted_flag==1) cout<<"inserted event "<<eventNumber_cut<<" cut by quality \n";
        }
 	
 
        //PAYLOAD BLASTS
        if(pol4_Ptr->payloadblastflag ==1){
 	 payloadBlastctr++;
+	 if(inserted_flag==1) cout<<"inserted event "<<eventNumber_cut<<" cut by payload \n";
 	 continue;
        }
 
        if(y_int> 500){
 	 healpixctr++;
+	 if(inserted_flag==1) cout<<"inserted event "<<eventNumber_cut<<" cut by wrong bin. Healpix bin is "<<pixel_num_event<<" \n";
 	 continue;
        }
        
@@ -739,7 +768,7 @@ int main(int argc, char **argv) {
 	 }
        }
 	if(ratioFirstToSecondPeak > (1/limit) && peakVal >= 0.075 && peakHilbertCoherent >15 && thetaMap >-35 && thetaMap < 0 && eventTracedFlag2==1 && hwTriggerFlag!=0 && rotatedFlag==1 && polFractionCoherent>0.3  && varnerFlag!=1){
-	 if(baseNoiseFlag==1){
+	 if(badNoiseFlag==1){
 	   //cout<<"eventnumber being cut by hwtrigger is "<<eventNumber<<" hwTriggerFlag is "<<hwTriggerFlag<<"\n";
 	   badNoise_last++;//triggered_last
 	 }
@@ -754,29 +783,33 @@ int main(int argc, char **argv) {
 
        if(ratioFirstToSecondPeak <=(1/limit)){
 	 ratiopeaksctr++;
+	 if(inserted_flag==1) cout<<"inserted event "<<eventNumber_cut<<" cut by ratio \n";
 	 continue;
        }
        
        if(peakVal<.075){
 	 //	 if(peakVal<.03){
 	 crosscorrctr++;
-	 
+	 if(inserted_flag==1) cout<<"inserted event "<<eventNumber_cut<<" cut by peakVal \n";
 	 continue;
        }
      
        if(peakHilbertCoherent <=15){
 	 hilbertctr++;
+	 if(inserted_flag==1) cout<<"inserted event "<<eventNumber_cut<<" cut by hilbert \n";
 	 continue;
        }
        	     
        
         if(polFractionCoherent<=.3){
 	 polfractionctr++;
+	 if(inserted_flag==1) cout<<"inserted event "<<eventNumber_cut<<" cut by polfrac \n";
 	 continue;
        }
        
 	if(snrcoherent < -38*peakVal + y_int){
 	  rotatedctr++;
+	  if(inserted_flag==1) cout<<"inserted event "<<eventNumber_cut<<" cut by rotated. pixel_num and y_int were "<<pixel_num_event<<" "<<y_int<<" \n";
 	  continue;
 	}
        
@@ -785,39 +818,48 @@ int main(int argc, char **argv) {
 
        if(thetaMap<=-35 || thetaMap>=0){
 	 elevationctr++;
+	 if(inserted_flag==1) cout<<"inserted event "<<eventNumber_cut<<" cut by elevation \n";
 	 continue;
        }
       
   
         if(eventTracedFlag2!=1){
 	 tracedctr++;
+	 if(inserted_flag==1) cout<<"inserted event "<<eventNumber_cut<<" cut by traced \n";
 	 continue;
        }
       
   
        if(hwTriggerFlag==0){
 	 triggeredctr++;
+	 if(inserted_flag==1) cout<<"inserted event "<<eventNumber_cut<<" cut by triggered \n";
 	 continue;
        }
       
    
        if(varnerFlag==1){// || varnerFlag2==1){
 	 varnerevents++;
+	 if(inserted_flag==1) cout<<"inserted event "<<eventNumber_cut<<" cut by varner \n";
 	 continue;
        }
 
         if(badNoiseFlag==1){
 	 badNoisectr++;
+	 if(inserted_flag==1) cout<<"inserted event "<<eventNumber_cut<<" cut by bad noise \n";
 	 continue;
        }
-
+	if(areas.size() ==0){
+	  cout<<"event "<<eventNumber_cut<<" failed placing in bin (on horizon), remove for same reasons! \n";
+	  healpixctr++;
+	  continue;
+	}
 	cout<<"passed cuts "<<eventNumber_cut<<" "<<pixel_num_event<<"\n";
 	cout<<"ratio of peaks is "<<ratioFirstToSecondPeak<<"\n";
 	cout<<"polfrac is "<<polFractionCoherent<<"\n";
-	area_pix.clear();
-	areas.clear();
+	//area_pix.clear();
+	//areas.clear();
 
-	for(int j=3012;j<n_pix_int;j++){
+	/*	for(int j=3008;j<n_pix_int;j++){
 	  //cout<<"j is "<<j<<"\n";
 	 
 	  for(int k=0;k<eventNumber_vector[j].size();k++){
@@ -829,30 +871,34 @@ int main(int argc, char **argv) {
 	    }
 	  }
 	}
-	if(areas.size() ==0){
-	  cout<<"event "<<eventNumber_cut<<" failed placing in bin, remove for same reasons! \n";
-	  healpixctr++;
-	  continue;
-	}
+	*/
+	
+
 	  
 	datactr2++;
 
 	
 
-	 for(int k=0;k<4;k++){
+	for(int k=0;k<areas.size();k++){
 	   y_int=10000000;
 	   if(area_pix[k]>0){
-	     cout<<"pixel_num (y_int), area_pix, area is "<<pixel_num_event<<"("<<y_int<<") "<<area_pix[k]<<" "<<areas[k]<<"\n";
+	     cout<<"pixel_num_event, area_pix, area is "<<pixel_num_event<<"("<<y_int<<") "<<area_pix[k]<<" "<<areas[k]<<"\n";
 	     for(int i =0;i<healpix_bin_vector.size();i++){
 	       if(healpix_bin_vector[i] == area_pix[k]) y_int = cut_val_vector[i];
 	   }
+	     cout<<"y_int now "<<y_int<<"\n";
 	     if(snrcoherent >= -38*peakVal + y_int){
 	       if(areas[k] <.5){
 		 area_ctr+=areas[k];
+		 cout<<"failed area cut! \n";
+		 if(inserted_flag==1) cout<<"inserted event "<<eventNumber_cut<<" cut by area \n";
 		 continue;
-	       }
+	       }//<.5
 	       datactr+=areas[k];
-	       cout<<"event "<<eventNumber_cut<<" pixel_num is "<<area_pix[k]<<" weight is "<<areas[k]<<"\n";
+	       cout<<"event "<<eventNumber_cut<<" pixel_num is "<<area_pix[k]<<" weight is "<<areas[k]<<" datactr is now "<<datactr<<"\n";
+	     }
+	     else{
+	       cout<<"failed rotated cut! \n";
 	     }
 	     
 	   }

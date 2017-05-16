@@ -125,6 +125,7 @@ int main(int argc, char **argv) {
   vector<double> *healpix_bin_weights2=0;
   vector<int> *eventNumber_vector2=0;
   vector<int> skipped_bins;
+  vector<int> used_bins;
 
   vector< vector <double> > peakVal_vector (n_pix_int+1, vector<double>(1));
   vector< vector <double> > peakHilbert_vector (n_pix_int+1, vector<double>(1));
@@ -132,11 +133,15 @@ int main(int argc, char **argv) {
   
   vector< vector <double> > healpix_bin_weights (n_pix_int+1, vector<double>(1));
   vector< vector <int> > eventNumber_vector (n_pix_int+1, vector<int>(1));
-
+   ofstream myfile;
+  myfile.open("Diff_fit_values.txt");
   //read in root file
   string filter_name;
- 
-  string temp = "HealPix_partial_111.root";
+  // string temp = "HealPix_partial_1215.root";
+  //string temp = "HealPix_partial_111.root";//removed events <50% weight
+  //string temp = "HealPix_partial_HPol_120.root";//HPol
+  // string temp = "HealPix_partial_0207.root";//HPol
+   string temp = "HealPix_partial_0301.root";//HPol
   char *rootfile;
   rootfile = Form(temp.c_str(),filter_name.c_str());
     
@@ -218,10 +223,13 @@ int main(int argc, char **argv) {
       double max_snr=0.;
        double num_cut_peakVal=0.;
       double num_bins_plots=10000;
+      double fit_events=0.;
+      double fit_error=0.;
       
-       for(int sloper=42;sloper<44;sloper+=1){
+       for(int sloper=38;sloper<39;sloper+=1){
 	slope = -1*sloper;
 	skipped_bins.clear();
+	used_bins.clear();
 	cout<<" slope is "<<slope<<"\n";
 	bad_fit_ctr=0;
 	SNR_vector[n_pix_int].clear();
@@ -236,10 +244,10 @@ int main(int argc, char **argv) {
 	cout<<"SNR_vector[add] size is "<<SNR_vector[n_pix_int].size()<<"\n";
 	TH1D *hChiSquare = new TH1D("ChiSquare",";ChiSquare/NDF;Number of Events",100,0.,200.);
 	TH1D *hpVal = new TH1D("pVal",";p Val;Number of HealPix Bins",1000,0.,1.2);
-	TH2D *hpvalDist = new TH2D("pvalDist",";PVal;Log(Number of entries in Bin;Number of Bins",1000,0,1.2,1000,1,5);
+	TH2D *hpvalDist = new TH2D("pvalDist",";PVal;Log(Number of entries in Bin;Number of Bins",1000,0,1.2,1000,1E-5,5);
 	//peakHilbertCoherent<-350*peakVal+57.14
 	for(int m=2990;m<n_pix_int;m++){
-	//for(int m=2990;m<2991;m++){
+	  //for(int m=3043;m<3044;m++){
 	  //if(m>3033) m=3055;
 	  //cout<<"m is "<<m<<"\n";
 	  max_snr=0;
@@ -252,6 +260,8 @@ int main(int argc, char **argv) {
 	  fullcut_flag=0;
 	  num_cut_peakVal=0.;
 	  min_cut=100.;
+	  fit_events=0.;
+	  fit_error=0.;
 	  //TH1D *hdiffplot = new TH1D("diffplot",";y_intercept;Number of Events Cut;",100,0.,100.);
 	  
 
@@ -299,7 +309,7 @@ int main(int argc, char **argv) {
 		 //cout<<"hilbert is "<<peakHilbert_vector[m][n]<<"\n";
 		 if(hilbertFlag==0){
 		   if(SNR_vector[m][n]>max_snr) {
-		     cout<<"max_snr is from "<<eventNumber_vector[m][n]<<"\n";
+		     //cout<<"max_snr is from "<<eventNumber_vector[m][n]<<"\n";
 		     max_snr = SNR_vector[m][n];
 		   }
 		 }
@@ -366,6 +376,8 @@ int main(int argc, char **argv) {
 		 }//num_cut
 	       }//n=1
 	       
+	      
+
 	       //cout<<"bin is "<<m<<" y_int is "<<y_int<<" num_cut is "<<num_cut<<" last_num_cut is "<<num_cut_old<<"\n";
 	       // if(m==3051) cout<<"numcut is "<<num_cut<<" old is "<<num_cut_old<<"\n";
 	       num_cut = num_cut-num_cut_old;
@@ -377,6 +389,7 @@ int main(int argc, char **argv) {
 	       if(num_cut > num_cut_max){
 		 num_cut_max=num_cut;
 		 fit_start = y_int+1;
+		 fit_events+=num_cut;
 		 //cout<<"m is "<<m<<" num_cut is "<<num_cut<<" "<<fit_start<<"\n";
 	       }
 	       if(num_cut < min_cut && num_cut>0){
@@ -397,11 +410,29 @@ int main(int argc, char **argv) {
 		 fit_end = y_int+1;
 		 y_int = 1E5;
 		 fullcut_flag=1;
+		 fit_events = num_cut_old - fit_events; 
 		 break;
 	       }
 	      
 	       
 	     }//y_int
+
+	     TH2F *haxes_diff_0 = new TH2F("axes_diff",";y_int;Number of Events Cut",200,0,fit_end+10,200,0.1*min_cut,num_cut_max*2);
+	       TCanvas *c4_0 = new TCanvas("c4_0","c4_0",800,800);
+		c4_0->SetLogy();
+		
+		haxes_diff_0->Draw();
+		hdiffplot->Draw("sames");
+		sprintf(printer,"diffplot_%i_all.png",m,sloper);
+		c4_0->Print(printer);
+
+		delete haxes_diff_0;
+		delete c4_0;
+	
+
+		 cout<<"NUMBER OF BINS USED IS "<<fit_end - fit_start<<"\n";
+		cout<<"NUMBER OF EVENTS FIT OVER IS "<<fit_events<<"\n";
+
 	     // cout<<"doing fit \n";
 	    if(fit_end<fit_start) fit_end = fit_start;
 	    cout<<"fit start, end are "<<fit_start<<" "<<fit_end<<"\n";
@@ -419,6 +450,7 @@ int main(int argc, char **argv) {
 	    double edm, errdef;
 	    int nvpar,nparx;
 	    int num_events = hdiffplot->GetEntries();
+	   
 	    //cout<<"m is "<<m<<" sloper is "<<sloper<<" fit start and end are "<<fit_start<<" "<<fit_end<<" num_cut_max is "<<num_cut_max<<" fullcut_flag is "<<fullcut_flag<<" num_cut_old is "<<num_cut_old<<" min_weight is "<<min_weight<<"\n";
 	    cout<<"min_cut is "<<min_cut<<"\n";
 	    if(min_weight >90) min_weight=1E-2;
@@ -448,7 +480,7 @@ int main(int argc, char **argv) {
 	    
 	    
 
-	    
+	    /*
 	    if(fit_end < fit_start+3){
 	      //cout<<"doing fit \n";
 	       for(int n=0;n<numberevents;n++){
@@ -468,13 +500,14 @@ int main(int argc, char **argv) {
 	    }
 
 
-	    if(fit_end < fit_start+3 ){
+	     if(fit_end <= fit_start+3 ){
 	      skipped_bins.push_back(m);
 	      cout<<"bad fits on m="<<m<<"\n";
 	      continue;
 	    }
-	    
-	    if(fit_end >=fit_start +3 && numberevents >1){
+	    */
+	    if(1){
+	      //if(fit_end > fit_start +3 && numberevents >1){
 	      cout<<"doing fit \n";
 	      // haxes_diff = new TH2F("axes_diff",";y_int;Number of Events Cut",200,0,fit_end+5,200,.9,num_cut_max*2);
 	      // if(numberevents <100){
@@ -493,7 +526,11 @@ int main(int argc, char **argv) {
 	      
 	      double slope_fit = fit->GetParameter(1);
 	      double yint = fit->GetParameter(0);
+	      myfile<<m<<"\t"<<slope_fit<<"\t"<<yint<<"\t"<<fit_start<<"\t"<<fit_end<<"\n";
+	      double slope_error = fit->GetParError(1);
+	      double yint_error = fit->GetParError(0);
 	      cout<<"slope_fit and yint is "<<slope_fit<<" "<<yint<<"\n";
+	      cout<<"errors are "<<slope_error<<" "<<yint_error<<"\n";
 	      TVirtualFitter *fitter = TVirtualFitter::Fitter(hdiffplot);
 	      fitter->GetStats(likelihood_val, edm, errdef,nvpar,nparx);
 	      //double pval1 = fitter->GetProb();
@@ -502,6 +539,9 @@ int main(int argc, char **argv) {
 	      //cout<<"likelihood, edm, errdef, nvpar, nparx are "<<likelihood_val<<" "<<edm<<" "<<errdef<<" "<<nvpar<<" "<<nparx<<"\n";
 	      //cout<<"chisquare for fit is "<<chisquare<<" degrees of freedom "<<NDF<<" pval is "<<pval<<"\n";
 	      cout<<"likelihood_val is "<<likelihood_val<<"\n";
+	      fit_error = edm;
+	     
+		cout<<"Error in fitter is "<<fit_error<<"\n";
 	      if(slope_fit >0) {
 		cout<<"bin "<<m<<" is not a decay! \n";
 		skipped_bins.push_back(m);
@@ -564,6 +604,7 @@ int main(int argc, char **argv) {
 	      //cout<<"num_events_total is "<<num_events_total<<"\n";
 	      for(int exp_num=0;exp_num<10000;exp_num++){
 		num_events_pseudo= gRandom->Poisson(num_events_total);
+		
 		TH1D *hpseudo = new TH1D("psuedo",";xval;yval",num_bins_plots,0.,10000.);
 					
 		hpseudo->Sumw2();
@@ -602,7 +643,7 @@ int main(int argc, char **argv) {
 	      }//j
 		//cout<<"fit_start, end are "<<fit_start<<" "<<fit_end<<"\n";
 		  hpseudo->Fit("expo","QR WL","",fit_start,fit_end);
-		  
+		   fit_pseudo = hpseudo->GetFunction("expo");
 		  /*TF1 *fit2 = hpseudo->GetFunction("expo");
 		   fit2->SetLineColor(kRed);
 		  fit2->SetLineWidth(2);
@@ -621,10 +662,11 @@ int main(int argc, char **argv) {
 		  delete axes_fit;
 		}
 		  */ 
+		  //cout<<"slope_fit = "<< fit_pseudo->GetParameter(1)<<" y_int is "<<fit_pseudo->GetParameter(0)<<"\n";
 	     
 		TVirtualFitter *fitter = TVirtualFitter::Fitter(hpseudo);
 		fitter->GetStats(likelihood_val_pseudo, edm, errdef,nvpar,nparx);
-		
+		//cout<<"num_events_psuedo, likelihood is "<<num_events_pseudo<<" "<<likelihood_val_pseudo<<"\n";
 		hpseudoVal->Fill(likelihood_val_pseudo);
 		if(likelihood_val_pseudo > max_likelihood) max_likelihood = likelihood_val_pseudo;
 		//cout<<"likelihood_val_pseudo is "<<likelihood_val_pseudo<<"\n";
@@ -646,14 +688,12 @@ int main(int argc, char **argv) {
 	      double scale_max = hpseudoVal->GetMaximum();
 	      cout<<"pval is now "<<pval<<"\n";
 	      cout<<"log10 is "<<log10(num_events_total)<<"\n";
+	      //if(m==3012 || m==3030 || m==3031 || m==3032 || m==3033 || m==3045 || m==3048 || m==3051 || m==3053 || m==3057 || m==3061 || m==3062 || m==3063 || m==3066 || m==3069 || m==3054){//fill pval with bins we will use! 
 	      hpvalDist->Fill(pval,log10(num_events_total));
 	      //hChiSquare->Fill(chisquare/NDF);
 	      hpVal->Fill(pval);
-	      if(pval >.99 || pval<0.05){
-		bad_fit_ctr++;
-		cout<<"m is "<<m<<" sloper is "<<sloper<<" numevents is "<<numberevents<<" pval is "<<pval<<"\n";
-		skipped_bins.push_back(m);
-	      }
+	      //	}
+	      
 	      //double param0 = fit->GetParameter(0);
 	      //double param1 = fit->GetParameter(1);
 	      
@@ -675,6 +715,15 @@ int main(int argc, char **argv) {
 		//delete line1;
 		delete haxes_like;
 		delete hRotatedCut;
+		/*
+		if(pval<0.05){
+		bad_fit_ctr++;
+		cout<<"m is "<<m<<" sloper is "<<sloper<<" numevents is "<<numberevents<<" pval is "<<pval<<"\n";
+		skipped_bins.push_back(m);
+		continue;
+	      }
+	     
+		*/
 		//cout<<"max snr is "<<max_snr<<"\n";
 		/*	TH2D *haxes_rotated; 
 		if(hilbertFlag==0){
@@ -715,12 +764,18 @@ int main(int argc, char **argv) {
 	      c3->Print(printer);
 	    */
 	      cout<<"m is "<<m<<" pval is "<<pval<<"\n";
-	      if(fit_end > fit_start+3 && numberevents >1){ 
+	      if(1){
+	      // if(fit_end > fit_start+3 && numberevents >1){
+		used_bins.push_back(m);
 		//if(1){
 	    //if(sloper==22){ 
 	      //cout<<"here 2 \n";
 	      //if(pval<0.001 || pval>.999){
 	      	cout<<"PVAL IS "<<pval<<"\n";
+		cout<<"NUMBER OF BINS USED IS "<<fit_end - fit_start<<"\n";
+		cout<<"NUMBER OF EVENTS FIT OVER IS "<<fit_events<<"\n";
+		cout<<"Error in fitter is "<<fit_error<<"\n";
+		  
 		TCanvas *c4 = new TCanvas("c4","c4",800,800);
 		c4->SetLogy();
 		
@@ -819,11 +874,15 @@ int main(int argc, char **argv) {
      for(int k=0;k<skipped_bins.size();k++){
        cout<<"skipped "<<skipped_bins[k]<<" due to bad fit! \n";
      }
+     cout<<"using "<<used_bins.size()<<" bins for analysis! \n";
+     for(int k=0;k<used_bins.size();k++){
+       cout<<"using "<<used_bins[k]<<"! \n";
+     }
 
        }//sloper
 
      
-
+       myfile.close();
   return 0;
 }
 ////////////////

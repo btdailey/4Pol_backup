@@ -256,8 +256,8 @@ int main() {
     //run = 58;
 
 
-    eventNumber = 1067605;//taylor dome event
-    run=16;
+    //eventNumber = 1067605;//taylor dome event
+    //run=16;
     //eventNumber = 710519;
    
     //eventNumber = 723300; //calpulser
@@ -366,7 +366,36 @@ int main() {
     //eventNumber = 1268913;
     //run = 16;
 
+    //insertedEvents
+    //eventNumber= 12943715;
+    //run=127;
 
+    //eventNumber = 25887362;
+    //run = 250;
+
+     //inserted event
+    //eventNumber = 15636066;
+    //run = 153;
+    
+    // eventNumber = 16014510;
+    //run = 155;
+
+    eventNumber = 14496361;//Hol Abby/MAtt
+    run = 142;
+
+    //eventNumber = 1457785;//Hol Abby/MAtt
+    //run = 142;
+
+    //eventNumber = 21684774;//Hol Abby/MAtt
+    //run = 208;
+
+    //eventNumber = 27146983;//Hol Abby/MAtt
+    //run = 261;
+    //eventNumber = 10345208;
+    //run = 99;
+    //eventNumber = 20564174;
+    //run = 190;
+    
     //10% sample/////
     //eventNumber = 8441658;
     //run = 75;
@@ -381,8 +410,8 @@ int main() {
       cout<<"eventNumber, run and pol are "<<eventNumber<<","<<run<<","<<whichPol<<"\n";
 
   //MyCorrelator *magicPtr = new MyCorrelator("/u/home/agoodhue/icemcEventMaker/runs",run, WaveCalType::kDefault);
-       MyCorrelator *magicPtr = new MyCorrelator("/data/anita/anitaplus/AnitaFlight0809RootData",run, WaveCalType::kDefault);
-      //MyCorrelator *magicPtr = new MyCorrelator("/data/anita/btdailey/anita_data/sample10",run, WaveCalType::kDefault);
+      //MyCorrelator *magicPtr = new MyCorrelator("/data/anita/anitaplus/AnitaFlight0809RootData",run, WaveCalType::kDefault);
+      MyCorrelator *magicPtr = new MyCorrelator("/data/anita/btdailey/anita_data/sample90",run, WaveCalType::kDefault);
     // MyCorrelator *magicPtr = new MyCorrelator("/home/btdailey/icemc_svn/outputs",run, WaveCalType::kDefault);
   //MyCorrelator *magicPtr = new MyCorrelator("/u/osgstorage/anita/data/mcm08",run, WaveCalType::kDefault);
   cout<<"RUN NUMBER: "<<run<<endl;

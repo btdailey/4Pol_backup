@@ -6,7 +6,7 @@ use warnings;
 use Fcntl;
 
 sub main{
-    $mypath="/home/dailey.110/analysis_oindree/";
+    $mypath="/home/dailey.110/analysis/";
     $j=0;
 $HANDLE_in="filehandle_in";
 $FilePath_in="$mypath/output.txt";
