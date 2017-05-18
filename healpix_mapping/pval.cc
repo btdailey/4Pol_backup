@@ -141,7 +141,7 @@ int main(int argc, char **argv) {
   //string temp = "HealPix_partial_111.root";//removed events <50% weight
   //string temp = "HealPix_partial_HPol_120.root";//HPol
   // string temp = "HealPix_partial_0207.root";//HPol
-   string temp = "HealPix_partial_0301.root";//HPol
+   string temp = "HealPix_partial_0301_test.root";//HPol
   char *rootfile;
   rootfile = Form(temp.c_str(),filter_name.c_str());
     

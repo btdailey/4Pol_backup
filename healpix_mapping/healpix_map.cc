@@ -1038,7 +1038,7 @@ int main(int argc, char **argv) {
 	        for(int i=0;i<4;i++){
 		 
 		 if(area_pix[i]>0){
-		   cout<<" eventnumber is "<<pol4_Ptr->eventNumber<<" area is "<<area_pix[i]<<" "<<areas[i]<<"\n";
+		   //cout<<" eventnumber is "<<pol4_Ptr->eventNumber<<" area is "<<area_pix[i]<<" "<<areas[i]<<"\n";
 		   //if(areas[i]<.5) areas[i]=0.;
 		   weight_frac[area_pix[i]]+=areas[i];
 		   num_frac[area_pix[i]]++;
