@@ -128,6 +128,7 @@ void GetTimePerBin(IceModel *antarctica);
 double GetDistance(double Lat1, double Lon1, double Lat2, double Lon2);
 int GetBrianBin(double lat, double lon);
 void BintoLatLon(int binnumber, double& lat, double& lon);
+void MakeFlightPath(); 
 
 double test_anita_x=0.;
 double test_anita_y=0.;
@@ -358,7 +359,6 @@ int main(int argc, char **argv) {
   c1->Print(printer);
 
 
-
   ///////////healpix stuff
   
   //read in root file
@@ -552,7 +552,7 @@ int main(int argc, char **argv) {
       double snrCoherent;
 
       hellipse->SetMarkerColor(kRed);
-      cout<<"number of events is 10% sample is "<<nevents0<<"\n";
+      cout<<"number of events in 10% sample is "<<nevents0<<"\n";
 
       ///////////////get boundary values//////////////
       double step_size = 2*PI/100.;
@@ -656,7 +656,7 @@ int main(int argc, char **argv) {
 
       int polarization=0;//0==VPol, 1 = Hpol
 
-      for(int m=0;m<nevents0;m+=1){
+      for(int m=0;m<nevents0;m+=1000){
       //	for(int m=0;m<1;m+=1){
       //for(int m=1369290;m<nevents0;m++){
 	//	cout<<"m is "<<m<<"\n";
@@ -1245,7 +1245,6 @@ int main(int argc, char **argv) {
       
     
        cout<<"passed healpix map stuff \n";
-       
       
       hhealpix_map->SetMinimum(1E-2);
       hhealpix_map->SetMaximum(ceil(max_base));
@@ -1256,25 +1255,55 @@ int main(int argc, char **argv) {
       gStyle->SetPadRightMargin (.20);
       gStyle->SetOptTitle(0); //this will disable the title for all coming histograms
       TH2F *haxes = new TH2F("",";x(km);y(km)",200,-1500,-500,200,-200,700);
-      TCanvas *c2 = new TCanvas("c2","c2",880,800);
+      
+      TCanvas *c2 = new TCanvas("c2","c2",1000,800);
+      //c2->SetFixedAspectRatio(); 
       c2->SetLogz();
+
+      //// oindree-- put antarctica outline here 
+      //
+      TFile *outline_file = new TFile("antarcticCoastGraph.root"); 
+      outline_file -> ls(); 
+      TGraph *outline_graph = (TGraph*)outline_file -> Get("Graph");
+      TGraph *final_outline_graph = new TGraph(0); 
+      for (int igraph = 0; igraph < outline_graph->GetN(); igraph++)
+      {
+	final_outline_graph->SetPoint(final_outline_graph->GetN(),outline_graph->GetX()[igraph]/1000,outline_graph->GetY()[igraph]/1000);
+      }
+
+      final_outline_graph->SetPoint(final_outline_graph->GetN(),final_outline_graph->GetX()[0],final_outline_graph->GetY()[0]); 
+      final_outline_graph->SetLineColor(4); 
+      final_outline_graph->SetLineWidth(5);
+      final_outline_graph->GetXaxis()->SetTitle("km");
+      final_outline_graph->GetYaxis()->SetTitle("km");  
+      final_outline_graph->Draw("AC"); 
+
       //haxes->Draw();
-      hhealpix_map->Draw("zcol");
+      hhealpix_map->Draw("zcol same");
       for(int j=0;j<pointctr;j++){
 	//point_sources[j]->Draw("same");
       }
       for(int j=0;j<pointctr1;j++){
 	//point_boundaries[j]->Draw("same");
       }
+      
+      //// oindree-- put flight path here 
+      MakeFlightPath(); 
+     
+      TFile *flightpath_file = new TFile("anita2flightpath.root"); 
+      flightpath_file -> ls(); 
+      TGraph *flightpath_graph = (TGraph*)flightpath_file -> Get("Graph");
+      flightpath_graph->SetLineColor(1);
+      flightpath_graph->SetLineWidth(4);    
+      flightpath_graph->Draw("L same");  
+
        //hhealpix_error->Draw("same");
       //point->Draw("same");
       //anitapoint->Draw("same");
-      c2->Print("healpix_map_0301_HPol.png");
-      c2->Print("healpix_map_0301_HPol.eps");
-      
-      
-     
-      
+
+      c2->Print(Form("healpix_10_passed_cuts_pol%i.png",polarization));
+      c2->Print(Form("healpix_10_passed_cuts_pol%i.eps",polarization));
+      c2->SaveAs(Form("healpix_10_passed_cuts_pol%i.root",polarization)); 
 
   return 0;
 }
@@ -2982,6 +3011,60 @@ void BintoLatLon(int binnumber, double& lat, double& lon){
 
 }
 
+
+//////make flight path -- oindree
+  //////
+
+void MakeFlightPath()
+
+{
+  TChain gps("adu5PatTree");
+  gps.Add("anita2gps_pitchandroll.root"); 
+  //gps.Add("anita3gps_pitchroll.root"); 
+  int ngps = gps.GetEntries();
+
+  cout << "ngps is " << ngps << endl; 
+
+  float latitude;
+  float longitude;   
+  gps.SetBranchAddress("latitude",&latitude);
+  gps.SetBranchAddress("longitude",&longitude); 
+
+  double phi=0.;
+  double theta=0.;
+  double x=0.;
+  double y=0.; 
+
+  TGraph *anita2flightpath = new TGraph(0); 
+  //TGraph *anita3flightpath = new TGraph(0); 
+
+  for (int ientry = 0; ientry < ngps; ientry=ientry+1)
+  {
+    gps.GetEntry(ientry); 
+
+    //cout << "latitude is " << latitude << endl; 
+    //cout << "longitude is " << longitude << endl; 
+
+    double lat = 90-latitude;
+    double lon = longitude+180; 
+      
+    LatLon2phitheta(lat,lon,phi,theta); 
+    SphericaltoCart(phi,theta,x,y);  
+    anita2flightpath->SetPoint(anita2flightpath->GetN(),x,y);
+    //anita3flightpath->SetPoint(anita3flightpath->GetN(),x,y);
+  
+    lat=0.;
+    lon=0; 
+    phi=0.;
+    theta=0.;
+    x=0.;
+    y=0.; 
+   }
+   
+  anita2flightpath->SaveAs("anita2flightpath.root");
+  //anita3flightpath->SaveAs("anita3flightpath.root");
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 TStyle* RootStyle() {
@@ -3019,9 +3102,9 @@ TStyle* RootStyle() {
   RootStyle->SetPadBorderMode  (0);
   //  RootStyle->SetPadBottomMargin(0.13);
   RootStyle->SetPadBottomMargin(0.16);
-  RootStyle->SetPadTopMargin   (0.08);
-  RootStyle->SetPadLeftMargin  (0.15);
-  RootStyle->SetPadRightMargin (.05);
+  RootStyle->SetPadTopMargin   (0.045);
+  RootStyle->SetPadLeftMargin  (0.1);
+  RootStyle->SetPadRightMargin (.12);
   RootStyle->SetPadGridX       (0);
   RootStyle->SetPadGridY       (0);
   RootStyle->SetPadTickX       (1);
@@ -3077,8 +3160,8 @@ TStyle* RootStyle() {
   RootStyle->SetLabelFont  ( 42   ,"X");
 
   RootStyle->SetTickLength ( 0.015,"Y");
-  RootStyle->SetTitleSize  ( 0.045,"Y");
-  RootStyle->SetTitleOffset( 1.65,"Y");
+  RootStyle->SetTitleSize  ( 0.06,"Y");
+  RootStyle->SetTitleOffset( 0.8,"Y");
   RootStyle->SetLabelOffset( 0.015,"Y");
   RootStyle->SetLabelSize  ( 0.040,"Y");
   RootStyle->SetLabelSize  ( 0.040,"Z");
