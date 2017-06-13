@@ -95,6 +95,7 @@ long n_side =pow(2,k_value);
 
 int n_pix_int=12*n_side*n_side; //Total number of pixels
 vector<double> BASE(n_pix_int,0.);
+vector<double> BASE_allcuts(n_pix_int,0.);
 vector<double> weight_frac(n_pix_int,0.);
 vector<int> num_frac(n_pix_int,0);
 vector<int> numevents(n_pix_int,0.);
@@ -1096,7 +1097,7 @@ int main(int argc, char **argv) {
 		     polFrac_vector[area_pix[i]].push_back(polFractionCoherent);
 		     eventNumber_vector[area_pix[i]].push_back(pol4_Ptr->eventNumber);
 
-		     
+		     if (peakVal >= 0.075) {BASE_allcuts[area_pix[i]]+=areas[i]; } 
 		   }
 		 }
 	       }//i==4
@@ -1149,8 +1150,8 @@ int main(int argc, char **argv) {
         ////////GOT ALL INFO FROM EVENTS. NOW CAN USE FOR OPTIMIZATION and PLOTTING//////////
       double max_base=1.;
       for(int m=0;m<n_pix_int;m++){
-	if(BASE[m]>0) cout<<"pix is "<<m<<" num events is "<<BASE[m]<<"\n";
-	if(BASE[m] > max_base) max_base = BASE[m];
+	if(BASE_allcuts[m]>0) cout<<"pix is "<<m<<" num events is "<<BASE_allcuts[m]<<"\n";
+	if(BASE_allcuts[m] > max_base) max_base = BASE_allcuts[m];
       }
       for(int m=0;m<n_pix_int;m++){
 	//if(num_frac[m]>0) cout<<"pix is "<<m<<" num frac is "<<num_frac[m]<<" weight_frac is "<<weight_frac[m]<<"\n";
@@ -1234,7 +1235,7 @@ int main(int argc, char **argv) {
 	
 	  // cout<<"bin is "<<bin<<"\n";
 	  
-	  hhealpix_map->Fill(x_map,y_map,BASE[pixel_num]);
+	  hhealpix_map->Fill(x_map,y_map,BASE_allcuts[pixel_num]);
 	  //  hhealpix_map->Fill(x_map,y_map);
 	  //hhealpix_map->SetBinContent(bin,BASE[pixel_num]);
 	  
@@ -1301,9 +1302,9 @@ int main(int argc, char **argv) {
       //point->Draw("same");
       //anitapoint->Draw("same");
 
-      c2->Print(Form("healpix_10_passed_cuts_pol%i.png",polarization));
-      c2->Print(Form("healpix_10_passed_cuts_pol%i.eps",polarization));
-      c2->SaveAs(Form("healpix_10_passed_cuts_pol%i.root",polarization)); 
+      c2->Print(Form("healpix_10_passed_all_but_rcc_cuts_pol%i.png",polarization));
+      c2->Print(Form("healpix_10_passed_all_but_rcc_cuts_pol%i.eps",polarization));
+      c2->SaveAs(Form("healpix_10_passed_all_but_rcc_cuts_pol%i.root",polarization)); 
 
   return 0;
 }
@@ -3045,8 +3046,8 @@ void MakeFlightPath()
     //cout << "latitude is " << latitude << endl; 
     //cout << "longitude is " << longitude << endl; 
 
-    double lat = 90-latitude;
-    double lon = longitude+180; 
+    double lat = 90.-latitude;
+    double lon = longitude+180.; 
       
     LatLon2phitheta(lat,lon,phi,theta); 
     SphericaltoCart(phi,theta,x,y);  
