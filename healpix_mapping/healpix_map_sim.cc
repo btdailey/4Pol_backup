@@ -1243,7 +1243,7 @@ int main(int argc, char **argv) {
       gStyle->SetPadRightMargin (.20);
       gStyle->SetOptTitle(0); //this will disable the title for all coming histograms
       TH2F *haxes = new TH2F("",";x(km);y(km)",200,-1500,-500,200,-200,700);
-      TCanvas *c2 = new TCanvas("c2","c2",880,800);
+      TCanvas *c2 = new TCanvas("c2","c2",1000,800);
       c2->SetLogz();
 
       //// oindree-- put antarctica outline here 
