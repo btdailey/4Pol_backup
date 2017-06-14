@@ -95,6 +95,7 @@ long n_side =pow(2,k_value);
 
 int n_pix_int=12*n_side*n_side; //Total number of pixels
 vector<double> BASE(n_pix_int,0.);
+vector<double> BASE_allcuts(n_pix_int,0.);
 vector<double> weight_frac(n_pix_int,0.);
 vector<int> num_frac(n_pix_int,0);
 vector<int> numevents(n_pix_int,0.);
@@ -658,7 +659,7 @@ int main(int argc, char **argv) {
 
       //////////////////
 
-      for(int m=0;m<nevents0;m+=1){
+      for(int m=0;m<nevents0;m+=1000){
 	if (m % (nevents0 / 100) == 0){
 	  cout << m << " events. " <<(double(m)/double(nevents0)) * 100 << "% complete.\n";
 	}
@@ -1090,6 +1091,8 @@ int main(int argc, char **argv) {
 		     polFrac_vector[area_pix[i]].push_back(polFractionCoherent);
 		     eventNumber_vector[area_pix[i]].push_back(pol4_Ptr->eventNumber);
 		     weight_vector[area_pix[i]].push_back(weight);
+
+                     if (peakVal >= 0.075) {BASE_allcuts[area_pix[i]]+=areas[i]; } 
 		   }
 		 }
 	       }//i==4
@@ -1143,8 +1146,8 @@ int main(int argc, char **argv) {
         ////////GOT ALL INFO FROM EVENTS. NOW CAN USE FOR OPTIMIZATION and PLOTTING//////////
       double max_base=1.;
       for(int m=0;m<n_pix_int;m++){
-	if(BASE[m]>0) cout<<"pix is "<<m<<" num events is "<<BASE[m]<<"\n";
-	if(BASE[m] > max_base) max_base = BASE[m];
+	if(BASE_allcuts[m]>0) cout<<"pix is "<<m<<" num events is "<<BASE_allcuts[m]<<"\n";
+	if(BASE_allcuts[m] > max_base) max_base = BASE_allcuts[m];
       }
       for(int m=0;m<n_pix_int;m++){
 	if(num_frac[m]>0) cout<<"pix is "<<m<<" num frac is "<<num_frac[m]<<" weight_frac is "<<weight_frac[m]<<"\n";
@@ -1218,7 +1221,7 @@ int main(int argc, char **argv) {
 	  
 	  // cout<<"bin is "<<bin<<"\n";
 	  
-	  hhealpix_map->Fill(x_map,y_map,BASE[pixel_num]);
+	  hhealpix_map->Fill(x_map,y_map,BASE_allcuts[pixel_num]);
 	  
 	  //hhealpix_map->SetBinContent(bin,BASE[pixel_num]);
 	  
@@ -1242,8 +1245,27 @@ int main(int argc, char **argv) {
       TH2F *haxes = new TH2F("",";x(km);y(km)",200,-1500,-500,200,-200,700);
       TCanvas *c2 = new TCanvas("c2","c2",880,800);
       c2->SetLogz();
+
+      //// oindree-- put antarctica outline here 
+      //
+      TFile *outline_file = new TFile("antarcticCoastGraph.root"); 
+      outline_file -> ls(); 
+      TGraph *outline_graph = (TGraph*)outline_file -> Get("Graph");
+      TGraph *final_outline_graph = new TGraph(0); 
+      for (int igraph = 0; igraph < outline_graph->GetN(); igraph++)
+      {
+	final_outline_graph->SetPoint(final_outline_graph->GetN(),outline_graph->GetX()[igraph]/1000,outline_graph->GetY()[igraph]/1000);
+      }
+
+      final_outline_graph->SetPoint(final_outline_graph->GetN(),final_outline_graph->GetX()[0],final_outline_graph->GetY()[0]); 
+      final_outline_graph->SetLineColor(4); 
+      final_outline_graph->SetLineWidth(5);
+      final_outline_graph->GetXaxis()->SetTitle("km");
+      final_outline_graph->GetYaxis()->SetTitle("km");  
+      final_outline_graph->Draw("AC"); 
+
       //haxes->Draw();
-      hhealpix_map->Draw("zcol");
+      hhealpix_map->Draw("zcol same");
       for(int j=0;j<pointctr;j++){
 	//point_sources[j]->Draw("same");
       }
@@ -1253,8 +1275,23 @@ int main(int argc, char **argv) {
        //hhealpix_error->Draw("same");
       //point->Draw("same");
       //anitapoint->Draw("same");
-      c2->Print("healpix_map_sim_0301.png");
-      c2->Print("healpix_map_sim_0301.eps");
+
+      //// oindree-- put flight path here 
+      //MakeFlightPath(); 
+     
+      TFile *flightpath_file = new TFile("anita2flightpath.root"); 
+      flightpath_file -> ls(); 
+      TGraph *flightpath_graph = (TGraph*)flightpath_file -> Get("Graph");
+      flightpath_graph->SetLineColor(1);
+      flightpath_graph->SetLineWidth(4);    
+      flightpath_graph->Draw("L same"); 
+
+
+      //c2->Print("healpix_map_sim_0301.png");
+      //c2->Print("healpix_map_sim_0301.eps");
+      c2->Print("healpix_sim_passed_all_but_rcc_cuts.png");
+      c2->Print("healpix_sim_passed_all_but_rcc_cuts.eps");
+      c2->SaveAs("healpix_sim_passed_all_but_rcc_cuts.root"); 
       
 
      
