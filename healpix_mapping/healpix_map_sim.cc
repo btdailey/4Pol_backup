@@ -659,7 +659,7 @@ int main(int argc, char **argv) {
 
       //////////////////
 
-      for(int m=0;m<nevents0;m+=1000){
+      for(int m=0;m<nevents0;m+=1){
 	if (m % (nevents0 / 100) == 0){
 	  cout << m << " events. " <<(double(m)/double(nevents0)) * 100 << "% complete.\n";
 	}
@@ -1234,8 +1234,8 @@ int main(int argc, char **argv) {
        cout<<"passed healpix map stuff \n";
        
       
-      hhealpix_map->SetMinimum(1E-5);
-      hhealpix_map->SetMaximum(ceil(max_base));
+      hhealpix_map->SetMinimum(1E-2);
+      hhealpix_map->SetMaximum(1E4); 
       gStyle->SetPalette(55);
       //gStyle->SetNdivisions(10,"z");
       gStyle=color;

@@ -368,6 +368,7 @@ int main(int argc, char **argv) {
   //string temp = "/data/anita/btdailey/passingCuts/10sample_partial_passedcuts_1215.root";
   //string temp = "/data/anita/btdailey/passingCuts/10sample_partial_HPol_passedcuts_110.root";
   string temp = "/data/anita/btdailey/passingCuts/10sample_partial_passedcuts_0301.root";
+  //string temp = "/data/anita/btdailey/passingCuts/90sample_partial_passedcuts_0301.root";
   char *rootfile;
   rootfile = Form(temp.c_str(),filter_name.c_str());
     
@@ -639,6 +640,7 @@ int main(int argc, char **argv) {
       ////////////ROOT OUTPUT
       char filename[150];//simCWdata/largesample/CW2/abby/
       sprintf(filename,"HealPix_partial_0301_test.root");
+      //sprintf(filename,"HealPix_partial_0301_test_90.root");
       cout<<"outputting to file: "<<filename<<endl;
       TFile *rootfile_out = new TFile(filename,"RECREATE");
   
@@ -657,7 +659,7 @@ int main(int argc, char **argv) {
 
       int polarization=0;//0==VPol, 1 = Hpol
 
-      for(int m=0;m<nevents0;m+=1000){
+      for(int m=0;m<nevents0;m+=1){
       //	for(int m=0;m<1;m+=1){
       //for(int m=1369290;m<nevents0;m++){
 	//	cout<<"m is "<<m<<"\n";
@@ -1248,7 +1250,8 @@ int main(int argc, char **argv) {
        cout<<"passed healpix map stuff \n";
       
       hhealpix_map->SetMinimum(1E-2);
-      hhealpix_map->SetMaximum(ceil(max_base));
+      hhealpix_map->SetMaximum(1E4);
+      //hhealpix_map->SetMaximum(9E4); 
       gStyle->SetPalette(55);
       //gStyle->SetNdivisions(10,"z");
       gStyle=color;
@@ -1281,6 +1284,7 @@ int main(int argc, char **argv) {
 
       //haxes->Draw();
       hhealpix_map->Draw("zcol same");
+      //hhealpix_map->GetZaxis()->SetRangeUser(0.01,90000);
       for(int j=0;j<pointctr;j++){
 	//point_sources[j]->Draw("same");
       }
