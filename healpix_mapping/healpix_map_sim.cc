@@ -95,6 +95,7 @@ long n_side =pow(2,k_value);
 
 int n_pix_int=12*n_side*n_side; //Total number of pixels
 vector<double> BASE(n_pix_int,0.);
+vector<double> BASE_allcuts(n_pix_int,0.);
 vector<double> weight_frac(n_pix_int,0.);
 vector<int> num_frac(n_pix_int,0);
 vector<int> numevents(n_pix_int,0.);
@@ -128,7 +129,7 @@ void GetTimePerBin(IceModel *antarctica);
 double GetDistance(double Lat1, double Lon1, double Lat2, double Lon2);
 int GetBrianBin(double lat, double lon);
 void BintoLatLon(int binnumber, double& lat, double& lon);
-
+void pix2ang(int nside, int pix, double &theta, double &phi);
 double test_anita_x=0.;
 double test_anita_y=0.;
 double test_anita_z=0.;
@@ -366,7 +367,7 @@ int main(int argc, char **argv) {
   //read in root file
   string filter_name;
  
-  string temp = "/data/anita/btdailey/passingCuts/sim_passedcuts_1215.root";
+  string temp = "/data/anita/btdailey/passingCuts/sim_passedcuts_0301.root";
   char *rootfile;
   rootfile = Form(temp.c_str(),filter_name.c_str());
     
@@ -481,6 +482,8 @@ int main(int argc, char **argv) {
 
       vector< vector <double> > ratio_vector (n_pix_int+1, vector<double>(1));
       vector< vector <double> > polFrac_vector (n_pix_int+1, vector<double>(1));
+      vector< vector <int> > eventNumber_vector (n_pix_int+1, vector<int>(1));
+
 
        vector<double> peakVal_vector0;
       vector<double> peakHilbert_vector0; 
@@ -491,6 +494,8 @@ int main(int argc, char **argv) {
 
       vector<double> ratio_vector0; 
       vector<double> polFrac_vector0;
+       vector<int> eventNumber_vector0;
+       vector<double> weight_vector0;
       double BASE0;
 
       // vector< vector <double> > areas_vector (n_pix_int_1, vector<double>(1));
@@ -636,17 +641,19 @@ int main(int argc, char **argv) {
 
       ////////////ROOT OUTPUT
       char filename[150];//simCWdata/largesample/CW2/abby/
-      sprintf(filename,"HealPix_sim_partial_1215.root");
+      sprintf(filename,"HealPix_sim_partial_0301.root");
       cout<<"outputting to file: "<<filename<<endl;
       TFile *rootfile_out = new TFile(filename,"RECREATE");
   
       TTree *Binned_tree = new TTree("Binned_Tree","variables used for optimization"); 
+      Binned_tree->Branch("eventNumber_vector",&eventNumber_vector0);
       Binned_tree->Branch("peakHilbert_vector",&peakHilbert_vector0);
       Binned_tree->Branch("SNR_vector",&SNR_vector0);
       Binned_tree->Branch("peakVal_vector",&peakVal_vector0);
       Binned_tree->Branch("healpix_bin_weights",&healpix_bin_weights0);
       Binned_tree->Branch("ratio_vector",&ratio_vector0);
       Binned_tree->Branch("polFrac_vector",&polFrac_vector0);
+      Binned_tree->Branch("weight_vector",&weight_vector0);
       //Binned_tree->Branch("areas_vector",&areas_vector);
       Binned_tree->Branch("BASE",&BASE0);
 
@@ -1070,7 +1077,7 @@ int main(int argc, char **argv) {
 		   
 		     //cout<<area_pix[i]<<" "<<areas[i]<<"\n";
 		   
-		   healpix_bin_weights[area_pix[i]].push_back(weight*areas[i]);
+		   healpix_bin_weights[area_pix[i]].push_back(areas[i]);
 		   numevents[area_pix[i]]=numevents[area_pix[i]]+1;
 		   
 		   num_binned++;
@@ -1078,10 +1085,14 @@ int main(int argc, char **argv) {
 		   if(whole_flag ==0){
 		     BASE[area_pix[i]]+=(weight*areas[i]);
 		     peakVal_vector[area_pix[i]].push_back(peakVal);
+		     if(peakVal >= 0.075){
+		       BASE_allcuts[area_pix[i]]+=areas[i];
+		     }
 		     peakHilbert_vector[area_pix[i]].push_back(peakHilbertCoherent*distance_from_source/1.E6);
 		     SNR_vector[area_pix[i]].push_back(snrCoherent);
 		     ratio_vector[area_pix[i]].push_back(ratioFirstToSecondPeak);
 		     polFrac_vector[area_pix[i]].push_back(polFractionCoherent);
+		     eventNumber_vector[area_pix[i]].push_back(pol4_Ptr->eventNumber);
 		     weight_vector[area_pix[i]].push_back(weight);
 		   }
 		 }
@@ -1098,6 +1109,8 @@ int main(int argc, char **argv) {
 		 peakHilbert_vector[pixel_num_event].push_back(peakHilbertCoherent*distance_from_source/1.E6);
 		 healpix_bin_weights[pixel_num_event].push_back(1);
 		 SNR_vector[pixel_num_event].push_back(snrCoherent);
+		 eventNumber_vector[pixel_num_event].push_back(pol4_Ptr->eventNumber);
+		 weight_vector[pixel_num_event].push_back(weight);
 	       }
 	     }
 	   }
@@ -1117,7 +1130,8 @@ int main(int argc, char **argv) {
 	SNR_vector0=SNR_vector[m];
 	ratio_vector0=ratio_vector[m];
 	polFrac_vector0=polFrac_vector[m];
-
+	eventNumber_vector0=eventNumber_vector[m];
+	weight_vector0 = weight_vector[m];
 	Binned_tree->Fill();
 
       }
@@ -1133,8 +1147,8 @@ int main(int argc, char **argv) {
         ////////GOT ALL INFO FROM EVENTS. NOW CAN USE FOR OPTIMIZATION and PLOTTING//////////
       double max_base=1.;
       for(int m=0;m<n_pix_int;m++){
-	if(BASE[m]>0) cout<<"pix is "<<m<<" num events is "<<BASE[m]<<"\n";
-	if(BASE[m] > max_base) max_base = BASE[m];
+	if(BASE_allcuts[m]>0) cout<<"pix is "<<m<<" num events is "<<BASE_allcuts[m]<<"\n";
+	if(BASE_allcuts[m] > max_base) max_base = BASE_allcuts[m];
       }
       for(int m=0;m<n_pix_int;m++){
 	if(num_frac[m]>0) cout<<"pix is "<<m<<" num frac is "<<num_frac[m]<<" weight_frac is "<<weight_frac[m]<<"\n";
@@ -1207,13 +1221,13 @@ int main(int argc, char **argv) {
 	  SphericaltoCart(phi,theta,x_map,y_map);
 	  
 	  // cout<<"bin is "<<bin<<"\n";
-	  
-	  hhealpix_map->Fill(x_map,y_map,BASE[pixel_num]);
+	  // if(pixel_num==3008 || pixel_num==3010 || pixel_num==3012 || pixel_num==3028 || pixel_num==3029 || pixel_num==3030 || pixel_num==3031 || pixel_num==3032 || pixel_num==3033 ||pixel_num==3037 || pixel_num==3045 ||pixel_num==3046 || pixel_num==3048 || pixel_num==3051 ||pixel_num==3051|| pixel_num==3053 || pixel_num==3057 || pixel_num==3061 || pixel_num==3062 || pixel_num==3063 || pixel_num==3066 || pixel_num==3069){
+	  hhealpix_map->Fill(x_map,y_map,BASE_allcuts[pixel_num]);
 	  
 	  //hhealpix_map->SetBinContent(bin,BASE[pixel_num]);
 	  
 	  //cout<<"x_map,y_map,pixel,BASE is "<<x_map<<" "<<y_map<<" "<<pixel_num<<" "<<BASE[pixel_num]<<"\n";
-	  
+	  //  }
 	}
        }
       
@@ -1233,18 +1247,54 @@ int main(int argc, char **argv) {
       TCanvas *c2 = new TCanvas("c2","c2",880,800);
       c2->SetLogz();
       //haxes->Draw();
+
+      double pixel_theta;
+      double pixel_phi;
+      double x_pos;
+      double y_pos;
+      TPaveText *pt;
       hhealpix_map->Draw("zcol");
+      
+
+        TFile *flightpath_file = new TFile("anita2flightpath.root"); 
+      flightpath_file -> ls(); 
+      TGraph *flightpath_graph = (TGraph*)flightpath_file -> Get("Graph");
+      flightpath_graph->SetLineColor(kViolet-1);
+      flightpath_graph->SetLineWidth(4);    
+      flightpath_graph->Draw("L same");  
+
+
+        for(int m=2988;m<3072;m++){
+	  // if(m==3008 || m==3010 || m==3012 || m==3028 || m==3029 || m==3030 || m==3031 || m==3032 || m==3033 ||m==3037 || m==3045 ||m==3046 || m==3048 || m==3051 ||m==3051|| m==3053 || m==3057 || m==3061 || m==3062 || m==3063 || m==3066 || m==3069){
+	  if(BASE_allcuts[m]>1E-2){
+	    pix2ang(n_side,m,pixel_theta,pixel_phi);
+	    //cout<<"pixel_theta, phi are "<<pixel_theta<<" "<<pixel_phi<<"\n ";
+	    SphericaltoCart(pixel_phi, pixel_theta, x_pos, y_pos);
+	    //cout<<"x_pos, y_pos is "<<x_pos<<" "<<y_pos<<"\n";
+	    
+	    pt = new TPaveText(x_pos-100,y_pos-100,x_pos+100,y_pos+100);
+	    // pt->SetTextColor(kRed);
+	    //pt->SetFillColor(kRed);
+	    pt->SetFillStyle(4000);
+	    sprintf(printer,"%i",m);
+	    pt->AddText(printer);
+	    pt->Draw("same");
+	    //delete pt;
+	     }
+	  // }//pixel_num
+      }
+
+    
+
       for(int j=0;j<pointctr;j++){
 	//point_sources[j]->Draw("same");
       }
       for(int j=0;j<pointctr1;j++){
 	//point_boundaries[j]->Draw("same");
       }
-       //hhealpix_error->Draw("same");
-      //point->Draw("same");
-      //anitapoint->Draw("same");
-      c2->Print("healpix_map_sim.png");
-      c2->Print("healpix_map_sim.eps");
+    
+      c2->Print("healpix_map_sim_0501.png");
+      c2->Print("healpix_map_sim_0501.eps");
       
 
      
@@ -2955,6 +3005,23 @@ void BintoLatLon(int binnumber, double& lat, double& lon){
 
 }
 
+void pix2ang(int nside, int pix, double &theta, double &phi){
+
+
+  static const double halfpi=1.570796326794896619231321691639751442099;
+  long npix=12*nside*nside;
+  double fact2  = 4./npix;
+  double z;
+    
+  int ip = npix - pix;
+  int iring = (int)(0.5*(1+sqrt(2*ip-1))); /* counted from South pole */
+  int iphi  = 4*iring + 1 - (ip - 2*iring*(iring-1));
+
+  z = -1.0 + (iring*iring)*fact2;
+  phi = (iphi-0.5) * halfpi/iring;
+  theta=acos(z);
+
+}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 TStyle* RootStyle() {

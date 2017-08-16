@@ -1,0 +1,2003 @@
+RUN NUMBER: 43
+eventNumber, run and pol are 4586631,43,0
+filename_max is 4096 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run43/headFile43.root
+here! 
+fCurrentBaseDir is /data/anita/anitaplus/AnitaFlight0809RootData
+Eventname is /data/anita/anitaplus/AnitaFlight0809RootData/run43/calEventFile43.root
+loading sim head file! 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run43/headFile43.root
+broke at extra = 1
+Couldn't open: /home/dailey.110/analysis/testrun/ssDataAndToolsgpsSsFile43.root
+Opened gps: /data/anita/anitaplus/AnitaFlight0809RootData/run43/gpsFile43.root
+adding 
+added 
+about to exit 
+did ANITAGEROMTOOL 
+reading the rampdem data
+[RampdemReader::readRAMPDEM]  Finished reading in RAMP DEM data.
+did ANITAEVENTCALIBRATOR 
+evententrygotten flag is 4586631
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 0
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.0989756
+peakPhi is 166
+peakTheta is 0.0989756 acos is 1.47166
+peakTheta is now 0.0991379
+ now it is 5.68018
+Refined peak theta: 0.104839, peak Phi: 167.2, peakVal: 0.0611173
+peakVal is 0.0600603 peakVal in box is 0.0600603
+peakTheta is 0.0989756 refinedPeakTheta is 0.104839
+refinedpeakPhi and peakPhi are 167.2 166
+max_theta_cos is -0.0970586 step_size is 0.00517686
+peakThetaInterp is 0.104632
+peakThetaInterp is 6.00597
+peakPhiInterp is 167.173
+max_timeExpected is 6.81761
+power SNR_coherent is 3.0706
+noiseFlag is 0
+max_timeExpected is 6.81761
+Theta,phi are 6.00597 167.173
+polFractionCoherent is 0.107883
+SNR_coherent vs SNR is 3.0706 2.58851
+peakAnt is 24
+peakHilbertCoherent is 17.5873 peakVal is 0.0600603
+Theta_interp is 6.00597 phi_interp is 167.173
+deltaTheta is -1.01358 deltaPhi is 63.1826
+varnerflag 1,2 are 0 0
+Please wait while I create the continent...
+[Antarctica::readRAMPDEM]  Finished reading in RAMP DEM data.
+[Antarctica::readBFieldData] Reading in information on Antarctic geomagnetic fields from file /data/anita/btdailey/analysis_info/anita_new_root/analysis/hoover/analysis_code/analysis_input_files/anita_bfield_3km.dat...
+...finished reading in geomagnetic field data.
+Finished constructing Antarctica.  Thank you for your patience.
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -84.4235 -175.927 36917.5 60.14 1.67562 2.91772
+true_source is -315346 66879.3 6.35162e+06
+Anita is at -623866 -44426.8 6.36321e+06
+x_dir, y_dir, z_dir is 0.229819 0.970894 -0.0674338
+MISSED ANTARCTICA! HEIGHT 
+distance from source is 0
+sourceLon, Lat, Alt are 88.0984 -64.0237 489360
+going through whichPol == 1
+peakTheta,Phi are 0.0989756 166
+peakTheta before refined is -0.29989
+peakPhi is 232
+peakTheta is -0.29989 acos is 1.87537
+peakTheta is now -0.304578
+ now it is -17.451
+Refined peak theta: -0.301572, peak Phi: 233.8, peakVal: 0.101445
+peakVal is 0.111943 peakVal in box is 0.0311491
+peakTheta is -0.29989 refinedPeakTheta is -0.301572
+refinedpeakPhi and peakPhi are 233.8 232
+max_theta_cos is -0.480239 step_size is 0.00496296
+peakThetaInterp is -0.301821
+peakThetaInterp is -17.567
+peakPhiInterp is 233.713
+max_timeExpected is 1.98231
+power SNR_coherent is 5.6148
+noiseFlag is 0
+max_timeExpected is 1.98231
+SNR_coherent vs SNR is 5.6148 1.84484
+peakAnt is 29
+peakHilbertCoherent is 41.5104 peakVal is 0.111943
+Theta_interp is -17.567 phi_interp is 233.713
+deltaTheta is -24.5865 deltaPhi is 129.723
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -84.4235 -175.927 36917.5 60.14 1.26419 4.07906
+true_source is -315346 66879.3 6.35162e+06
+Anita is at -623866 -44426.8 6.36321e+06
+x_dir, y_dir, z_dir is 0.907789 0.168057 0.384286
+MISSED ANTARCTICA! HEIGHT 
+distance from source is 0
+sourceLon, Lat, Alt are 11.667 -67.1846 2.36417e+06
+passed point this event 
+
+
+ratio, peakVal, hilbert, thetaMap, PolFrac, Trace, Trigger, Varner are 1.1374 0.0600603 17.5873 -6.00597 0.107883 0 1 0
+peakVal, SNR is 0.0600603 3.0706
+lat, lon is -64.0237 88.0984
+pixel_num is 2918
+RUN NUMBER: 75
+eventNumber, run and pol are 8381355,75,0
+filename_max is 4096 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run75/headFile75.root
+here! 
+fCurrentBaseDir is /data/anita/anitaplus/AnitaFlight0809RootData
+Eventname is /data/anita/anitaplus/AnitaFlight0809RootData/run75/calEventFile75.root
+loading sim head file! 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run75/headFile75.root
+broke at extra = 1
+Couldn't open: /home/dailey.110/analysis/testrun/ssDataAndToolsgpsSsFile75.root
+Opened gps: /data/anita/anitaplus/AnitaFlight0809RootData/run75/gpsFile75.root
+adding 
+added 
+about to exit 
+did ANITAGEROMTOOL 
+did ANITAEVENTCALIBRATOR 
+evententrygotten flag is 8381355
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.16034
+peakPhi is 122
+peakTheta is 0.16034 acos is 1.40976
+peakTheta is now 0.161035
+ now it is 9.22661
+Refined peak theta: 0.164961, peak Phi: 122.6, peakVal: 0.151954
+peakVal is 0.151408 peakVal in box is 0.151408
+peakTheta is 0.16034 refinedPeakTheta is 0.164961
+refinedpeakPhi and peakPhi are 122.6 122
+max_theta_cos is -0.0353075 step_size is 0.0051351
+peakThetaInterp is 0.165269
+peakThetaInterp is 9.51289
+peakPhiInterp is 122.633
+max_timeExpected is 6.28535
+power SNR_coherent is 14.1473
+noiseFlag is 0
+max_timeExpected is 6.28535
+Theta,phi are 9.51289 122.633
+polFractionCoherent is 0.484052
+SNR_coherent vs SNR is 14.1473 3.71466
+peakAnt is 23
+peakHilbertCoherent is 26.949 peakVal is 0.151408
+Theta_interp is 9.51289 phi_interp is 122.633
+deltaTheta is 4.45947 deltaPhi is 179.799
+varnerflag 1,2 are 0 0
+Please wait while I create the continent...
+[Antarctica::readRAMPDEM]  Finished reading in RAMP DEM data.
+[Antarctica::readBFieldData] Reading in information on Antarctic geomagnetic fields from file /data/anita/btdailey/analysis_info/anita_new_root/analysis/hoover/analysis_code/analysis_input_files/anita_bfield_3km.dat...
+...finished reading in geomagnetic field data.
+Finished constructing Antarctica.  Thank you for your patience.
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -78.0045 124.765 35696.8 48.6816 1.73683 2.14035
+true_source is -315346 66879.3 6.35162e+06
+Anita is at -762532 1.09858e+06 6.25196e+06
+x_dir, y_dir, z_dir is 0.645504 0.736104 -0.203656
+source is -602912 1.2806e+06 6.2016e+06
+sourceLat,Lon are -77.2264 115.211
+distance from source is 247280
+sourceLon, Lat, Alt are 115.211 -77.2264 3267.96
+going through whichPol == 1
+peakTheta,Phi are 0.16034 122
+peakTheta before refined is 0.0376116
+peakPhi is 316
+peakTheta is 0.0376116 acos is 1.53318
+peakTheta is now 0.0376205
+ now it is 2.1555
+Refined peak theta: 0.0342896, peak Phi: 316, peakVal: 0.0508109
+peakVal is 0.0501654 peakVal in box is 0.0141231
+peakTheta is 0.0376116 refinedPeakTheta is 0.0342896
+refinedpeakPhi and peakPhi are 316 316
+max_theta_cos is -0.158063 step_size is 0.00519873
+peakThetaInterp is 0.0342376
+peakThetaInterp is 1.96205
+peakPhiInterp is 315.985
+max_timeExpected is 3.74314
+power SNR_coherent is 2.578
+noiseFlag is 0
+max_timeExpected is 3.74314
+SNR_coherent vs SNR is 2.578 3.82962
+peakAnt is 39
+peakHilbertCoherent is 30.4277 peakVal is 0.0501654
+Theta_interp is 1.96205 phi_interp is 315.985
+deltaTheta is -3.09137 deltaPhi is 13.1509
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -78.0045 124.765 35696.8 48.6816 1.60504 5.51498
+true_source is -315346 66879.3 6.35162e+06
+Anita is at -762532 1.09858e+06 6.25196e+06
+x_dir, y_dir, z_dir is -0.787777 -0.614799 -0.03781
+MISSED ANTARCTICA! HEIGHT 
+distance from source is 247280
+sourceLon, Lat, Alt are -173.324 -67.4988 320487
+passed point this event 
+
+
+ratio, peakVal, hilbert, thetaMap, PolFrac, Trace, Trigger, Varner are 2.17151 0.151408 26.949 -9.51289 0.484052 0 1 0
+peakVal, SNR is 0.151408 14.1473
+lat, lon is -77.2264 115.211
+pixel_num is 3028
+RUN NUMBER: 86
+eventNumber, run and pol are 9362397,86,0
+filename_max is 4096 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run86/headFile86.root
+here! 
+fCurrentBaseDir is /data/anita/anitaplus/AnitaFlight0809RootData
+Eventname is /data/anita/anitaplus/AnitaFlight0809RootData/run86/calEventFile86.root
+loading sim head file! 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run86/headFile86.root
+broke at extra = 1
+Couldn't open: /home/dailey.110/analysis/testrun/ssDataAndToolsgpsSsFile86.root
+Opened gps: /data/anita/anitaplus/AnitaFlight0809RootData/run86/gpsFile86.root
+adding 
+added 
+about to exit 
+did ANITAGEROMTOOL 
+did ANITAEVENTCALIBRATOR 
+evententrygotten flag is 9362397
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.129658
+peakPhi is 80
+peakTheta is 0.129658 acos is 1.44077
+peakTheta is now 0.130024
+ now it is 7.44981
+Refined peak theta: 0.140062, peak Phi: 79.7, peakVal: 0.108817
+peakVal is 0.107246 peakVal in box is 0.107246
+peakTheta is 0.129658 refinedPeakTheta is 0.140062
+refinedpeakPhi and peakPhi are 79.7 80
+max_theta_cos is -0.0662773 step_size is 0.00515849
+peakThetaInterp is 0.137638
+peakThetaInterp is 7.91119
+peakPhiInterp is 79.739
+max_timeExpected is 5.83713
+power SNR_coherent is 9.58292
+noiseFlag is 0
+max_timeExpected is 5.83713
+Theta,phi are 7.91119 79.739
+polFractionCoherent is 0.284996
+SNR_coherent vs SNR is 9.58292 2.07783
+peakAnt is 10
+peakHilbertCoherent is 33.1776 peakVal is 0.107246
+Theta_interp is 7.91119 phi_interp is 79.739
+deltaTheta is 1.03871 deltaPhi is 169.957
+varnerflag 1,2 are 0 0
+Please wait while I create the continent...
+[Antarctica::readRAMPDEM]  Finished reading in RAMP DEM data.
+[Antarctica::readBFieldData] Reading in information on Antarctic geomagnetic fields from file /data/anita/btdailey/analysis_info/anita_new_root/analysis/hoover/analysis_code/analysis_input_files/anita_bfield_3km.dat...
+...finished reading in geomagnetic field data.
+Finished constructing Antarctica.  Thank you for your patience.
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -79.8255 87.3192 33437.3 28.1157 1.70887 1.39171
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 53145.1 1.13502e+06 6.28904e+06
+x_dir, y_dir, z_dir is 0.805003 0.546531 -0.230809
+source is 294277 1.29872e+06 6.2199e+06
+sourceLat,Lon are -77.9942 77.233
+distance from source is 299542
+sourceLon, Lat, Alt are 77.233 -77.9942 3170.95
+going through whichPol == 1
+peakTheta,Phi are 0.129658 80
+peakTheta before refined is 0.00692963
+peakPhi is 68
+peakTheta is 0.00692963 acos is 1.56387
+peakTheta is now 0.00692968
+ now it is 0.397042
+Refined peak theta: 0.00419534, peak Phi: 69.2, peakVal: 0.0427543
+peakVal is 0.0419377 peakVal in box is 0.0419035
+peakTheta is 0.00692963 refinedPeakTheta is 0.00419534
+refinedpeakPhi and peakPhi are 69.2 68
+max_theta_cos is -0.188289 step_size is 0.00520228
+peakThetaInterp is 0.00554793
+peakThetaInterp is 0.317874
+peakPhiInterp is 69.101
+max_timeExpected is 4.9055
+power SNR_coherent is 2.96242
+noiseFlag is 0
+max_timeExpected is 4.9055
+SNR_coherent vs SNR is 2.96242 2.00381
+peakAnt is 9
+peakHilbertCoherent is 35.0544 peakVal is 0.0419377
+Theta_interp is 0.317874 phi_interp is 69.101
+deltaTheta is -6.55461 deltaPhi is 159.319
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -79.8255 87.3192 33437.3 28.1157 1.57634 1.20604
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 53145.1 1.13502e+06 6.28904e+06
+x_dir, y_dir, z_dir is 0.6899 0.712647 -0.127171
+MISSED ANTARCTICA! LAT 
+distance from source is 299542
+sourceLon, Lat, Alt are 58.4508 -59.9994 535993
+passed point this event 
+
+
+ratio, peakVal, hilbert, thetaMap, PolFrac, Trace, Trigger, Varner are 2.0643 0.107246 33.1776 -7.91119 0.284996 0 1 0
+peakVal, SNR is 0.107246 9.58292
+lat, lon is -77.9942 77.233
+pixel_num is 3043
+RUN NUMBER: 99
+eventNumber, run and pol are 10345208,99,0
+filename_max is 4096 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run99/headFile99.root
+here! 
+fCurrentBaseDir is /data/anita/anitaplus/AnitaFlight0809RootData
+Eventname is /data/anita/anitaplus/AnitaFlight0809RootData/run99/calEventFile99.root
+loading sim head file! 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run99/headFile99.root
+broke at extra = 1
+Couldn't open: /home/dailey.110/analysis/testrun/ssDataAndToolsgpsSsFile99.root
+Opened gps: /data/anita/anitaplus/AnitaFlight0809RootData/run99/gpsFile99.root
+adding 
+added 
+about to exit 
+did ANITAGEROMTOOL 
+did ANITAEVENTCALIBRATOR 
+evententrygotten flag is 10345208
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.0682936
+peakPhi is 24
+peakTheta is 0.0682936 acos is 1.50245
+peakTheta is now 0.0683468
+ now it is 3.91598
+Refined peak theta: 0.0695765, peak Phi: 24.9, peakVal: 0.0474524
+peakVal is 0.0471443 peakVal in box is 0.0471443
+peakTheta is 0.0682936 refinedPeakTheta is 0.0695765
+refinedpeakPhi and peakPhi are 24.9 24
+max_theta_cos is -0.127653 step_size is 0.00519026
+peakThetaInterp is 0.0672928
+peakThetaInterp is 3.85851
+peakPhiInterp is 24.936
+max_timeExpected is 5.07623
+power SNR_coherent is 8.25582
+noiseFlag is 1
+max_timeExpected is 5.07623
+Theta,phi are 3.85851 24.936
+polFractionCoherent is 0.293453
+SNR_coherent vs SNR is 8.25582 5.27461
+peakAnt is 20
+peakHilbertCoherent is 16.7254 peakVal is 0.0471443
+Theta_interp is 3.85851 phi_interp is 24.936
+deltaTheta is -5.60716 deltaPhi is 67.8457
+varnerflag 1,2 are 0 0
+Please wait while I create the continent...
+[Antarctica::readRAMPDEM]  Finished reading in RAMP DEM data.
+[Antarctica::readBFieldData] Reading in information on Antarctic geomagnetic fields from file /data/anita/btdailey/analysis_info/anita_new_root/analysis/hoover/analysis_code/analysis_input_files/anita_bfield_3km.dat...
+...finished reading in geomagnetic field data.
+Finished constructing Antarctica.  Thank you for your patience.
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -80.9269 34.7316 34417.8 104.522 1.63814 0.435215
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 833770 578009 6.31068e+06
+x_dir, y_dir, z_dir is -0.420389 0.902535 -0.0932913
+MISSED ANTARCTICA! HEIGHT 
+distance from source is 299542
+sourceLon, Lat, Alt are 95.4104 -63.9259 397545
+going through whichPol == 1
+peakTheta,Phi are 0.0682936 24
+peakTheta before refined is -0.0851163
+peakPhi is 358
+peakTheta is -0.0851163 acos is 1.65602
+peakTheta is now -0.0852195
+ now it is -4.88272
+Refined peak theta: -0.0757056, peak Phi: 363.1, peakVal: 0.0558471
+peakVal is 0.0560524 peakVal in box is 0.0395142
+peakTheta is -0.0851163 refinedPeakTheta is -0.0757056
+refinedpeakPhi and peakPhi are 363.1 358
+max_theta_cos is -0.277863 step_size is 0.00518353
+peakThetaInterp is -0.0761202
+peakThetaInterp is -4.36559
+peakPhiInterp is 362.944
+max_timeExpected is 2.92577
+power SNR_coherent is 1.43711
+noiseFlag is 0
+max_timeExpected is 2.92577
+SNR_coherent vs SNR is 1.43711 2.1985
+peakAnt is 16
+peakHilbertCoherent is 26.5335 peakVal is 0.0560524
+Theta_interp is -4.36559 phi_interp is 362.944
+deltaTheta is -13.8313 deltaPhi is 45.8537
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -80.9269 34.7316 34417.8 104.522 1.4946 6.33457
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 833770 578009 6.31068e+06
+x_dir, y_dir, z_dir is -0.710579 0.69605 0.102917
+MISSED ANTARCTICA! LAT 
+distance from source is 299542
+sourceLon, Lat, Alt are 120.798 -59.9976 1.4093e+06
+passed point this event 
+
+
+ratio, peakVal, hilbert, thetaMap, PolFrac, Trace, Trigger, Varner are 1.03238 0.0471443 16.7254 -3.85851 0.293453 0 0 0
+peakVal, SNR is 0.0471443 8.25582
+lat, lon is -63.9259 95.4104
+pixel_num is 2919
+RUN NUMBER: 110
+eventNumber, run and pol are 11207106,110,0
+filename_max is 4096 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run110/headFile110.root
+here! 
+fCurrentBaseDir is /data/anita/anitaplus/AnitaFlight0809RootData
+Eventname is /data/anita/anitaplus/AnitaFlight0809RootData/run110/calEventFile110.root
+loading sim head file! 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run110/headFile110.root
+broke at extra = 1
+Couldn't open: /home/dailey.110/analysis/testrun/ssDataAndToolsgpsSsFile110.root
+Opened gps: /data/anita/anitaplus/AnitaFlight0809RootData/run110/gpsFile110.root
+adding 
+added 
+about to exit 
+did ANITAGEROMTOOL 
+did ANITAEVENTCALIBRATOR 
+evententrygotten flag is 11207106
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.16034
+peakPhi is 146
+peakTheta is 0.16034 acos is 1.40976
+peakTheta is now 0.161035
+ now it is 9.22661
+Refined peak theta: 0.149556, peak Phi: 146, peakVal: 0.182779
+peakVal is 0.171799 peakVal in box is 0.171799
+peakTheta is 0.16034 refinedPeakTheta is 0.149556
+refinedpeakPhi and peakPhi are 146 146
+max_theta_cos is -0.0353075 step_size is 0.0051351
+peakThetaInterp is 0.150891
+peakThetaInterp is 8.67858
+peakPhiInterp is 145.967
+max_timeExpected is 5.51898
+power SNR_coherent is 14.5017
+noiseFlag is 0
+max_timeExpected is 5.51898
+Theta,phi are 8.67858 145.967
+polFractionCoherent is 0.569623
+SNR_coherent vs SNR is 14.5017 3.12249
+peakAnt is 12
+peakHilbertCoherent is 37.9812 peakVal is 0.171799
+Theta_interp is 8.67858 phi_interp is 145.967
+deltaTheta is -1.0861 deltaPhi is -117.512
+varnerflag 1,2 are 0 0
+Please wait while I create the continent...
+[Antarctica::readRAMPDEM]  Finished reading in RAMP DEM data.
+[Antarctica::readBFieldData] Reading in information on Antarctic geomagnetic fields from file /data/anita/btdailey/analysis_info/anita_new_root/analysis/hoover/analysis_code/analysis_input_files/anita_bfield_3km.dat...
+...finished reading in geomagnetic field data.
+Finished constructing Antarctica.  Thank you for your patience.
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.696 -24.6632 35101.9 85.6985 1.72227 2.5476
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 743396 -341345 6.33965e+06
+x_dir, y_dir, z_dir is 0.069237 -0.977343 -0.200018
+source is 764447 -638500 6.27883e+06
+sourceLat,Lon are -81.0455 -39.8701
+distance from source is 304044
+sourceLon, Lat, Alt are -39.8701 -81.0455 65.9837
+going through whichPol == 1
+peakTheta,Phi are 0.16034 146
+peakTheta before refined is 0.0682936
+peakPhi is 332
+peakTheta is 0.0682936 acos is 1.50245
+peakTheta is now 0.0683468
+ now it is 3.91598
+Refined peak theta: 0.0747668, peak Phi: 333.5, peakVal: 0.054486
+peakVal is 0.0537014 peakVal in box is 0.0192181
+peakTheta is 0.0682936 refinedPeakTheta is 0.0747668
+refinedpeakPhi and peakPhi are 333.5 332
+max_theta_cos is -0.127653 step_size is 0.00519026
+peakThetaInterp is 0.0760643
+peakThetaInterp is 4.36238
+peakPhiInterp is 333.563
+max_timeExpected is 5.52398
+power SNR_coherent is 9.00487
+noiseFlag is 0
+max_timeExpected is 5.52398
+SNR_coherent vs SNR is 9.00487 3.34393
+peakAnt is 16
+peakHilbertCoherent is 35.8952 peakVal is 0.0537014
+Theta_interp is 4.36238 phi_interp is 333.563
+deltaTheta is -5.4023 deltaPhi is 70.0838
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.696 -24.6632 35101.9 85.6985 1.64693 5.82177
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 743396 -341345 6.33965e+06
+x_dir, y_dir, z_dir is 0.0374715 0.998543 -0.0388231
+MISSED ANTARCTICA! HEIGHT 
+distance from source is 304044
+sourceLon, Lat, Alt are 74.0925 -63.0363 612319
+passed point this event 
+
+
+ratio, peakVal, hilbert, thetaMap, PolFrac, Trace, Trigger, Varner are 3.11607 0.171799 37.9812 -8.67858 0.569623 0 1 0
+peakVal, SNR is 0.171799 14.5017
+lat, lon is -81.0455 -39.8701
+pixel_num is 3052
+RUN NUMBER: 127
+eventNumber, run and pol are 12943715,127,0
+filename_max is 4096 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run127/headFile127.root
+here! 
+fCurrentBaseDir is /data/anita/anitaplus/AnitaFlight0809RootData
+Eventname is /data/anita/anitaplus/AnitaFlight0809RootData/run127/calEventFile127.root
+loading sim head file! 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run127/headFile127.root
+broke at extra = 1
+Couldn't open: /home/dailey.110/analysis/testrun/ssDataAndToolsgpsSsFile127.root
+Opened gps: /data/anita/anitaplus/AnitaFlight0809RootData/run127/gpsFile127.root
+adding 
+added 
+about to exit 
+did ANITAGEROMTOOL 
+did ANITAEVENTCALIBRATOR 
+evententrygotten flag is 12943715
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.129658
+peakPhi is 198
+peakTheta is 0.129658 acos is 1.44077
+peakTheta is now 0.130024
+ now it is 7.44981
+Refined peak theta: 0.124587, peak Phi: 199.2, peakVal: 0.163648
+peakVal is 0.163483 peakVal in box is 0.163483
+peakTheta is 0.129658 refinedPeakTheta is 0.124587
+refinedpeakPhi and peakPhi are 199.2 198
+max_theta_cos is -0.0662773 step_size is 0.00515849
+peakThetaInterp is 0.126392
+peakThetaInterp is 7.26118
+peakPhiInterp is 199.197
+max_timeExpected is 3.79286
+power SNR_coherent is 5.47873
+noiseFlag is 0
+max_timeExpected is 3.79286
+Theta,phi are 7.26118 199.197
+polFractionCoherent is 0.513439
+SNR_coherent vs SNR is 5.47873 4.9602
+peakAnt is 37
+peakHilbertCoherent is 35.0481 peakVal is 0.163483
+Theta_interp is 7.26118 phi_interp is 199.197
+deltaTheta is -2.52916 deltaPhi is 41.4713
+varnerflag 1,2 are 0 0
+Please wait while I create the continent...
+[Antarctica::readRAMPDEM]  Finished reading in RAMP DEM data.
+[Antarctica::readBFieldData] Reading in information on Antarctic geomagnetic fields from file /data/anita/btdailey/analysis_info/anita_new_root/analysis/hoover/analysis_code/analysis_input_files/anita_bfield_3km.dat...
+...finished reading in geomagnetic field data.
+Finished constructing Antarctica.  Thank you for your patience.
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -79.4227 -110.37 35320.7 26.7434 1.69753 3.47664
+true_source is -315346 66879.3 6.35162e+06
+Anita is at -411109 -1.10721e+06 6.28275e+06
+x_dir, y_dir, z_dir is 0.220365 0.973745 0.0571031
+source is -335613 -773614 6.30231e+06
+sourceLat,Lon are -82.4293 -113.452
+distance from source is 342592
+sourceLon, Lat, Alt are -113.452 -82.4293 1353.97
+going through whichPol == 1
+peakTheta,Phi are 0.129658 198
+peakTheta before refined is 0.0376116
+peakPhi is 26
+peakTheta is 0.0376116 acos is 1.53318
+peakTheta is now 0.0376205
+ now it is 2.1555
+Refined peak theta: 0.0394883, peak Phi: 25.7, peakVal: 0.0376014
+peakVal is 0.0365959 peakVal in box is 0.0218436
+peakTheta is 0.0376116 refinedPeakTheta is 0.0394883
+refinedpeakPhi and peakPhi are 25.7 26
+max_theta_cos is -0.158063 step_size is 0.00519873
+peakThetaInterp is 0.0395403
+peakThetaInterp is 2.26608
+peakPhiInterp is 25.847
+max_timeExpected is 4.75575
+power SNR_coherent is 2.12016
+noiseFlag is 0
+max_timeExpected is 4.75575
+SNR_coherent vs SNR is 2.12016 2.35801
+peakAnt is 10
+peakHilbertCoherent is 28.834 peakVal is 0.0365959
+Theta_interp is 2.26608 phi_interp is 25.847
+deltaTheta is -7.52426 deltaPhi is -131.879
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -79.4227 -110.37 35320.7 26.7434 1.61035 0.451115
+true_source is -315346 66879.3 6.35162e+06
+Anita is at -411109 -1.10721e+06 6.28275e+06
+x_dir, y_dir, z_dir is -0.325303 -0.919355 -0.221278
+MISSED ANTARCTICA! HEIGHT 
+distance from source is 342592
+sourceLon, Lat, Alt are -109.825 -62.4457 249936
+passed point this event 
+
+
+ratio, peakVal, hilbert, thetaMap, PolFrac, Trace, Trigger, Varner are 2.7506 0.163483 35.0481 -7.26118 0.513439 0 1 0
+peakVal, SNR is 0.163483 5.47873
+lat, lon is -82.4293 -113.452
+pixel_num is 3061
+RUN NUMBER: 134
+eventNumber, run and pol are 13662401,134,0
+filename_max is 4096 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run134/headFile134.root
+here! 
+fCurrentBaseDir is /data/anita/anitaplus/AnitaFlight0809RootData
+Eventname is /data/anita/anitaplus/AnitaFlight0809RootData/run134/calEventFile134.root
+loading sim head file! 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run134/headFile134.root
+broke at extra = 1
+Couldn't open: /home/dailey.110/analysis/testrun/ssDataAndToolsgpsSsFile134.root
+Opened gps: /data/anita/anitaplus/AnitaFlight0809RootData/run134/gpsFile134.root
+adding 
+added 
+about to exit 
+did ANITAGEROMTOOL 
+did ANITAEVENTCALIBRATOR 
+evententrygotten flag is 13662401
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.129658
+peakPhi is 80
+peakTheta is 0.129658 acos is 1.44077
+peakTheta is now 0.130024
+ now it is 7.44981
+Refined peak theta: 0.140062, peak Phi: 79.7, peakVal: 0.108817
+peakVal is 0.107246 peakVal in box is 0.107246
+peakTheta is 0.129658 refinedPeakTheta is 0.140062
+refinedpeakPhi and peakPhi are 79.7 80
+max_theta_cos is -0.0662773 step_size is 0.00515849
+peakThetaInterp is 0.137638
+peakThetaInterp is 7.91119
+peakPhiInterp is 79.739
+max_timeExpected is 5.83713
+power SNR_coherent is 9.58292
+noiseFlag is 0
+max_timeExpected is 5.83713
+Theta,phi are 7.91119 79.739
+polFractionCoherent is 0.284996
+SNR_coherent vs SNR is 9.58292 2.07783
+peakAnt is 10
+peakHilbertCoherent is 33.1776 peakVal is 0.107246
+Theta_interp is 7.91119 phi_interp is 79.739
+deltaTheta is -0.644443 deltaPhi is -97.6666
+varnerflag 1,2 are 0 0
+Please wait while I create the continent...
+[Antarctica::readRAMPDEM]  Finished reading in RAMP DEM data.
+[Antarctica::readBFieldData] Reading in information on Antarctic geomagnetic fields from file /data/anita/btdailey/analysis_info/anita_new_root/analysis/hoover/analysis_code/analysis_input_files/anita_bfield_3km.dat...
+...finished reading in geomagnetic field data.
+Finished constructing Antarctica.  Thank you for your patience.
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -77.2558 -132.795 34838.6 51.7425 1.70887 1.39171
+true_source is -315346 66879.3 6.35162e+06
+Anita is at -964168 -1.04139e+06 6.23312e+06
+x_dir, y_dir, z_dir is -0.903977 -0.289441 -0.314721
+source is -1.28962e+06 -1.1456e+06 6.11981e+06
+sourceLat,Lon are -74.3589 -138.385
+distance from source is 360024
+sourceLon, Lat, Alt are -138.385 -74.3589 -51.0473
+going through whichPol == 1
+peakTheta,Phi are 0.129658 80
+peakTheta before refined is 0.00692963
+peakPhi is 68
+peakTheta is 0.00692963 acos is 1.56387
+peakTheta is now 0.00692968
+ now it is 0.397042
+Refined peak theta: 0.00419534, peak Phi: 69.2, peakVal: 0.0427543
+peakVal is 0.0419377 peakVal in box is 0.0419035
+peakTheta is 0.00692963 refinedPeakTheta is 0.00419534
+refinedpeakPhi and peakPhi are 69.2 68
+max_theta_cos is -0.188289 step_size is 0.00520228
+peakThetaInterp is 0.00554793
+peakThetaInterp is 0.317874
+peakPhiInterp is 69.101
+max_timeExpected is 4.9055
+power SNR_coherent is 2.96242
+noiseFlag is 0
+max_timeExpected is 4.9055
+SNR_coherent vs SNR is 2.96242 2.00381
+peakAnt is 9
+peakHilbertCoherent is 35.0544 peakVal is 0.0419377
+Theta_interp is 0.317874 phi_interp is 69.101
+deltaTheta is -8.23776 deltaPhi is -108.305
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -77.2558 -132.795 34838.6 51.7425 1.57634 1.20604
+true_source is -315346 66879.3 6.35162e+06
+Anita is at -964168 -1.04139e+06 6.23312e+06
+x_dir, y_dir, z_dir is -0.852214 -0.481396 -0.204912
+MISSED ANTARCTICA! HEIGHT 
+distance from source is 360024
+sourceLon, Lat, Alt are -142.601 -62.0587 288817
+passed point this event 
+
+
+ratio, peakVal, hilbert, thetaMap, PolFrac, Trace, Trigger, Varner are 2.0643 0.107246 33.1776 -7.91119 0.284996 0 1 0
+peakVal, SNR is 0.107246 9.58292
+lat, lon is -74.3589 -138.385
+pixel_num is 3014
+RUN NUMBER: 152
+eventNumber, run and pol are 15406954,152,0
+filename_max is 4096 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run152/headFile152.root
+here! 
+fCurrentBaseDir is /data/anita/anitaplus/AnitaFlight0809RootData
+Eventname is /data/anita/anitaplus/AnitaFlight0809RootData/run152/calEventFile152.root
+loading sim head file! 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run152/headFile152.root
+broke at extra = 1
+Couldn't open: /home/dailey.110/analysis/testrun/ssDataAndToolsgpsSsFile152.root
+Opened gps: /data/anita/anitaplus/AnitaFlight0809RootData/run152/gpsFile152.root
+adding 
+added 
+about to exit 
+did ANITAGEROMTOOL 
+did ANITAEVENTCALIBRATOR 
+evententrygotten flag is 15406954
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.16034
+peakPhi is 146
+peakTheta is 0.16034 acos is 1.40976
+peakTheta is now 0.161035
+ now it is 9.22661
+Refined peak theta: 0.170096, peak Phi: 145.1, peakVal: 0.166083
+peakVal is 0.162912 peakVal in box is 0.162912
+peakTheta is 0.16034 refinedPeakTheta is 0.170096
+refinedpeakPhi and peakPhi are 145.1 146
+max_theta_cos is -0.0353075 step_size is 0.0051351
+peakThetaInterp is 0.168248
+peakThetaInterp is 9.68596
+peakPhiInterp is 145.1
+max_timeExpected is 5.65139
+power SNR_coherent is 18.8584
+noiseFlag is 0
+max_timeExpected is 5.65139
+Theta,phi are 9.68596 145.1
+polFractionCoherent is 0.499074
+SNR_coherent vs SNR is 18.8584 4.62483
+peakAnt is 24
+peakHilbertCoherent is 27.0909 peakVal is 0.162912
+Theta_interp is 9.68596 phi_interp is 145.1
+deltaTheta is 4.48757 deltaPhi is -136.76
+varnerflag 1,2 are 0 0
+Please wait while I create the continent...
+[Antarctica::readRAMPDEM]  Finished reading in RAMP DEM data.
+[Antarctica::readBFieldData] Reading in information on Antarctic geomagnetic fields from file /data/anita/btdailey/analysis_info/anita_new_root/analysis/hoover/analysis_code/analysis_input_files/anita_bfield_3km.dat...
+...finished reading in geomagnetic field data.
+Finished constructing Antarctica.  Thank you for your patience.
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -77.8179 -164.833 36462.1 173.76 1.73985 2.53247
+true_source is -315346 66879.3 6.35162e+06
+Anita is at -1.31063e+06 -355276 6.24832e+06
+x_dir, y_dir, z_dir is -0.660627 -0.671449 -0.335749
+source is -1.4879e+06 -535452 6.15823e+06
+sourceLat,Lon are -75.6911 -160.208
+distance from source is 268340
+sourceLon, Lat, Alt are -160.208 -75.6911 -59.0431
+going through whichPol == 1
+peakTheta,Phi are 0.16034 146
+peakTheta before refined is 0.0989756
+peakPhi is 334
+peakTheta is 0.0989756 acos is 1.47166
+peakTheta is now 0.0991379
+ now it is 5.68018
+Refined peak theta: 0.0893085, peak Phi: 333.1, peakVal: 0.0496403
+peakVal is 0.0472814 peakVal in box is 0.0207336
+peakTheta is 0.0989756 refinedPeakTheta is 0.0893085
+refinedpeakPhi and peakPhi are 333.1 334
+max_theta_cos is -0.0970586 step_size is 0.00517686
+peakThetaInterp is 0.0887391
+peakThetaInterp is 5.09107
+peakPhiInterp is 333.118
+max_timeExpected is 5.68122
+power SNR_coherent is 1.34156
+noiseFlag is 0
+max_timeExpected is 5.68122
+SNR_coherent vs SNR is 1.34156 2.69517
+peakAnt is 7
+peakHilbertCoherent is 33.9438 peakVal is 0.0472814
+Theta_interp is 5.09107 phi_interp is 333.118
+deltaTheta is -0.107319 deltaPhi is 51.2579
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -77.8179 -164.833 36462.1 173.76 1.65965 5.81401
+true_source is -315346 66879.3 6.35162e+06
+Anita is at -1.31063e+06 -355276 6.24832e+06
+x_dir, y_dir, z_dir is 0.80754 0.581295 0.0998801
+MISSED ANTARCTICA! LAT 
+distance from source is 268340
+sourceLon, Lat, Alt are 42.7262 -59.9981 1.46306e+06
+passed point this event 
+
+
+ratio, peakVal, hilbert, thetaMap, PolFrac, Trace, Trigger, Varner are 2.70835 0.162912 27.0909 -9.68596 0.499074 0 1 0
+peakVal, SNR is 0.162912 18.8584
+lat, lon is -75.6911 -160.208
+pixel_num is 3013
+RUN NUMBER: 177
+eventNumber, run and pol are 19480638,177,0
+filename_max is 4096 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run177/headFile177.root
+here! 
+fCurrentBaseDir is /data/anita/anitaplus/AnitaFlight0809RootData
+Eventname is /data/anita/anitaplus/AnitaFlight0809RootData/run177/calEventFile177.root
+loading sim head file! 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run177/headFile177.root
+broke at extra = 1
+Couldn't open: /home/dailey.110/analysis/testrun/ssDataAndToolsgpsSsFile177.root
+Opened gps: /data/anita/anitaplus/AnitaFlight0809RootData/run177/gpsFile177.root
+adding 
+added 
+about to exit 
+did ANITAGEROMTOOL 
+did ANITAEVENTCALIBRATOR 
+evententrygotten flag is 19480638
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.0376116
+peakPhi is 326
+peakTheta is 0.0376116 acos is 1.53318
+peakTheta is now 0.0376205
+ now it is 2.1555
+Refined peak theta: 0.00309719, peak Phi: 339.2, peakVal: 0.046468
+peakVal is 0.0439911 peakVal in box is 0.0439911
+peakTheta is 0.0376116 refinedPeakTheta is 0.00309719
+refinedpeakPhi and peakPhi are 339.2 326
+max_theta_cos is -0.158063 step_size is 0.00519873
+peakThetaInterp is 0.00351309
+peakThetaInterp is 0.201286
+peakPhiInterp is 339.191
+max_timeExpected is 4.49728
+power SNR_coherent is 2.00554
+noiseFlag is 0
+max_timeExpected is 4.49728
+Theta,phi are 0.201286 339.191
+polFractionCoherent is 0.214087
+SNR_coherent vs SNR is 2.00554 2.71715
+peakAnt is 31
+peakHilbertCoherent is 12.4804 peakVal is 0.0439911
+Theta_interp is 0.201286 phi_interp is 339.191
+deltaTheta is -5.70069 deltaPhi is 10.294
+varnerflag 1,2 are 0 0
+Please wait while I create the continent...
+[Antarctica::readRAMPDEM]  Finished reading in RAMP DEM data.
+[Antarctica::readBFieldData] Reading in information on Antarctic geomagnetic fields from file /data/anita/btdailey/analysis_info/anita_new_root/analysis/hoover/analysis_code/analysis_input_files/anita_bfield_3km.dat...
+...finished reading in geomagnetic field data.
+Finished constructing Antarctica.  Thank you for your patience.
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -80.1213 106.377 34588.6 73.0596 1.57431 5.92
+true_source is -315346 66879.3 6.35162e+06
+Anita is at -311218 1.05898e+06 6.29596e+06
+x_dir, y_dir, z_dir is -0.937767 -0.34726 -0.00191796
+MISSED ANTARCTICA! HEIGHT 
+distance from source is 268340
+sourceLon, Lat, Alt are 175.391 -67.5759 452253
+going through whichPol == 1
+peakTheta,Phi are 0.0376116 326
+peakTheta before refined is 0.0989756
+peakPhi is 68
+peakTheta is 0.0989756 acos is 1.47166
+peakTheta is now 0.0991379
+ now it is 5.68018
+Refined peak theta: 0.110016, peak Phi: 70.1, peakVal: 0.0651662
+peakVal is 0.0636765 peakVal in box is 0.0562165
+peakTheta is 0.0989756 refinedPeakTheta is 0.110016
+refinedpeakPhi and peakPhi are 70.1 68
+max_theta_cos is -0.0970586 step_size is 0.00517686
+peakThetaInterp is 0.111569
+peakThetaInterp is 6.40577
+peakPhiInterp is 70.085
+max_timeExpected is 5.95888
+power SNR_coherent is 6.0172
+noiseFlag is 0
+max_timeExpected is 5.95888
+SNR_coherent vs SNR is 6.0172 2.11843
+peakAnt is 10
+peakHilbertCoherent is 35.7581 peakVal is 0.0636765
+Theta_interp is 6.40577 phi_interp is 70.085
+deltaTheta is 0.503793 deltaPhi is 101.188
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -80.1213 106.377 34588.6 73.0596 1.6826 1.22321
+true_source is -315346 66879.3 6.35162e+06
+Anita is at -311218 1.05898e+06 6.29596e+06
+x_dir, y_dir, z_dir is -0.319771 0.908541 -0.268884
+source is -482776 1.54641e+06 6.1517e+06
+sourceLat,Lon are -75.3409 107.338
+distance from source is 536501
+sourceLon, Lat, Alt are 107.338 -75.3409 3302.99
+passed point this event 
+
+
+ratio, peakVal, hilbert, thetaMap, PolFrac, Trace, Trigger, Varner are 1.05379 0.0439911 12.4804 -0.201286 0.214087 0 0 0
+peakVal, SNR is 0.0439911 2.00554
+lat, lon is -67.5759 175.391
+pixel_num is 2959
+RUN NUMBER: 190
+eventNumber, run and pol are 20564174,190,0
+filename_max is 4096 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run190/headFile190.root
+here! 
+fCurrentBaseDir is /data/anita/anitaplus/AnitaFlight0809RootData
+Eventname is /data/anita/anitaplus/AnitaFlight0809RootData/run190/calEventFile190.root
+loading sim head file! 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run190/headFile190.root
+broke at extra = 1
+Couldn't open: /home/dailey.110/analysis/testrun/ssDataAndToolsgpsSsFile190.root
+Opened gps: /data/anita/anitaplus/AnitaFlight0809RootData/run190/gpsFile190.root
+adding 
+added 
+about to exit 
+did ANITAGEROMTOOL 
+did ANITAEVENTCALIBRATOR 
+evententrygotten flag is 20564174
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.16034
+peakPhi is 164
+peakTheta is 0.16034 acos is 1.40976
+peakTheta is now 0.161035
+ now it is 9.22661
+Refined peak theta: 0.154691, peak Phi: 163.4, peakVal: 0.174697
+peakVal is 0.180108 peakVal in box is 0.180108
+peakTheta is 0.16034 refinedPeakTheta is 0.154691
+refinedpeakPhi and peakPhi are 163.4 164
+max_theta_cos is -0.0353075 step_size is 0.0051351
+peakThetaInterp is 0.153202
+peakThetaInterp is 8.81253
+peakPhiInterp is 163.463
+max_timeExpected is 6.06286
+power SNR_coherent is 28.6821
+noiseFlag is 0
+max_timeExpected is 6.06286
+Theta,phi are 8.81253 163.463
+polFractionCoherent is 0.508819
+SNR_coherent vs SNR is 28.6821 5.37924
+peakAnt is 12
+peakHilbertCoherent is 36.9538 peakVal is 0.180108
+Theta_interp is 8.81253 phi_interp is 163.463
+deltaTheta is 1.35508 deltaPhi is -118.416
+varnerflag 1,2 are 0 0
+Please wait while I create the continent...
+[Antarctica::readRAMPDEM]  Finished reading in RAMP DEM data.
+[Antarctica::readBFieldData] Reading in information on Antarctic geomagnetic fields from file /data/anita/btdailey/analysis_info/anita_new_root/analysis/hoover/analysis_code/analysis_input_files/anita_bfield_3km.dat...
+...finished reading in geomagnetic field data.
+Finished constructing Antarctica.  Thank you for your patience.
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.6504 65.2947 33980.4 45.2613 1.7246 2.85297
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 343958 747637 6.33788e+06
+x_dir, y_dir, z_dir is 0.592318 -0.801435 -0.0828321
+source is 488795 551665 6.31762e+06
+sourceLat,Lon are -83.3897 48.4579
+distance from source is 244526
+sourceLon, Lat, Alt are 48.4579 -83.3897 3435.97
+going through whichPol == 1
+peakTheta,Phi are 0.16034 164
+peakTheta before refined is -0.177162
+peakPhi is 330
+peakTheta is -0.177162 acos is 1.7489
+peakTheta is now -0.178102
+ now it is -10.2045
+Refined peak theta: -0.160958, peak Phi: 331.5, peakVal: 0.0589009
+peakVal is 0.0516881 peakVal in box is 0.015835
+peakTheta is -0.177162 refinedPeakTheta is -0.160958
+refinedpeakPhi and peakPhi are 331.5 330
+max_theta_cos is -0.365763 step_size is 0.00512012
+peakThetaInterp is -0.160241
+peakThetaInterp is -9.22089
+peakPhiInterp is 331.515
+max_timeExpected is 2.61529
+power SNR_coherent is 1.96418
+noiseFlag is 0
+max_timeExpected is 2.61529
+SNR_coherent vs SNR is 1.96418 2.60403
+peakAnt is 8
+peakHilbertCoherent is 32.765 peakVal is 0.0516881
+Theta_interp is -9.22089 phi_interp is 331.515
+deltaTheta is -16.6783 deltaPhi is 49.6362
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.6504 65.2947 33980.4 45.2613 1.40986 5.78603
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 343958 747637 6.33788e+06
+x_dir, y_dir, z_dir is -0.74093 0.662201 0.111858
+MISSED ANTARCTICA! LAT 
+distance from source is 244526
+sourceLon, Lat, Alt are 126.62 -59.9949 1.4344e+06
+passed point this event 
+
+
+ratio, peakVal, hilbert, thetaMap, PolFrac, Trace, Trigger, Varner are 3.5474 0.180108 36.9538 -8.81253 0.508819 0 1 0
+peakVal, SNR is 0.180108 28.6821
+lat, lon is -83.3897 48.4579
+pixel_num is 3055
+RUN NUMBER: 239
+eventNumber, run and pol are 24699044,239,0
+filename_max is 4096 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run239/headFile239.root
+here! 
+fCurrentBaseDir is /data/anita/anitaplus/AnitaFlight0809RootData
+Eventname is /data/anita/anitaplus/AnitaFlight0809RootData/run239/calEventFile239.root
+loading sim head file! 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run239/headFile239.root
+broke at extra = 1
+Couldn't open: /home/dailey.110/analysis/testrun/ssDataAndToolsgpsSsFile239.root
+Opened gps: /data/anita/anitaplus/AnitaFlight0809RootData/run239/gpsFile239.root
+adding 
+added 
+about to exit 
+did ANITAGEROMTOOL 
+did ANITAEVENTCALIBRATOR 
+evententrygotten flag is 24699044
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.129658
+peakPhi is 84
+peakTheta is 0.129658 acos is 1.44077
+peakTheta is now 0.130024
+ now it is 7.44981
+Refined peak theta: 0.145221, peak Phi: 84, peakVal: 0.0791402
+peakVal is 0.0745363 peakVal in box is 0.0745363
+peakTheta is 0.129658 refinedPeakTheta is 0.145221
+refinedpeakPhi and peakPhi are 84 84
+max_theta_cos is -0.0662773 step_size is 0.00515849
+peakThetaInterp is 0.14455
+peakThetaInterp is 8.31124
+peakPhiInterp is 83.937
+max_timeExpected is 5.60648
+power SNR_coherent is 7.03204
+noiseFlag is 0
+max_timeExpected is 5.60648
+Theta,phi are 8.31124 83.937
+polFractionCoherent is 0.135118
+SNR_coherent vs SNR is 7.03204 1.52971
+peakAnt is 21
+peakHilbertCoherent is 24.8897 peakVal is 0.0745363
+Theta_interp is 8.31124 phi_interp is 83.937
+deltaTheta is -1.21021 deltaPhi is -23.8887
+varnerflag 1,2 are 0 0
+Please wait while I create the continent...
+[Antarctica::readRAMPDEM]  Finished reading in RAMP DEM data.
+[Antarctica::readBFieldData] Reading in information on Antarctic geomagnetic fields from file /data/anita/btdailey/analysis_info/anita_new_root/analysis/hoover/analysis_code/analysis_input_files/anita_bfield_3km.dat...
+...finished reading in geomagnetic field data.
+Finished constructing Antarctica.  Thank you for your patience.
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -81.6828 -110.08 35281.2 343.193 1.71585 1.46498
+true_source is -315346 66879.3 6.35162e+06
+Anita is at -319559 -874182 6.32436e+06
+x_dir, y_dir, z_dir is -0.845222 0.524716 -0.101353
+source is -600993 -699468 6.29061e+06
+sourceLat,Lon are -81.715 -130.67
+distance from source is 332970
+sourceLon, Lat, Alt are -130.67 -81.715 650.957
+going through whichPol == 1
+peakTheta,Phi are 0.129658 84
+peakTheta before refined is 0.497842
+peakPhi is 170
+peakTheta is 0.497842 acos is 1.04969
+peakTheta is now 0.521108
+ now it is 29.8573
+Refined peak theta: 0.504067, peak Phi: 169.7, peakVal: 0.040071
+peakVal is 0.0386815 peakVal in box is 0.0229046
+peakTheta is 0.497842 refinedPeakTheta is 0.504067
+refinedpeakPhi and peakPhi are 169.7 170
+max_theta_cos is 0.31908 step_size is 0.00451188
+peakThetaInterp is 0.503526
+peakThetaInterp is 30.2335
+peakPhiInterp is 169.649
+max_timeExpected is 8.22443
+power SNR_coherent is 1.42841
+noiseFlag is 0
+max_timeExpected is 8.22443
+SNR_coherent vs SNR is 1.42841 3.0786
+peakAnt is 24
+peakHilbertCoherent is 26.7215 peakVal is 0.0386815
+Theta_interp is 30.2335 phi_interp is 169.649
+deltaTheta is 20.7121 deltaPhi is 61.8233
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -81.6828 -110.08 35281.2 343.193 2.09847 2.96093
+true_source is -315346 66879.3 6.35162e+06
+Anita is at -319559 -874182 6.32436e+06
+x_dir, y_dir, z_dir is 0.402946 0.838955 -0.365772
+source is -292014 -816832 6.29936e+06
+sourceLat,Lon are -82.2112 -109.672
+distance from source is 68360
+sourceLon, Lat, Alt are -109.672 -82.2112 1655.61
+passed point this event 
+
+
+ratio, peakVal, hilbert, thetaMap, PolFrac, Trace, Trigger, Varner are 1.70525 0.0745363 24.8897 -8.31124 0.135118 0 1 0
+peakVal, SNR is 0.0745363 7.03204
+lat, lon is -81.715 -130.67
+pixel_num is 3049
+RUN NUMBER: 250
+eventNumber, run and pol are 25887362,250,0
+filename_max is 4096 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run250/headFile250.root
+here! 
+fCurrentBaseDir is /data/anita/anitaplus/AnitaFlight0809RootData
+Eventname is /data/anita/anitaplus/AnitaFlight0809RootData/run250/calEventFile250.root
+loading sim head file! 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run250/headFile250.root
+broke at extra = 1
+Opened gps: /home/dailey.110/analysis/testrun/ssDataAndToolsgpsSsFile250.root
+adding 
+added 
+about to exit 
+did ANITAGEROMTOOL 
+did ANITAEVENTCALIBRATOR 
+evententrygotten flag is 25887362
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.129658
+peakPhi is 302
+peakTheta is 0.129658 acos is 1.44077
+peakTheta is now 0.130024
+ now it is 7.44981
+Refined peak theta: 0.129746, peak Phi: 302.6, peakVal: 0.195211
+peakVal is 0.19454 peakVal in box is 0.19454
+peakTheta is 0.129658 refinedPeakTheta is 0.129746
+refinedpeakPhi and peakPhi are 302.6 302
+max_theta_cos is -0.0662773 step_size is 0.00515849
+peakThetaInterp is 0.131138
+peakThetaInterp is 7.53538
+peakPhiInterp is 302.588
+max_timeExpected is 5.01502
+power SNR_coherent is 11.6132
+noiseFlag is 0
+max_timeExpected is 5.01502
+Theta,phi are 7.53538 302.588
+polFractionCoherent is 0.564724
+SNR_coherent vs SNR is 11.6132 3.50228
+peakAnt is 7
+peakHilbertCoherent is 28.036 peakVal is 0.19454
+Theta_interp is 7.53538 phi_interp is 302.588
+deltaTheta is 1.49461 deltaPhi is 20.5861
+varnerflag 1,2 are 0 0
+Please wait while I create the continent...
+[Antarctica::readRAMPDEM]  Finished reading in RAMP DEM data.
+[Antarctica::readBFieldData] Reading in information on Antarctic geomagnetic fields from file /data/anita/btdailey/analysis_info/anita_new_root/analysis/hoover/analysis_code/analysis_input_files/anita_bfield_3km.dat...
+...finished reading in geomagnetic field data.
+Finished constructing Antarctica.  Thank you for your patience.
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -80.6309 -143.772 36494.4 176.984 1.70231 5.28116
+true_source is -315346 66879.3 6.35162e+06
+Anita is at -845119 -619162 6.3074e+06
+x_dir, y_dir, z_dir is 0.0028779 0.998726 -0.0503839
+source is -844269 -324376 6.29253e+06
+sourceLat,Lon are -81.8748 -158.983
+distance from source is 295162
+sourceLon, Lat, Alt are -158.983 -81.8748 13.956
+going through whichPol == 1
+peakTheta,Phi are 0.129658 302
+peakTheta before refined is 0.221704
+peakPhi is 106
+peakTheta is 0.221704 acos is 1.34724
+peakTheta is now 0.223561
+ now it is 12.8091
+Refined peak theta: 0.209834, peak Phi: 106.6, peakVal: 0.0467952
+peakVal is 0.0449936 peakVal in box is 0.0209213
+peakTheta is 0.221704 refinedPeakTheta is 0.209834
+refinedpeakPhi and peakPhi are 106.6 106
+max_theta_cos is 0.0272083 step_size is 0.00507294
+peakThetaInterp is 0.210392
+peakThetaInterp is 12.1453
+peakPhiInterp is 106.66
+max_timeExpected is 4.98966
+power SNR_coherent is 1.83048
+noiseFlag is 0
+max_timeExpected is 4.98966
+SNR_coherent vs SNR is 1.83048 6.1496
+peakAnt is 21
+peakHilbertCoherent is 29.9614 peakVal is 0.0449936
+Theta_interp is 12.1453 phi_interp is 106.66
+deltaTheta is 6.10457 deltaPhi is -175.342
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -80.6309 -143.772 36494.4 176.984 1.78277 1.86157
+true_source is -315346 66879.3 6.35162e+06
+Anita is at -845119 -619162 6.3074e+06
+x_dir, y_dir, z_dir is 0.308708 -0.918823 -0.245894
+source is -783577 -802331 6.25838e+06
+sourceLat,Lon are -79.9072 -134.322
+distance from source is 199352
+sourceLon, Lat, Alt are -134.322 -79.9072 657.853
+passed point this event 
+
+
+ratio, peakVal, hilbert, thetaMap, PolFrac, Trace, Trigger, Varner are 2.70576 0.19454 28.036 -7.53538 0.564724 0 1 0
+peakVal, SNR is 0.19454 11.6132
+lat, lon is -81.8748 -158.983
+pixel_num is 3048
+RUN NUMBER: 153
+eventNumber, run and pol are 15636066,153,0
+filename_max is 4096 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run153/headFile153.root
+here! 
+fCurrentBaseDir is /data/anita/anitaplus/AnitaFlight0809RootData
+Eventname is /data/anita/anitaplus/AnitaFlight0809RootData/run153/calEventFile153.root
+loading sim head file! 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run153/headFile153.root
+broke at extra = 1
+Couldn't open: /home/dailey.110/analysis/testrun/ssDataAndToolsgpsSsFile153.root
+Opened gps: /data/anita/anitaplus/AnitaFlight0809RootData/run153/gpsFile153.root
+adding 
+added 
+about to exit 
+did ANITAGEROMTOOL 
+did ANITAEVENTCALIBRATOR 
+evententrygotten flag is 15636066
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.559205
+peakPhi is 86
+peakTheta is 0.559205 acos is 0.977369
+peakTheta is now 0.593427
+ now it is 34.0009
+Refined peak theta: 0.559243, peak Phi: 88.1, peakVal: 0.131171
+peakVal is 0.132567 peakVal in box is 0.132567
+peakTheta is 0.559205 refinedPeakTheta is 0.559243
+refinedpeakPhi and peakPhi are 88.1 86
+max_theta_cos is 0.386725 step_size is 0.00431295
+peakThetaInterp is 0.560062
+peakThetaInterp is 34.0601
+peakPhiInterp is 88.097
+max_timeExpected is 9.62657
+power SNR_coherent is 22.4962
+noiseFlag is 0
+max_timeExpected is 9.62657
+Theta,phi are 34.0601 88.097
+polFractionCoherent is 0.237517
+SNR_coherent vs SNR is 22.4962 4.69923
+peakAnt is 34
+peakHilbertCoherent is 39.3429 peakVal is 0.132567
+Theta_interp is 34.0601 phi_interp is 88.097
+deltaTheta is 28.6557 deltaPhi is 104.239
+varnerflag 1,2 are 0 0
+Please wait while I create the continent...
+[Antarctica::readRAMPDEM]  Finished reading in RAMP DEM data.
+[Antarctica::readBFieldData] Reading in information on Antarctic geomagnetic fields from file /data/anita/btdailey/analysis_info/anita_new_root/analysis/hoover/analysis_code/analysis_input_files/anita_bfield_3km.dat...
+...finished reading in geomagnetic field data.
+Finished constructing Antarctica.  Thank you for your patience.
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -77.9906 -170.805 36185.7 240.176 2.16526 1.53758
+true_source is -315346 66879.3 6.35162e+06
+Anita is at -1.32171e+06 -213946 6.25211e+06
+x_dir, y_dir, z_dir is 0.888641 -0.255896 -0.380571
+source is -1.26243e+06 -231017 6.22672e+06
+sourceLat,Lon are -78.4297 -169.63
+distance from source is 66708
+sourceLon, Lat, Alt are -169.63 -78.4297 -10.0896
+going through whichPol == 1
+peakTheta,Phi are 0.559205 86
+peakTheta before refined is 0.559205
+peakPhi is 88
+peakTheta is 0.559205 acos is 0.977369
+peakTheta is now 0.593427
+ now it is 34.0009
+Refined peak theta: 0.546304, peak Phi: 88.3, peakVal: 0.0814191
+peakVal is 0.0803307 peakVal in box is 0.0803307
+peakTheta is 0.559205 refinedPeakTheta is 0.546304
+refinedpeakPhi and peakPhi are 88.3 88
+max_theta_cos is 0.386725 step_size is 0.00431295
+peakThetaInterp is 0.548202
+peakThetaInterp is 33.2437
+peakPhiInterp is 88.258
+max_timeExpected is 9.50124
+power SNR_coherent is 4.93036
+noiseFlag is 0
+max_timeExpected is 9.50124
+SNR_coherent vs SNR is 4.93036 1.90405
+peakAnt is 22
+peakHilbertCoherent is 35.5351 peakVal is 0.0803307
+Theta_interp is 33.2437 phi_interp is 88.258
+deltaTheta is 27.8394 deltaPhi is 104.4
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -77.9906 -170.805 36185.7 240.176 2.15101 1.54039
+true_source is -315346 66879.3 6.35162e+06
+Anita is at -1.32171e+06 -213946 6.25211e+06
+x_dir, y_dir, z_dir is 0.892604 -0.260955 -0.367641
+source is -1.2608e+06 -231753 6.22703e+06
+sourceLat,Lon are -78.4431 -169.584
+distance from source is 68237
+sourceLon, Lat, Alt are -169.584 -78.4431 -10.364
+passed point this event 
+
+
+ratio, peakVal, hilbert, thetaMap, PolFrac, Trace, Trigger, Varner are 1.58874 0.132567 39.3429 -34.0601 0.237517 0 1 0
+peakVal, SNR is 0.132567 22.4962
+lat, lon is -78.4297 -169.63
+pixel_num is 3032
+RUN NUMBER: 155
+eventNumber, run and pol are 16014510,155,0
+filename_max is 4096 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run155/headFile155.root
+here! 
+fCurrentBaseDir is /data/anita/anitaplus/AnitaFlight0809RootData
+Eventname is /data/anita/anitaplus/AnitaFlight0809RootData/run155/calEventFile155.root
+loading sim head file! 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run155/headFile155.root
+broke at extra = 1
+Couldn't open: /home/dailey.110/analysis/testrun/ssDataAndToolsgpsSsFile155.root
+Opened gps: /data/anita/anitaplus/AnitaFlight0809RootData/run155/gpsFile155.root
+adding 
+added 
+about to exit 
+did ANITAGEROMTOOL 
+did ANITAEVENTCALIBRATOR 
+evententrygotten flag is 16014510
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 0
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.16034
+peakPhi is 358
+peakTheta is 0.16034 acos is 1.40976
+peakTheta is now 0.161035
+ now it is 9.22661
+Refined peak theta: 0.154691, peak Phi: 358, peakVal: 0.27789
+peakVal is 0.273198 peakVal in box is 0.273198
+peakTheta is 0.16034 refinedPeakTheta is 0.154691
+refinedpeakPhi and peakPhi are 358 358
+max_theta_cos is -0.0353075 step_size is 0.0051351
+peakThetaInterp is 0.155461
+peakThetaInterp is 8.94356
+peakPhiInterp is 358.105
+max_timeExpected is 5.75884
+power SNR_coherent is 15.7302
+noiseFlag is 0
+max_timeExpected is 5.75884
+Theta,phi are 8.94356 358.105
+polFractionCoherent is 0.299361
+SNR_coherent vs SNR is 15.7302 5.44249
+peakAnt is 0
+peakHilbertCoherent is 42.8573 peakVal is 0.273198
+Theta_interp is 8.94356 phi_interp is 358.105
+deltaTheta is 3.71063 deltaPhi is 106.858
+varnerflag 1,2 are 0 0
+Please wait while I create the continent...
+[Antarctica::readRAMPDEM]  Finished reading in RAMP DEM data.
+[Antarctica::readBFieldData] Reading in information on Antarctic geomagnetic fields from file /data/anita/btdailey/analysis_info/anita_new_root/analysis/hoover/analysis_code/analysis_input_files/anita_bfield_3km.dat...
+...finished reading in geomagnetic field data.
+Finished constructing Antarctica.  Thank you for your patience.
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -78.6525 -176.636 36370.3 157.849 1.72689 6.25011
+true_source is -315346 66879.3 6.35162e+06
+Anita is at -1.26398e+06 -74291.1 6.26734e+06
+x_dir, y_dir, z_dir is 0.957209 -0.288277 0.0254342
+source is -1.01525e+06 -149202 6.27395e+06
+sourceLat,Lon are -80.7722 -171.64
+distance from source is 259858
+sourceLon, Lat, Alt are -171.64 -80.7722 2.93296
+going through whichPol == 1
+peakTheta,Phi are 0.16034 358
+peakTheta before refined is 0.16034
+peakPhi is 358
+peakTheta is 0.16034 acos is 1.40976
+peakTheta is now 0.161035
+ now it is 9.22661
+Refined peak theta: 0.149556, peak Phi: 358.3, peakVal: 0.142149
+peakVal is 0.140674 peakVal in box is 0.140674
+peakTheta is 0.16034 refinedPeakTheta is 0.149556
+refinedpeakPhi and peakPhi are 358.3 358
+max_theta_cos is -0.0353075 step_size is 0.0051351
+peakThetaInterp is 0.149043
+peakThetaInterp is 8.57144
+peakPhiInterp is 358.264
+max_timeExpected is 5.67734
+power SNR_coherent is 17.1137
+noiseFlag is 0
+max_timeExpected is 5.67734
+SNR_coherent vs SNR is 17.1137 2.03376
+peakAnt is 7
+peakHilbertCoherent is 56.8469 peakVal is 0.140674
+Theta_interp is 8.57144 phi_interp is 358.264
+deltaTheta is 3.33852 deltaPhi is 107.017
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -78.6525 -176.636 36370.3 157.849 1.7204 6.25289
+true_source is -315346 66879.3 6.35162e+06
+Anita is at -1.26398e+06 -74291.1 6.26734e+06
+x_dir, y_dir, z_dir is 0.956141 -0.29118 0.0317693
+source is -1.00117e+06 -154327 6.27607e+06
+sourceLat,Lon are -80.8915 -171.237
+distance from source is 274869
+sourceLon, Lat, Alt are -171.237 -80.8915 2.90066
+passed point this event 
+
+
+ratio, peakVal, hilbert, thetaMap, PolFrac, Trace, Trigger, Varner are 2.65087 0.273198 42.8573 -8.94356 0.299361 0 1 0
+peakVal, SNR is 0.273198 15.7302
+lat, lon is -80.7722 -171.64
+pixel_num is 3048
+RUN NUMBER: 142
+eventNumber, run and pol are 14496361,142,1
+filename_max is 4096 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run142/headFile142.root
+here! 
+fCurrentBaseDir is /data/anita/anitaplus/AnitaFlight0809RootData
+Eventname is /data/anita/anitaplus/AnitaFlight0809RootData/run142/calEventFile142.root
+loading sim head file! 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run142/headFile142.root
+broke at extra = 1
+Couldn't open: /home/dailey.110/analysis/testrun/ssDataAndToolsgpsSsFile142.root
+Opened gps: /data/anita/anitaplus/AnitaFlight0809RootData/run142/gpsFile142.root
+adding 
+added 
+about to exit 
+did ANITAGEROMTOOL 
+did ANITAEVENTCALIBRATOR 
+evententrygotten flag is 14496361
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.405796
+peakPhi is 300
+peakTheta is 0.405796 acos is 1.15295
+peakTheta is now 0.417849
+ now it is 23.941
+Refined peak theta: 0.40513, peak Phi: 299.7, peakVal: 0.112394
+peakVal is 0.111116 peakVal in box is 0.111116
+peakTheta is 0.405796 refinedPeakTheta is 0.40513
+refinedpeakPhi and peakPhi are 299.7 300
+max_theta_cos is 0.219693 step_size is 0.00475481
+peakThetaInterp is 0.403799
+peakThetaInterp is 23.8159
+peakPhiInterp is 299.685
+max_timeExpected is 8.21598
+power SNR_coherent is 6.40785
+noiseFlag is 0
+max_timeExpected is 8.21598
+Theta,phi are 23.8159 299.685
+polFractionCoherent is 0.798527
+SNR_coherent vs SNR is 6.40785 8.81494
+peakAnt is 31
+peakHilbertCoherent is 24.9424 peakVal is 0.111116
+Theta_interp is 23.8159 phi_interp is 299.685
+deltaTheta is 16.1715 deltaPhi is -105.582
+varnerflag 1,2 are 0 0
+Please wait while I create the continent...
+[Antarctica::readRAMPDEM]  Finished reading in RAMP DEM data.
+[Antarctica::readBFieldData] Reading in information on Antarctic geomagnetic fields from file /data/anita/btdailey/analysis_info/anita_new_root/analysis/hoover/analysis_code/analysis_input_files/anita_bfield_3km.dat...
+...finished reading in geomagnetic field data.
+Finished constructing Antarctica.  Thank you for your patience.
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -76.093 -149.756 34939.8 282.27 1.98646 5.23049
+true_source is -315346 66879.3 6.35162e+06
+Anita is at -1.33577e+06 -778798 6.20313e+06
+x_dir, y_dir, z_dir is -0.776253 -0.136464 -0.615475
+source is -1.40134e+06 -790326 6.15114e+06
+sourceLat,Lon are -75.4365 -150.578
+distance from source is 84473
+sourceLon, Lat, Alt are -150.578 -75.4365 -57.0464
+going through whichPol == 1
+peakTheta,Phi are 0.405796 300
+peakTheta before refined is 0.436478
+peakPhi is 302
+peakTheta is 0.436478 acos is 1.11912
+peakTheta is now 0.45168
+ now it is 25.8793
+Refined peak theta: 0.42107, peak Phi: 302.9, peakVal: 0.452995
+peakVal is 0.43654 peakVal in box is 0.43654
+peakTheta is 0.436478 refinedPeakTheta is 0.42107
+refinedpeakPhi and peakPhi are 302.9 302
+max_theta_cos is 0.252565 step_size is 0.00468069
+peakThetaInterp is 0.422287
+peakThetaInterp is 24.979
+peakPhiInterp is 302.798
+max_timeExpected is 8.31137
+power SNR_coherent is 75.5698
+noiseFlag is 0
+max_timeExpected is 8.31137
+SNR_coherent vs SNR is 75.5698 11.9877
+peakAnt is 39
+peakHilbertCoherent is 148.164 peakVal is 0.43654
+Theta_interp is 24.979 phi_interp is 302.798
+deltaTheta is 17.3346 deltaPhi is -102.469
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -76.093 -149.756 34939.8 282.27 2.00676 5.28482
+true_source is -315346 66879.3 6.35162e+06
+Anita is at -1.33577e+06 -778798 6.20313e+06
+x_dir, y_dir, z_dir is -0.774259 -0.0843348 -0.627224
+source is -1.39838e+06 -785618 6.15241e+06
+sourceLat,Lon are -75.4817 -150.673
+distance from source is 80870
+sourceLon, Lat, Alt are -150.673 -75.4817 -57.172
+passed point this event 
+
+
+ratio, peakVal, hilbert, thetaMap, PolFrac, Trace, Trigger, Varner are 2.6771 0.43654 148.164 -24.979 0.864718 0 1 0
+peakVal, SNR is 0.43654 75.5698
+lat, lon is -75.4817 -150.673
+pixel_num is 3013
+RUN NUMBER: 142
+eventNumber, run and pol are 14577785,142,1
+filename_max is 4096 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run142/headFile142.root
+here! 
+fCurrentBaseDir is /data/anita/anitaplus/AnitaFlight0809RootData
+Eventname is /data/anita/anitaplus/AnitaFlight0809RootData/run142/calEventFile142.root
+loading sim head file! 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run142/headFile142.root
+broke at extra = 1
+Couldn't open: /home/dailey.110/analysis/testrun/ssDataAndToolsgpsSsFile142.root
+Opened gps: /data/anita/anitaplus/AnitaFlight0809RootData/run142/gpsFile142.root
+adding 
+added 
+about to exit 
+did ANITAGEROMTOOL 
+did ANITAEVENTCALIBRATOR 
+evententrygotten flag is 14577785
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.528523
+peakPhi is 198
+peakTheta is 0.528523 acos is 1.01394
+peakTheta is now 0.55686
+ now it is 31.9057
+Refined peak theta: 0.51616, peak Phi: 201, peakVal: 0.186846
+peakVal is 0.185103 peakVal in box is 0.185103
+peakTheta is 0.528523 refinedPeakTheta is 0.51616
+refinedpeakPhi and peakPhi are 201 198
+max_theta_cos is 0.352752 step_size is 0.00441642
+peakThetaInterp is 0.515895
+peakThetaInterp is 31.0573
+peakPhiInterp is 200.952
+max_timeExpected is 11.8639
+power SNR_coherent is 5.53119
+noiseFlag is 0
+max_timeExpected is 11.8639
+Theta,phi are 31.0573 200.952
+polFractionCoherent is 0.885065
+SNR_coherent vs SNR is 5.53119 6.4911
+peakAnt is 4
+peakHilbertCoherent is 26.9728 peakVal is 0.185103
+Theta_interp is 31.0573 phi_interp is 200.952
+deltaTheta is 24.9155 deltaPhi is -98.7146
+varnerflag 1,2 are 0 0
+Please wait while I create the continent...
+[Antarctica::readRAMPDEM]  Finished reading in RAMP DEM data.
+[Antarctica::readBFieldData] Reading in information on Antarctic geomagnetic fields from file /data/anita/btdailey/analysis_info/anita_new_root/analysis/hoover/analysis_code/analysis_input_files/anita_bfield_3km.dat...
+...finished reading in geomagnetic field data.
+Finished constructing Antarctica.  Thank you for your patience.
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -76.3077 -151.849 35821 178.166 2.11285 3.50727
+true_source is -315346 66879.3 6.35162e+06
+Anita is at -1.34286e+06 -718563 6.20974e+06
+x_dir, y_dir, z_dir is -0.723079 -0.0196602 -0.690485
+source is -1.39336e+06 -719936 6.16152e+06
+sourceLat,Lon are -75.8109 -152.675
+distance from source is 69835
+sourceLon, Lat, Alt are -152.675 -75.8109 -57.392
+going through whichPol == 1
+peakTheta,Phi are 0.528523 198
+peakTheta before refined is 0.528523
+peakPhi is 204
+peakTheta is 0.528523 acos is 1.01394
+peakTheta is now 0.55686
+ now it is 31.9057
+Refined peak theta: 0.520576, peak Phi: 204.3, peakVal: 0.608934
+peakVal is 0.600361 peakVal in box is 0.600361
+peakTheta is 0.528523 refinedPeakTheta is 0.520576
+refinedpeakPhi and peakPhi are 204.3 204
+max_theta_cos is 0.352752 step_size is 0.00441642
+peakThetaInterp is 0.521327
+peakThetaInterp is 31.4213
+peakPhiInterp is 204.312
+max_timeExpected is 9.89588
+power SNR_coherent is 110.77
+noiseFlag is 0
+max_timeExpected is 9.89588
+SNR_coherent vs SNR is 110.77 20.4558
+peakAnt is 13
+peakHilbertCoherent is 184.987 peakVal is 0.600361
+Theta_interp is 31.4213 phi_interp is 204.312
+deltaTheta is 25.2795 deltaPhi is -95.3546
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -76.3077 -151.849 35821 178.166 2.1192 3.56592
+true_source is -315346 66879.3 6.35162e+06
+Anita is at -1.34286e+06 -718563 6.20974e+06
+x_dir, y_dir, z_dir is -0.722293 0.0308658 -0.690898
+source is -1.39269e+06 -716433 6.16207e+06
+sourceLat,Lon are -75.8312 -152.778
+distance from source is 68990
+sourceLon, Lat, Alt are -152.778 -75.8312 -57.2312
+passed point this event 
+
+
+ratio, peakVal, hilbert, thetaMap, PolFrac, Trace, Trigger, Varner are 2.22401 0.600361 184.987 -31.4213 0.924862 0 1 0
+peakVal, SNR is 0.600361 110.77
+lat, lon is -75.8312 -152.778
+pixel_num is 3013
+RUN NUMBER: 208
+eventNumber, run and pol are 21684774,208,1
+filename_max is 4096 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run208/headFile208.root
+here! 
+fCurrentBaseDir is /data/anita/anitaplus/AnitaFlight0809RootData
+Eventname is /data/anita/anitaplus/AnitaFlight0809RootData/run208/calEventFile208.root
+loading sim head file! 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run208/headFile208.root
+broke at extra = 1
+Couldn't open: /home/dailey.110/analysis/testrun/ssDataAndToolsgpsSsFile208.root
+Opened gps: /data/anita/anitaplus/AnitaFlight0809RootData/run208/gpsFile208.root
+adding 
+added 
+about to exit 
+did ANITAGEROMTOOL 
+did ANITAEVENTCALIBRATOR 
+evententrygotten flag is 21684774
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.0376116
+peakPhi is 282
+peakTheta is 0.0376116 acos is 1.53318
+peakTheta is now 0.0376205
+ now it is 2.1555
+Refined peak theta: 0.044687, peak Phi: 283.8, peakVal: 0.179218
+peakVal is 0.179342 peakVal in box is 0.179342
+peakTheta is 0.0376116 refinedPeakTheta is 0.044687
+refinedpeakPhi and peakPhi are 283.8 282
+max_theta_cos is -0.158063 step_size is 0.00519873
+peakThetaInterp is 0.0420877
+peakThetaInterp is 2.41216
+peakPhiInterp is 283.719
+max_timeExpected is 5.05889
+power SNR_coherent is 37.7671
+noiseFlag is 0
+max_timeExpected is 5.05889
+Theta,phi are 2.41216 283.719
+polFractionCoherent is 0.962349
+SNR_coherent vs SNR is 37.7671 4.67512
+peakAnt is 31
+peakHilbertCoherent is 33.785 peakVal is 0.179342
+Theta_interp is 2.41216 phi_interp is 283.719
+deltaTheta is -7.15231 deltaPhi is 41.2971
+varnerflag 1,2 are 0 0
+Please wait while I create the continent...
+[Antarctica::readRAMPDEM]  Finished reading in RAMP DEM data.
+[Antarctica::readBFieldData] Reading in information on Antarctic geomagnetic fields from file /data/anita/btdailey/analysis_info/anita_new_root/analysis/hoover/analysis_code/analysis_input_files/anita_bfield_3km.dat...
+...finished reading in geomagnetic field data.
+Finished constructing Antarctica.  Thank you for your patience.
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -83.2356 0.870804 35095.9 48.0487 1.6129 4.95183
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 757797 11518.2 6.34706e+06
+x_dir, y_dir, z_dir is -0.578487 0.815644 0.00881533
+MISSED ANTARCTICA! HEIGHT 
+distance from source is 68990
+sourceLon, Lat, Alt are 115.043 -61.4443 913032
+going through whichPol == 1
+peakTheta,Phi are 0.0376116 282
+peakTheta before refined is 0.0376116
+peakPhi is 282
+peakTheta is 0.0376116 acos is 1.53318
+peakTheta is now 0.0376205
+ now it is 2.1555
+Refined peak theta: 0.0498857, peak Phi: 283.2, peakVal: 0.663405
+peakVal is 0.632188 peakVal in box is 0.632188
+peakTheta is 0.0376116 refinedPeakTheta is 0.0498857
+refinedpeakPhi and peakPhi are 283.2 282
+max_theta_cos is -0.158063 step_size is 0.00519873
+peakThetaInterp is 0.0511854
+peakThetaInterp is 2.93399
+peakPhiInterp is 283.125
+max_timeExpected is 5.17437
+power SNR_coherent is 156.337
+noiseFlag is 0
+max_timeExpected is 5.17437
+SNR_coherent vs SNR is 156.337 26.3397
+peakAnt is 39
+peakHilbertCoherent is 271.023 peakVal is 0.632188
+Theta_interp is 2.93399 phi_interp is 283.125
+deltaTheta is -6.63047 deltaPhi is 40.7031
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -83.2356 0.870804 35095.9 48.0487 1.622 4.94146
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 757797 11518.2 6.34706e+06
+x_dir, y_dir, z_dir is -0.587613 0.809142 0.000776262
+MISSED ANTARCTICA! HEIGHT 
+distance from source is 68990
+sourceLon, Lat, Alt are 115.789 -61.2708 889681
+passed point this event 
+
+
+ratio, peakVal, hilbert, thetaMap, PolFrac, Trace, Trigger, Varner are 2.92546 0.632188 271.023 -2.93399 0.963855 0 1 0
+peakVal, SNR is 0.632188 156.337
+lat, lon is -61.2708 115.789
+pixel_num is 2921
+RUN NUMBER: 261
+eventNumber, run and pol are 27146983,261,1
+filename_max is 4096 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run261/headFile261.root
+here! 
+fCurrentBaseDir is /data/anita/anitaplus/AnitaFlight0809RootData
+Eventname is /data/anita/anitaplus/AnitaFlight0809RootData/run261/calEventFile261.root
+loading sim head file! 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run261/headFile261.root
+broke at extra = 1
+Couldn't open: /home/dailey.110/analysis/testrun/ssDataAndToolsgpsSsFile261.root
+Opened gps: /data/anita/anitaplus/AnitaFlight0809RootData/run261/gpsFile261.root
+adding 
+added 
+about to exit 
+did ANITAGEROMTOOL 
+did ANITAEVENTCALIBRATOR 
+evententrygotten flag is 27146983
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.283068
+peakPhi is 338
+peakTheta is 0.283068 acos is 1.28381
+peakTheta is now 0.286991
+ now it is 16.4434
+Refined peak theta: 0.275134, peak Phi: 339.8, peakVal: 0.183107
+peakVal is 0.175384 peakVal in box is 0.175384
+peakTheta is 0.283068 refinedPeakTheta is 0.275134
+refinedpeakPhi and peakPhi are 339.8 338
+max_theta_cos is 0.0905174 step_size is 0.00498963
+peakThetaInterp is 0.274036
+peakThetaInterp is 15.9046
+peakPhiInterp is 339.836
+max_timeExpected is 8.06546
+power SNR_coherent is 9.18198
+noiseFlag is 0
+max_timeExpected is 8.06546
+Theta,phi are 15.9046 339.836
+polFractionCoherent is 0.937453
+SNR_coherent vs SNR is 9.18198 5.78495
+peakAnt is 17
+peakHilbertCoherent is 40.28 peakVal is 0.175384
+Theta_interp is 15.9046 phi_interp is 339.836
+deltaTheta is 8.85007 deltaPhi is -117.706
+varnerflag 1,2 are 0 0
+Please wait while I create the continent...
+[Antarctica::readRAMPDEM]  Finished reading in RAMP DEM data.
+[Antarctica::readBFieldData] Reading in information on Antarctic geomagnetic fields from file /data/anita/btdailey/analysis_info/anita_new_root/analysis/hoover/analysis_code/analysis_input_files/anita_bfield_3km.dat...
+...finished reading in geomagnetic field data.
+Finished constructing Antarctica.  Thank you for your patience.
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -83.2062 -162.124 35482.3 26.6866 1.84838 5.93126
+true_source is -315346 66879.3 6.35162e+06
+Anita is at -724465 -233658 6.34705e+06
+x_dir, y_dir, z_dir is -0.375985 -0.853794 -0.360098
+source is -772945 -343747 6.30062e+06
+sourceLat,Lon are -82.4037 -156.024
+distance from source is 128941
+sourceLon, Lat, Alt are -156.024 -82.4037 26.9006
+going through whichPol == 1
+peakTheta,Phi are 0.283068 338
+peakTheta before refined is 0.283068
+peakPhi is 342
+peakTheta is 0.283068 acos is 1.28381
+peakTheta is now 0.286991
+ now it is 16.4434
+Refined peak theta: 0.280123, peak Phi: 341.4, peakVal: 0.695413
+peakVal is 0.692144 peakVal in box is 0.692144
+peakTheta is 0.283068 refinedPeakTheta is 0.280123
+refinedpeakPhi and peakPhi are 341.4 342
+max_theta_cos is 0.0905174 step_size is 0.00498963
+peakThetaInterp is 0.280522
+peakThetaInterp is 16.2914
+peakPhiInterp is 341.388
+max_timeExpected is 8.10327
+power SNR_coherent is 320.751
+noiseFlag is 0
+max_timeExpected is 8.10327
+SNR_coherent vs SNR is 320.751 53.1626
+peakAnt is 16
+peakHilbertCoherent is 289.724 peakVal is 0.692144
+Theta_interp is 16.2914 phi_interp is 341.388
+deltaTheta is 9.23688 deltaPhi is -116.154
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -83.2062 -162.124 35482.3 26.6866 1.85513 5.95834
+true_source is -315346 66879.3 6.35162e+06
+Anita is at -724465 -233658 6.34705e+06
+x_dir, y_dir, z_dir is -0.397778 -0.84033 -0.368263
+source is -774590 -339551 6.30065e+06
+sourceLat,Lon are -82.4054 -156.329
+distance from source is 126014
+sourceLon, Lat, Alt are -156.329 -82.4054 26.7396
+passed point this event 
+
+
+ratio, peakVal, hilbert, thetaMap, PolFrac, Trace, Trigger, Varner are 3.00292 0.692144 289.724 -16.2914 0.937398 0 1 0
+peakVal, SNR is 0.692144 320.751
+lat, lon is -82.4054 -156.329
+pixel_num is 3060

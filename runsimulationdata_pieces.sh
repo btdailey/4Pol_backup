@@ -20,11 +20,11 @@ source /home/dailey.110/.bash_profile
 if ((FILTER == 0)) 
 then OUTPUT_DIR=no_fill
     elif((FILTER ==1))
-then OUTPUT_DIR=Abby
+then OUTPUT_DIR=Abby_1213
     elif((FILTER == 2))
 then OUTPUT_DIR=wiener
     elif((FILTER == 3))
-then OUTPUT_DIR=Kotera_4pol_partial_large
+then OUTPUT_DIR=Kotera_4pol_partial_large_0301
     elif((FILTER == 4)) 
 then OUTPUT_DIR=no_filter
     elif((FILTER == 5))

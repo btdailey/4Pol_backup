@@ -1,0 +1,3522 @@
+Local dir is /home/dailey.110
+argc is 7
+RUN NUMBER: 229
+Error in <TFile::TFile>: file /data/anita/anitaplus/AnitaFlight0809RootData/run229/calEventFile229_2.root does not exist
+Error in <TFile::TFile>: file /data/anita/anitaplus/AnitaFlight0809RootData/SimulatedAnitaHeadFile1.root does not exist
+filter_num, phase num,normalization are 1,0 0
+filename_max is 4096 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run229/headFile229.root
+here! 
+fCurrentBaseDir is /data/anita/anitaplus/AnitaFlight0809RootData
+Eventname is /data/anita/anitaplus/AnitaFlight0809RootData/run229/calEventFile229.root
+loading sim head file! 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run229/headFile229.root
+broke at extra = 1
+0xc8baf0	0xf76790
+142599	142599
+Opened gps: /home/dailey.110/analysis_oindree/testrun/ssDataAndToolsgpsSsFile229.root
+adding 
+added 
+about to exit 
+did ANITAGEROMTOOL 
+reading the rampdem data
+[RampdemReader::readRAMPDEM]  Finished reading in RAMP DEM data.
+did ANITAEVENTCALIBRATOR 
+eventTree_flag is 0
+notchFilterFlag is 1
+thermalSample is 0
+current_dir is /tmp/pulser/229/27000/1/0/Run27000
+outputting to file: /tmp/pulser/229/27000/1/0/Run27000/output229_27000.root
+setting up tree 
+Started event 
+thermal and taylor flag is 0 0
+Number of entries in the ground pulser tree: 2161720
+here after saturated 
+channel, mainrfcm, bigenough, dcoffset, shorttraceflag is -1,1,1,0,0
+inside the if statement. should point next 
+evententrygotten flag is 23599901
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.835343
+peakPhi is 278
+peakTheta is 0.835343 acos is 0.582039
+peakTheta is now 0.988757
+ now it is 56.6516
+Refined peak theta: 0.823582, peak Phi: 275.3, peakVal: 43.8178
+peakVal is 0.0401301 peakVal in box is 0.0401301
+peakTheta is 0.835343 refinedPeakTheta is 0.823582
+refinedpeakPhi and peakPhi are 275.3 278
+max_theta_cos is 0.712046 step_size is 0.00285991
+peakThetaInterp is 0.824183
+peakThetaInterp is 55.5057
+peakPhiInterp is 275.402
+max_timeExpected is 11.9111
+power SNR_coherent is 14.6778
+noiseFlag is 1
+max_timeExpected is 11.9111
+Theta,phi are 55.5057 275.402
+polFractionCoherent is 0.148632
+SNR_coherent vs SNR is 14.6778 2.84135
+peakAnt is 31
+peakHilbertCoherent is 14.3557 peakVal is 0.0401301
+Theta_interp is 55.5057 phi_interp is 275.402
+deltaTheta is 45.9965 deltaPhi is 20.2508
+varnerflag 1,2 are 0 0
+Please wait while I create the continent...
+[Antarctica::readRAMPDEM]  Finished reading in RAMP DEM data.
+[Antarctica::readBFieldData] Reading in information on Antarctic geomagnetic fields from file /data/anita/btdailey/analysis_info/anita_new_root/analysis/hoover/analysis_code/analysis_input_files/anita_bfield_3km.dat...
+...finished reading in geomagnetic field data.
+Finished constructing Antarctica.  Thank you for your patience.
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 2.53955 4.80667
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.351331 0.560729 -0.749766
+source is 385586 -756396 6.30028e+06
+sourceLat,Lon are -82.376 -62.989
+distance from source is 41943
+sourceLon, Lat, Alt are -62.989 -82.376 93.531
+going through whichPol == 1
+peakTheta,Phi are 0.835343 278
+peakTheta before refined is -0.177162
+peakPhi is 142
+peakTheta is -0.177162 acos is 1.7489
+peakTheta is now -0.178102
+ now it is -10.2045
+Refined peak theta: -0.181438, peak Phi: 141.7, peakVal: 32.6313
+peakVal is 0.034123 peakVal in box is 0.00979492
+peakTheta is -0.177162 refinedPeakTheta is -0.181438
+refinedpeakPhi and peakPhi are 141.7 142
+max_theta_cos is -0.365763 step_size is 0.00512012
+peakThetaInterp is -0.180926
+peakThetaInterp is -10.4237
+peakPhiInterp is 141.676
+max_timeExpected is 2.47857
+power SNR_coherent is 2.7074
+noiseFlag is 0
+max_timeExpected is 2.47857
+SNR_coherent vs SNR is 2.7074 2.31438
+peakAnt is 22
+peakHilbertCoherent is 33.0895 peakVal is 0.034123
+Theta_interp is -10.4237 phi_interp is 141.676
+deltaTheta is -19.933 deltaPhi is -113.475
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.38887 2.47271
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.222459 -0.970721 0.0906294
+MISSED ANTARCTICA! HEIGHT 
+distance from source is 41943
+sourceLon, Lat, Alt are -92.8069 -63.9963 945173
+eventnumber is 23599901 0 passed, 0% 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 2.53955 4.80667
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.351331 0.560729 -0.749766
+source is 385586 -756396 6.30028e+06
+sourceLat,Lon are -82.376 -62.989
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.38887 2.47271
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.222459 -0.970721 0.0906294
+MISSED ANTARCTICA! HEIGHT 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.5708 0
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.787135 0.616421 0.0210519
+MISSED ANTARCTICA! HEIGHT 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.5708 0
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.787135 0.616421 0.0210519
+MISSED ANTARCTICA! HEIGHT 
+Event: 23599901, the time is Sun Jun 18 05:29:10.121 
+Started event 
+thermal and taylor flag is 0 0
+here after saturated 
+channel, mainrfcm, bigenough, dcoffset, shorttraceflag is -1,1,1,0,0
+inside the if statement. should point next 
+evententrygotten flag is 23599902
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.31375
+peakPhi is 58
+peakTheta is 0.31375 acos is 1.25166
+peakTheta is now 0.319139
+ now it is 18.2853
+Refined peak theta: 0.310191, peak Phi: 56.8, peakVal: 38.926
+peakVal is 0.0370809 peakVal in box is 0.0370809
+peakTheta is 0.31375 refinedPeakTheta is 0.310191
+refinedpeakPhi and peakPhi are 56.8 58
+max_theta_cos is 0.122482 step_size is 0.00493972
+peakThetaInterp is 0.311475
+peakThetaInterp is 18.1482
+peakPhiInterp is 56.689
+max_timeExpected is 8.52534
+power SNR_coherent is 6.91473
+noiseFlag is 1
+max_timeExpected is 8.52534
+Theta,phi are 18.1482 56.689
+polFractionCoherent is 0.14677
+SNR_coherent vs SNR is 6.91473 2.92211
+peakAnt is 20
+peakHilbertCoherent is 11.0192 peakVal is 0.0370809
+Theta_interp is 18.1482 phi_interp is 56.689
+deltaTheta is 8.63888 deltaPhi is 161.538
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.88754 0.98941
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.8807 -0.264584 -0.392891
+source is 504795 -811301 6.28512e+06
+sourceLat,Lon are -81.4125 -58.1099
+distance from source is 118625
+sourceLon, Lat, Alt are -58.1099 -81.4125 104.868
+going through whichPol == 1
+peakTheta,Phi are 0.31375 58
+peakTheta before refined is -0.238526
+peakPhi is 142
+peakTheta is -0.238526 acos is 1.81164
+peakTheta is now -0.240848
+ now it is -13.7996
+Refined peak theta: -0.236469, peak Phi: 141.4, peakVal: 38.1408
+peakVal is 0.038644 peakVal in box is 0.0251457
+peakTheta is -0.238526 refinedPeakTheta is -0.236469
+refinedpeakPhi and peakPhi are 141.4 142
+max_theta_cos is -0.423402 step_size is 0.00505225
+peakThetaInterp is -0.235358
+peakThetaInterp is -13.6127
+peakPhiInterp is 141.349
+max_timeExpected is 1.92834
+power SNR_coherent is 1.2054
+noiseFlag is 0
+max_timeExpected is 1.92834
+SNR_coherent vs SNR is 1.2054 2.76085
+peakAnt is 24
+peakHilbertCoherent is 27.049 peakVal is 0.038644
+Theta_interp is -13.6127 phi_interp is 141.349
+deltaTheta is -23.122 deltaPhi is -113.802
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.33321 2.46701
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.211225 -0.966583 0.145263
+MISSED ANTARCTICA! HEIGHT 
+distance from source is 118625
+sourceLon, Lat, Alt are -92.5708 -64.0014 1.11121e+06
+eventnumber is 23599902 0 passed, 0% 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.88754 0.98941
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.8807 -0.264584 -0.392891
+source is 504795 -811301 6.28512e+06
+sourceLat,Lon are -81.4125 -58.1099
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.33321 2.46701
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.211225 -0.966583 0.145263
+MISSED ANTARCTICA! HEIGHT 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.5708 0
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.787135 0.616421 0.0210519
+MISSED ANTARCTICA! HEIGHT 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.5708 0
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.787135 0.616421 0.0210519
+MISSED ANTARCTICA! HEIGHT 
+Event: 23599902, the time is Sun Jun 18 05:29:15.497 
+Started event 
+thermal and taylor flag is 0 0
+here after saturated 
+channel, mainrfcm, bigenough, dcoffset, shorttraceflag is -1,1,1,0,0
+inside the if statement. should point next 
+evententrygotten flag is 23599903
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.0682936
+peakPhi is 262
+peakTheta is 0.0682936 acos is 1.50245
+peakTheta is now 0.0683468
+ now it is 3.91598
+Refined peak theta: 0.0747668, peak Phi: 262, peakVal: 39.3071
+peakVal is 0.0390875 peakVal in box is 0.0390875
+peakTheta is 0.0682936 refinedPeakTheta is 0.0747668
+refinedpeakPhi and peakPhi are 262 262
+max_theta_cos is -0.127653 step_size is 0.00519026
+peakThetaInterp is 0.073054
+peakThetaInterp is 4.18942
+peakPhiInterp is 262.072
+max_timeExpected is 5.40834
+power SNR_coherent is 1.44417
+noiseFlag is 1
+max_timeExpected is 5.40834
+Theta,phi are 4.18942 262.072
+polFractionCoherent is 0.157309
+SNR_coherent vs SNR is 1.44417 4.91388
+peakAnt is 15
+peakHilbertCoherent is 11.7772 peakVal is 0.0390875
+Theta_interp is 4.18942 phi_interp is 262.072
+deltaTheta is -5.31986 deltaPhi is 6.92081
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.64392 4.57402
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.719087 0.693627 0.0423746
+MISSED ANTARCTICA! HEIGHT 
+distance from source is 118625
+sourceLon, Lat, Alt are 140.561 -61.2985 1.07999e+06
+going through whichPol == 1
+peakTheta,Phi are 0.0682936 262
+peakTheta before refined is 0.405796
+peakPhi is 98
+peakTheta is 0.405796 acos is 1.15295
+peakTheta is now 0.417849
+ now it is 23.941
+Refined peak theta: 0.40513, peak Phi: 99.2, peakVal: 44.347
+peakVal is 0.0424421 peakVal in box is 0.00835021
+peakTheta is 0.405796 refinedPeakTheta is 0.40513
+refinedpeakPhi and peakPhi are 99.2 98
+max_theta_cos is 0.219693 step_size is 0.00475481
+peakThetaInterp is 0.407365
+peakThetaInterp is 24.0394
+peakPhiInterp is 99.209
+max_timeExpected is 9.00325
+power SNR_coherent is 1.70397
+noiseFlag is 0
+max_timeExpected is 9.00325
+SNR_coherent vs SNR is 1.70397 2.72778
+peakAnt is 20
+peakHilbertCoherent is 27.1784 peakVal is 0.0424421
+Theta_interp is 24.0394 phi_interp is 99.209
+deltaTheta is 14.5302 deltaPhi is -155.942
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.99036 1.73152
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.415341 -0.749885 -0.514941
+source is 437703 -847405 6.28538e+06
+sourceLat,Lon are -81.4284 -62.6827
+distance from source is 90001
+sourceLon, Lat, Alt are -62.6827 -81.4284 101.837
+eventnumber is 23599903 0 passed, 0% 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.64392 4.57402
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.719087 0.693627 0.0423746
+MISSED ANTARCTICA! HEIGHT 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.99036 1.73152
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.415341 -0.749885 -0.514941
+source is 437703 -847405 6.28538e+06
+sourceLat,Lon are -81.4284 -62.6827
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.5708 0
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.787135 0.616421 0.0210519
+MISSED ANTARCTICA! HEIGHT 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.5708 0
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.787135 0.616421 0.0210519
+MISSED ANTARCTICA! HEIGHT 
+Event: 23599903, the time is Sun Jun 18 05:29:17.711 
+Started event 
+thermal and taylor flag is 0 0
+here after saturated 
+channel, mainrfcm, bigenough, dcoffset, shorttraceflag is -1,1,1,0,0
+inside the if statement. should point next 
+evententrygotten flag is 23599904
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.804661
+peakPhi is 120
+peakTheta is 0.804661 acos is 0.635691
+peakTheta is now 0.935105
+ now it is 53.5776
+Refined peak theta: 0.837077, peak Phi: 136.5, peakVal: 40.2355
+peakVal is 0.0356601 peakVal in box is 0.0356601
+peakTheta is 0.804661 refinedPeakTheta is 0.837077
+refinedpeakPhi and peakPhi are 136.5 120
+max_theta_cos is 0.673368 step_size is 0.00308885
+peakThetaInterp is 0.836336
+peakThetaInterp is 56.7552
+peakPhiInterp is 136.392
+max_timeExpected is 14.3647
+power SNR_coherent is 14.0342
+noiseFlag is 1
+max_timeExpected is 14.3647
+Theta,phi are 56.7552 136.392
+polFractionCoherent is 0.153949
+SNR_coherent vs SNR is 14.0342 2.65227
+peakAnt is 12
+peakHilbertCoherent is 10.0867 peakVal is 0.0356601
+Theta_interp is 56.7552 phi_interp is 136.392
+deltaTheta is 47.2459 deltaPhi is -118.759
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 2.56136 2.38049
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.127978 -0.450363 -0.883626
+source is 394930 -798892 6.29449e+06
+sourceLat,Lon are -81.9948 -63.6947
+distance from source is 42137
+sourceLon, Lat, Alt are -63.6947 -81.9948 95.267
+going through whichPol == 1
+peakTheta,Phi are 0.804661 120
+peakTheta before refined is -0.177162
+peakPhi is 154
+peakTheta is -0.177162 acos is 1.7489
+peakTheta is now -0.178102
+ now it is -10.2045
+Refined peak theta: -0.171198, peak Phi: 154.6, peakVal: 37.5361
+peakVal is 0.0351935 peakVal in box is 0.00482472
+peakTheta is -0.177162 refinedPeakTheta is -0.171198
+refinedpeakPhi and peakPhi are 154.6 154
+max_theta_cos is -0.365763 step_size is 0.00512012
+peakThetaInterp is -0.17084
+peakThetaInterp is -9.83665
+peakPhiInterp is 154.486
+max_timeExpected is 2.60472
+power SNR_coherent is 2.18734
+noiseFlag is 0
+max_timeExpected is 2.60472
+SNR_coherent vs SNR is 2.18734 3.67775
+peakAnt is 23
+peakHilbertCoherent is 22.2727 peakVal is 0.0351935
+Theta_interp is -9.83665 phi_interp is 154.486
+deltaTheta is -19.3459 deltaPhi is -100.665
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.39911 2.69629
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.429541 -0.897465 0.100257
+MISSED ANTARCTICA! HEIGHT 
+distance from source is 42137
+sourceLon, Lat, Alt are -103.519 -63.3133 1.04277e+06
+eventnumber is 23599904 0 passed, 0% 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 2.56136 2.38049
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.127978 -0.450363 -0.883626
+source is 394930 -798892 6.29449e+06
+sourceLat,Lon are -81.9948 -63.6947
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.39911 2.69629
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.429541 -0.897465 0.100257
+MISSED ANTARCTICA! HEIGHT 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.5708 0
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.787135 0.616421 0.0210519
+MISSED ANTARCTICA! HEIGHT 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.5708 0
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.787135 0.616421 0.0210519
+MISSED ANTARCTICA! HEIGHT 
+Event: 23599904, the time is Sun Jun 18 05:29:19.878 
+Started event 
+thermal and taylor flag is 0 0
+here after saturated 
+channel, mainrfcm, bigenough, dcoffset, shorttraceflag is -1,1,1,0,0
+inside the if statement. should point next 
+evententrygotten flag is 23599905
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.0682936
+peakPhi is 142
+peakTheta is 0.0682936 acos is 1.50245
+peakTheta is now 0.0683468
+ now it is 3.91598
+Refined peak theta: 0.0643862, peak Phi: 140.2, peakVal: 52.5132
+peakVal is 0.0520166 peakVal in box is 0.0520166
+peakTheta is 0.0682936 refinedPeakTheta is 0.0643862
+refinedpeakPhi and peakPhi are 140.2 142
+max_theta_cos is -0.127653 step_size is 0.00519026
+peakThetaInterp is 0.0624139
+peakThetaInterp is 3.57838
+peakPhiInterp is 140.239
+max_timeExpected is 4.85408
+power SNR_coherent is 84.0402
+noiseFlag is 1
+max_timeExpected is 4.85408
+Theta,phi are 3.57838 140.239
+polFractionCoherent is 0.132887
+SNR_coherent vs SNR is 84.0402 3.10794
+peakAnt is 12
+peakHilbertCoherent is 12.4611 peakVal is 0.0520166
+Theta_interp is 3.57838 phi_interp is 140.239
+deltaTheta is -5.93089 deltaPhi is -114.912
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.63325 2.44763
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.215443 -0.964261 -0.154223
+MISSED ANTARCTICA! HEIGHT 
+distance from source is 42137
+sourceLon, Lat, Alt are -91.5846 -64.0206 307374
+going through whichPol == 1
+peakTheta,Phi are 0.0682936 142
+peakTheta before refined is 0.0376116
+peakPhi is 144
+peakTheta is 0.0376116 acos is 1.53318
+peakTheta is now 0.0376205
+ now it is 2.1555
+Refined peak theta: 0.044687, peak Phi: 144.9, peakVal: 63.5604
+peakVal is 0.0621129 peakVal in box is 0.0621129
+peakTheta is 0.0376116 refinedPeakTheta is 0.044687
+refinedpeakPhi and peakPhi are 144.9 144
+max_theta_cos is -0.158063 step_size is 0.00519873
+peakThetaInterp is 0.0431274
+peakThetaInterp is 2.47178
+peakPhiInterp is 144.867
+max_timeExpected is 4.54025
+power SNR_coherent is 1.1798
+noiseFlag is 0
+max_timeExpected is 4.54025
+SNR_coherent vs SNR is 1.1798 3.75999
+peakAnt is 12
+peakHilbertCoherent is 24.2672 peakVal is 0.0621129
+Theta_interp is 2.47178 phi_interp is 144.867
+deltaTheta is -7.03749 deltaPhi is -110.284
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.61394 2.52841
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.292506 -0.947581 -0.128568
+MISSED ANTARCTICA! HEIGHT 
+distance from source is 42137
+sourceLon, Lat, Alt are -95.2638 -63.9225 367367
+eventnumber is 23599905 0 passed, 0% 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.63325 2.44763
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.215443 -0.964261 -0.154223
+MISSED ANTARCTICA! HEIGHT 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.61394 2.52841
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.292506 -0.947581 -0.128568
+MISSED ANTARCTICA! HEIGHT 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.5708 0
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.787135 0.616421 0.0210519
+MISSED ANTARCTICA! HEIGHT 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.5708 0
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.787135 0.616421 0.0210519
+MISSED ANTARCTICA! HEIGHT 
+Event: 23599905, the time is Sun Jun 18 05:29:22.105 
+Started event 
+thermal and taylor flag is 0 0
+here after saturated 
+channel, mainrfcm, bigenough, dcoffset, shorttraceflag is -1,1,1,0,0
+inside the if statement. should point next 
+evententrygotten flag is 23599906
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.0682936
+peakPhi is 144
+peakTheta is 0.0682936 acos is 1.50245
+peakTheta is now 0.0683468
+ now it is 3.91598
+Refined peak theta: 0.079957, peak Phi: 144.3, peakVal: 62.8046
+peakVal is 0.0595301 peakVal in box is 0.0595301
+peakTheta is 0.0682936 refinedPeakTheta is 0.079957
+refinedpeakPhi and peakPhi are 144.3 144
+max_theta_cos is -0.127653 step_size is 0.00519026
+peakThetaInterp is 0.0790228
+peakThetaInterp is 4.5324
+peakPhiInterp is 144.33
+max_timeExpected is 4.8806
+power SNR_coherent is 1.29608
+noiseFlag is 0
+max_timeExpected is 4.8806
+Theta,phi are 4.5324 144.33
+polFractionCoherent is 0.364302
+SNR_coherent vs SNR is 1.29608 2.98836
+peakAnt is 23
+peakHilbertCoherent is 12.596 peakVal is 0.0595301
+Theta_interp is 4.5324 phi_interp is 144.33
+deltaTheta is -4.97688 deltaPhi is -110.821
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.6499 2.51903
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.28498 -0.944259 -0.164805
+MISSED ANTARCTICA! HEIGHT 
+distance from source is 42137
+sourceLon, Lat, Alt are -94.8174 -63.9365 279612
+going through whichPol == 1
+peakTheta,Phi are 0.0682936 144
+peakTheta before refined is 0.0989756
+peakPhi is 142
+peakTheta is 0.0989756 acos is 1.47166
+peakTheta is now 0.0991379
+ now it is 5.68018
+Refined peak theta: 0.0944854, peak Phi: 141.4, peakVal: 69.3874
+peakVal is 0.0714263 peakVal in box is 0.0714263
+peakTheta is 0.0989756 refinedPeakTheta is 0.0944854
+refinedpeakPhi and peakPhi are 141.4 142
+max_theta_cos is -0.0970586 step_size is 0.00517686
+peakThetaInterp is 0.0950031
+peakThetaInterp is 5.4515
+peakPhiInterp is 141.418
+max_timeExpected is 5.11691
+power SNR_coherent is 2.49733
+noiseFlag is 0
+max_timeExpected is 5.11691
+SNR_coherent vs SNR is 2.49733 3.65205
+peakAnt is 24
+peakHilbertCoherent is 33.8152 peakVal is 0.0714263
+Theta_interp is 5.4515 phi_interp is 141.418
+deltaTheta is -4.05778 deltaPhi is -113.733
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.66594 2.46821
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.236694 -0.953864 -0.184713
+MISSED ANTARCTICA! HEIGHT 
+distance from source is 42137
+sourceLon, Lat, Alt are -92.4961 -64.0034 234386
+eventnumber is 23599906 0 passed, 0% 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.6499 2.51903
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.28498 -0.944259 -0.164805
+MISSED ANTARCTICA! HEIGHT 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.66594 2.46821
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.236694 -0.953864 -0.184713
+MISSED ANTARCTICA! HEIGHT 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.5708 0
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.787135 0.616421 0.0210519
+MISSED ANTARCTICA! HEIGHT 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.5708 0
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.787135 0.616421 0.0210519
+MISSED ANTARCTICA! HEIGHT 
+Event: 23599906, the time is Sun Jun 18 05:29:24.392 
+Started event 
+thermal and taylor flag is 0 0
+here after saturated 
+channel, mainrfcm, bigenough, dcoffset, shorttraceflag is -1,1,1,0,0
+inside the if statement. should point next 
+evententrygotten flag is 23599907
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.497842
+peakPhi is 270
+peakTheta is 0.497842 acos is 1.04969
+peakTheta is now 0.521108
+ now it is 29.8573
+Refined peak theta: 0.499555, peak Phi: 270, peakVal: 37.1731
+peakVal is 0.0358644 peakVal in box is 0.0358644
+peakTheta is 0.497842 refinedPeakTheta is 0.499555
+refinedpeakPhi and peakPhi are 270 270
+max_theta_cos is 0.31908 step_size is 0.00451188
+peakThetaInterp is 0.49748
+peakThetaInterp is 29.8334
+peakPhiInterp is 270.15
+max_timeExpected is 8.99167
+power SNR_coherent is 1.99775
+noiseFlag is 0
+max_timeExpected is 8.99167
+Theta,phi are 29.8334 270.15
+polFractionCoherent is 0.0943648
+SNR_coherent vs SNR is 1.99775 3.38634
+peakAnt is 31
+peakHilbertCoherent is 11.9884 peakVal is 0.0358644
+Theta_interp is 29.8334 phi_interp is 270.15
+deltaTheta is 20.3241 deltaPhi is 14.9988
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 2.09149 4.71501
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.559352 0.731277 -0.390332
+source is 361773 -729517 6.30482e+06
+sourceLat,Lon are -82.6895 -63.6228
+distance from source is 68917
+sourceLon, Lat, Alt are -63.6228 -82.6895 90.7487
+going through whichPol == 1
+peakTheta,Phi are 0.497842 270
+peakTheta before refined is 0.16034
+peakPhi is 14
+peakTheta is 0.16034 acos is 1.40976
+peakTheta is now 0.161035
+ now it is 9.22661
+Refined peak theta: 0.159826, peak Phi: 14.3, peakVal: 28.1261
+peakVal is 0.0320989 peakVal in box is 0.0210234
+peakTheta is 0.16034 refinedPeakTheta is 0.159826
+refinedpeakPhi and peakPhi are 14.3 14
+max_theta_cos is -0.0353075 step_size is 0.0051351
+peakThetaInterp is 0.161264
+peakThetaInterp is 9.28028
+peakPhiInterp is 14.327
+max_timeExpected is 5.92458
+power SNR_coherent is 117.655
+noiseFlag is 1
+max_timeExpected is 5.92458
+SNR_coherent vs SNR is 117.655 2.47025
+peakAnt is 16
+peakHilbertCoherent is 26.696 peakVal is 0.0320989
+Theta_interp is 9.28028 phi_interp is 14.327
+deltaTheta is -0.228998 deltaPhi is 119.176
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.73277 0.250053
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.893449 0.41613 -0.169068
+source is 616863 -679059 6.29075e+06
+sourceLat,Lon are -81.7575 -47.7477
+distance from source is 242365
+sourceLon, Lat, Alt are -47.7477 -81.7575 96.982
+eventnumber is 23599907 0 passed, 0% 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 2.09149 4.71501
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.559352 0.731277 -0.390332
+source is 361773 -729517 6.30482e+06
+sourceLat,Lon are -82.6895 -63.6228
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.73277 0.250053
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.893449 0.41613 -0.169068
+source is 616863 -679059 6.29075e+06
+sourceLat,Lon are -81.7575 -47.7477
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.5708 0
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.787135 0.616421 0.0210519
+MISSED ANTARCTICA! HEIGHT 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.5708 0
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.787135 0.616421 0.0210519
+MISSED ANTARCTICA! HEIGHT 
+Event: 23599907, the time is Sun Jun 18 05:29:26.770 
+Started event 
+thermal and taylor flag is 0 0
+here after saturated 
+channel, mainrfcm, bigenough, dcoffset, shorttraceflag is -1,1,1,0,0
+inside the if statement. should point next 
+evententrygotten flag is 23599908
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is -0.238526
+peakPhi is 276
+peakTheta is -0.238526 acos is 1.81164
+peakTheta is now -0.240848
+ now it is -13.7996
+Refined peak theta: -0.236469, peak Phi: 277.2, peakVal: 57.6427
+peakVal is 0.055749 peakVal in box is 0.055749
+peakTheta is -0.238526 refinedPeakTheta is -0.236469
+refinedpeakPhi and peakPhi are 277.2 276
+max_theta_cos is -0.423402 step_size is 0.00505225
+peakThetaInterp is -0.237227
+peakThetaInterp is -13.7229
+peakPhiInterp is 277.236
+max_timeExpected is 2.70349
+power SNR_coherent is 2.24667
+noiseFlag is 0
+max_timeExpected is 2.70349
+Theta,phi are -13.7229 277.236
+polFractionCoherent is 0.0519568
+SNR_coherent vs SNR is 2.24667 2.80301
+peakAnt is 31
+peakHilbertCoherent is 14.4121 peakVal is 0.055749
+Theta_interp is -13.7229 phi_interp is 277.236
+deltaTheta is -23.2322 deltaPhi is 22.0848
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.33129 4.83868
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.481995 0.801929 0.352973
+MISSED ANTARCTICA! LAT 
+distance from source is 242365
+sourceLon, Lat, Alt are 121.687 -59.9965 3.49533e+06
+going through whichPol == 1
+peakTheta,Phi are -0.238526 276
+peakTheta before refined is 0.191022
+peakPhi is 344
+peakTheta is 0.191022 acos is 1.37859
+peakTheta is now 0.192203
+ now it is 11.0124
+Refined peak theta: 0.200118, peak Phi: 341.3, peakVal: 40.4977
+peakVal is 0.0424981 peakVal in box is 0.0271656
+peakTheta is 0.191022 refinedPeakTheta is 0.200118
+refinedpeakPhi and peakPhi are 341.3 344
+max_theta_cos is -0.00414674 step_size is 0.00510661
+peakThetaInterp is 0.199505
+peakThetaInterp is 11.508
+peakPhiInterp is 341.348
+max_timeExpected is 6.73601
+power SNR_coherent is 451.189
+noiseFlag is 1
+max_timeExpected is 6.73601
+SNR_coherent vs SNR is 451.189 2.29683
+peakAnt is 16
+peakHilbertCoherent is 28.4927 peakVal is 0.0424981
+Theta_interp is 11.508 phi_interp is 341.348
+deltaTheta is 1.99873 deltaPhi is 86.1968
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.77165 5.95765
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.52695 0.838098 -0.141122
+source is 491774 -634463 6.30723e+06
+sourceLat,Lon are -82.7949 -52.2206
+distance from source is 173550
+sourceLon, Lat, Alt are -52.2206 -82.7949 1019.96
+eventnumber is 23599908 0 passed, 0% 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.33129 4.83868
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.481995 0.801929 0.352973
+MISSED ANTARCTICA! LAT 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.77165 5.95765
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.52695 0.838098 -0.141122
+source is 491774 -634463 6.30723e+06
+sourceLat,Lon are -82.7949 -52.2206
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.5708 0
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.787135 0.616421 0.0210519
+MISSED ANTARCTICA! HEIGHT 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.5708 0
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.787135 0.616421 0.0210519
+MISSED ANTARCTICA! HEIGHT 
+Event: 23599908, the time is Sun Jun 18 05:29:29.232 
+Started event 
+thermal and taylor flag is 0 0
+here after saturated 
+channel, mainrfcm, bigenough, dcoffset, shorttraceflag is -1,1,1,0,0
+inside the if statement. should point next 
+evententrygotten flag is 23599909
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.0682936
+peakPhi is 54
+peakTheta is 0.0682936 acos is 1.50245
+peakTheta is now 0.0683468
+ now it is 3.91598
+Refined peak theta: 0.079957, peak Phi: 55.5, peakVal: 52.4649
+peakVal is 0.0496425 peakVal in box is 0.0496425
+peakTheta is 0.0682936 refinedPeakTheta is 0.079957
+refinedpeakPhi and peakPhi are 55.5 54
+max_theta_cos is -0.127653 step_size is 0.00519026
+peakThetaInterp is 0.080528
+peakThetaInterp is 4.61891
+peakPhiInterp is 55.482
+max_timeExpected is 4.61485
+power SNR_coherent is 7.56184
+noiseFlag is 1
+max_timeExpected is 4.61485
+Theta,phi are 4.61891 55.482
+polFractionCoherent is 0.386147
+SNR_coherent vs SNR is 7.56184 3.30901
+peakAnt is 21
+peakHilbertCoherent is 13.1869 peakVal is 0.0496425
+Theta_interp is 4.61891 phi_interp is 55.482
+deltaTheta is -4.89036 deltaPhi is 160.331
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.65141 0.968344
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.944368 -0.28394 -0.165975
+MISSED ANTARCTICA! HEIGHT 
+distance from source is 173550
+sourceLon, Lat, Alt are -29.4371 -64.4221 257477
+going through whichPol == 1
+peakTheta,Phi are 0.0682936 54
+peakTheta before refined is 0.0989756
+peakPhi is 56
+peakTheta is 0.0989756 acos is 1.47166
+peakTheta is now 0.0991379
+ now it is 5.68018
+Refined peak theta: 0.104839, peak Phi: 56.9, peakVal: 55.3952
+peakVal is 0.0517092 peakVal in box is 0.0517092
+peakTheta is 0.0989756 refinedPeakTheta is 0.104839
+refinedpeakPhi and peakPhi are 56.9 56
+max_theta_cos is -0.0970586 step_size is 0.00517686
+peakThetaInterp is 0.104218
+peakThetaInterp is 5.98211
+peakPhiInterp is 56.864
+max_timeExpected is 5.02655
+power SNR_coherent is 1.61011
+noiseFlag is 0
+max_timeExpected is 5.02655
+SNR_coherent vs SNR is 1.61011 3.50032
+peakAnt is 9
+peakHilbertCoherent is 28.0649 peakVal is 0.0517092
+Theta_interp is 5.98211 phi_interp is 56.864
+deltaTheta is -3.52717 deltaPhi is 161.713
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.6752 0.992464
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.933438 -0.303467 -0.191313
+MISSED ANTARCTICA! HEIGHT 
+distance from source is 173550
+sourceLon, Lat, Alt are -30.4175 -64.1812 207670
+eventnumber is 23599909 0 passed, 0% 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.65141 0.968344
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.944368 -0.28394 -0.165975
+MISSED ANTARCTICA! HEIGHT 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.6752 0.992464
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.933438 -0.303467 -0.191313
+MISSED ANTARCTICA! HEIGHT 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.5708 0
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.787135 0.616421 0.0210519
+MISSED ANTARCTICA! HEIGHT 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.5708 0
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.787135 0.616421 0.0210519
+MISSED ANTARCTICA! HEIGHT 
+Event: 23599909, the time is Sun Jun 18 05:29:31.435 
+Started event 
+thermal and taylor flag is 0 0
+here after saturated 
+channel, mainrfcm, bigenough, dcoffset, shorttraceflag is -1,1,1,0,0
+inside the if statement. should point next 
+evententrygotten flag is 23599910
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.129658
+peakPhi is 236
+peakTheta is 0.129658 acos is 1.44077
+peakTheta is now 0.130024
+ now it is 7.44981
+Refined peak theta: 0.119429, peak Phi: 238.4, peakVal: 46.9618
+peakVal is 0.0440369 peakVal in box is 0.0440369
+peakTheta is 0.129658 refinedPeakTheta is 0.119429
+refinedpeakPhi and peakPhi are 238.4 236
+max_theta_cos is -0.0662773 step_size is 0.00515849
+peakThetaInterp is 0.117829
+peakThetaInterp is 6.76685
+peakPhiInterp is 238.313
+max_timeExpected is 4.88696
+power SNR_coherent is 1.81174
+noiseFlag is 0
+max_timeExpected is 4.88696
+Theta,phi are 6.76685 238.313
+polFractionCoherent is 0.143956
+SNR_coherent vs SNR is 1.81174 3.39668
+peakAnt is 28
+peakHilbertCoherent is 13.2773 peakVal is 0.0440369
+Theta_interp is 6.76685 phi_interp is 238.313
+deltaTheta is -2.74243 deltaPhi is -16.8382
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.6889 4.15935
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.936255 0.350268 -0.0271835
+source is 93165 -665002 6.32281e+06
+sourceLat,Lon are -83.9781 -82.0249
+distance from source is 328070
+sourceLon, Lat, Alt are -82.0249 -83.9781 1374.99
+going through whichPol == 1
+peakTheta,Phi are 0.129658 236
+peakTheta before refined is 0.804661
+peakPhi is 344
+peakTheta is 0.804661 acos is 0.635691
+peakTheta is now 0.935105
+ now it is 53.5776
+Refined peak theta: 0.793833, peak Phi: 346.7, peakVal: 46.8699
+peakVal is 0.0447676 peakVal in box is 0.0161975
+peakTheta is 0.804661 refinedPeakTheta is 0.793833
+refinedpeakPhi and peakPhi are 346.7 344
+max_theta_cos is 0.673368 step_size is 0.00308885
+peakThetaInterp is 0.793648
+peakThetaInterp is 52.5277
+peakPhiInterp is 346.733
+max_timeExpected is 16.443
+power SNR_coherent is 1.66953
+noiseFlag is 0
+max_timeExpected is 16.443
+SNR_coherent vs SNR is 1.66953 3.48756
+peakAnt is 31
+peakHilbertCoherent is 29.0149 peakVal is 0.0447676
+Theta_interp is 52.5277 phi_interp is 346.733
+deltaTheta is 43.0185 deltaPhi is 91.5818
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 2.48758 6.05163
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.33505 0.55868 -0.758695
+source is 414978 -755476 6.29854e+06
+sourceLat,Lon are -82.2591 -61.2203
+distance from source is 43743
+sourceLon, Lat, Alt are -61.2203 -82.2591 98.8815
+eventnumber is 23599910 0 passed, 0% 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.6889 4.15935
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.936255 0.350268 -0.0271835
+source is 93165 -665002 6.32281e+06
+sourceLat,Lon are -83.9781 -82.0249
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 2.48758 6.05163
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.33505 0.55868 -0.758695
+source is 414978 -755476 6.29854e+06
+sourceLat,Lon are -82.2591 -61.2203
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.5708 0
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.787135 0.616421 0.0210519
+MISSED ANTARCTICA! HEIGHT 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.5708 0
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.787135 0.616421 0.0210519
+MISSED ANTARCTICA! HEIGHT 
+Event: 23599910, the time is Sun Jun 18 05:29:33.332 
+Started event 
+thermal and taylor flag is 0 0
+here after saturated 
+channel, mainrfcm, bigenough, dcoffset, shorttraceflag is -1,1,1,0,0
+inside the if statement. should point next 
+evententrygotten flag is 23599911
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.559205
+peakPhi is 124
+peakTheta is 0.559205 acos is 0.977369
+peakTheta is now 0.593427
+ now it is 34.0009
+Refined peak theta: 0.55493, peak Phi: 130.6, peakVal: 40.5208
+peakVal is 0.0328137 peakVal in box is 0.0328137
+peakTheta is 0.559205 refinedPeakTheta is 0.55493
+refinedpeakPhi and peakPhi are 130.6 124
+max_theta_cos is 0.386725 step_size is 0.00431295
+peakThetaInterp is 0.554628
+peakThetaInterp is 33.6851
+peakPhiInterp is 130.591
+max_timeExpected is 10.6066
+power SNR_coherent is 3.08923
+noiseFlag is 1
+max_timeExpected is 10.6066
+Theta,phi are 33.6851 130.591
+polFractionCoherent is 0.233815
+SNR_coherent vs SNR is 3.08923 2.11654
+peakAnt is 23
+peakHilbertCoherent is 10.6254 peakVal is 0.0328137
+Theta_interp is 33.6851 phi_interp is 130.591
+deltaTheta is 24.1758 deltaPhi is -124.56
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 2.15871 2.27924
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.0697657 -0.767459 -0.637291
+source is 395809 -829565 6.2905e+06
+sourceLat,Lon are -81.7418 -64.4929
+distance from source is 64695
+sourceLon, Lat, Alt are -64.4929 -81.7418 96.4774
+going through whichPol == 1
+peakTheta,Phi are 0.559205 124
+peakTheta before refined is 0.129658
+peakPhi is 142
+peakTheta is 0.129658 acos is 1.44077
+peakTheta is now 0.130024
+ now it is 7.44981
+Refined peak theta: 0.11427, peak Phi: 140.2, peakVal: 63.3124
+peakVal is 0.0704272 peakVal in box is 0.0244172
+peakTheta is 0.129658 refinedPeakTheta is 0.11427
+refinedpeakPhi and peakPhi are 140.2 142
+max_theta_cos is -0.0662773 step_size is 0.00515849
+peakThetaInterp is 0.114992
+peakThetaInterp is 6.60318
+peakPhiInterp is 140.233
+max_timeExpected is 5.3363
+power SNR_coherent is 1.41592
+noiseFlag is 0
+max_timeExpected is 5.3363
+SNR_coherent vs SNR is 1.41592 4.11247
+peakAnt is 24
+peakHilbertCoherent is 30.2151 peakVal is 0.0704272
+Theta_interp is 6.60318 phi_interp is 140.233
+deltaTheta is -2.9061 deltaPhi is -114.918
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.68604 2.44753
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.217349 -0.954111 -0.20599
+MISSED ANTARCTICA! HEIGHT 
+distance from source is 64695
+sourceLon, Lat, Alt are -91.5641 -64.0131 186193
+eventnumber is 23599911 0 passed, 0% 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 2.15871 2.27924
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.0697657 -0.767459 -0.637291
+source is 395809 -829565 6.2905e+06
+sourceLat,Lon are -81.7418 -64.4929
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.68604 2.44753
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.217349 -0.954111 -0.20599
+MISSED ANTARCTICA! HEIGHT 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.5708 0
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.787135 0.616421 0.0210519
+MISSED ANTARCTICA! HEIGHT 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.5708 0
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.787135 0.616421 0.0210519
+MISSED ANTARCTICA! HEIGHT 
+Event: 23599911, the time is Sun Jun 18 05:29:35.332 
+Started event 
+thermal and taylor flag is 0 0
+here after saturated 
+channel, mainrfcm, bigenough, dcoffset, shorttraceflag is -1,1,1,0,0
+inside the if statement. should point next 
+evententrygotten flag is 23599912
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.129658
+peakPhi is 98
+peakTheta is 0.129658 acos is 1.44077
+peakTheta is now 0.130024
+ now it is 7.44981
+Refined peak theta: 0.129746, peak Phi: 98.9, peakVal: 37.952
+peakVal is 0.0376622 peakVal in box is 0.0376622
+peakTheta is 0.129658 refinedPeakTheta is 0.129746
+refinedpeakPhi and peakPhi are 98.9 98
+max_theta_cos is -0.0662773 step_size is 0.00515849
+peakThetaInterp is 0.130571
+peakThetaInterp is 7.50258
+peakPhiInterp is 98.951
+max_timeExpected is 4.14183
+power SNR_coherent is 1.82548
+noiseFlag is 0
+max_timeExpected is 4.14183
+Theta,phi are 7.50258 98.951
+polFractionCoherent is 0.178581
+SNR_coherent vs SNR is 1.82548 3.06046
+peakAnt is 22
+peakHilbertCoherent is 10.3693 peakVal is 0.0376622
+Theta_interp is 7.50258 phi_interp is 98.951
+deltaTheta is -2.00669 deltaPhi is -156.2
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.70174 1.72702
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.472586 -0.845188 -0.249639
+source is 599332 -1.13583e+06 6.2266e+06
+sourceLat,Lon are -78.4219 -62.1812
+distance from source is 421107
+sourceLon, Lat, Alt are -62.1812 -78.4219 40.9515
+going through whichPol == 1
+peakTheta,Phi are 0.129658 98
+peakTheta before refined is 0.221704
+peakPhi is 304
+peakTheta is 0.221704 acos is 1.34724
+peakTheta is now 0.223561
+ now it is 12.8091
+Refined peak theta: 0.214907, peak Phi: 305.2, peakVal: 31.0487
+peakVal is 0.0292611 peakVal in box is 0.0153221
+peakTheta is 0.221704 refinedPeakTheta is 0.214907
+refinedpeakPhi and peakPhi are 305.2 304
+max_theta_cos is 0.0272083 step_size is 0.00507294
+peakThetaInterp is 0.214146
+peakThetaInterp is 12.3654
+peakPhiInterp is 305.182
+max_timeExpected is 6.81359
+power SNR_coherent is 2.7951
+noiseFlag is 1
+max_timeExpected is 6.81359
+SNR_coherent vs SNR is 2.7951 4.70053
+peakAnt is 16
+peakHilbertCoherent is 30.6477 peakVal is 0.0292611
+Theta_interp is 12.3654 phi_interp is 305.182
+deltaTheta is 2.85617 deltaPhi is 50.0308
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.78661 5.32643
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.0595192 0.992634 -0.105523
+source is 390848 -621906 6.31493e+06
+sourceLat,Lon are -83.4094 -57.852
+distance from source is 159181
+sourceLon, Lat, Alt are -57.852 -83.4094 466.798
+eventnumber is 23599912 0 passed, 0% 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.70174 1.72702
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.472586 -0.845188 -0.249639
+source is 599332 -1.13583e+06 6.2266e+06
+sourceLat,Lon are -78.4219 -62.1812
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.78661 5.32643
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.0595192 0.992634 -0.105523
+source is 390848 -621906 6.31493e+06
+sourceLat,Lon are -83.4094 -57.852
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.5708 0
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.787135 0.616421 0.0210519
+MISSED ANTARCTICA! HEIGHT 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.5708 0
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.787135 0.616421 0.0210519
+MISSED ANTARCTICA! HEIGHT 
+Event: 23599912, the time is Sun Jun 18 05:29:37.325 
+Started event 
+thermal and taylor flag is 0 0
+here after saturated 
+channel, mainrfcm, bigenough, dcoffset, shorttraceflag is -1,1,1,0,0
+inside the if statement. should point next 
+evententrygotten flag is 23599913
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.0989756
+peakPhi is 142
+peakTheta is 0.0989756 acos is 1.47166
+peakTheta is now 0.0991379
+ now it is 5.68018
+Refined peak theta: 0.115193, peak Phi: 139.9, peakVal: 63.8046
+peakVal is 0.0773184 peakVal in box is 0.0773184
+peakTheta is 0.0989756 refinedPeakTheta is 0.115193
+refinedpeakPhi and peakPhi are 139.9 142
+max_theta_cos is -0.0970586 step_size is 0.00517686
+peakThetaInterp is 0.114054
+peakThetaInterp is 6.54906
+peakPhiInterp is 139.99
+max_timeExpected is 5.32967
+power SNR_coherent is 1.66317
+noiseFlag is 0
+max_timeExpected is 5.32967
+Theta,phi are 6.54906 139.99
+polFractionCoherent is 0.486552
+SNR_coherent vs SNR is 1.66317 2.99072
+peakAnt is 23
+peakHilbertCoherent is 16.2813 peakVal is 0.0773184
+Theta_interp is 6.54906 phi_interp is 139.99
+deltaTheta is -2.96021 deltaPhi is -115.161
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.6851 2.44329
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.213206 -0.955173 -0.205397
+MISSED ANTARCTICA! HEIGHT 
+distance from source is 159181
+sourceLon, Lat, Alt are -91.374 -64.0182 187818
+going through whichPol == 1
+peakTheta,Phi are 0.0989756 142
+peakTheta before refined is -0.269208
+peakPhi is 126
+peakTheta is -0.269208 acos is 1.84337
+peakTheta is now -0.272571
+ now it is -15.6172
+Refined peak theta: -0.201406, peak Phi: 148.2, peakVal: 30.9006
+peakVal is 0.0322436 peakVal in box is 0.0191618
+peakTheta is -0.269208 refinedPeakTheta is -0.201406
+refinedpeakPhi and peakPhi are 148.2 126
+max_theta_cos is -0.451924 step_size is 0.00501035
+peakThetaInterp is -0.203861
+peakThetaInterp is -11.7628
+peakPhiInterp is 148.197
+max_timeExpected is 2.21278
+power SNR_coherent is 3.21175
+noiseFlag is 0
+max_timeExpected is 2.21278
+SNR_coherent vs SNR is 3.21175 2.55256
+peakAnt is 24
+peakHilbertCoherent is 26.6805 peakVal is 0.0322436
+Theta_interp is -11.7628 phi_interp is 148.197
+deltaTheta is -21.2721 deltaPhi is -106.954
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.3655 2.58653
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.326422 -0.937144 0.123325
+MISSED ANTARCTICA! HEIGHT 
+distance from source is 159181
+sourceLon, Lat, Alt are -98.1143 -63.7745 1.07044e+06
+eventnumber is 23599913 0 passed, 0% 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.6851 2.44329
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.213206 -0.955173 -0.205397
+MISSED ANTARCTICA! HEIGHT 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.3655 2.58653
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.326422 -0.937144 0.123325
+MISSED ANTARCTICA! HEIGHT 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.5708 0
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.787135 0.616421 0.0210519
+MISSED ANTARCTICA! HEIGHT 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.5708 0
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.787135 0.616421 0.0210519
+MISSED ANTARCTICA! HEIGHT 
+Event: 23599913, the time is Sun Jun 18 05:29:39.238 
+Started event 
+thermal and taylor flag is 0 0
+here after saturated 
+channel, mainrfcm, bigenough, dcoffset, shorttraceflag is -1,1,1,0,0
+inside the if statement. should point next 
+evententrygotten flag is 23599914
+ payloadBlast = 0
+ saturated channels is -1
+ mainrfcmflag= 1
+bigenoughpeakflag= 1
+dcoffsetflag= 0
+shorttraceflag= 0
+nadirrfcmflag= 1
+finished setting up 
+noiseBeforeFilter is 0
+peakAntenna is 0
+maxSignalPeak is 0
+CHANGED dBCut to 4! 
+zeroing some stuff 
+going through whichPol == 0
+peakTheta before refined is 0.191022
+peakPhi is 344
+peakTheta is 0.191022 acos is 1.37859
+peakTheta is now 0.192203
+ now it is 11.0124
+Refined peak theta: 0.184798, peak Phi: 341.6, peakVal: 44.7388
+peakVal is 0.0429069 peakVal in box is 0.0429069
+peakTheta is 0.191022 refinedPeakTheta is 0.184798
+refinedpeakPhi and peakPhi are 341.6 344
+max_theta_cos is -0.00414674 step_size is 0.00510661
+peakThetaInterp is 0.183828
+peakThetaInterp is 10.5928
+peakPhiInterp is 341.6
+max_timeExpected is 6.53341
+power SNR_coherent is 2.34565
+noiseFlag is 0
+max_timeExpected is 6.53341
+Theta,phi are 10.5928 341.6
+polFractionCoherent is 0.0153538
+SNR_coherent vs SNR is 2.34565 2.9583
+peakAnt is 31
+peakHilbertCoherent is 11.8067 peakVal is 0.0429069
+Theta_interp is 10.5928 phi_interp is 341.6
+deltaTheta is 1.08351 deltaPhi is 86.4488
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.75568 5.96204
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.533126 0.836625 -0.125843
+source is 501114 -621744 6.30793e+06
+sourceLat,Lon are -82.8328 -51.1318
+distance from source is 189058
+sourceLon, Lat, Alt are -51.1318 -82.8328 1190.98
+going through whichPol == 1
+peakTheta,Phi are 0.191022 344
+peakTheta before refined is 0.681933
+peakPhi is 212
+peakTheta is 0.681933 acos is 0.820393
+peakTheta is now 0.750403
+ now it is 42.9949
+Refined peak theta: 0.666928, peak Phi: 213.8, peakVal: 37.0698
+peakVal is 0.0352211 peakVal in box is 0.029434
+peakTheta is 0.681933 refinedPeakTheta is 0.666928
+refinedpeakPhi and peakPhi are 213.8 212
+max_theta_cos is 0.526138 step_size is 0.00380512
+peakThetaInterp is 0.666814
+peakThetaInterp is 41.8216
+peakPhiInterp is 213.86
+max_timeExpected is 11.0203
+power SNR_coherent is 1.25704
+noiseFlag is 0
+max_timeExpected is 11.0203
+SNR_coherent vs SNR is 1.25704 2.59042
+peakAnt is 28
+peakHilbertCoherent is 28.7397 peakVal is 0.0352211
+Theta_interp is 41.8216 phi_interp is 213.86
+deltaTheta is 32.3123 deltaPhi is -41.2912
+varnerflag 1,2 are 0 0
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 2.30072 3.73256
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.780165 0.0136702 -0.625424
+source is 359559 -779200 6.29905e+06
+sourceLat,Lon are -82.2933 -65.2292
+distance from source is 52250
+sourceLon, Lat, Alt are -65.2292 -82.2933 94.3378
+eventnumber is 23599914 0 passed, 0% 
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.75568 5.96204
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.533126 0.836625 -0.125843
+source is 501114 -621744 6.30793e+06
+sourceLat,Lon are -82.8328 -51.1318
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 2.30072 3.73256
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is -0.780165 0.0136702 -0.625424
+source is 359559 -779200 6.29905e+06
+sourceLat,Lon are -82.2933 -65.2292
+past antarctica, need anita position? 
+lat, lon, alt, heading, thetawave,phiwave are -82.1691 -62.829 34973.2 100.956 1.5708 0
+true_source is -315346 66879.3 6.35162e+06
+Anita is at 400322 -779915 6.33173e+06
+x_dir, y_dir, z_dir is 0.787135 0.616421 0.Event: 23599940, the time is Sun Jun 18 05:30:28.838 
+Event: 23599941, the time is Sun Jun 18 05:30:30.852 
+Event: 23599943, the time is Sun Jun 18 05:30:32.808 
+Event: 23599944, the time is Sun Jun 18 05:30:34.817 
+Event: 23599945, the time is Sun Jun 18 05:30:36.818 
+Event: 23599946, the time is Sun Jun 18 05:30:38.922 
+Event: 23599947, the time is Sun Jun 18 05:30:40.851 
+Event: 23599948, the time is Sun Jun 18 05:30:42.788 
+Event: 23599949, the time is Sun Jun 18 05:30:44.774 
+Event: 23599950, the time is Sun Jun 18 05:30:46.730 
+Event: 23599951, the time is Sun Jun 18 05:30:48.702 
+Event: 23599952, the time is Sun Jun 18 05:30:50.645 
+Event: 23599954, the time is Sun Jun 18 05:30:52.562 
+Event: 23599955, the time is Sun Jun 18 05:30:54.574 
+Event: 23599956, the time is Sun Jun 18 05:30:56.479 
+Event: 23599957, the time is Sun Jun 18 05:30:58.428 
+Event: 23599958, the time is Sun Jun 18 05:31:00.452 
+Event: 23599960, the time is Sun Jun 18 05:31:02.390 
+Event: 23599961, the time is Sun Jun 18 05:31:04.385 
+Event: 23599962, the time is Sun Jun 18 05:31:06.370 
+Event: 23599963, the time is Sun Jun 18 05:31:08.320 
+Event: 23599964, the time is Sun Jun 18 05:31:10.254 
+Event: 23599965, the time is Sun Jun 18 05:31:12.280 
+Event: 23599966, the time is Sun Jun 18 05:31:14.227 
+Event: 23599967, the time is Sun Jun 18 05:31:16.123 
+Event: 23599968, the time is Sun Jun 18 05:31:18.24 
+Event: 23599969, the time is Sun Jun 18 05:31:19.949 
+Event: 23599970, the time is Sun Jun 18 05:31:21.907 
+Event: 23599971, the time is Sun Jun 18 05:31:23.846 
+Event: 23599972, the time is Sun Jun 18 05:31:25.897 
+Event: 23599974, the time is Sun Jun 18 05:31:27.868 
+Event: 23599975, the time is Sun Jun 18 05:31:29.916 
+Event: 23599976, the time is Sun Jun 18 05:31:31.909 
+Event: 23599977, the time is Sun Jun 18 05:31:33.876 
+Event: 23599978, the time is Sun Jun 18 05:31:35.907 
+Event: 23599979, the time is Sun Jun 18 05:31:37.850 
+Event: 23599980, the time is Sun Jun 18 05:31:39.767 
+Event: 23599981, the time is Sun Jun 18 05:31:41.761 
+Event: 23599983, the time is Sun Jun 18 05:31:43.715 
+Event: 23599984, the time is Sun Jun 18 05:31:45.650 
+Event: 23599985, the time is Sun Jun 18 05:31:47.596 
+Event: 23599986, the time is Sun Jun 18 05:31:49.595 
+Event: 23599987, the time is Sun Jun 18 05:31:51.531 
+Event: 23599988, the time is Sun Jun 18 05:31:53.498 
+Event: 23599990, the time is Sun Jun 18 05:31:55.429 
+Event: 23599991, the time is Sun Jun 18 05:31:57.376 
+Event: 23599992, the time is Sun Jun 18 05:31:59.356 
+Event: 23599993, the time is Sun Jun 18 05:32:01.389 
+Event: 23599994, the time is Sun Jun 18 05:32:03.430 
+Event: 23599995, the time is Sun Jun 18 05:32:05.342 
+Event: 23599996, the time is Sun Jun 18 05:32:07.343 
+Event: 23599997, the time is Sun Jun 18 05:32:09.256 
+Event: 23599998, the time is Sun Jun 18 05:32:11.248 
+Event: 23599999, the time is Sun Jun 18 05:32:13.165 
+Event: 23600001, the time is Sun Jun 18 05:32:15.146 
+Event: 23600002, the time is Sun Jun 18 05:32:17.67 
+Event: 23600003, the time is Sun Jun 18 05:32:19.70 
+Event: 23600004, the time is Sun Jun 18 05:32:21.148 
+Event: 23600005, the time is Sun Jun 18 05:32:23.142 
+Event: 23600006, the time is Sun Jun 18 05:32:25.84 
+Event: 23600007, the time is Sun Jun 18 05:32:27.7 
+Event: 23600008, the time is Sun Jun 18 05:32:29.21 
+Event: 23600009, the time is Sun Jun 18 05:32:31.14 
+Event: 23600010, the time is Sun Jun 18 05:32:32.955 
+Event: 23600012, the time is Sun Jun 18 05:32:34.915 
+Event: 23600013, the time is Sun Jun 18 05:32:36.876 
+Event: 23600014, the time is Sun Jun 18 05:32:38.772 
+Event: 23600015, the time is Sun Jun 18 05:32:40.768 
+Event: 23600016, the time is Sun Jun 18 05:32:42.698 
+Event: 23600018, the time is Sun Jun 18 05:32:44.646 
+Event: 23600019, the time is Sun Jun 18 05:32:46.599 
+Event: 23600020, the time is Sun Jun 18 05:32:48.577 
+Event: 23600021, the time is Sun Jun 18 05:32:50.550 
+Event: 23600022, the time is Sun Jun 18 05:32:52.509 
+Event: 23600023, the time is Sun Jun 18 05:32:54.467 
+Event: 23600025, the time is Sun Jun 18 05:32:56.391 
+Event: 23600026, the time is Sun Jun 18 05:32:58.320 
+Event: 23600027, the time is Sun Jun 18 05:33:00.338 
+Event: 23600028, the time is Sun Jun 18 05:33:02.329 
+Event: 23600029, the time is Sun Jun 18 05:33:04.250 
+Event: 23600030, the time is Sun Jun 18 05:33:06.368 
+Event: 23600031, the time is Sun Jun 18 05:33:08.322 
+Event: 23600033, the time is Sun Jun 18 05:33:10.326 
+Event: 23600034, the time is Sun Jun 18 05:33:12.265 
+Event: 23600035, the time is Sun Jun 18 05:33:14.200 
+Event: 23600036, the time is Sun Jun 18 05:33:16.113 
+Event: 23600037, the time is Sun Jun 18 05:33:18.88 
+Event: 23600038, the time is Sun Jun 18 05:33:20.36 
+Event: 23600039, the time is Sun Jun 18 05:33:21.985 
+Event: 23600040, the time is Sun Jun 18 05:33:23.961 
+Event: 23600041, the time is Sun Jun 18 05:33:25.946 
+Event: 23600042, the time is Sun Jun 18 05:33:27.961 
+Event: 23600043, the time is Sun Jun 18 05:33:29.883 
+Event: 23600044, the time is Sun Jun 18 05:33:31.830 
+Event: 23600045, the time is Sun Jun 18 05:33:33.889 
+Event: 23600046, the time is Sun Jun 18 05:33:35.780 
+Event: 23600047, the time is Sun Jun 18 05:33:37.878 
+Event: 23600048, the time is Sun Jun 18 05:33:39.857 
+Event: 23600049, the time is Sun Jun 18 05:33:41.855 
+Event: 23600051, the time is Sun Jun 18 05:33:43.840 
+Event: 23600052, the time is Sun Jun 18 05:33:45.820 
+Event: 23600053, the time is Sun Jun 18 05:33:47.787 
+Event: 23600054, the time is Sun Jun 18 05:33:49.705 
+Event: 23600055, the time is Sun Jun 18 05:33:51.734 
+Event: 23600056, the time is Sun Jun 18 05:33:53.629 
+Event: 23600057, the time is Sun Jun 18 05:33:55.580 
+Event: 23600058, the time is Sun Jun 18 05:33:57.620 
+Event: 23600059, the time is Sun Jun 18 05:33:59.516 
+Event: 23600060, the time is Sun Jun 18 05:34:01.421 
+Event: 23600061, the time is Sun Jun 18 05:34:03.342 
+Event: 23600062, the time is Sun Jun 18 05:34:05.344 
+Event: 23600063, the time is Sun Jun 18 05:34:07.353 
+Event: 23600065, the time is Sun Jun 18 05:34:09.275 
+Event: 23600067, the time is Sun Jun 18 05:34:11.203 
+Event: 23600068, the time is Sun Jun 18 05:34:13.98 
+Event: 23600069, the time is Sun Jun 18 05:34:15.200 
+Event: 23600070, the time is Sun Jun 18 05:34:17.185 
+Event: 23600071, the time is Sun Jun 18 05:34:19.90 
+Event: 23600072, the time is Sun Jun 18 05:34:21.24 
+Event: 23600073, the time is Sun Jun 18 05:34:22.963 
+Event: 23600074, the time is Sun Jun 18 05:34:24.939 
+Event: 23600075, the time is Sun Jun 18 05:34:26.858 
+Event: 23600076, the time is Sun Jun 18 05:34:28.796 
+Event: 23600077, the time is Sun Jun 18 05:34:30.759 
+Event: 23600079, the time is Sun Jun 18 05:34:32.700 
+Event: 23600080, the time is Sun Jun 18 05:34:34.623 
+Event: 23600081, the time is Sun Jun 18 05:34:36.558 
+Event: 23600082, the time is Sun Jun 18 05:34:38.537 
+Event: 23600083, the time is Sun Jun 18 05:34:40.478 
+Event: 23600084, the time is Sun Jun 18 05:34:42.407 
+Event: 23600085, the time is Sun Jun 18 05:34:44.352 
+Event: 23600086, the time is Sun Jun 18 05:34:46.385 
+Event: 23600087, the time is Sun Jun 18 05:34:48.304 
+Event: 23600088, the time is Sun Jun 18 05:34:50.264 
+Event: 23600089, the time is Sun Jun 18 05:34:52.335 
+Event: 23600090, the time is Sun Jun 18 05:34:54.344 
+Event: 23600092, the time is Sun Jun 18 05:34:56.366 
+Event: 23600093, the time is Sun Jun 18 05:34:58.313 
+Event: 23600094, the time is Sun Jun 18 05:35:00.313 
+Event: 23600095, the time is Sun Jun 18 05:35:02.313 
+Event: 23600096, the time is Sun Jun 18 05:35:04.284 
+Event: 23600097, the time is Sun Jun 18 05:35:06.213 
+Event: 23600098, the time is Sun Jun 18 05:35:08.162 
+Event: 23600099, the time is Sun Jun 18 05:35:10.179 
+Event: 23600100, the time is Sun Jun 18 05:35:12.150 
+Event: 23600101, the time is Sun Jun 18 05:35:14.133 
+Event: 23600102, the time is Sun Jun 18 05:35:16.104 
+Event: 23600104, the time is Sun Jun 18 05:35:18.37 
+Event: 23600105, the time is Sun Jun 18 05:35:19.964 
+Event: 23600106, the time is Sun Jun 18 05:35:21.923 
+Event: 23600107, the time is Sun Jun 18 05:35:23.881 
+Event: 23600108, the time is Sun Jun 18 05:35:25.852 
+Event: 23600109, the time is Sun Jun 18 05:35:27.766 
+Event: 23600110, the time is Sun Jun 18 05:35:29.683 
+Event: 23600111, the time is Sun Jun 18 05:35:31.616 
+Event: 23600112, the time is Sun Jun 18 05:35:33.637 
+Event: 23600113, the time is Sun Jun 18 05:35:35.692 
+Event: 23600114, the time is Sun Jun 18 05:35:37.673 
+Event: 23600115, the time is Sun Jun 18 05:35:39.655 
+Event: 23600116, the time is Sun Jun 18 05:35:41.648 
+Event: 23600118, the time is Sun Jun 18 05:35:43.618 
+Event: 23600119, the time is Sun Jun 18 05:35:45.633 
+Event: 23600120, the time is Sun Jun 18 05:35:47.552 
+Event: 23600121, the time is Sun Jun 18 05:35:49.514 
+Event: 23600122, the time is Sun Jun 18 05:35:51.541 
+Event: 23600123, the time is Sun Jun 18 05:35:53.536 
+Event: 23600124, the time is Sun Jun 18 05:35:55.494 
+Event: 23600125, the time is Sun Jun 18 05:35:57.522 
+Event: 23600126, the time is Sun Jun 18 05:35:59.540 
+Event: 23600127, the time is Sun Jun 18 05:36:01.470 
+Event: 23600128, the time is Sun Jun 18 05:36:03.382 
+Event: 23600129, the time is Sun Jun 18 05:36:05.259 
+Event: 23600130, the time is Sun Jun 18 05:36:07.181 
+Event: 23600132, the time is Sun Jun 18 05:36:09.196 
+Event: 23600133, the time is Sun Jun 18 05:36:11.249 
+Event: 23600134, the time is Sun Jun 18 05:36:13.227 
+Event: 23600135, the time is Sun Jun 18 05:36:15.221 
+Event: 23600137, the time is Sun Jun 18 05:36:17.154 
+Event: 23600138, the time is Sun Jun 18 05:36:19.84 
+Event: 23600139, the time is Sun Jun 18 05:36:21.44 
+Event: 23600140, the time is Sun Jun 18 05:36:22.990 
+Event: 23600141, the time is Sun Jun 18 05:36:24.920 
+Event: 23600142, the time is Sun Jun 18 05:36:26.947 
+Event: 23600143, the time is Sun Jun 18 05:36:28.928 
+Event: 23600145, the time is Sun Jun 18 05:36:30.851 
+Event: 23600146, the time is Sun Jun 18 05:36:32.804 
+Event: 23600147, the time is Sun Jun 18 05:36:34.758 
+Event: 23600148, the time is Sun Jun 18 05:36:36.702 
+Event: 23600149, the time is Sun Jun 18 05:36:38.618 
+Event: 23600150, the time is Sun Jun 18 05:36:40.591 
+Event: 23600151, the time is Sun Jun 18 05:36:42.661 
+Event: 23600153, the time is Sun Jun 18 05:36:44.666 
+Event: 23600154, the time is Sun Jun 18 05:36:46.607 
+Event: 23600155, the time is Sun Jun 18 05:36:48.580 
+Event: 23600156, the time is Sun Jun 18 05:36:50.502 
+Event: 23600157, the time is Sun Jun 18 05:36:52.417 
+Event: 23600158, the time is Sun Jun 18 05:36:54.323 
+Event: 23600159, the time is Sun Jun 18 05:36:56.301 
+Event: 23600160, the time is Sun Jun 18 05:36:58.274 
+Event: 23600161, the time is Sun Jun 18 05:37:00.279 
+Event: 23600163, the time is Sun Jun 18 05:37:02.237 
+Event: 23600164, the time is Sun Jun 18 05:37:04.230 
+Event: 23600165, the time is Sun Jun 18 05:37:06.124 
+Event: 23600166, the time is Sun Jun 18 05:37:08.95 
+Event: 23600167, the time is Sun Jun 18 05:37:10.40 
+Event: 23600168, the time is Sun Jun 18 05:37:12.28 
+Event: 23600169, the time is Sun Jun 18 05:37:13.980 
+Event: 23600170, the time is Sun Jun 18 05:37:15.974 
+Event: 23600171, the time is Sun Jun 18 05:37:17.932 
+Event: 23600172, the time is Sun Jun 18 05:37:19.851 
+Event: 23600173, the time is Sun Jun 18 05:37:21.881 
+Event: 23600174, the time is Sun Jun 18 05:37:23.785 
+Event: 23600175, the time is Sun Jun 18 05:37:25.784 
+Event: 23600176, the time is Sun Jun 18 05:37:27.748 
+Event: 23600177, the time is Sun Jun 18 05:37:29.717 
+Event: 23600178, the time is Sun Jun 18 05:37:31.705 
+Event: 23600179, the time is Sun Jun 18 05:37:33.633 
+Event: 23600181, the time is Sun Jun 18 05:37:35.625 
+Event: 23600183, the time is Sun Jun 18 05:37:37.626 
+Event: 23600184, the time is Sun Jun 18 05:37:39.598 
+Event: 23600186, the time is Sun Jun 18 05:37:41.610 
+Event: 23600187, the time is Sun Jun 18 05:37:43.631 
+Event: 23600188, the time is Sun Jun 18 05:37:45.635 
+Event: 23600189, the time is Sun Jun 18 05:37:47.617 
+Event: 23600190, the time is Sun Jun 18 05:37:49.591 
+Event: 23600191, the time is Sun Jun 18 05:37:51.525 
+Event: 23600192, the time is Sun Jun 18 05:37:53.533 
+Event: 23600193, the time is Sun Jun 18 05:37:55.460 
+Event: 23600194, the time is Sun Jun 18 05:37:57.446 
+Event: 23600195, the time is Sun Jun 18 05:37:59.434 
+Event: 23600197, the time is Sun Jun 18 05:38:01.409 
+Event: 23600198, the time is Sun Jun 18 05:38:03.485 
+Event: 23600199, the time is Sun Jun 18 05:38:05.456 
+Event: 23600200, the time is Sun Jun 18 05:38:07.426 
+Event: 23600201, the time is Sun Jun 18 05:38:09.393 
+Event: 23600202, the time is Sun Jun 18 05:38:11.386 
+Event: 23600203, the time is Sun Jun 18 05:38:13.338 
+Event: 23600204, the time is Sun Jun 18 05:38:15.328 
+Event: 23600205, the time is Sun Jun 18 05:38:17.358 
+Event: 23600207, the time is Sun Jun 18 05:38:19.282 
+Event: 23600208, the time is Sun Jun 18 05:38:21.278 
+Event: 23600209, the time is Sun Jun 18 05:38:23.319 
+Event: 23600210, the time is Sun Jun 18 05:38:25.282 
+Event: 23600211, the time is Sun Jun 18 05:38:27.260 
+Event: 23600212, the time is Sun Jun 18 05:38:29.217 
+Event: 23600213, the time is Sun Jun 18 05:38:31.215 
+Event: 23600214, the time is Sun Jun 18 05:38:33.161 
+Event: 23600215, the time is Sun Jun 18 05:38:35.147 
+Event: 23600216, the time is Sun Jun 18 05:38:37.109 
+Event: 23600218, the time is Sun Jun 18 05:38:39.104 
+Event: 23600219, the time is Sun Jun 18 05:38:41.63 
+Event: 23600220, the time is Sun Jun 18 05:38:43.54 
+Event: 23600221, the time is Sun Jun 18 05:38:45.74 
+Event: 23600222, the time is Sun Jun 18 05:38:47.110 
+Event: 23600223, the time is Sun Jun 18 05:38:49.123 
+Event: 23600224, the time is Sun Jun 18 05:38:51.195 
+Event: 23600225, the time is Sun Jun 18 05:38:53.196 
+Event: 23600226, the time is Sun Jun 18 05:38:55.128 
+Event: 23600227, the time is Sun Jun 18 05:38:57.103 
+Event: 23600229, the time is Sun Jun 18 05:38:59.118 
+Event: 23600230, the time is Sun Jun 18 05:39:01.69 
+Event: 23600231, the time is Sun Jun 18 05:39:03.9 
+Event: 23600232, the time is Sun Jun 18 05:39:04.976 
+Event: 23600233, the time is Sun Jun 18 05:39:06.947 
+Event: 23600234, the time is Sun Jun 18 05:39:08.917 
+Event: 23600235, the time is Sun Jun 18 05:39:10.933 
+Event: 23600236, the time is Sun Jun 18 05:39:12.935 
+Event: 23600237, the time is Sun Jun 18 05:39:14.895 
+Event: 23600238, the time is Sun Jun 18 05:39:16.918 
+Event: 23600239, the time is Sun Jun 18 05:39:18.898 
+Event: 23600240, the time is Sun Jun 18 05:39:20.815 
+Event: 23600241, the time is Sun Jun 18 05:39:22.801 
+Event: 23600242, the time is Sun Jun 18 05:39:24.782 
+Event: 23600244, the time is Sun Jun 18 05:39:26.741 
+Event: 23600245, the time is Sun Jun 18 05:39:28.722 
+Event: 23600246, the time is Sun Jun 18 05:39:30.739 
+Event: 23600247, the time is Sun Jun 18 05:39:32.816 
+Event: 23600248, the time is Sun Jun 18 05:39:34.754 
+Event: 23600249, the time is Sun Jun 18 05:39:36.731 
+Event: 23600250, the time is Sun Jun 18 05:39:38.681 
+Event: 23600251, the time is Sun Jun 18 05:39:40.715 
+Event: 23600252, the time is Sun Jun 18 05:39:42.766 
+Event: 23600253, the time is Sun Jun 18 05:39:44.759 
+Event: 23600254, the time is Sun Jun 18 05:39:46.696 
+Event: 23600255, the time is Sun Jun 18 05:39:48.688 
+Event: 23600257, the time is Sun Jun 18 05:39:50.700 
+Event: 23600258, the time is Sun Jun 18 05:39:52.721 
+Event: 23600259, the time is Sun Jun 18 05:39:54.732 
+Event: 23600260, the time is Sun Jun 18 05:39:56.684 
+Event: 23600261, the time is Sun Jun 18 05:39:58.614 
+Event: 23600262, the time is Sun Jun 18 05:40:00.621 
+Event: 23600263, the time is Sun Jun 18 05:40:02.592 
+Event: 23600264, the time is Sun Jun 18 05:40:04.602 
+Event: 23600266, the time is Sun Jun 18 05:40:06.572 
+Event: 23600267, the time is Sun Jun 18 05:40:08.579 
+Event: 23600268, the time is Sun Jun 18 05:40:10.553 
+Event: 23600269, the time is Sun Jun 18 05:40:12.611 
+Event: 23600270, the time is Sun Jun 18 05:40:14.588 
+Event: 23600271, the time is Sun Jun 18 05:40:16.604 
+Event: 23600272, the time is Sun Jun 18 05:40:18.565 
+Event: 23600273, the time is Sun Jun 18 05:40:20.520 
+Event: 23600274, the time is Sun Jun 18 05:40:22.467 
+Event: 23600275, the time is Sun Jun 18 05:40:24.508 
+Event: 23600276, the time is Sun Jun 18 05:40:26.509 
+Event: 23600278, the time is Sun Jun 18 05:40:28.432 
+Event: 23600279, the time is Sun Jun 18 05:40:30.451 
+Event: 23600280, the time is Sun Jun 18 05:40:32.425 
+Event: 23600281, the time is Sun Jun 18 05:40:34.419 
+Event: 23600282, the time is Sun Jun 18 05:40:36.427 
+Event: 23600283, the time is Sun Jun 18 05:40:38.462 
+Event: 23600284, the time is Sun Jun 18 05:40:40.472 
+Event: 23600285, the time is Sun Jun 18 05:40:42.437 
+Event: 23600286, the time is Sun Jun 18 05:40:44.479 
+Event: 23600287, the time is Sun Jun 18 05:40:46.516 
+Event: 23600288, the time is Sun Jun 18 05:40:48.427 
+Event: 23600289, the time is Sun Jun 18 05:40:50.382 
+Event: 23600291, the time is Sun Jun 18 05:40:52.382 
+Event: 23600292, the time is Sun Jun 18 05:40:54.400 
+Event: 23600293, the time is Sun Jun 18 05:40:56.352 
+Event: 23600294, the time is Sun Jun 18 05:40:58.273 
+Event: 23600296, the time is Sun Jun 18 05:41:00.228 
+Event: 23600297, the time is Sun Jun 18 05:41:02.208 
+Event: 23600298, the time is Sun Jun 18 05:41:04.237 
+Event: 23600299, the time is Sun Jun 18 05:41:06.271 
+Event: 23600300, the time is Sun Jun 18 05:41:08.180 
+Event: 23600301, the time is Sun Jun 18 05:41:10.206 
+Event: 23600302, the time is Sun Jun 18 05:41:12.132 
+Event: 23600303, the time is Sun Jun 18 05:41:14.134 
+Event: 23600304, the time is Sun Jun 18 05:41:16.91 
+Event: 23600305, the time is Sun Jun 18 05:41:18.142 
+Event: 23600307, the time is Sun Jun 18 05:41:20.132 
+Event: 23600308, the time is Sun Jun 18 05:41:22.137 
+Event: 23600309, the time is Sun Jun 18 05:41:24.55 
+Event: 23600310, the time is Sun Jun 18 05:41:26.67 
+Event: 23600311, the time is Sun Jun 18 05:41:28.165 
+Event: 23600312, the time is Sun Jun 18 05:41:30.135 
+Event: 23600313, the time is Sun Jun 18 05:41:32.137 
+Event: 23600315, the time is Sun Jun 18 05:41:34.110 
+Event: 23600316, the time is Sun Jun 18 05:41:36.87 
+Event: 23600317, the time is Sun Jun 18 05:41:38.8 
+Event: 23600318, the time is Sun Jun 18 05:41:39.984 
+Event: 23600319, the time is Sun Jun 18 05:41:42.26 
+Event: 23600320, the time is Sun Jun 18 05:41:43.935 
+Event: 23600321, the time is Sun Jun 18 05:41:45.983 
+Event: 23600322, the time is Sun Jun 18 05:41:48.14 
+Event: 23600323, the time is Sun Jun 18 05:41:49.958 
+Event: 23600324, the time is Sun Jun 18 05:41:51.907 
+Event: 23600326, the time is Sun Jun 18 05:41:53.921 
+Event: 23600327, the time is Sun Jun 18 05:41:55.900 
+Event: 23600328, the time is Sun Jun 18 05:41:57.902 
+Event: 23600329, the time is Sun Jun 18 05:41:59.893 
+Event: 23600330, the time is Sun Jun 18 05:42:01.811 
+Event: 23600331, the time is Sun Jun 18 05:42:03.848 
+Event: 23600332, the time is Sun Jun 18 05:42:05.864 
+Event: 23600333, the time is Sun Jun 18 05:42:07.834 
+Event: 23600335, the time is Sun Jun 18 05:42:09.779 
+Event: 23600336, the time is Sun Jun 18 05:42:11.760 
+Event: 23600337, the time is Sun Jun 18 05:42:13.872 
+Event: 23600338, the time is Sun Jun 18 05:42:15.888 
+Event: 23600339, the time is Sun Jun 18 05:42:17.859 
+Event: 23600340, the time is Sun Jun 18 05:42:19.807 
+Event: 23600341, the time is Sun Jun 18 05:42:21.752 
+Event: 23600342, the time is Sun Jun 18 05:42:23.756 
+Event: 23600344, the time is Sun Jun 18 05:42:25.702 
+Event: 23600345, the time is Sun Jun 18 05:42:27.642 
+Event: 23600346, the time is Sun Jun 18 05:42:29.565 
+Event: 23600347, the time is Sun Jun 18 05:42:31.566 
+Event: 23600348, the time is Sun Jun 18 05:42:33.614 
+Event: 23600349, the time is Sun Jun 18 05:42:35.628 
+Event: 23600350, the time is Sun Jun 18 05:42:37.613 
+Event: 23600351, the time is Sun Jun 18 05:42:39.561 
+Event: 23600352, the time is Sun Jun 18 05:42:41.589 
+Event: 23600353, the time is Sun Jun 18 05:42:43.542 
+Event: 23600354, the time is Sun Jun 18 05:42:45.503 
+Event: 23600355, the time is Sun Jun 18 05:42:47.474 
+Event: 23600356, the time is Sun Jun 18 05:42:49.513 
+Event: 23600357, the time is Sun Jun 18 05:42:51.472 
+Event: 23600359, the time is Sun Jun 18 05:42:53.385 
+Event: 23600360, the time is Sun Jun 18 05:42:55.420 
+Event: 23600361, the time is Sun Jun 18 05:42:57.351 
+Event: 23600362, the time is Sun Jun 18 05:42:59.314 
+Event: 23600363, the time is Sun Jun 18 05:43:01.294 
+Event: 23600364, the time is Sun Jun 18 05:43:03.289 
+Event: 23600365, the time is Sun Jun 18 05:43:05.317 
+Event: 23600366, the time is Sun Jun 18 05:43:07.286 
+Event: 23600367, the time is Sun Jun 18 05:43:09.360 
+Event: 23600369, the time is Sun Jun 18 05:43:11.283 
+Event: 23600370, the time is Sun Jun 18 05:43:13.256 
+Event: 23600371, the time is Sun Jun 18 05:43:15.245 
+Event: 23600372, the time is Sun Jun 18 05:43:17.332 
+Event: 23600373, the time is Sun Jun 18 05:43:19.262 
+Event: 23600374, the time is Sun Jun 18 05:43:21.282 
+Event: 23600375, the time is Sun Jun 18 05:43:23.220 
+Event: 23600376, the time is Sun Jun 18 05:43:25.231 
+Event: 23600378, the time is Sun Jun 18 05:43:27.255 
+Event: 23600379, the time is Sun Jun 18 05:43:29.212 
+Event: 23600380, the time is Sun Jun 18 05:43:31.180 
+Event: 23600381, the time is Sun Jun 18 05:43:33.199 
+Event: 23600382, the time is Sun Jun 18 05:43:35.207 
+Event: 23600383, the time is Sun Jun 18 05:43:37.209 
+Event: 23600384, the time is Sun Jun 18 05:43:39.269 
+Event: 23600385, the time is Sun Jun 18 05:43:41.391 
+Event: 23600386, the time is Sun Jun 18 05:43:43.294 
+Event: 23600387, the time is Sun Jun 18 05:43:45.343 
+Event: 23600389, the time is Sun Jun 18 05:43:47.227 
+Event: 23600390, the time is Sun Jun 18 05:43:49.202 
+Event: 23600391, the time is Sun Jun 18 05:43:51.147 
+Event: 23600392, the time is Sun Jun 18 05:43:53.210 
+Event: 23600393, the time is Sun Jun 18 05:43:55.190 
+Event: 23600394, the time is Sun Jun 18 05:43:57.237 
+Event: 23600395, the time is Sun Jun 18 05:43:59.237 
+Event: 23600396, the time is Sun Jun 18 05:44:01.206 
+Event: 23600397, the time is Sun Jun 18 05:44:03.265 
+Event: 23600398, the time is Sun Jun 18 05:44:05.267 
+Event: 23600400, the time is Sun Jun 18 05:44:07.280 
+Event: 23600401, the time is Sun Jun 18 05:44:09.255 
+Event: 23600403, the time is Sun Jun 18 05:44:11.196 
+Event: 23600404, the time is Sun Jun 18 05:44:13.200 
+Event: 23600405, the time is Sun Jun 18 05:44:15.122 
+Event: 23600406, the time is Sun Jun 18 05:44:17.142 
+Event: 23600407, the time is Sun Jun 18 05:44:19.113 
+Event: 23600408, the time is Sun Jun 18 05:44:21.32 
+Event: 23600409, the time is Sun Jun 18 05:44:22.950 
+Event: 23600410, the time is Sun Jun 18 05:44:24.960 
+Event: 23600411, the time is Sun Jun 18 05:44:26.955 
+Event: 23600412, the time is Sun Jun 18 05:44:29.19 
+Event: 23600414, the time is Sun Jun 18 05:44:31.25 
+Event: 23600415, the time is Sun Jun 18 05:44:33.65 
+Event: 23600416, the time is Sun Jun 18 05:44:35.51 
+Event: 23600417, the time is Sun Jun 18 05:44:37.91 
+Event: 23600418, the time is Sun Jun 18 05:44:39.98 
+Event: 23600419, the time is Sun Jun 18 05:44:41.200 
+Event: 23600420, the time is Sun Jun 18 05:44:43.163 
+Event: 23600421, the time is Sun Jun 18 05:44:45.166 
+Event: 23600422, the time is Sun Jun 18 05:44:47.119 
+Event: 23600424, the time is Sun Jun 18 05:44:49.92 
+Event: 23600425, the time is Sun Jun 18 05:44:51.125 
+Event: 23600426, the time is Sun Jun 18 05:44:53.162 
+Event: 23600427, the time is Sun Jun 18 05:44:55.131 
+Event: 23600428, the time is Sun Jun 18 05:44:57.98 
+Event: 23600429, the time is Sun Jun 18 05:44:58.996 
+Event: 23600430, the time is Sun Jun 18 05:45:00.905 
+Event: 23600431, the time is Sun Jun 18 05:45:02.858 
+Event: 23600432, the time is Sun Jun 18 05:45:04.909 
+Event: 23600433, the time is Sun Jun 18 05:45:07.12 
+Event: 23600434, the time is Sun Jun 18 05:45:09.92 
+Event: 23600435, the time is Sun Jun 18 05:45:11.69 
+Event: 23600436, the time is Sun Jun 18 05:45:13.43 
+Event: 23600437, the time is Sun Jun 18 05:45:15.91 
+Event: 23600438, the time is Sun Jun 18 05:45:17.43 
+Event: 23600439, the time is Sun Jun 18 05:45:19.61 
+Event: 23600440, the time is Sun Jun 18 05:45:21.18 
+Event: 23600441, the time is Sun Jun 18 05:45:23.23 
+Event: 23600443, the time is Sun Jun 18 05:45:25.1 
+Event: 23600444, the time is Sun Jun 18 05:45:27.57 
+Event: 23600445, the time is Sun Jun 18 05:45:29.38 
+Event: 23600446, the time is Sun Jun 18 05:45:31.88 
+Event: 23600447, the time is Sun Jun 18 05:45:33.101 
+Event: 23600448, the time is Sun Jun 18 05:45:35.55 
+Event: 23600449, the time is Sun Jun 18 05:45:37.47 
+Event: 23600450, the time is Sun Jun 18 05:45:39.142 
+Event: 23600451, the time is Sun Jun 18 05:45:41.195 
+Event: 23600452, the time is Sun Jun 18 05:45:43.229 
+Event: 23600453, the time is Sun Jun 18 05:45:45.199 
+Event: 23600454, the time is Sun Jun 18 05:45:47.142 
+Event: 23600455, the time is Sun Jun 18 05:45:49.163 
+Event: 23600456, the time is Sun Jun 18 05:45:51.187 
+Event: 23600457, the time is Sun Jun 18 05:45:53.224 
+Event: 23600458, the time is Sun Jun 18 05:45:55.221 
+Event: 23600460, the time is Sun Jun 18 05:45:57.224 
+Event: 23600461, the time is Sun Jun 18 05:45:59.192 
+Event: 23600462, the time is Sun Jun 18 05:46:01.207 
+Event: 23600463, the time is Sun Jun 18 05:46:03.206 
+Event: 23600464, the time is Sun Jun 18 05:46:05.241 
+Event: 23600465, the time is Sun Jun 18 05:46:07.242 
+Event: 23600466, the time is Sun Jun 18 05:46:09.288 
+Event: 23600467, the time is Sun Jun 18 05:46:11.314 
+Event: 23600468, the time is Sun Jun 18 05:46:13.342 
+Event: 23600469, the time is Sun Jun 18 05:46:15.386 
+Event: 23600470, the time is Sun Jun 18 05:46:17.334 
+Event: 23600471, the time is Sun Jun 18 05:46:19.365 
+Event: 23600472, the time is Sun Jun 18 05:46:21.307 
+Event: 23600473, the time is Sun Jun 18 05:46:23.348 
+Event: 23600474, the time is Sun Jun 18 05:46:25.352 
+Event: 23600475, the time is Sun Jun 18 05:46:27.323 
+Event: 23600476, the time is Sun Jun 18 05:46:29.324 
+Event: 23600477, the time is Sun Jun 18 05:46:31.277 
+Event: 23600478, the time is Sun Jun 18 05:46:33.223 
+Event: 23600479, the time is Sun Jun 18 05:46:35.220 
+Event: 23600480, the time is Sun Jun 18 05:46:37.204 
+Event: 23600481, the time is Sun Jun 18 05:46:39.179 
+Event: 23600482, the time is Sun Jun 18 05:46:41.164 
+Event: 23600483, the time is Sun Jun 18 05:46:43.161 
+Event: 23600484, the time is Sun Jun 18 05:46:45.144 
+Event: 23600486, the time is Sun Jun 18 05:46:47.155 
+Event: 23600487, the time is Sun Jun 18 05:46:49.98 
+Event: 23600488, the time is Sun Jun 18 05:46:51.128 
+Event: 23600489, the time is Sun Jun 18 05:46:53.11 
+Event: 23600490, the time is Sun Jun 18 05:46:54.993 
+Event: 23600491, the time is Sun Jun 18 05:46:56.894 
+Event: 23600492, the time is Sun Jun 18 05:46:58.842 
+Event: 23600493, the time is Sun Jun 18 05:47:00.841 
+Event: 23600494, the time is Sun Jun 18 05:47:02.824 
+Event: 23600495, the time is Sun Jun 18 05:47:04.814 
+Event: 23600496, the time is Sun Jun 18 05:47:06.804 
+Event: 23600497, the time is Sun Jun 18 05:47:08.762 
+Event: 23600498, the time is Sun Jun 18 05:47:10.797 
+Event: 23600499, the time is Sun Jun 18 05:47:12.833 
+Event: 23600501, the time is Sun Jun 18 05:47:14.818 
+Event: 23600502, the time is Sun Jun 18 05:47:16.724 
+Event: 23600503, the time is Sun Jun 18 05:47:18.690 
+Event: 23600504, the time is Sun Jun 18 05:47:20.712 
+Event: 23600505, the time is Sun Jun 18 05:47:22.652 
+Event: 23600506, the time is Sun Jun 18 05:47:24.59 
+Event: 23600507, the time is Sun Jun 18 05:47:25.359 
+Event: 23600508, the time is Sun Jun 18 05:47:27.325 
+Event: 23600509, the time is Sun Jun 18 05:47:29.321 
+Event: 23600510, the time is Sun Jun 18 05:47:31.327 
+Event: 23600511, the time is Sun Jun 18 05:47:33.332 
+Event: 23600512, the time is Sun Jun 18 05:47:35.328 
+Event: 23600513, the time is Sun Jun 18 05:47:37.346 
+Event: 23600515, the time is Sun Jun 18 05:47:39.282 
+Event: 23600516, the time is Sun Jun 18 05:47:41.314 
+Event: 23600517, the time is Sun Jun 18 05:47:43.350 
+Event: 23600518, the time is Sun Jun 18 05:47:45.339 
+Event: 23600519, the time is Sun Jun 18 05:47:47.275 
+Event: 23600520, the time is Sun Jun 18 05:47:49.215 
+Event: 23600522, the time is Sun Jun 18 05:47:51.219 
+Event: 23600523, the time is Sun Jun 18 05:47:53.216 
+Event: 23600524, the time is Sun Jun 18 05:47:55.228 
+Event: 23600525, the time is Sun Jun 18 05:47:57.217 
+Event: 23600526, the time is Sun Jun 18 05:47:59.185 
+Event: 23600527, the time is Sun Jun 18 05:48:01.166 
+Event: 23600528, the time is Sun Jun 18 05:48:03.112 
+Event: 23600529, the time is Sun Jun 18 05:48:05.84 
+Event: 23600530, the time is Sun Jun 18 05:48:07.22 
+Event: 23600531, the time is Sun Jun 18 05:48:09.6 
+Event: 23600533, the time is Sun Jun 18 05:48:10.984 
+Event: 23600534, the time is Sun Jun 18 05:48:13.41 
+Event: 23600535, the time is Sun Jun 18 05:48:14.951 
+Event: 23600536, the time is Sun Jun 18 05:48:16.908 
+Event: 23600537, the time is Sun Jun 18 05:48:18.897 
+Event: 23600538, the time is Sun Jun 18 05:48:20.876 
+Event: 23600539, the time is Sun Jun 18 05:48:22.909 
+Event: 23600540, the time is Sun Jun 18 05:48:24.866 
+Event: 23600542, the time is Sun Jun 18 05:48:26.778 
+Event: 23600543, the time is Sun Jun 18 05:48:28.839 
+Event: 23600545, the time is Sun Jun 18 05:48:30.710 
+Event: 23600546, the time is Sun Jun 18 05:48:32.698 
+Event: 23600547, the time is Sun Jun 18 05:48:34.702 
+Event: 23600548, the time is Sun Jun 18 05:48:36.671 
+Event: 23600549, the time is Sun Jun 18 05:48:38.595 
+Event: 23600550, the time is Sun Jun 18 05:48:40.533 
+Event: 23600551, the time is Sun Jun 18 05:48:42.549 
+Event: 23600552, the time is Sun Jun 18 05:48:44.540 
+Event: 23600553, the time is Sun Jun 18 05:48:46.558 
+Event: 23600554, the time is Sun Jun 18 05:48:48.612 
+Event: 23600556, the time is Sun Jun 18 05:48:50.573 
+Event: 23600557, the time is Sun Jun 18 05:48:52.541 
+Event: 23600558, the time is Sun Jun 18 05:48:54.496 
+Event: 23600559, the time is Sun Jun 18 05:48:56.450 
+Event: 23600560, the time is Sun Jun 18 05:48:58.478 
+Event: 23600561, the time is Sun Jun 18 05:49:00.494 
+Event: 23600562, the time is Sun Jun 18 05:49:02.460 
+Event: 23600564, the time is Sun Jun 18 05:49:04.453 
+Event: 23600565, the time is Sun Jun 18 05:49:06.389 
+Event: 23600566, the time is Sun Jun 18 05:49:08.383 
+Event: 23600567, the time is Sun Jun 18 05:49:10.331 
+Event: 23600568, the time is Sun Jun 18 05:49:12.350 
+Event: 23600569, the time is Sun Jun 18 05:49:14.329 
+Event: 23600570, the time is Sun Jun 18 05:49:16.293 
+Event: 23600571, the time is Sun Jun 18 05:49:18.269 
+Event: 23600572, the time is Sun Jun 18 05:49:20.301 
+Event: 23600573, the time is Sun Jun 18 05:49:22.243 
+Event: 23600574, the time is Sun Jun 18 05:49:24.266 
+Event: 23600576, the time is Sun Jun 18 05:49:26.201 
+Event: 23600577, the time is Sun Jun 18 05:49:28.179 
+Event: 23600578, the time is Sun Jun 18 05:49:30.71 
+Event: 23600579, the time is Sun Jun 18 05:49:32.59 
+Event: 23600580, the time is Sun Jun 18 05:49:33.991 
+Event: 23600581, the time is Sun Jun 18 05:49:35.956 
+Event: 23600582, the time is Sun Jun 18 05:49:37.952 
+Event: 23600583, the time is Sun Jun 18 05:49:39.887 
+Event: 23600584, the time is Sun Jun 18 05:49:41.834 
+Event: 23600586, the time is Sun Jun 18 05:49:43.767 
+Event: 23600587, the time is Sun Jun 18 05:49:45.720 
+Event: 23600588, the time is Sun Jun 18 05:49:47.678 
+Event: 23600589, the time is Sun Jun 18 05:49:49.638 
+Event: 23600590, the time is Sun Jun 18 05:49:51.644 
+Event: 23600591, the time is Sun Jun 18 05:49:53.580 
+Event: 23600592, the time is Sun Jun 18 05:49:55.580 
+Event: 23600593, the time is Sun Jun 18 05:49:57.572 
+Event: 23600594, the time is Sun Jun 18 05:49:59.571 
+Event: 23600595, the time is Sun Jun 18 05:50:01.586 
+Event: 23600596, the time is Sun Jun 18 05:50:03.515 
+Event: 23600597, the time is Sun Jun 18 05:50:05.519 
+Event: 23600598, the time is Sun Jun 18 05:50:07.452 
+Event: 23600599, the time is Sun Jun 18 05:50:09.410 
+Event: 23600600, the time is Sun Jun 18 05:50:11.388 
+Event: 23600601, the time is Sun Jun 18 05:50:13.427 
+Event: 23600602, the time is Sun Jun 18 05:50:15.520 
+Event: 23600603, the time is Sun Jun 18 05:50:17.502 
+Event: 23600604, the time is Sun Jun 18 05:50:19.510 
+Event: 23600606, the time is Sun Jun 18 05:50:21.449 
+Event: 23600607, the time is Sun Jun 18 05:50:23.407 
+Event: 23600608, the time is Sun Jun 18 05:50:25.407 
+Event: 23600609, the time is Sun Jun 18 05:50:27.321 
+Event: 23600610, the time is Sun Jun 18 05:50:29.251 
+EvenEvent: 23600617, the time is Sun Jun 18 05:50:42.973 
+Event: 23600618, the time is Sun Jun 18 05:50:44.903 
+Event: 23600619, the time is Sun Jun 18 05:50:46.864 
+Event: 23600620, the time is Sun Jun 18 05:50:48.794 
+Event: 23600621, the time is Sun Jun 18 05:50:50.782 
+Event: 23600622, the time is Sun Jun 18 05:50:52.847 
+Event: 23600623, the time is Sun Jun 18 05:50:54.778 
+Event: 23600625, the time is Sun Jun 18 05:50:56.812 
+Event: 23600626, the time is Sun Jun 18 05:50:58.747 
+Event: 23600627, the time is Sun Jun 18 05:51:00.807 
+Event: 23600628, the time is Sun Jun 18 05:51:02.727 
+Event: 23600629, the time is Sun Jun 18 05:51:04.662 
+Event: 23600630, the time is Sun Jun 18 05:51:06.606 
+Event: 23600631, the time is Sun Jun 18 05:51:08.526 
+Event: 23600632, the time is Sun Jun 18 05:51:10.428 
+Event: 23600634, the time is Sun Jun 18 05:51:12.359 
+Event: 23600635, the time is Sun Jun 18 05:51:14.260 
+Event: 23600636, the time is Sun Jun 18 05:51:16.202 
+Event: 23600637, the time is Sun Jun 18 05:51:18.156 
+Event: 23600638, the time is Sun Jun 18 05:51:20.124 
+Event: 23600639, the time is Sun Jun 18 05:51:22.113 
+Event: 23600640, the time is Sun Jun 18 05:51:24.129 
+Event: 23600641, the time is Sun Jun 18 05:51:26.89 
+Event: 23600642, the time is Sun Jun 18 05:51:28.56 
+Event: 23600643, the time is Sun Jun 18 05:51:29.999 
+Event: 23600644, the time is Sun Jun 18 05:51:31.999 
+Event: 23600645, the time is Sun Jun 18 05:51:33.942 
+Event: 23600646, the time is Sun Jun 18 05:51:35.963 
+Event: 23600647, the time is Sun Jun 18 05:51:37.964 
+Event: 23600648, the time is Sun Jun 18 05:51:39.965 
+Event: 23600649, the time is Sun Jun 18 05:51:41.926 
+Event: 23600651, the time is Sun Jun 18 05:51:43.897 
+Event: 23600652, the time is Sun Jun 18 05:51:45.929 
+Event: 23600653, the time is Sun Jun 18 05:51:47.890 
+Event: 23600654, the time is Sun Jun 18 05:51:49.952 
+Event: 23600655, the time is Sun Jun 18 05:51:51.926 
+Event: 23600656, the time is Sun Jun 18 05:51:53.921 
+Event: 23600657, the time is Sun Jun 18 05:51:55.885 
+Event: 23600658, the time is Sun Jun 18 05:51:57.874 
+Event: 23600659, the time is Sun Jun 18 05:51:59.830 
+Event: 23600661, the time is Sun Jun 18 05:52:01.756 
+Event: 23600662, the time is Sun Jun 18 05:52:03.710 
+Event: 23600663, the time is Sun Jun 18 05:52:05.648 
+Event: 23600664, the time is Sun Jun 18 05:52:07.578 
+Event: 23600665, the time is Sun Jun 18 05:52:09.546 
+Event: 23600666, the time is Sun Jun 18 05:52:11.472 
+Event: 23600667, the time is Sun Jun 18 05:52:13.404 
+Event: 23600668, the time is Sun Jun 18 05:52:15.409 
+Event: 23600669, the time is Sun Jun 18 05:52:17.363 
+Event: 23600670, the time is Sun Jun 18 05:52:19.317 
+Event: 23600671, the time is Sun Jun 18 05:52:21.275 
+Event: 23600672, the time is Sun Jun 18 05:52:23.225 
+Event: 23600673, the time is Sun Jun 18 05:52:25.194 
+Event: 23600674, the time is Sun Jun 18 05:52:27.121 
+Event: 23600676, the time is Sun Jun 18 05:52:29.135 
+Event: 23600678, the time is Sun Jun 18 05:52:31.68 
+Event: 23600679, the time is Sun Jun 18 05:52:33.82 
+Event: 23600680, the time is Sun Jun 18 05:52:35.36 
+Event: 23600681, the time is Sun Jun 18 05:52:37.113 
+Event: 23600682, the time is Sun Jun 18 05:52:39.70 
+Event: 23600683, the time is Sun Jun 18 05:52:41.34 
+Event: 23600684, the time is Sun Jun 18 05:52:43.20 
+Event: 23600685, the time is Sun Jun 18 05:52:45.76 
+Event: 23600686, the time is Sun Jun 18 05:52:47.61 
+Event: 23600687, the time is Sun Jun 18 05:52:49.60 
+Event: 23600688, the time is Sun Jun 18 05:52:51.19 
+Event: 23600689, the time is Sun Jun 18 05:52:52.912 
+Event: 23600690, the time is Sun Jun 18 05:52:54.876 
+Event: 23600692, the time is Sun Jun 18 05:52:56.828 
+Event: 23600693, the time is Sun Jun 18 05:52:58.819 
+Event: 23600694, the time is Sun Jun 18 05:53:00.743 
+Event: 23600695, the time is Sun Jun 18 05:53:02.703 
+Event: 23600696, the time is Sun Jun 18 05:53:04.667 
+Event: 23600697, the time is Sun Jun 18 05:53:06.661 
+Event: 23600698, the time is Sun Jun 18 05:53:08.626 
+Event: 23600699, the time is Sun Jun 18 05:53:10.572 
+Event: 23600700, the time is Sun Jun 18 05:53:12.661 
+Event: 23600701, the time is Sun Jun 18 05:53:14.595 
+Event: 23600702, the time is Sun Jun 18 05:53:16.578 
+Event: 23600704, the time is Sun Jun 18 05:53:18.670 
+Event: 23600705, the time is Sun Jun 18 05:53:20.684 
+Event: 23600706, the time is Sun Jun 18 05:53:22.685 
+Event: 23600707, the time is Sun Jun 18 05:53:24.719 
+Event: 23600708, the time is Sun Jun 18 05:53:26.617 
+Event: 23600709, the time is Sun Jun 18 05:53:28.685 
+Event: 23600710, the time is Sun Jun 18 05:53:30.612 
+Event: 23600711, the time is Sun Jun 18 05:53:32.550 
+Event: 23600712, the time is Sun Jun 18 05:53:34.553 
+Event: 23600713, the time is Sun Jun 18 05:53:36.567 
+Event: 23600714, the time is Sun Jun 18 05:53:38.463 
+Event: 23600715, the time is Sun Jun 18 05:53:40.396 
+Event: 23600716, the time is Sun Jun 18 05:53:42.367 
+Event: 23600718, the time is Sun Jun 18 05:53:44.296 
+Event: 23600719, the time is Sun Jun 18 05:53:46.272 
+Event: 23600720, the time is Sun Jun 18 05:53:48.221 
+Event: 23600721, the time is Sun Jun 18 05:53:50.202 
+Event: 23600722, the time is Sun Jun 18 05:53:52.159 
+Event: 23600723, the time is Sun Jun 18 05:53:54.124 
+Event: 23600724, the time is Sun Jun 18 05:53:56.35 
+Event: 23600725, the time is Sun Jun 18 05:53:58.28 
+Event: 23600727, the time is Sun Jun 18 05:53:59.959 
+Event: 23600728, the time is Sun Jun 18 05:54:01.954 
+Event: 23600729, the time is Sun Jun 18 05:54:03.918 
+Event: 23600730, the time is Sun Jun 18 05:54:05.835 
+Event: 23600731, the time is Sun Jun 18 05:54:07.793 
+Event: 23600732, the time is Sun Jun 18 05:54:09.752 
+Event: 23600733, the time is Sun Jun 18 05:54:11.772 
+Event: 23600734, the time is Sun Jun 18 05:54:13.734 
+Event: 23600735, the time is Sun Jun 18 05:54:15.736 
+Event: 23600736, the time is Sun Jun 18 05:54:17.689 
+Event: 23600737, the time is Sun Jun 18 05:54:19.645 
+Event: 23600738, the time is Sun Jun 18 05:54:21.579 
+Event: 23600740, the time is Sun Jun 18 05:54:23.558 
+Event: 23600741, the time is Sun Jun 18 05:54:25.490 
+Event: 23600742, the time is Sun Jun 18 05:54:27.429 
+Event: 23600743, the time is Sun Jun 18 05:54:29.346 
+Event: 23600744, the time is Sun Jun 18 05:54:31.267 
+Event: 23600745, the time is Sun Jun 18 05:54:33.222 
+Event: 23600746, the time is Sun Jun 18 05:54:35.183 
+Event: 23600747, the time is Sun Jun 18 05:54:37.116 
+Event: 23600749, the time is Sun Jun 18 05:54:39.87 
+Event: 23600750, the time is Sun Jun 18 05:54:41.27 
+Event: 23600751, the time is Sun Jun 18 05:54:43.79 
+Event: 23600752, the time is Sun Jun 18 05:54:45.54 
+Event: 23600753, the time is Sun Jun 18 05:54:47.5 
+Event: 23600754, the time is Sun Jun 18 05:54:48.921 
+Event: 23600755, the time is Sun Jun 18 05:54:50.877 
+Event: 23600756, the time is Sun Jun 18 05:54:52.869 
+Event: 23600757, the time is Sun Jun 18 05:54:54.839 
+Event: 23600758, the time is Sun Jun 18 05:54:56.801 
+Event: 23600759, the time is Sun Jun 18 05:54:58.762 
+Event: 23600760, the time is Sun Jun 18 05:55:00.765 
+Event: 23600761, the time is Sun Jun 18 05:55:02.716 
+Event: 23600762, the time is Sun Jun 18 05:55:04.653 
+Event: 23600764, the time is Sun Jun 18 05:55:06.715 
+Event: 23600765, the time is Sun Jun 18 05:55:08.637 
+Event: 23600766, the time is Sun Jun 18 05:55:10.572 
+Event: 23600767, the time is Sun Jun 18 05:55:12.509 
+Event: 23600768, the time is Sun Jun 18 05:55:14.480 
+Event: 23600769, the time is Sun Jun 18 05:55:16.435 
+Event: 23600770, the time is Sun Jun 18 05:55:18.402 
+Event: 23600771, the time is Sun Jun 18 05:55:20.378 
+Event: 23600772, the time is Sun Jun 18 05:55:22.346 
+Event: 23600773, the time is Sun Jun 18 05:55:24.292 
+Event: 23600774, the time is Sun Jun 18 05:55:26.239 
+Event: 23600775, the time is Sun Jun 18 05:55:28.214 
+Event: 23600776, the time is Sun Jun 18 05:55:30.177 
+Event: 23600777, the time is Sun Jun 18 05:55:32.159 
+Event: 23600779, the time is Sun Jun 18 05:55:34.134 
+Event: 23600780, the time is Sun Jun 18 05:55:36.61 
+Event: 23600781, the time is Sun Jun 18 05:55:38.76 
+Event: 23600782, the time is Sun Jun 18 05:55:40.37 
+Event: Event: 23600789, the time is Sun Jun 18 05:55:53.870 
+Event: 23600791, the time is Sun Jun 18 05:55:55.803 
+Event: 23600792, the time is Sun Jun 18 05:55:57.735 
+Event: 23600793, the time is Sun Jun 18 05:55:59.739 
+Event: 23600794, the time is Sun Jun 18 05:56:01.746 
+Event: 23600795, the time is Sun Jun 18 05:56:03.678 
+Event: 23600796, the time is Sun Jun 18 05:56:05.729 
+Event: 23600797, the time is Sun Jun 18 05:56:07.682 
+Event: 23600798, the time is Sun Jun 18 05:56:09.666 
+Event: 23600799, the time is Sun Jun 18 05:56:11.622 
+Event: 23600800, the time is Sun Jun 18 05:56:13.571 
+Event: 23600801, the time is Sun Jun 18 05:56:15.503 
+Event: 23600802, the time is Sun Jun 18 05:56:17.509 
+Event: 23600803, the time is Sun Jun 18 05:56:19.473 
+Event: 23600805, the time is Sun Jun 18 05:56:21.404 
+Event: 23600806, the time is Sun Jun 18 05:56:23.310 
+Event: 23600807, the time is Sun Jun 18 05:56:25.261 
+Event: 23600808, the time is Sun Jun 18 05:56:27.273 
+Event: 23600809, the time is Sun Jun 18 05:56:29.323 
+Event: 23600811, the time is Sun Jun 18 05:56:31.272 
+Event: 23600812, the time is Sun Jun 18 05:56:33.259 
+Event: 23600813, the time is Sun Jun 18 05:56:35.211 
+Event: 23600814, the time is Sun Jun 18 05:56:37.153 
+Event: 23600815, the time is Sun Jun 18 05:56:39.112 
+Event: 23600816, the time is Sun Jun 18 05:56:41.111 
+Event: 23600817, the time is Sun Jun 18 05:56:43.95 
+Event: 23600818, the time is Sun Jun 18 05:56:45.81 
+Event: 23600819, the time is Sun Jun 18 05:56:47.34 
+Event: 23600820, the time is Sun Jun 18 05:56:49.8 
+Event: 23600822, the time is Sun Jun 18 05:56:50.944 
+Event: 23600823, the time is Sun Jun 18 05:56:52.892 
+Event: 23600824, the time is Sun Jun 18 05:56:54.791 
+Event: 23600825, the time is Sun Jun 18 05:56:56.761 
+Event: 23600826, the time is Sun Jun 18 05:56:58.713 
+Event: 23600827, the time is Sun Jun 18 05:57:00.708 
+Event: 23600828, the time is Sun Jun 18 05:57:02.660 
+Event: 23600829, the time is Sun Jun 18 05:57:04.665 
+Event: 23600830, the time is Sun Jun 18 05:57:06.605 
+Event: 23600831, the time is Sun Jun 18 05:57:08.585 
+Event: 23600832, the time is Sun Jun 18 05:57:10.512 
+Event: 23600833, the time is Sun Jun 18 05:57:12.508 
+Event: 23600834, the time is Sun Jun 18 05:57:14.544 
+Event: 23600835, the time is Sun Jun 18 05:57:16.469 
+Event: 23600836, the time is Sun Jun 18 05:57:18.509 
+Event: 23600838, the time is Sun Jun 18 05:57:20.396 
+Event: 23600839, the time is Sun Jun 18 05:57:22.347 
+Event: 23600840, the time is Sun Jun 18 05:57:24.304 
+Event: 23600841, the time is Sun Jun 18 05:57:26.307 
+Event: 23600842, the time is Sun Jun 18 05:57:28.301 
+Event: 23600843, the time is Sun Jun 18 05:57:30.291 
+Event: 23600844, the time is Sun Jun 18 05:57:32.242 
+Event: 23600845, the time is Sun Jun 18 05:57:34.218 
+Event: 23600846, the time is Sun Jun 18 05:57:36.155 
+Event: 23600847, the time is Sun Jun 18 05:57:38.126 
+Event: 23600848, the time is Sun Jun 18 05:57:40.86 
+Event: 23600850, the time is Sun Jun 18 05:57:42.91 
+Event: 23600851, the time is Sun Jun 18 05:57:44.88 
+Event: 23600852, the time is Sun Jun 18 05:57:46.29 
+Event: 23600853, the time is Sun Jun 18 05:57:47.927 
+Event: 23600854, the time is Sun Jun 18 05:57:49.861 
+Event: 23600855, the time is Sun Jun 18 05:57:51.825 
+Event: 23600856, the time is Sun Jun 18 05:57:53.763 
+Event: 23600857, the time is Sun Jun 18 05:57:55.757 
+Event: 23600858, the time is Sun Jun 18 05:57:57.738 
+Event: 23600859, the time is Sun Jun 18 05:57:59.732 
+Event: 23600860, the time is Sun Jun 18 05:58:01.691 
+Event: 23600861, the time is Sun Jun 18 05:58:03.646 
+Event: 23600862, the time is Sun Jun 18 05:58:05.704 
+Event: 23600863, the time is Sun Jun 18 05:58:07.700 
+Event: 23600865, the time is Sun Jun 18 05:58:09.679 
+Event: 23600866, the time is Sun Jun 18 05:58:11.656 
+Event: 23600867, the time is Sun Jun 18 05:58:13.639 
+Event: 23600868, the time is Sun Jun 18 05:58:15.587 
+Event: 23600869, the time is Sun Jun 18 05:58:17.566 
+Event: 23600870, the time is Sun Jun 18 05:58:19.665 
+Event: 23600871, the time is Sun Jun 18 05:58:21.651 
+EEvent: 23600920, the time is Sun Jun 18 05:59:52.778 
+Event: 23600921, the time is Sun Jun 18 05:59:54.761 
+Event: 23600922, the time is Sun Jun 18 05:59:56.691 
+Event: 23600923, the time is Sun Jun 18 05:59:58.642 
+Event: 23600924, the time is Sun Jun 18 06:00:00.577 
+Event: 23600925, the time is Sun Jun 18 06:00:02.537 
+Event: 23600926, the time is Sun Jun 18 06:00:04.584 
+Event: 23600927, the time is Sun Jun 18 06:00:06.532 
+Event: 23600928, the time is Sun Jun 18 06:00:08.499 
+Event: 23600929, the time is Sun Jun 18 06:00:10.432 
+Event: 23600931, the time is Sun Jun 18 06:00:12.370 
+Event: 23600932, the time is Sun Jun 18 06:00:14.359 
+Event: 23600933, the time is Sun Jun 18 06:00:16.346 
+Event: 23600934, the time is Sun Jun 18 06:00:18.267 
+Event: 23600935, the time is Sun Jun 18 06:00:20.211 
+Event: 23600936, the time is Sun Jun 18 06:00:22.203 
+Event: 23600937, the time is Sun Jun 18 06:00:24.225 
+Event: 23600938, the time is Sun Jun 18 06:00:26.212 
+Event: 23600939, the time is Sun Jun 18 06:00:28.317 
+Event: 23600940, the time is Sun Jun 18 06:00:30.245 
+Event: 23600941, the time is Sun Jun 18 06:00:32.251 
+Event: 23600942, the time is Sun Jun 18 06:00:34.373 
+Event: 23600943, the time is Sun Jun 18 06:00:36.283 
+Event: 23600945, the time is Sun Jun 18 06:00:38.343 
+Event: 23600946, the time is Sun Jun 18 06:00:40.353 
+Event: 23600947, the time is Sun Jun 18 06:00:42.385 
+Event: 23600948, the time is Sun Jun 18 06:00:44.381 
+Event: 23600949, the time is Sun Jun 18 06:00:46.317 
+Event: 23600950, the time is Sun Jun 18 06:00:48.324 
+Event: 23600951, the time is Sun Jun 18 06:00:50.294 
+Event: 23600952, the time is Sun Jun 18 06:00:52.306 
+Event: 23600953, the time is Sun Jun 18 06:00:54.345 
+Event: 23600954, the time is Sun Jun 18 06:00:56.353 
+Event: 23600955, the time is Sun Jun 18 06:00:58.338 
+Event: 23600956, the time is Sun Jun 18 06:01:00.309 
+Event: 23600958, the time is Sun Jun 18 06:01:02.316 
+Event: 23600959, the time is Sun Jun 18 06:01:04.292 
+Event: 23600960, the time is Sun Jun 18 06:01:06.256 
+Event: 23600961, the time is Sun Jun 18 06:01:08.206 
+Event: 23600962, the time is Sun Jun 18 06:01:10.145 
+Event: 23600963, the time is Sun Jun 18 06:01:12.76 
+Event: 23600965, the time is Sun Jun 18 06:01:14.12 
+Event: 23600966, the time is Sun Jun 18 06:01:15.933 
+Event: 23600967, the time is Sun Jun 18 06:01:17.946 
+Event: 23600968, the time is Sun Jun 18 06:01:19.964 
+Event: 23600969, the time is Sun Jun 18 06:01:21.942 
+Event: 23600971, the time is Sun Jun 18 06:01:23.947 
+Event: 23600972, the time is Sun Jun 18 06:01:26.2 
+Event: 23600973, the time is Sun Jun 18 06:01:28.18 
+Event: 23600974, the time is Sun Jun 18 06:01:29.992 
+Event: 23600975, the time is Sun Jun 18 06:01:31.943 
+Event: 23600976, the time is Sun Jun 18 06:01:33.971 
+Event: 23600977, the time is Sun Jun 18 06:01:35.945 
+Event: 23600978, the time is Sun Jun 18 06:01:37.891 
+Event: 23600979, the time is Sun Jun 18 06:01:39.875 
+Event: 23600980, the time is Sun Jun 18 06:01:41.897 
+Event: 23600981, the time is Sun Jun 18 06:01:43.844 
+Event: 23600982, the time is Sun Jun 18 06:01:45.786 
+Event: 23600983, the time is Sun Jun 18 06:01:47.799 
+Event: 23600984, the time is Sun Jun 18 06:01:49.856 
+Event: 23600986, the time is Sun Jun 18 06:01:51.785 
+Event: 23600987, the time is Sun Jun 18 06:01:53.719 
+Event: 23600988, the time is Sun Jun 18 06:01:55.823 
+Event: 23600989, the time is Sun Jun 18 06:01:57.817 
+Event: 23600990, the time is Sun Jun 18 06:01:59.791 
+Event: 23600991, the time is Sun Jun 18 06:02:01.798 
+Event: 23600992, the time is Sun Jun 18 06:02:03.812 
+Event: 23600993, the time is Sun Jun 18 06:02:05.725 
+Event: 23600994, the time is Sun Jun 18 06:02:07.690 
+Event: 23600995, the time is Sun Jun 18 06:02:09.631 
+Event: 23600996, the time is Sun Jun 18 06:02:11.574 
+Event: 23600998, the time is Sun Jun 18 06:02:13.549 
+Event: 23600999, the time is Sun Jun 18 06:02:15.390 
+Event: 23601000, the time is Sun Jun 18 06:02:16.669 
+Event: 23601001, the time is Sun Jun 18 06:02:17.958 
+Event: 23601002, the time is Sun Jun 18 06:02:19.24Event: 23601346, the time is Sun Jun 18 06:12:12.298 
+Event: 23601347, the time is Sun Jun 18 06:12:14.239 
+Event: 23601348, the time is Sun Jun 18 06:12:16.292 
+Event: 23601349, the time is Sun Jun 18 06:12:18.287 
+Event: 23601350, the time is Sun Jun 18 06:12:20.275 
+Event: 23601351, the time is Sun Jun 18 06:12:22.252 
+Event: 23601352, the time is Sun Jun 18 06:12:24.200 
+Event: 23601354, the time is Sun Jun 18 06:12:26.213 
+Event: 23601355, the time is Sun Jun 18 06:12:28.182 
+Event: 23601356, the time is Sun Jun 18 06:12:30.166 
+Event: 23601357, the time is Sun Jun 18 06:12:32.144 
+Event: 23601358, the time is Sun Jun 18 06:12:34.52 
+Event: 23601359, the time is Sun Jun 18 06:12:36.8 
+Event: 23601360, the time is Sun Jun 18 06:12:38.48 
+Event: 23601361, the time is Sun Jun 18 06:12:40.49 
+Event: 23601362, the time is Sun Jun 18 06:12:42.106 
+Event: 23601363, the time is Sun Jun 18 06:12:44.129 
+Event: 23601365, the time is Sun Jun 18 06:12:46.131 
+Event: 23601366, the time is Sun Jun 18 06:12:48.138 
+Event: 23601367, the time is Sun Jun 18 06:12:50.228 
+Event: 23601368, the time is Sun Jun 18 06:12:52.198 
+Event: 23601369, the time is Sun Jun 18 06:12:54.161 
+Event: 23601370, the time is Sun Jun 18 06:12:56.161 
+Event: 23601372, the time is Sun Jun 18 06:12:58.237 
+Event: 23601373, the time is Sun Jun 18 06:13:00.197 
+Event: 23601374, the time is Sun Jun 18 06:13:02.221 
+Event: 23601375, the time is Sun Jun 18 06:13:04.256 
+Event: 23601376, the time is Sun Jun 18 06:13:06.218 
+Event: 23601378, the time is Sun Jun 18 06:13:08.189 
+Event: 23601379, the time is Sun Jun 18 06:13:10.173 
+Event: 23601380, the time is Sun Jun 18 06:13:12.124 
+Event: 23601381, the time is Sun Jun 18 06:13:14.91 
+Event: 23601383, the time is Sun Jun 18 06:13:16.112 
+Event: 23601384, the time is Sun Jun 18 06:13:18.100 
+Event: 23601385, the time is Sun Jun 18 06:13:20.46 
+Event: 23601386, the time is Sun Jun 18 06:13:22.10 
+Event: 23601387, the time is Sun Jun 18 06:13:23.996 
+Event: 23601388, the time is Sun Jun 18 06:13:25.984 
+Event: 23601390, the time is Sun Jun 18 06:13:27.956 
+Event: 23601391, the time is Sun Jun 18 06:13:30.39 
+Event: 23601392, the time is Sun Jun 18 06:13:32.109 
+Event: 23601393, the time is Sun Jun 18 06:13:34.105 
+Event: 23601394, the time is Sun Jun 18 06:13:36.103 
+Event: 23601395, the time is Sun Jun 18 06:13:38.247 
+Event: 23601396, the time is Sun Jun 18 06:13:40.214 
+Event: 23601397, the time is Sun Jun 18 06:13:42.200 
+Event: 23601398, the time is Sun Jun 18 06:13:44.159 
+Event: 23601400, the time is Sun Jun 18 06:13:46.120 
+Event: 23601401, the time is Sun Jun 18 06:13:48.50 
+Event: 23601402, the time is Sun Jun 18 06:13:50.24 
+Event: 23601403, the time is Sun Jun 18 06:13:52.1 
+Event: 23601404, the time is Sun Jun 18 06:13:53.908 
+Event: 23601405, the time is Sun Jun 18 06:13:55.873 
+Event: 23601406, the time is Sun Jun 18 06:13:57.863 
+Event: 23601407, the time is Sun Jun 18 06:13:59.902 
+Event: 23601408, the time is Sun Jun 18 06:14:01.814 
+Event: 23601409, the time is Sun Jun 18 06:14:03.797 
+Event: 23601410, the time is Sun Jun 18 06:14:05.832 
+Event: 23601411, the time is Sun Jun 18 06:14:07.803 
+Event: 23601413, the time is Sun Jun 18 06:14:09.798 
+Event: 23601414, the time is Sun Jun 18 06:14:11.738 
+Event: 23601415, the time is Sun Jun 18 06:14:13.680 
+Event: 23601416, the time is Sun Jun 18 06:14:15.657 
+Event: 23601417, the time is Sun Jun 18 06:14:17.644 
+Event: 23601418, the time is Sun Jun 18 06:14:19.644 
+Event: 23601419, the time is Sun Jun 18 06:14:21.674 
+Event: 23601421, the time is Sun Jun 18 06:14:23.651 
+Event: 23601422, the time is Sun Jun 18 06:14:25.662 
+Event: 23601423, the time is Sun Jun 18 06:14:27.612 
+Event: 23601424, the time is Sun Jun 18 06:14:29.577 
+Event: 23601425, the time is Sun Jun 18 06:14:31.569 
+Event: 23601426, the time is Sun Jun 18 06:14:33.553 
+Event: 23601428, the time is Sun Jun 18 06:14:35.494 
+Event: 23601429, the time is Sun Jun 18 06:14:37.451 
+Event: 23601430, the time is Sun Jun 18 06:14:39.448 
+Event: 23601431, the time is Sun Jun 18 06:14:41.441 
+Event: 23601432, the time is Sun Jun 18 06:14:43.458 
+Event: 23601433, the time is Sun Jun 18 06:14:45.402 
+Event: 23601434, the time is Sun Jun 18 06:14:47.338 
+Event: 23601435, the time is Sun Jun 18 06:14:49.300 
+Event: 23601436, the time is Sun Jun 18 06:14:51.311 
+Event: 23601438, the time is Sun Jun 18 06:14:53.251 
+Event: 23601439, the time is Sun Jun 18 06:14:55.259 
+Event: 23601440, the time is Sun Jun 18 06:14:57.221 
+Event: 23601441, the time is Sun Jun 18 06:14:59.170 
+Event: 23601442, the time is Sun Jun 18 06:15:01.131 
+Event: 23601443, the time is Sun Jun 18 06:15:03.85 
+Event: 23601444, the time is Sun Jun 18 06:15:05.72 
+Event: 23601445, the time is Sun Jun 18 06:15:07.43 
+Event: 23601446, the time is Sun Jun 18 06:15:09.6 
+Event: 23601447, the time is Sun Jun 18 06:15:11.33 
+Event: 23601448, the time is Sun Jun 18 06:15:13.14 
+Event: 23601450, the time is Sun Jun 18 06:15:14.986 
+Event: 23601451, the time is Sun Jun 18 06:15:16.972 
+Event: 23601452, the time is Sun Jun 18 06:15:18.991 
+Event: 23601453, the time is Sun Jun 18 06:15:20.943 
+Event: 23601454, the time is Sun Jun 18 06:15:22.963 
+Event: 23601455, the time is Sun Jun 18 06:15:24.901 
+Event: 23601456, the time is Sun Jun 18 06:15:26.891 
+Event: 23601457, the time is Sun Jun 18 06:15:28.854 
+Event: 23601458, the time is Sun Jun 18 06:15:30.907 
+Event: 23601459, the time is Sun Jun 18 06:15:32.864 
+Event: 23601460, the time is Sun Jun 18 06:15:34.822 
+Event: 23601462, the time is Sun Jun 18 06:15:36.821 
+Event: 23601463, the time is Sun Jun 18 06:15:38.773 
+Event: 23601464, the time is Sun Jun 18 06:15:40.692 
+Event: 23601465, the time is Sun Jun 18 06:15:42.713 
+Event: 23601466, the time is Sun Jun 18 06:15:44.742 
+Event: 23601467, the time is Sun Jun 18 06:15:46.743 
+Event: 23601468, the time is Sun Jun 18 06:15:48.669 
+Event: 23601469, the time is Sun Jun 18 06:15:50.691 
+Event: 23601470, the time is Sun Jun 18 06:15:52.694 
+Event: 23601471, the time is Sun Jun 18 06:15:54.706 
+Event: 23601472, the time is Sun Jun 18 06:15:56.709 
+Event: 23601473, the time is Sun Jun 18 06:15:58.716 
+Event: 23601474, the time is Sun Jun 18 06:16:00.783 
+Event: 23601475, the time is Sun Jun 18 06:16:02.722 
+Event: 23601477, the time is Sun Jun 18 06:16:04.702 
+Event: 23601478, the time is Sun Jun 18 06:16:06.673 
+Event: 23601479, the time is Sun Jun 18 06:16:08.696 
+Event: 23601480, the time is Sun Jun 18 06:16:10.671 
+Event: 23601481, the time is Sun Jun 18 06:16:12.640 
+Event: 23601482, the time is Sun Jun 18 06:16:14.737 
+Event: 23601483, the time is Sun Jun 18 06:16:16.754 
+Event: 23601484, the time is Sun Jun 18 06:16:18.747 
+Event: 23601485, the time is Sun Jun 18 06:16:20.725 
+Event: 23601486, the time is Sun Jun 18 06:16:22.733 
+Event: 23601487, the time is Sun Jun 18 06:16:24.727 
+Event: 23601488, the time is Sun Jun 18 06:16:26.691 
+Event: 23601490, the time is Sun Jun 18 06:16:28.668 
+Event: 23601491, the time is Sun Jun 18 06:16:30.685 
+Event: 23601492, the time is Sun Jun 18 06:16:32.640 
+Event: 23601493, the time is Sun Jun 18 06:16:34.653 
+Event: 23601494, the time is Sun Jun 18 06:16:36.654 
+Event: 23601496, the time is Sun Jun 18 06:16:38.651 
+Event: 23601497, the time is Sun Jun 18 06:16:40.705 
+Event: 23601498, the time is Sun Jun 18 06:16:42.718 
+Event: 23601499, the time is Sun Jun 18 06:16:44.739 
+Event: 23601500, the time is Sun Jun 18 06:16:46.697 
+Event: 23601501, the time is Sun Jun 18 06:16:48.668 
+Event: 23601502, the time is Sun Jun 18 06:16:50.669 
+Event: 23601503, the time is Sun Jun 18 06:16:52.739 
+Event: 23601504, the time is Sun Jun 18 06:16:54.709 
+Event: 23601505, the time is Sun Jun 18 06:16:56.670 
+Event: 23601506, the time is Sun Jun 18 06:16:58.611 
+Event: 23601507, the time is Sun Jun 18 06:17:00.543 
+Event: 23601509, the time is Sun Jun 18 06:17:02.525 
+Event: 23601510, the time is Sun Jun 18 06:17:04.483 
+Event: 23601511, the time is Sun Jun 18 06:17:06.452 
+Event: 23601512, the time is Sun Jun 18 06:17:08.463 
+Event: 23601513, the time is Sun Jun 18 06:17:10.496 
+Event: 23601514, the time is Sun Jun 18 06:17:12.488 
+Event: 23601515, the time is Sun Jun 18 06:17:14.452 
+Event: 23601516, the time is Sun Jun 18 06:17:16.466 
+Event: 23601517, the time is Sun Jun 18 06:17:18.437 
+Event: 23601519, the time is Sun Jun 18 06:17:20.357 
+Event: 23601520, the time is Sun Jun 18 06:17:22.317 
+Event: 23601521, the time is Sun Jun 18 06:17:24.313 
+Event: 23601522, the time is Sun Jun 18 06:17:26.274 
+Event: 23601523, the time is Sun Jun 18 06:17:28.292 
+Event: 23601524, the time is Sun Jun 18 06:17:30.254 
+Event: 23601525, the time is Sun Jun 18 06:17:32.271 
+Event: 23601526, the time is Sun Jun 18 06:17:34.185 
+Event: 23601527, the time is Sun Jun 18 06:17:36.257 
+Event: 23601528, the time is Sun Jun 18 06:17:38.284 
+Event: 23601529, the time is Sun Jun 18 06:17:40.283 
+Event: 23601530, the time is Sun Jun 18 06:17:42.252 
+Event: 23601532, the time is Sun Jun 18 06:17:44.300 
+Event: 23601533, the time is Sun Jun 18 06:17:46.234 
+Event: 23601534, the time is Sun Jun 18 06:17:48.198 
+Event: 23601535, the time is Sun Jun 18 06:17:50.212 
+Event: 23601536, the time is Sun Jun 18 06:17:52.191 
+Event: 23601537, the time is Sun Jun 18 06:17:54.180 
+Event: 23601538, the time is Sun Jun 18 06:17:56.140 
+Event: 23601539, the time is Sun Jun 18 06:17:58.135 
+Event: 23601540, the time is Sun Jun 18 06:18:00.160 
+Event: 23601541, the time is Sun Jun 18 06:18:02.137 
+Event: 23601542, the time is Sun Jun 18 06:18:04.84 
+Event: 23601543, the time is Sun Jun 18 06:18:06.89 
+Event: 23601544, the time is Sun Jun 18 06:18:08.68 
+Event: 23601545, the time is Sun Jun 18 06:18:10.35 
+Event: 23601546, the time is Sun Jun 18 06:18:12.8 
+Event: 23601547, the time is Sun Jun 18 06:18:13.988 
+Event: 23601548, the time is Sun Jun 18 06:18:16.3 
+Event: 23601549, the time is Sun Jun 18 06:18:17.987 
+Event: 23601550, the time is Sun Jun 18 06:18:20.3 
+Event: 23601552, the time is Sun Jun 18 06:18:21.997 
+Event: 23601553, the time is Sun Jun 18 06:18:23.990 
+Event: 23601554, the time is Sun Jun 18 06:18:25.980 
+Event: 23601555, the time is Sun Jun 18 06:18:27.968 
+Event: 23601556, the time is Sun Jun 18 06:18:29.977 
+Event: 23601557, the time is Sun Jun 18 06:18:31.967 
+Event: 23601559, the time is Sun Jun 18 06:18:33.897 
+Event: 23601560, the time is Sun Jun 18 06:18:35.857 
+Event: 23601561, the time is Sun Jun 18 06:18:37.858 
+Event: 23601562, the time is Sun Jun 18 06:18:39.797 
+Event: 23601563, the time is Sun Jun 18 06:18:41.794 
+Event: 23601564, the time is Sun Jun 18 06:18:43.787 
+Event: 23601565, the time is Sun Jun 18 06:18:45.771 
+Event: 23601566, the time is Sun Jun 18 06:18:47.763 
+Event: 23601567, the time is Sun Jun 18 06:18:49.804 
+Event: 23601569, the time is Sun Jun 18 06:18:51.758 
+Event: 23601570, the time is Sun Jun 18 06:18:53.772 
+Event: 23601571, the time is Sun Jun 18 06:18:55.747 
+Event: 23601572, the time is Sun Jun 18 06:18:57.773 
+Event: 23601573, the time is Sun Jun 18 06:18:59.791 
+Event: 23601574, the time is Sun Jun 18 06:19:01.883 
+Event: 23601575, the time is Sun Jun 18 06:19:03.866 
+Event: 23601576, the time is Sun Jun 18 06:19:05.869 
+Event: 23601577, the time is Sun Jun 18 06:19:07.857 
+Event: 23601579, the time is Sun Jun 18 06:19:09.782 
+Event: 23601580, the time is Sun Jun 18 06:19:11.733 
+Event: 23601581, the time is Sun Jun 18 06:19:13.713 
+Event: 23601582, the time is Sun Jun 18 06:19:15.683 
+Event: 23601583, the time is Sun Jun 18 06:19:17.689 
+Event: 23601584, the time is Sun Jun 18 06:19:19.706 
+Event: 23601585, the time is Sun Jun 18 06:19:21.633 
+Event: 23601586, the time is Sun Jun 18 06:19:23.562 
+Event: 23601588, the time is Sun Jun 18 06:19:25.586 
+Event: 23601589, the time is Sun Jun 18 06:19:27.530 
+Event: 23601590, the time is Sun Jun 18 06:19:29.547 
+Event: 23601591, the time is Sun Jun 18 06:19:31.472 
+Event: 23601592, the time is Sun Jun 18 06:19:33.408 
+Event: 23601593, the time is Sun Jun 18 06:19:35.411 
+Event: 23601594, the time is Sun Jun 18 06:19:37.400 
+Event: 23601596, the time is Sun Jun 18 06:19:39.480 
+Event: 23601597, the time is Sun Jun 18 06:19:41.452 
+Event: 23601598, the time is Sun Jun 18 06:19:43.412 
+Event:Event: 23601720, the time is Sun Jun 18 06:23:16.726 
+Event: 23601722, the time is Sun Jun 18 06:23:18.711 
+Event: 23601723, the time is Sun Jun 18 06:23:20.698 
+Event: 23601724, the time is Sun Jun 18 06:23:22.660 
+Event: 23601725, the time is Sun Jun 18 06:23:24.611 
+Event: 23601726, the time is Sun Jun 18 06:23:26.616 
+Event: 23601727, the time is Sun Jun 18 06:23:28.565 
+Event: 23601728, the time is Sun Jun 18 06:23:30.507 
+Event: 23601729, the time is Sun Jun 18 06:23:32.511 
+Event: 23601731, the time is Sun Jun 18 06:23:34.487 
+Event: 23601732, the time is Sun Jun 18 06:23:36.473 
+Event: 23601733, the time is Sun Jun 18 06:23:38.406 
+Event: 23601734, the time is Sun Jun 18 06:23:40.481 
+Event: 23601735, the time is Sun Jun 18 06:23:42.522 
+Event: 23601736, the time is Sun Jun 18 06:23:44.516 
+Event: 23601737, the time is Sun Jun 18 06:23:46.469 
+Event: 23601738, the time is Sun Jun 18 06:23:48.435 
+Event: 23601739, the time is Sun Jun 18 06:23:50.433 
+Event: 23601740, the time is Sun Jun 18 06:23:52.419 
+Event: 23601741, the time is Sun Jun 18 06:23:54.425 
+Event: 23601742, the time is Sun Jun 18 06:23:56.343 
+Event: 23601744, the time is Sun Jun 18 06:23:58.298 
+Event: 23601745, the time is Sun Jun 18 06:24:00.251 
+Event: 23601746, the time is Sun Jun 18 06:24:02.223 
+Event: 23601747, the time is Sun Jun 18 06:24:04.201 
+Event: 23601748, the time is Sun Jun 18 06:24:06.130 
+Event: 23601749, the time is Sun Jun 18 06:24:08.108 
+Event: 23601751, the time is Sun Jun 18 06:24:10.83 
+Event: 23601752, the time is Sun Jun 18 06:24:12.40 
+Event: 23601753, the time is Sun Jun 18 06:24:13.999 
+Event: 23601754, the time is Sun Jun 18 06:24:15.979 
+Event: 23601755, the time is Sun Jun 18 06:24:17.935 
+Event: 23601756, the time is Sun Jun 18 06:24:19.905 
+Event: 23601757, the time is Sun Jun 18 06:24:21.945 
+Event: 23601758, the time is Sun Jun 18 06:24:23.929 
+Event: 23601760, the time is Sun Jun 18 06:24:25.862 
+Event: 23601761, the time is Sun Jun 18 06:24:27.835 
+Event: 23601762, the time is Sun Jun 18 06:24:29.801 
+Event: 23601763, the time is Sun Jun 18 06:24:31.891 
+Event: 23601764, the time is Sun Jun 18 06:24:33.840 
+Event: 23601765, the time is Sun Jun 18 06:24:35.901 
+Event: 23601766, the time is Sun Jun 18 06:24:37.829 
+Event: 23601767, the time is Sun Jun 18 06:24:39.841 
+Event: 23601769, the time is Sun Jun 18 06:24:41.861 
+Event: 23601770, the time is Sun Jun 18 06:24:43.860 
+Event: 23601771, the time is Sun Jun 18 06:24:45.862 
+Event: 23601772, the time is Sun Jun 18 06:24:47.825 
+Event: 23601773, the time is Sun Jun 18 06:24:49.766 
+Event: 23601774, the time is Sun Jun 18 06:24:51.705 
+Event: 23601775, the time is Sun Jun 18 06:24:53.700 
+Event: 23601776, the time is Sun Jun 18 06:24:55.637 
+Event: 23601777, the time is Sun Jun 18 06:24:57.571 
+Event: 23601778, the time is Sun Jun 18 06:24:59.554 
+Event: 23601779, the time is Sun Jun 18 06:25:01.565 
+Event: 23601781, the time is Sun Jun 18 06:25:03.535 
+Event: 23601782, the time is Sun Jun 18 06:25:05.498 
+Event: 23601783, the time is Sun Jun 18 06:25:07.428 
+Event: 23601784, the time is Sun Jun 18 06:25:09.394 
+Event: 23601785, the time is Sun Jun 18 06:25:11.378 
+Event: 23601786, the time is Sun Jun 18 06:25:13.360 
+Event: 23601787, the time is Sun Jun 18 06:25:15.412 
+Event: 23601788, the time is Sun Jun 18 06:25:17.344 
+Event: 23601789, the time is Sun Jun 18 06:25:19.315 
+Event: 23601791, the time is Sun Jun 18 06:25:21.250 
+Event: 23601792, the time is Sun Jun 18 06:25:23.225 
+Event: 23601793, the time is Sun Jun 18 06:25:25.156 
+Event: 23601794, the time is Sun Jun 18 06:25:27.94 
+Event: 23601795, the time is Sun Jun 18 06:25:29.101 
+Event: 23601797, the time is Sun Jun 18 06:25:31.65 
+Event: 23601798, the time is Sun Jun 18 06:25:33.3 
+Event: 23601800, the time is Sun Jun 18 06:25:35.81 
+Event: 23601801, the time is Sun Jun 18 06:25:37.37 
+Event: 23601802, the time is Sun Jun 18 06:25:38.952 
+Event: 23601803, the time is Sun Jun 18 06:25:40.901 
+Event: 23601804, the time is Sun Jun 18 06:25:42.953 
+Event: 23601806, the time is Sun Jun 18 06:25:44.928 
+Event: 23601807, the time is Sun Jun 18 06:25:46.888 
+Event: 23601808, the time is Sun Jun 18 06:25:48.845 
+Event: 23601809, the time is Sun Jun 18 06:25:50.779 
+Event: 23601810, the time is Sun Jun 18 06:25:52.701 
+Event: 23601811, the time is Sun Jun 18 06:25:54.680 
+Event: 23601812, the time is Sun Jun 18 06:25:56.612 
+Event: 23601814, the time is Sun Jun 18 06:25:58.550 
+Event: 23601815, the time is Sun Jun 18 06:26:00.503 
+Event: 23601816, the time is Sun Jun 18 06:26:02.438 
+Event: 23601817, the time is Sun Jun 18 06:26:04.383 
+Event: 23601818, the time is Sun Jun 18 06:26:06.340 
+Event: 23601819, the time is Sun Jun 18 06:26:08.272 
+Event: 23601820, the time is Sun Jun 18 06:26:10.205 
+Event: 23601821, the time is Sun Jun 18 06:26:12.289 
+Event: 23601822, the time is Sun Jun 18 06:26:14.278 
+Event: 23601823, the time is Sun Jun 18 06:26:16.233 
+Event: 23601824, the time is Sun Jun 18 06:26:18.164 
+Event: 23601825, the time is Sun Jun 18 06:26:20.160 
+Event: 23601827, the time is Sun Jun 18 06:26:22.115 
+Event: 23601828, the time is Sun Jun 18 06:26:24.51 
+Event: 23601829, the time is Sun Jun 18 06:26:26.28 
+Event: 23601830, the time is Sun Jun 18 06:26:27.997 
+Event: 23601831, the time is Sun Jun 18 06:26:29.985 
+Event: 23601832, the time is Sun Jun 18 06:26:31.980 
+Event: 23601833, the time is Sun Jun 18 06:26:33.916 
+Event: 23601834, the time is Sun Jun 18 06:26:35.838 
+Event: 23601835, the time is Sun Jun 18 06:26:37.791 
+Event: 23601837, the time is Sun Jun 18 06:26:39.712 
+Event: 23601838, the time is Sun Jun 18 06:26:41.707 
+Event: 23601839, the time is Sun Jun 18 06:26:43.681 
+Event: 23601840, the time is Sun Jun 18 06:26:45.698 
+Event: 23601841, the time is Sun Jun 18 06:26:47.632 
+Event: 23601842, the time is Sun Jun 18 06:26:49.596 
+Event: 23601844, the time is Sun Jun 18 06:26:51.595 
+Event: 23601845, the time is Sun Jun 18 06:26:53.589 
+Event: 23601846, the time is Sun Jun 18 06:26:55.513 
+Event: 23601847, the time is Sun Jun 18 06:26:57.485 
+Event: 23601848, the time is Sun Jun 18 06:26:59.406 
+Event: 23601849, the time is Sun Jun 18 06:27:01.329 
+Event: 23601851, the time is Sun Jun 18 06:27:03.352 
+Event: 23601852, the time is Sun Jun 18 06:27:05.340 
+Event: 23601853, the time is Sun Jun 18 06:27:07.312 
+Event: 23601854, the time is Sun Jun 18 06:27:09.257 
+Event: 23601855, the time is Sun Jun 18 06:27:11.207 
+Event: 23601856, the time is Sun Jun 18 06:27:13.183 
+Event: 23601857, the time is Sun Jun 18 06:27:15.121 
+Event: 23601858, the time is Sun Jun 18 06:27:17.71 
+Event: 23601859, the time is Sun Jun 18 06:27:19.80 
+Event: 23601860, the time is Sun Jun 18 06:27:21.14 
+Event: 23601861, the time is Sun Jun 18 06:27:23.45 
+Event: 23601862, the time is Sun Jun 18 06:27:25.30 
+Event: 23601863, the time is Sun Jun 18 06:27:26.994 
+Event: 23601864, the time is Sun Jun 18 06:27:28.898 
+Event: 23601866, the time is Sun Jun 18 06:27:30.852 
+Event: 23601867, the time is Sun Jun 18 06:27:32.793 
+Event: 23601868, the time is Sun Jun 18 06:27:34.749 
+Event: 23601869, the time is Sun Jun 18 06:27:36.720 
+Event: 23601870, the time is Sun Jun 18 06:27:38.636 
+Event: 23601871, the time is Sun Jun 18 06:27:40.599 
+Event: 23601872, the time is Sun Jun 18 06:27:42.536 
+Event: 23601873, the time is Sun Jun 18 06:27:44.474 
+Event: 23601874, the time is Sun Jun 18 06:27:46.474 
+Event: 23601876, the time is Sun Jun 18 06:27:48.398 
+Event: 23601877, the time is Sun Jun 18 06:27:50.340 
+Event: 23601878, the time is Sun Jun 18 06:27:52.338 
+Event: 23601879, the time is Sun Jun 18 06:27:54.376 
+Event: 23601880, the time is Sun Jun 18 06:27:56.327 
+Event: 23601882, the time is Sun Jun 18 06:27:58.259 
+Event: 23601883, the time is Sun Jun 18 06:28:00.323 
+Event: 23601884, the time is Sun Jun 18 06:28:02.281 
+Event: 23601885, the time is Sun Jun 18 06:28:04.288 
+Event: 23601886, the time is Sun Jun 18 06:28:06.229 
+Event: 23601888, the time is Sun Jun 18 06:28:08.203 
+Event: 23601890, the time is Sun Jun 18 06:28:10.171 
+Event: 23601891, the time is Sun Jun 18 06:28:12.136 
+Event: 23601892, the time is Sun Jun 18 06:28:14.136 
+Event: 23601893, the time is Sun Jun 18 06:28:16.75 
+Event: 23601895, the time is Sun Jun 18 06:28:18.20 
+Event: 23601896, the time is Sun Jun 18 06:28:19.946 
+Event: 23601897, the time is Sun Jun 18 06:28:21.988 
+Event: 23601898, the time is Sun Jun 18 06:28:24.10 
+Event: 23601899, the time is Sun Jun 18 06:28:26.93 
+Event: 23601901, the time is Sun Jun 18 06:28:28.92 
+Event: 23601902, the time is Sun Jun 18 06:28:30.47 
+Event: 23601903, the time is Sun Jun 18 06:28:32.24 
+Event: 23601904, the time is Sun Jun 18 06:28:34.0 
+Event: 23601906, the time is Sun Jun 18 06:28:35.921 
+Event: 23601907, the time is Sun Jun 18 06:28:37.853 
+Event: 23601908, the time is Sun Jun 18 06:28:39.780 
+Event: 23601909, the time is Sun Jun 18 06:28:41.713 
+Event: 23601910, the time is Sun Jun 18 06:28:43.648 
+Event: 23601911, the time is Sun Jun 18 06:28:45.675 
+Event: 23601912, the time is Sun Jun 18 06:28:47.614 
+Event: 23601914, the time is Sun Jun 18 06:28:49.681 
+Event: 23601915, the time is Sun Jun 18 06:28:51.677 
+Event: 23601916, the time is Sun Jun 18 06:28:53.669 
+Event: 23601917, the time is Sun Jun 18 06:28:55.695 
+Event: 23601918, the time is Sun Jun 18 06:28:57.718 
+Event: 23601919, the time is Sun Jun 18 06:28:59.707 
+Event: 23601920, the time is Sun Jun 18 06:29:01.782 
+Event: 23601921, the time is Sun Jun 18 06:29:03.704 
+Event: 23601922, the time is Sun Jun 18 06:29:05.641 
+Event: 23601923, the time is Sun Jun 18 06:29:07.620 
+Event: 23601924, the time is Sun Jun 18 06:29:09.554 
+Event: 23601926, the time is Sun Jun 18 06:29:11.553 
+Event: 23601927, the time is Sun Jun 18 06:29:13.524 
+Event: 23601928, the time is Sun Jun 18 06:29:15.539 
+Event: 23601929, the time is Sun Jun 18 06:29:17.536 
+Event: 23601930, the time is Sun Jun 18 06:29:19.508 
+Event: 23601931, the time is Sun Jun 18 06:29:21.488 
+Event: 23601932, the time is Sun Jun 18 06:29:23.431 
+Event: 23601933, the time is Sun Jun 18 06:29:25.354 
+Event: 23601934, the time is Sun Jun 18 06:29:27.328 
+Event: 23601935, the time is Sun Jun 18 06:29:29.315 
+Event: 23601937, the time is Sun Jun 18 06:29:31.397 
+Event: 23601938, the time is Sun Jun 18 06:29:33.360 
+Event: 23601939, the time is Sun Jun 18 06:29:35.287 
+Event: 23601940, the time is Sun Jun 18 06:29:37.253 
+Event: 23601941, the time is Sun Jun 18 06:29:39.191 
+Event: 23601942, the time is Sun Jun 18 06:29:41.122 
+Event: 23601943, the time is Sun Jun 18 06:29:43.98 
+Event: 23601944, the time is Sun Jun 18 06:29:45.24 
+Event: 23601945, the time is Sun Jun 18 06:29:47.47 
+Event: 23601946, the time is Sun Jun 18 06:29:48.941 
+Event: 23601948, the time is Sun Jun 18 06:29:51.56 
+Event: 23601949, the time is Sun Jun 18 06:29:53.75 
+Event: 23601950, the time is Sun Jun 18 06:29:55.148 
+Event: 23601951, the time is Sun Jun 18 06:29:57.93 
+Event: 23601952, the time is Sun Jun 18 06:29:59.38 
+Event: 23601953, the time is Sun Jun 18 06:30:00.961 
+Event: 23601954, the time is Sun Jun 18 06:30:02.988 
+Event: 23601956, the time is Sun Jun 18 06:30:04.954 
+Event: 23601957, the time is Sun Jun 18 06:30:06.963 
+Event: 23601958, the time is Sun Jun 18 06:30:09.16 
+Event: 23601959, the time is Sun Jun 18 06:30:10.963 
+Event: 23601960, the time is Sun Jun 18 06:30:12.973 
+Event: 23601961, the time is Sun Jun 18 06:30:14.922 
+Event: 23601962, the time is Sun Jun 18 06:30:16.838 
+Event: 23601963, the time is Sun Jun 18 06:30:18.817 
+Event: 23601965, the time is Sun Jun 18 06:30:20.870 
+Event: 23601967, the time is Sun Jun 18 06:30:22.846 
+Event: 23601969, the time is Sun Jun 18 06:30:24.834 
+Event: 23601970, the time is Sun Jun 18 06:30:26.798 
+Event: 23601971, the time is Sun Jun 18 06:30:28.766 
+Event: 23601972, the time is Sun Jun 18 06:30:30.748 
+Event: 23601973, the time is Sun Jun 18 06:30:32.756 
+Event: 23601974, the time is Sun Jun 18 06:30:34.764 
+Event: 23601976, the time is Sun Jun 18 06:30:36.691 
+Event: 23601977, the time is Sun Jun 18 06:30:38.616 
+Event: 23601978, the time is Sun Jun 18 06:30:40.574 
+Event: 23601979, the time is Sun Jun 18 06:30:42.568 
+Event: 23601980, the time is Sun Jun 18 06:30:44.531 
+Event: 23601981, the time is Sun Jun 18 06:30:46.485 
+Event: 23601983, the time is Sun Jun 18 06:30:48.422 
+Event: 23601984, the time is Sun Jun 18 06:30:50.330 
+Event: 23601985, the time is Sun Jun 18 06:30:52.313 
+Event: 23601986, the time is Sun Jun 18 06:30:54.235 
+Event: 23601987, the time is Sun Jun 18 06:30:56.245 
+Event: 23601988, the time is Sun Jun 18 06:30:58.317 
+Event: 23601989, the time is Sun Jun 18 06:31:00.243 
+Event: 23601990, the time is Sun Jun 18 06:31:02.230 
+Event: 23601991, the time is Sun Jun 18 06:31:04.303 
+Event: 23601992, the time is Sun Jun 18 06:31:06.291 
+Event: 23601993, the time is Sun Jun 18 06:31:08.356 
+Event: 23601994, the time is Sun Jun 18 06:31:10.263 
+Event: 23601996, the time is Sun Jun 18 06:31:12.246 
+Event: 23601997, the time is Sun Jun 18 06:31:14.360 
+Event: 23601998, the time is Sun Jun 18 06:31:16.387 
+Event: 23601999, the time is Sun Jun 18 06:31:18.403 
+Event: 23602000, the time is Sun Jun 18 06:31:20.405 
+Event: 23602002, the time is Sun Jun 18 06:31:22.413 
+Event: 23602003, the time is Sun Jun 18 06:31:24.460 
+Event: 23602004, the time is Sun Jun 18 06:31:26.463 
+Event: 23602005, the time is Sun Jun 18 06:31:28.381 
+Event: 23602006, the time is Sun Jun 18 06:31:30.344 
+Event: 23602007, the time is Sun Jun 18 06:31:32.431 
+Event: 23602008, the time is Sun Jun 18 06:31:34.446 
+Event: 23602009, the time is Sun Jun 18 06:31:36.450 
+Event: 23602010, the time is Sun Jun 18 06:31:38.421 
+Event: 23602011, the time is Sun Jun 18 06:31:40.399 
+Event: 23602012, the time is Sun Jun 18 06:31:42.351 
+Event: 23602013, the time is Sun Jun 18 06:31:44.367 
+Event: 23602014, the time is Sun Jun 18 06:31:46.435 
+Event: 23602015, the time is Sun Jun 18 06:31:48.440 
+Event: 23602016, the time is Sun Jun 18 06:31:50.379 
+Event: 23602018, the time is Sun Jun 18 06:31:52.382 
+Event: 23602019, the time is Sun Jun 18 06:31:54.344 
+Event: 23602020, the time is Sun Jun 18 06:31:56.332 
+Event: 23602021, the time is Sun Jun 18 06:31:58.306 
+Event: 23602022, the time is Sun Jun 18 06:32:00.214 
+Event: 23602023, the time is Sun Jun 18 06:32:02.138 
+Event: 23602025, the time is Sun Jun 18 06:32:04.128 
+Event: 23602026, the time is Sun Jun 18 06:32:06.116 
+Event: 23602027, the time is Sun Jun 18 06:32:08.212 
+Event: 23602028, the time is Sun Jun 18 06:32:10.201 
+Event: 23602029, the time is Sun Jun 18 06:32:12.203 
+Event: 23602030, the time is Sun Jun 18 06:32:14.149 
+Event: 23602031, the time is Sun Jun 18 06:32:16.149 
+Event: 23602032, the time is Sun Jun 18 06:32:18.191 
+Event: 23602033, the time is Sun Jun 18 06:32:20.169 
+Event: 23602034, the time is Sun Jun 18 06:32:22.243 
+Event: 23602036, the time is Sun Jun 18 06:32:24.217 
+Event: 23602037, the time is Sun Jun 18 06:32:26.209 
+Event: 23602038, the time is Sun Jun 18 06:32:28.191 
+Event: 23602039, the time is Sun Jun 18 06:32:30.201 
+Event: 23602040, the time is Sun Jun 18 06:32:32.203 
+Event: 23602041, the time is Sun Jun 18 06:32:34.245 
+Event: 23602042, the time is Sun Jun 18 06:32:36.326 
+Event: 23602043, the time is Sun Jun 18 06:32:38.237 
+Event: 23602044, the time is Sun Jun 18 06:32:40.223 
+Event: 23602045, the time is Sun Jun 18 06:32:42.188 
+Event: 23602046, the time is Sun Jun 18 06:32:44.201 
+Event: 23602048, the time is Sun Jun 18 06:32:46.182 
+Event: 23602049, the time is Sun Jun 18 06:32:48.121 
+Event: 23602050, the time is Sun Jun 18 06:32:50.104 
+Event: 23602051, the time is Sun Jun 18 06:32:52.14 
+Event: 23602052, the time is Sun Jun 18 06:32:53.959 
+Event: 23602053, the time is Sun Jun 18 06:32:55.991 
+Event: 23602054, the time is Sun Jun 18 06:32:58.104 
+Event: 23602055, the time is Sun Jun 18 06:33:00.147 
+Event: 23602057, the time is Sun Jun 18 06:33:02.76 
+Event: 23602058, the time is Sun Jun 18 06:33:04.41 
+Event: 23602059, the time is Sun Jun 18 06:33:06.147 
+Event: 23602061, the time is Sun Jun 18 06:33:08.264 
+Event: 23602062, the time is Sun Jun 18 06:33:10.200 
+Event: 23602063, the time is Sun Jun 18 06:33:12.179 
+Event: 23602064, the time is Sun Jun 18 06:33:14.209 
+Event: 23602065, the time is Sun Jun 18 06:33:16.239 
+Event: 23602066, the time is Sun Jun 18 06:33:18.316 
+Event: 23602068, the time is Sun Jun 18 06:33:20.261 
+Event: 23602069, the time is Sun Jun 18 06:33:22.188 
+Event: 23602070, the time is Sun Jun 18 06:33:24.182 
+Event: 23602071, the time is Sun Jun 18 06:33:26.310 
+Event: 23602072, the time is Sun Jun 18 06:33:28.358 
+Event: 23602073, the time is Sun Jun 18 06:33:30.364 
+Event: 23602074, the time is Sun Jun 18 06:33:32.361 
+Event: 23602075, the time is Sun Jun 18 06:33:34.419 
+Event: 23602076, the time is Sun Jun 18 06:33:36.393 
+Event: 23602077, the time is Sun Jun 18 06:33:38.396 
+Event: 23602078, the time is Sun Jun 18 06:33:40.439 
+Event: 23602079, the time is Sun Jun 18 06:33:42.484 
+Event: 23602080, the time is Sun Jun 18 06:33:44.466 
+Event: 23602082, the time is Sun Jun 18 06:33:46.427 
+Event: 23602083, the time is Sun Jun 18 06:33:48.430 
+Event: 23602084, the time is Sun Jun 18 06:33:50.558 
+Event: 23602085, the time is Sun Jun 18 06:33:52.587 
+Event: 23602086, the time is Sun Jun 18 06:33:54.585 
+Event: 23602087, the time is Sun Jun 18 06:33:56.672 
+Event: 23602088, the time is Sun Jun 18 06:33:58.617 
+Event: 23602089, the time is Sun Jun 18 06:34:00.550 
+Event: 23602091, the time is Sun Jun 18 06:34:02.623 
+Event: 23602092, the time is Sun Jun 18 06:34:04.651 
+Event: 23602093, the time is Sun Jun 18 06:34:06.649 
+Event: 23602094, the time is Sun Jun 18 06:34:08.666 
+Event: 23602095, the time is Sun Jun 18 06:34:10.737 
+Event: 23602097, the time is Sun Jun 18 06:34:12.751 
+Event: 23602098, the time is Sun Jun 18 06:34:14.678 
+Event: 23602099, the time is Sun Jun 18 06:34:16.685 
+Event: 23602100, the time is Sun Jun 18 06:34:18.663 
+Event: 23602101, the time is Sun Jun 18 06:34:20.668 
+Event: 23602102, the time is Sun Jun 18 06:34:22.711 
+Event: 23602103, the time is Sun Jun 18 06:34:24.699 
+Event: 23602105, the time is Sun Jun 18 06:34:26.674 
+Event: 23602106, the time is Sun Jun 18 06:34:28.702 
+Event: 23602107, the time is Sun Jun 18 06:34:30.704 
+Event: 23602109, the time is Sun Jun 18 06:34:32.619 
+Event: 23602110, the time is Sun Jun 18 06:34:34.641 
+Event: 23602111, the time is Sun Jun 18 06:34:36.768 
+Event: 23602112, the time is Sun Jun 18 06:34:38.714 
+Event: 23602113, the time is Sun Jun 18 06:34:40.740 
+Event: 23602114, the time is Sun Jun 18 06:34:42.912 
+Event: 23602115, the time is Sun Jun 18 06:34:44.988 
+Event: 23602117, the time is Sun Jun 18 06:34:47.13 
+Event: 23602118, the time is Sun Jun 18 06:34:48.965 
+Event: 23602119, the time is Sun Jun 18 06:34:51.30 
+Event: 23602120, the time is Sun Jun 18 06:34:53.93 
+Event: 23602121, the time is Sun Jun 18 06:34:55.76 
+Event: 23602122, the time is Sun Jun 18 06:34:57.205 
+Event: 23602123, the time is Sun Jun 18 06:34:59.214 
+Event: 23602124, the time is Sun Jun 18 06:35:01.145 
+Event: 23602126, the time is Sun Jun 18 06:35:03.224 
+Event: 23602127, the time is Sun Jun 18 06:35:05.222 
+Event: 23602128, the time is Sun Jun 18 06:35:07.186 
+Event: 23602129, the time is Sun Jun 18 06:35:09.211 
+Event: 23602130, the time is Sun Jun 18 06:35:11.199 
+Event: 23602131, the time is Sun Jun 18 06:35:13.297 
+Event: 23602132, the time is Sun Jun 18 06:35:15.355 
+Event: 23602133, the time is Sun Jun 18 06:35:17.414 
+Event: 23602134, the time is Sun Jun 18 06:35:19.409 
+Event: 23602136, the time is Sun Jun 18 06:35:21.543 
+Event: 23602137, the time is Sun Jun 18 06:35:23.535 
+Event: 23602138, the time is Sun Jun 18 06:35:25.545 
+Event: 23602139, the time is Sun Jun 18 06:35:27.533 
+Event: 23602140, the time is Sun Jun 18 06:35:29.613 
+Event: 23602141, the time is Sun Jun 18 06:35:31.762 
+Event: 23602142, the time is Sun Jun 18 06:35:33.753 
+Event: 23602145, the time is Sun Jun 18 06:35:35.713 
+Event: 23602146, the time is Sun Jun 18 06:35:37.723 
+Event: 23602147, the time is Sun Jun 18 06:35:39.820 
+Event: 23602148, the time is Sun Jun 18 06:35:41.867 
+Event: 23602149, the time is Sun Jun 18 06:35:43.995 
+Event: 23602150, the time is Sun Jun 18 06:35:46.75 
+Event: 23602151, the time is Sun Jun 18 06:35:48.58 
+Event: 23602152, the time is Sun Jun 18 06:35:50.91 
+Event: 23602153, the time is Sun Jun 18 06:35:52.110 
+Event: 23602154, the time is Sun Jun 18 06:35:54.126 
+Event: 23602156, the time is Sun Jun 18 06:35:56.166 
+Event: 23602157, the time is Sun Jun 18 06:35:58.103 
+Event: 23602158, the time is Sun Jun 18 06:36:00.100 
+Event: 23602159, the time is Sun Jun 18 06:36:02.139 
+Event: 23602160, the time is Sun Jun 18 06:36:04.188 
+Event: 23602161, the time is Sun Jun 18 06:36:06.151 
+Event: 23602162, the time is Sun Jun 18 06:36:08.263 
+Event: 23602163, the time is Sun Jun 18 06:36:10.287 
+Event: 23602164, the time is Sun Jun 18 06:36:12.346 
+Event: 23602165, the time is Sun Jun 18 06:36:14.382 
+Event: 23602166, the time is Sun Jun 18 06:36:16.339 
+Event: 23602167, the time is Sun Jun 18 06:36:18.293 
+Event: 23602168, the time is Sun Jun 18 06:36:20.234 
+Event: 23602170, the time is Sun Jun 18 06:36:22.234 
+Event: 23602171, the time is Sun Jun 18 06:36:24.299 
+Event: 23602172, the time is Sun Jun 18 06:36:26.306 
+Event: 23602173, the time is Sun Jun 18 06:36:28.313 
+Event: 23602174, the time is Sun Jun 18 06:36:30.314 
+Event: 23602175, the time is Sun Jun 18 06:36:32.331 
+Event: 23602177, the time is Sun Jun 18 06:36:34.332 
+Event: 23602178, the time is Sun Jun 18 06:36:36.308 
+Event: 23602179, the time is Sun Jun 18 06:36:38.297 
+Event: 23602180, the time is Sun Jun 18 06:36:40.283 
+Event: 23602181, the time is Sun Jun 18 06:36:42.271 
+Event: 23602183, the time is Sun Jun 18 06:36:44.350 
+Event: 23602184, the time is Sun Jun 18 06:36:46.393 
+Event: 23602185, the time is Sun Jun 18 06:36:48.417 
+Event: 23602186, the time is Sun Jun 18 06:36:50.444 
+Event: 23602188, the time is Sun Jun 18 06:36:52.471 
+Event: 23602189, the time is Sun Jun 18 06:36:54.532 
+Event: 23602190, the time is Sun Jun 18 06:36:56.543 
+Event: 23602191, the time is Sun Jun 18 06:36:58.555 
+Event: 23602193, the time is Sun Jun 18 06:37:00.498 
+Event: 23602194, the time is Sun Jun 18 06:37:02.442 
+Event: 23602195, the time is Sun Jun 18 06:37:04.473 
+Event: 23602196, the time is Sun Jun 18 06:37:06.431 
+Event: 23602197, the time is Sun Jun 18 06:37:08.380 
+Event: 23602198, the time is Sun Jun 18 06:37:10.322 
+Event: 23602199, the time is Sun Jun 18 06:37:12.336 
+Event: 23602201, the time is Sun Jun 18 06:37:14.324 
+Event: 23602202, the time is Sun Jun 18 06:37:16.523 
+Event: 23602203, the time is Sun Jun 18 06:37:18.477 
+Event: 23602204, the time is Sun Jun 18 06:37:20.370 
+Event: 23602205, the time is Sun Jun 18 06:37:22.314 
+Event: 23602207, the time is Sun Jun 18 06:37:24.267 
+Event: 23602208, the time is Sun Jun 18 06:37:26.246 
+Event: 23602209, the time is Sun Jun 18 06:37:28.237 
+Event: 23602210, the time is Sun Jun 18 06:37:30.236 
+Event: 23602211, the time is Sun Jun 18 06:37:32.318 
+Event: 23602212, the time is Sun Jun 18 06:37:34.324 
+Event: 23602213, the time is Sun Jun 18 06:37:36.309 
+Event: 23602215, the time is Sun Jun 18 06:37:38.283 
+Event: 23602216, the time is Sun Jun 18 06:37:40.186 
+Event: 23602217, the time is Sun Jun 18 06:37:42.187 
+Event: 23602219, the time is Sun Jun 18 06:37:44.135 
+Event: 23602221, the time is Sun Jun 18 06:37:46.149 
+Event: 23602222, the time is Sun Jun 18 06:37:48.104 
+Event: 23602223, the time is Sun Jun 18 06:37:50.188 
+Event: 23602224, the time is Sun Jun 18 06:37:52.319 
+Event: 23602225, the time is Sun Jun 18 06:37:54.288 
+Event: 23602227, the time is Sun Jun 18 06:37:56.274 
+Event: 23602228, the time is Sun Jun 18 06:37:58.253 
+Event: 23602229, the time is Sun Jun 18 06:38:00.250 
+Event: 23602230, the time is Sun Jun 18 06:38:02.257 
+Event: 23602231, the time is Sun Jun 18 06:38:04.275 
+Event: 23602232, the time is Sun Jun 18 06:38:06.224 
+Event: 23602233, the time is Sun Jun 18 06:38:08.190 
+Event: 23602235, the time is Sun Jun 18 06:38:10.174 
+Event: 23602236, the time is Sun Jun 18 06:38:12.134 
+Event: 23602237, the time is Sun Jun 18 06:38:14.156 
+Event: 23602238, the time is Sun Jun 18 06:38:16.150 
+Event: 23602239, the time is Sun Jun 18 06:38:18.238 
+Event: 23602240, the time is Sun Jun 18 06:38:20.294 
+Event: 23602241, the time is Sun Jun 18 06:38:22Event: 23602480, the time is Sun Jun 18 06:45:49.3 
+Event: 23602481, the time is Sun Jun 18 06:45:50.921 
+Event: 23602482, the time is Sun Jun 18 06:45:52.928 
+Event: 23602483, the time is Sun Jun 18 06:45:54.871 
+Event: 23602484, the time is Sun Jun 18 06:45:56.855 
+Event: 23602485, the time is Sun Jun 18 06:45:58.845 
+Event: 23602486, the time is Sun Jun 18 06:46:00.856 
+Event: 23602487, the time is Sun Jun 18 06:46:02.908 
+Event: 23602488, the time is Sun Jun 18 06:46:04.901 
+Event: 23602489, the time is Sun Jun 18 06:46:06.922 
+Event: 23602491, the time is Sun Jun 18 06:46:08.863 
+Event: 23602492, the time is Sun Jun 18 06:46:10.819 
+Event: 23602493, the time is Sun Jun 18 06:46:12.803 
+Event: 23602494, the time is Sun Jun 18 06:46:14.785 
+Event: 23602495, the time is Sun Jun 18 06:46:16.714 
+Event: 23602496, the time is Sun Jun 18 06:46:18.721 
+Event: 23602497, the time is Sun Jun 18 06:46:20.790 
+Event: 23602498, the time is Sun Jun 18 06:46:22.752 
+Event: 23602499, the time is Sun Jun 18 06:46:24.733 
+Event: 23602500, the time is Sun Jun 18 06:46:26.710 
+Event: 23602501, the time is Sun Jun 18 06:46:28.767 
+Event: 23602502, the time is Sun Jun 18 06:46:30.686 
+Event: 23602503, the time is Sun Jun 18 06:46:32.756 
+Event: 23602504, the time is Sun Jun 18 06:46:34.777 
+Event: 23602506, the time is Sun Jun 18 06:46:36.766 
+Event: 23602507, the time is Sun Jun 18 06:46:38.737 
+Event: 23602508, the time is Sun Jun 18 06:46:40.690 
+Event: 23602509, the time is Sun Jun 18 06:46:42.616 
+Event: 23602510, the time is Sun Jun 18 06:46:44.606 
+Event: 23602511, the time is Sun Jun 18 06:46:46.615 
+Event: 23602512, the time is Sun Jun 18 06:46:48.586 
+Event: 23602513, the time is Sun Jun 18 06:46:50.544 
+Event: 23602514, the time is Sun Jun 18 06:46:52.585 
+Event: 23602515, the time is Sun Jun 18 06:46:54.537 
+Event: 23602516, the time is Sun Jun 18 06:46:56.577 
+Event: 23602517, the time is Sun Jun 18 06:46:58.602 
+Event: 23602518, the time is Sun Jun 18 06:47:00.490 
+Event: 23602519, the time is Sun Jun 18 06:47:02.472 
+Event: 23602520, the time is Sun Jun 18 06:47:04.452 
+Event: 23602521, the time is Sun Jun 18 06:47:06.472 
+Event: 23602522, the time is Sun Jun 18 06:47:08.438 
+Event: 23602524, the time is Sun Jun 18 06:47:10.390 
+Event: 23602525, the time is Sun Jun 18 06:47:12.310 
+Event: 23602526, the time is Sun Jun 18 06:47:14.252 
+Event: 23602527, the time is Sun Jun 18 06:47:16.252 
+Event: 23602528, the time is Sun Jun 18 06:47:18.223 
+Event: 23602529, the time is Sun Jun 18 06:47:20.235 
+Event: 23602530, the time is Sun Jun 18 06:47:22.162 
+Event: 23602531, the time is Sun Jun 18 06:47:24.106 
+Event: 23602532, the time is Sun Jun 18 06:47:26.102 
+Event: 23602534, the time is Sun Jun 18 06:47:28.106 
+Event: 23602535, the time is Sun Jun 18 06:47:30.65 
+Event: 23602536, the time is Sun Jun 18 06:47:32.21 
+Event: 23602537, the time is Sun Jun 18 06:47:34.23 
+Event: 23602538, the time is Sun Jun 18 06:47:35.998 
+Event: 23602539, the time is Sun Jun 18 06:47:37.949 
+Event: 23602540, the time is Sun Jun 18 06:47:39.947 
+Event: 23602541, the time is Sun Jun 18 06:47:41.838 
+Event: 23602543, the time is Sun Jun 18 06:47:43.860 
+Event: 23602544, the time is Sun Jun 18 06:47:45.778 
+Event: 23602545, the time is Sun Jun 18 06:47:47.787 
+Event: 23602546, the time is Sun Jun 18 06:47:49.822 
+Event: 23602547, the time is Sun Jun 18 06:47:51.716 
+Event: 23602548, the time is Sun Jun 18 06:47:53.628 
+Event: 23602549, the time is Sun Jun 18 06:47:55.598 
+Event: 23602550, the time is Sun Jun 18 06:47:57.639 
+Event: 23602551, the time is Sun Jun 18 06:47:59.577 
+Event: 23602552, the time is Sun Jun 18 06:48:01.536 
+Event: 23602553, the time is Sun Jun 18 06:48:03.513 
+Event: 23602554, the time is Sun Jun 18 06:48:05.514 
+Event: 23602555, the time is Sun Jun 18 06:48:07.448 
+Event: 23602556, the time is Sun Jun 18 06:48:09.407 
+Event: 23602557, the time is Sun Jun 18 06:48:11.354 
+Event: 23602559, the time is Sun Jun 18 06:48:13.335 
+Event: 23602560, the time is Sun Jun 18 06:48:15.276 
+Event: 23602561, the time is Sun Jun 18 06:48:17.266 
+Event: 23602562, the time is Sun Jun 18 06:48:19.228 
+Event: 23602563, the time is Sun Jun 18 06:48:21.247 
+Event: 23602564, the time is Sun Jun 18 06:48:23.251 
+Event: 23602565, the time is Sun Jun 18 06:48:25.312 
+Event: 23602566, the time is Sun Jun 18 06:48:27.274 
+Event: 23602567, the time is Sun Jun 18 06:48:29.272 
+Event: 23602568, the time is Sun Jun 18 06:48:31.274 
+Event: 23602569, the time is Sun Jun 18 06:48:33.58 
+Event: 23602571, the time is Sun Jun 18 06:48:35.8 
+Event: 23602572, the time is Sun Jun 18 06:48:36.964 
+Event: 23602574, the time is Sun Jun 18 06:48:38.925 
+Event: 23602575, the time is Sun Jun 18 06:48:40.891 
+Event: 23602576, the time is Sun Jun 18 06:48:42.932 
+Event: 23602577, the time is Sun Jun 18 06:48:44.873 
+Event: 23602578, the time is Sun Jun 18 06:48:46.809 
+Event: 23602579, the time is Sun Jun 18 06:48:48.742 
+Event: 23602580, the time is Sun Jun 18 06:48:50.783 
+Event: 23602581, the time is Sun Jun 18 06:48:52.725 
+Event: 23602583, the time is Sun Jun 18 06:48:54.696 
+Event: 23602584, the time is Sun Jun 18 06:48:56.655 
+Event: 23602585, the time is Sun Jun 18 06:48:58.619 
+Event: 23602586, the time is Sun Jun 18 06:49:00.633 
+Event: 23602587, the time is Sun Jun 18 06:49:02.550 
+Event: 23602588, the time is Sun Jun 18 06:49:04.537 
+Event: 23602589, the time is Sun Jun 18 06:49:06.489 
+Event: 23602590, the time is Sun Jun 18 06:49:08.405 
+Event: 23602591, the time is Sun Jun 18 06:49:10.358 
+Event: 23602592, the time is Sun Jun 18 06:49:12.330 
+Event: 23602593, the time is Sun Jun 18 06:49:14.342 
+Event: 23602594, the time is Sun Jun 18 06:49:16.299 
+Event: 23602596, the time is Sun Jun 18 06:49:18.292 
+Event: 23602597, the time is Sun Jun 18 06:49:20.259 
+Event: 23602598, the time is Sun Jun 18 06:49:22.190 
+Event: 23602599, the time is Sun Jun 18 06:49:24.190 
+Event: 23602600, the time is Sun Jun 18 06:49:26.152 
+Event: 23602601, the time is Sun Jun 18 06:49:28.223 
+Event: 23602602, the time is Sun Jun 18 06:49:30.160 
+Event: 23602603, the time is Sun Jun 18 06:49:32.118 
+Event: 23602604, the time is Sun Jun 18 06:49:34.78 
+Event: 23602605, the time is Sun Jun 18 06:49:36.2 
+Event: 23602606, the time is Sun Jun 18 06:49:37.960 
+Event: 23602607, the time is Sun Jun 18 06:49:39.925 
+Event: 23602608, the time is Sun Jun 18 06:49:41.853 
+Event: 23602609, the time is Sun Jun 18 06:49:43.900 
+Event: 23602610, the time is Sun Jun 18 06:49:45.887 
+Event: 23602611, the time is Sun Jun 18 06:49:47.867 
+Event: 23602612, the time is Sun Jun 18 06:49:49.850 
+Event: 23602613, the time is Sun Jun 18 06:49:51.827 
+Event: 23602615, the time is Sun Jun 18 06:49:53.744 
+Event: 23602616, the time is Sun Jun 18 06:49:55.732 
+Event: 23602617, the time is Sun Jun 18 06:49:57.693 
+Event: 23602618, the time is Sun Jun 18 06:49:59.669 
+Event: 23602619, the time is Sun Jun 18 06:50:01.693 
+Event: 23602620, the time is Sun Jun 18 06:50:03.626 
+Event: 23602621, the time is Sun Jun 18 06:50:05.565 
+Event: 23602622, the time is Sun Jun 18 06:50:07.607 
+Event: 23602623, the time is Sun Jun 18 06:50:09.523 
+Event: 23602624, the time is Sun Jun 18 06:50:11.529 
+Event: 23602625, the time is Sun Jun 18 06:50:13.458 
+Event: 23602626, the time is Sun Jun 18 06:50:15.435 
+Event: 23602627, the time is Sun Jun 18 06:50:17.412 
+Event: 23602628, the time is Sun Jun 18 06:50:19.334 
+Event: 23602629, the time is Sun Jun 18 06:50:21.233 
+Event: 23602631, the time is Sun Jun 18 06:50:23.186 
+Event: 23602632, the time is Sun Jun 18 06:50:25.175 
+Event: 23602633, the time is Sun Jun 18 06:50:27.215 
+Event: 23602634, the time is Sun Jun 18 06:50:29.165 
+Event: 23602635, the time is Sun Jun 18 06:50:31.256 
+Event: 23602636, the time is Sun Jun 18 06:50:33.197 
+Event: 23602637, the time is Sun Jun 18 06:50:35.118 
+Event: 23602638, the time is Sun Jun 18 06:50:37.122 
+Event: 23602639, the time is Sun Jun 18 06:50:39.103 
+Event: 23602640, the time is Sun Jun 18 06:50:40.984 
+Event: 23602641, the time is Sun Jun 18 06:50:42.908 
+Event: 23602642, the time is Sun Jun 18 06:50:44.828 
+Event: 23602643, the time is Sun Jun 18 06:50:46.737 
+Event: 23602644, the time is Sun Jun 18 06:50:48.755 
+Event: 23602645, the time is Sun Jun 18 06:50:50.729 
+Event: 23602646, the time is Sun Jun 18 06:50:52.715 
+Event: 23602648, the time is Sun Jun 18 06:50:54.514 
+Event: 23602649, the time is Sun Jun 18 06:50:56.481 
+Event: 23602650, the time is Sun Jun 18 06:50:58.407 
+Event: 23602651, the time is Sun Jun 18 06:51:00.356 
+Event: 23602652, the time is Sun Jun 18 06:51:02.282 
+Event: 23602653, the time is Sun Jun 18 06:51:04.236 
+Event: 23602654, the time is Sun Jun 18 06:51:06.200 
+Event: 23602655, the time is Sun Jun 18 06:51:08.115 
+Event: 23602656, the time is Sun Jun 18 06:51:10.72 
+Event: 23602657, the time is Sun Jun 18 06:51:12.150 
+Event: 23602658, the time is Sun Jun 18 06:51:14.129 
+Event: 23602659, the time is Sun Jun 18 06:51:16.186 
+Event: 23602660, the time is Sun Jun 18 06:51:18.158 
+Event: 23602661, the time is Sun Jun 18 06:51:20.174 
+Event: 23602662, the time is Sun Jun 18 06:51:22.223 
+Event: 23602663, the time is Sun Jun 18 06:51:24.212 
+Event: 23602664, the time is Sun Jun 18 06:51:26.189 
+Event: 23602665, the time is Sun Jun 18 06:51:28.115 
+Event: 23602666, the time is Sun Jun 18 06:51:30.142 
+Event: 23602667, the time is Sun Jun 18 06:51:32.214 
+Event: 23602668, the time is Sun Jun 18 06:51:34.173 
+Event: 23602669, the time is Sun Jun 18 06:51:36.82 
+Event: 23602670, the time is Sun Jun 18 06:51:38.98 
+Event: 23602671, the time is Sun Jun 18 06:51:40.30 
+Event: 23602672, the time is Sun Jun 18 06:51:41.931 
+Event: 23602673, the time is Sun Jun 18 06:51:43.931 
+Event: 23602674, the time is Sun Jun 18 06:51:45.893 
+Event: 23602675, the time is Sun Jun 18 06:51:47.955 
+Event: 23602677, the time is Sun Jun 18 06:51:50.19 
+Event: 23602678, the time is Sun Jun 18 06:51:51.975 
+Event: 23602679, the time is Sun Jun 18 06:51:53.992 
+Event: 23602680, the time is Sun Jun 18 06:51:55.952 
+Event: 23602681, the time is Sun Jun 18 06:51:57.934 
+Event: 23602682, the time is Sun Jun 18 06:51:59.888 
+Event: 23602683, the time is Sun Jun 18 06:52:01.780 
+Event: 23602684, the time is Sun Jun 18 06:52:03.739 
+Event: 23602685, the time is Sun Jun 18 06:52:05.752 
+Event: 23602686, the time is Sun Jun 18 06:52:07.732 
+Event: 23602687, the time is Sun Jun 18 06:52:09.663 
+Event: 23602688, the time is Sun Jun 18 06:52:11.697 
+Event: 23602689, the time is Sun Jun 18 06:52:13.648 
+Event: 23602690, the time is Sun Jun 18 06:52:15.612 
+Event: 23602691, the time is Sun Jun 18 06:52:17.518 
+Event: 23602693, the time is Sun Jun 18 06:52:19.487 
+Event: 23602694, the time is Sun Jun 18 06:52:21.443 
+Event: 23602695, the time is Sun Jun 18 06:52:23.352 
+Event: 23602696, the time is Sun Jun 18 06:52:25.291 
+Event: 23602697, the time is Sun Jun 18 06:52:27.251 
+Event: 23602698, the time is Sun Jun 18 06:52:29.201 
+Event: 23602699, the time is Sun Jun 18 06:52:31.96 
+Event: 23602700, the time is Sun Jun 18 06:52:33.59 
+Event: 23602701, the time is Sun Jun 18 06:52:35.21 
+Event: 23602702, the time is Sun Jun 18 06:52:36.967 
+Event: 23602703, the time is Sun Jun 18 06:52:38.985 
+Event: 23602705, the time is Sun Jun 18 06:52:41.21 
+Event: 23602706, the time is Sun Jun 18 06:52:43.121 
+Event: 23602707, the time is Sun Jun 18 06:52:45.98 
+Event: 23602708, the time is Sun Jun 18 06:52:47.11 
+Event: 23602709, the time is Sun Jun 18 06:52:48.950 
+Event: 23602710, the time is Sun Jun 18 06:52:50.961 
+Event: 23602711, the time is Sun Jun 18 06:52:52.965 
+Event: 23602712, the time is Sun Jun 18 06:52:55.62 
+Event: 23602713, the time is Sun Jun 18 06:52:57.78 
+Event: 23602714, the time is Sun Jun 18 06:52:59.180 
+Event: 23602715, the time is Sun Jun 18 06:53:01.142 
+Event: 23602716, the time is Sun Jun 18 06:53:03.70 
+Event: 23602717, the time is Sun Jun 18 06:53:05.122 
+Event: 23602718, the time is Sun Jun 18 06:53:07.222 
+Event: 23602719, the time is Sun Jun 18 06:53:09.193 
+Event: 23602720, the time is Sun Jun 18 06:53:11.149 
+Event: 23602721, the time is Sun Jun 18 06:53:13.103 
+Event: 23602722, the time is Sun Jun 18 06:53:15.153 
+Event: 23602723, the time is Sun Jun 18 06:53:17.109 
+Event: 23602724, the time is Sun Jun 18 06:53:19.88 
+Event: 23602726, the time is Sun Jun 18 06:53:21.4 
+Event: 23602727, the time is Sun Jun 18 06:53:22.967 
+Event: 23602728, the time is Sun Jun 18 06:53:24.939 
+Event: 23602729, the time is Sun Jun 18 06:53:26.824 
+Event: 23602730, the time is Sun Jun 18 06:53:28.763 
+Event: 23602731, the time is Sun Jun 18 06:53:30.679 
+Event: 23602732, the time is Sun Jun 18 06:53:32.708 
+Event: 23602733, the time is Sun Jun 18 06:53:34.720 
+Event: 23602734, the time is Sun Jun 18 06:53:36.703 
+Event: 23602735, the time is Sun Jun 18 06:53:38.657 
+Event: 23602736, the time is Sun Jun 18 06:53:40.709 
+Event: 23602737, the time is Sun Jun 18 06:53:42.688 
+Event: 23602738, the time is Sun Jun 18 06:53:44.604 
+Event: 23602740, the time is Sun Jun 18 06:53:46.529 
+Event: 23602741, the time is Sun Jun 18 06:53:48.509 
+Event: 23602742, the time is Sun Jun 18 06:53:50.440 
+Event: 23602744, the time is Sun Jun 18 06:53:52.425 
+Event: 23602745, the time is Sun Jun 18 06:53:54.508 
+Event: 23602746, the time is Sun Jun 18 06:53:56.402 
+Event: 23602747, the time is Sun Jun 18 06:53:58.383 
+Event: 23602748, the time is Sun Jun 18 06:54:00.302 
+Event: 23602749, the time is Sun Jun 18 06:54:02.449 
+Event: 23602750, the time is Sun Jun 18 06:54:04.460 
+Event: 23602751, the time is Sun Jun 18 06:54:06.441 
+Event: 23602752, the time is Sun Jun 18 06:54:08.484 
+Event: 23602754, the time is Sun Jun 18 06:54:10.507 
+Event: 23602755, the time is Sun Jun 18 06:54:12.464 
+Event: 23602756, the time is Sun Jun 18 06:54:14.392 
+Event: 23602757, the time is Sun Jun 18 06:54:16.441 
+Event: 23602758, the time is Sun Jun 18 06:54:18.409 
+Event: 23602759, the time is Sun Jun 18 06:54:20.388 
+Event: 23602760, the time is Sun Jun 18 06:54:22.347 
+Event: 23602761, the time is Sun Jun 18 06:54:24.244 
+Event: 23602762, the time is Sun Jun 18 06:54:26.302 
+Event: 23602763, the time is Sun Jun 18 06:54:28.307 
+Event: 23602764, the time is Sun Jun 18 06:54:30.301 
+Event: 23602765, the time is Sun Jun 18 06:54:32.236 
+Event: 23602767, the time is Sun Jun 18 06:54:34.150 
+Event: 23602768, the time is Sun Jun 18 06:54:36.160 
+Event: 23602769, the time is Sun Jun 18 06:54:38.136 
+Event: 23602770, the time is Sun Jun 18 06:54:40.56 
+Event: 23602771, the time is Sun Jun 18 06:54:42.88 
+Event: 23602772, the time is Sun Jun 18 06:54:44.75 
+Event: 23602773, the time is Sun Jun 18 06:54:46.75 
+Event: 23602774, the time is Sun Jun 18 06:54:48.117 
+Event: 23602775, the time is Sun Jun 18 06:54:50.55 
+Event: 23602776, the time is Sun Jun 18 06:54:52.54 
+Event: 23602777, the time is Sun Jun 18 06:54:54.5 
+Event: 23602778, the time is Sun Jun 18 06:54:55.985 
+Event: 23602779, the time is Sun Jun 18 06:54:57.961 
+Event: 23602781, the time is Sun Jun 18 06:54:59.873 
+Event: 23602782, the time is Sun Jun 18 06:55:01.845 
+Event: 23602783, the time is Sun Jun 18 06:55:03.789 
+Event: 23602784, the time is Sun Jun 18 06:55:05.818 
+Event: 23602785, the time is Sun Jun 18 06:55:07.869 
+Event: 23602786, the time is Sun Jun 18 06:55:09.788 
+Event: 23602787, the time is Sun Jun 18 06:55:11.773 
+Event: 23602788, the time is Sun Jun 18 06:55:13.667 
+Event: 23602789, the time is Sun Jun 18 06:55:15.644 
+Event: 23602790, the time is Sun Jun 18 06:55:17.542 
+Event: 23602791, the time is Sun Jun 18 06:55:19.583 
+Event: 23602792, the time is Sun Jun 18 06:55:21.539 
+Event: 23602794, the time is Sun Jun 18 06:55:23.505 
+Event: 23602795, the time is Sun Jun 18 06:55:25.469 
+Event: 23602796, the time is Sun Jun 18 06:55:27.443 
+Event: 23602797, the time is Sun Jun 18 06:55:29.430 
+Event: 23602798, the time is Sun Jun 18 06:55:31.421 
+Event: 23602799, the time is Sun Jun 18 06:55:33.404 
+Event: 23602800, the time is Sun Jun 18 06:55:35.440 
+Event: 23602801, the time is Sun Jun 18 06:55:37.417 
+Event: 23602802, the time is Sun Jun 18 06:55:39.415 
+Event: 23602803, the time is Sun Jun 18 06:55:41.381 
+Event: 23602804, the time is Sun Jun 18 06:55:43.405 
+Event: 23602805, the time is Sun Jun 18 06:55:45.380 
+Event: 23602806, the time is Sun Jun 18 06:55:47.409 
+Even

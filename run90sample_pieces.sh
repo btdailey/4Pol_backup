@@ -24,7 +24,7 @@ then OUTPUT_DIR=Abby
     elif((FILTER == 2))
 then OUTPUT_DIR=wiener
     elif((FILTER == 3))
-then OUTPUT_DIR=geom_4pol_partial
+then OUTPUT_DIR=geom_4pol_partial_kingbee_0301
     elif((FILTER == 4)) 
 then OUTPUT_DIR=no_filter
     elif((FILTER == 5))

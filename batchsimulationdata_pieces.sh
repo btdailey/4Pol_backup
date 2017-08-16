@@ -3,14 +3,14 @@ cd ~/analysis_oindree/
 
 h_end=2;
 end_events=331000;
-delta=1000;
-for((phase_number=0;phase_number<1;phase_number++))
+delta=3000;
+for((phase_number=3;phase_number<4;phase_number++))
 do
     if((phase_number==1 ))
     then phase_number=3
     fi
    
-    for((filter_number=1;filter_number<2;filter_number++))
+    for((filter_number=3;filter_number<4;filter_number++))
     do 
        #if((filter_number==4 ))
        #then filter_number=5

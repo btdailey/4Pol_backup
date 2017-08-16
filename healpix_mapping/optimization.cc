@@ -140,14 +140,18 @@ int main(int argc, char **argv) {
   //read in root file
   string filter_name;
  
-  string temp = "HealPix_partial_1215.root";
+  //string temp = "HealPix_partial_1215.root";
+  string temp = "HealPix_partial_0301.root";
   char *rootfile;
   rootfile = Form(temp.c_str(),filter_name.c_str());
     
   TChain *Binned_tree = new TChain("Binned_Tree");
  
   ofstream myfile;
-  myfile.open("Cut_values_test.txt");
+  myfile.open("Cut_values_0614.txt");
+
+  ofstream myfile2;
+  myfile2.open("background_values.txt");
   
  
   Binned_tree->Add(rootfile);
@@ -169,6 +173,7 @@ int main(int argc, char **argv) {
   
   vector<double> *healpix_bin_weights_sim2=0;
   vector<int> *eventNumber_vector_sim2=0;
+  vector<double> *weight_vector=0;
 
   vector< vector <double> > peakVal_vector_sim (n_pix_int+1, vector<double>(1));
   vector< vector <double> > peakHilbert_vector_sim (n_pix_int+1, vector<double>(1));
@@ -176,11 +181,13 @@ int main(int argc, char **argv) {
   
   vector< vector <double> > healpix_bin_weights_sim (n_pix_int+1, vector<double>(1));
   vector< vector <int> > eventNumber_vector_sim (n_pix_int+1, vector<int>(1));
+  // vector< vector <double> > weight_vector(n_pix_int+1, vector<double>(1));
 
   //read in root file
   string filter_name_sim;
  
-  string temp_sim = "HealPix_sim_partial_1215.root";
+  //string temp_sim = "HealPix_sim_partial_1215.root";
+  string temp_sim = "HealPix_sim_partial_0301.root";
   char *rootfile_sim;
   rootfile_sim = Form(temp_sim.c_str(),filter_name_sim.c_str());
     
@@ -197,6 +204,7 @@ int main(int argc, char **argv) {
   Binned_tree_sim->SetBranchAddress("peakHilbert_vector",&peakHilbert_vector_sim2);
   Binned_tree_sim->SetBranchAddress("SNR_vector",&SNR_vector_sim2);
   Binned_tree_sim->SetBranchAddress("healpix_bin_weights",&healpix_bin_weights_sim2);
+  Binned_tree_sim->SetBranchAddress("weight_vector",&weight_vector);
   Binned_tree_sim->SetBranchAddress("BASE",&BASE2_sim);
   cout<<"nevents_sim is "<<nevents_sim<<"\n";
 
@@ -247,14 +255,17 @@ int main(int argc, char **argv) {
     Binned_tree_sim->GetEvent(m);
     BASE_sim[m]=BASE2_sim;
     //cout<<"peakVal_vector_sim2).size() is "<<(*peakVal_vector_sim2).size()<<"\n";
+    double weighted_area=0.;
      for(int n=1;n<(*peakVal_vector_sim2).size();n++)
        {
 	 
 	 peakVal_vector_sim[m].push_back((*peakVal_vector_sim2)[n]);
 	 peakHilbert_vector_sim[m].push_back((*peakHilbert_vector_sim2)[n]);
 	 SNR_vector_sim[m].push_back((*SNR_vector_sim2)[n]);
-	 healpix_bin_weights_sim[m].push_back((*healpix_bin_weights_sim2)[n]);
-
+	 weighted_area = (*healpix_bin_weights_sim2)[n];
+	 weighted_area *=(*weight_vector)[n];
+	 //healpix_bin_weights_sim[m].push_back((*healpix_bin_weights_sim2)[n]);
+	 healpix_bin_weights_sim[m].push_back(weighted_area);
 	 if(peakVal_vector_sim[m][n] <0.075) num_cut_peak_val_sim+=healpix_bin_weights_sim[m][n];
 
 	 //eventNumber_vector_sim[m].push_back((*eventNumber_vector_sim2)[n]);
@@ -262,7 +273,7 @@ int main(int argc, char **argv) {
 	 // if((*SNR_vector2)[n] >300) cout<<"eventNumber is "<<(*eventNumber_vector2)[n]<<" has SNR ="<<(*SNR_vector2)[n]<<"\n";
        }
      
-     cout<<"pix is "<<m<<" num events is "<<BASE[m]<<" "<<BASE_sim[m]<<" "<<BASE[m]-num_cut_peak_val<<" sim is "<<BASE_sim[m]-num_cut_peak_val_sim<<"\n";
+     cout<<"pix is "<<m<<" num events is "<<BASE[m]<<" "<<BASE_sim[m]<<" "<<BASE[m]-num_cut_peak_val<<" sim is "<<BASE_sim[m]-num_cut_peak_val_sim<<" numcut peak val is "<<num_cut_peak_val<<" "<<num_cut_peak_val_sim<<"\n";
 
 
      // }
@@ -306,15 +317,18 @@ int main(int argc, char **argv) {
       int good_bin=1;
       double step_size=.1;
 	//peakHilbertCoherent<-350*peakVal+57.14
-      for(int m=2980;m<n_pix_int+1;m++){
-      //for(int m=3013;m<3014;m++){
+      //for(int m=2980;m<n_pix_int+1;m++){
+      for(int m=3053;m<3054;m++){
 	  // if( m==3029 || m==3030 || m==3032 || m==3036 || m==3037 || m==3038  || m==3042 || m==3053 || m==3055 || m==3057 || m==3061 || m==3062  || m==3063  || m==3066  || m==3058) {
 	 
 	  //slope40
 	//  if(m!=2990 && m!=3008 && m!=3009 && m!=3013 && m!=3014 && m!=3015 && m!=3016 && m!=3017 && m!=3018 && m!=3019 && m!=3027 && m!=3028 && m!=3034 && m!=3035 && m!=3036 && m!=3037 && m!=3038 && m!=3039 && m!=3040 && m!=3041 && m!=3042 && m!=3044 && m!=3046 && m!=3047 && m!=3050 && m!=3052 && m!=3055 && m!=3056 &&  m!= 3059 && m!=3060 && m!=3064 && m!=3065 && m!=3067 && m!=3068 && m!=3071){
-	//slope38
-	if(m==3012 || m==3030 || m==3031 || m==3032 || m==3033 || m==3045 || m==3048 || m==3051 || m==3053 || m==3057 || m==3061 || m==3062 || m==3063 || m==3066 || m==3069 || m==3054){  
-	
+	/*	//slope38
+	if(m==3008 || m==3010 || m==3012 || m==3029 || m==3030 || m==3031 || m==3032 || m==3033 ||m==3037 ||  m==3045 || m==3048 || m==3051 ||m==3052|| m==3053 || m==3057 || m==3061 || m==3062 || m==3063 || m==3066 || m==3069){  
+	*/
+	  //slope38 corrected Pval (05/01)
+	//	if(m==3008 || m==3010 || m==3012 ||m==3028 || m==3029 || m==3030 || m==3031 || m==3032 || m==3033 ||m==3037 ||  m==3045 ||m==3046 || m==3048 || m==3051 ||m==3052|| m==3053 || m==3054|| m==3057 || m==3058 ||  m==3061 || m==3062 || m==3063 || m==3066 || m==3069){  
+	if(1){
 	    // if(m==3009 || m==3014 || m==3015 || m==3027 || m==3029 || m==3030 || m==3032 || m==3033 || m==3036 || m==3037 || m==3038 || m==3039 || m==3040 || m==3041 || m==3042 || m==3044 || m==3045  || m==3053 || m==3055 || m==3057 || m==3061 || m==3062  || m==3063  || m==3066  || m==3058 || m==3069  || m==3070) {
 	    /*
 	    bad_fit_ctr=0;
@@ -582,8 +596,8 @@ int main(int argc, char **argv) {
 	    max_Sup=0.;
 	    double max_background=0.;
 	    int bin_number=0;
-	    
-	    for(double cutval=0;cutval<500;cutval+=step_size){//loop over cutvals
+	    double cut_val_end=5000;
+	    for(double cutval=0;cutval<cut_val_end;cutval+=step_size){//loop over cutvals
 	      
 	      //number of background: integrate fit line from cutval to inf. fitline y=exp(yin+slopefit*x). Integral is: -1/slope*exp(yint+slopefit*cutval)
 	      //cout<<"yint and slope_fit are "<<yint<<" "<<slope_fit<<"\n";
@@ -675,6 +689,11 @@ int main(int argc, char **argv) {
 	     
 	      
 	      //cout<<"cut_val, num_signal,num_background, Sup,normalization, num_signal/Sup "<<cutval<<" "<<num_signal<<" "<<num_background<<" "<<Sup<<" "<<normalization<<" "<<num_signal/Sup<<"\n";
+	      if(num_signal <.01){
+		cut_val_end=cutval;
+		cout<<"num_signal is "<<num_signal<<" cutval is "<<cutval<<"\n";
+		cut_max=cutval/2;
+	      }
 	      if (num_signal/Sup >= max_val){
 		max_val = num_signal/Sup;
 		cut_max = cutval;
@@ -689,7 +708,7 @@ int main(int argc, char **argv) {
 		max_Sup = Sup;
 		cut_Sup = cutval;
 	      }
-	     
+	      //cout<<"cutval is "<<cutval<<"\n";
 	      //cout<<" normalization is "<<normalization<<" Sup is "<<Sup<<" num_signal/Sup "<<num_signal/Sup<<"\n";
 	      //cout<<"cutval+1,, signal/sup "<<cutval+1<<" "<<num_signal/Sup<<"\n";
 	      // cout<<"cut_val is "<<cutval<<" "<<bin_number<<" "<<num_signal/Sup<<"\n";
@@ -734,6 +753,8 @@ int main(int argc, char **argv) {
 	      }
 	     
 	     cout<<"number of surviving events in bin = "<<m<<" is "<<num_cut_rotated<<" integer events is "<<int_cut_rotated<<" 90% sample is "<< -9*exp(yint+slope_fit*y_int)/slope_fit<<" simulated set surviving is "<<num_cut_rotated_sim<<"\n";
+
+	     myfile2<<m<<"\t"<<-9*exp(yint+slope_fit*y_int)/slope_fit<<"\t"<<num_cut_rotated_sim<<"\n";
 	    //if(y_int > max_val) max_val=y_int;
 
 	    double x2 = -y_int/slope;
@@ -744,7 +765,8 @@ int main(int argc, char **argv) {
 	    }
 	    char printer[256];
 	    TCanvas *c0 = new TCanvas("c0","c0",800,800);
-	    TH2F *haxes = new TH2F("axes","Optimization Distribution;Cut Value;Signal/S_{up}",10,0,cut_max*2, 10,0, max_val*1.1);
+	    //TH2F *haxes = new TH2F("axes","Optimization Distribution;Cut Value;Signal/S_{up}",10,0,cut_max*2, 10,0, max_val*1.1);
+	    TH2F *haxes = new TH2F("axes","Optimization Distribution;Cut Value;Signal/S_{up}",10,0,50, 10,0, max_val*1.1);
 	    haxes->Draw();
 	    hopt->Draw("same C*");
 	    sprintf(printer,"Optimization_%i.png",m);
@@ -773,7 +795,8 @@ int main(int argc, char **argv) {
 	    if(max_Sup > max_signal) maxer=max_Sup;
 	    else maxer = max_signal;
 	     TCanvas *c4 = new TCanvas("c4","c4",800,800);
-	    TH2F *haxes4 = new TH2F("axes","Signal, S_{up} Distributions;Cut Value;Counts",10,0,cut_max*2, 10,5E-1, maxer*3);
+	     //TH2F *haxes4 = new TH2F("axes","Signal, S_{up} Distributions;Cut Value;Counts",10,0,cut_max*2, 10,5E-1, maxer*3);
+	     TH2F *haxes4 = new TH2F("axes","Signal, S_{up} Distributions;Cut Value;Counts",10,0,50, 10,5E-1, maxer*3);
 	    //c4->SetLogy();
 	    haxes4->Draw();
 	    hnum->SetLineColor(kBlue);
@@ -868,15 +891,19 @@ int main(int argc, char **argv) {
 	    hdiffplot->Draw("same");
 
 	    c6->cd(2);
+	   
 	     TPad *p2 = (TPad *)(c6->cd(2));
 	     p2->SetTitle("Optimization Distribution");
+	     //p2->SetLogx();
 	     haxes->Draw();
 	    hopt->Draw("same C*");
 	   
 	    c6->cd(3);
+	    
 	    TPad *p3 = (TPad *)(c6->cd(3)); 
 	    p3->SetTitle("Signal Distribution");
 	    p3->SetLogy();
+	    //p3->SetLogx();
 	    haxes4->Draw();
 	    hnum->SetLineColor(kBlue);
 	    hdenom->SetLineColor(kRed);
@@ -911,7 +938,8 @@ int main(int argc, char **argv) {
 	       }//only in good bins
 	}//m
 	myfile.close();
-  return 0;
+	myfile2.close();
+	return 0;
 }
 ////////////////
 

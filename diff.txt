@@ -1,0 +1,284 @@
+195,196c195,196
+< int notchFilterFlag=1;//0 for no-fill,1 for rayleigh, 2 for wiener, 3 for interpolated, 4 no-notch,5 for sine subtraction
+< int phase_flag=0;//0=old phase, 1 = new (random) phase, 2 = interp phase, 3= geometric, 4=simple shift to zero mean
+---
+> int notchFilterFlag=3;//0 for no-fill,1 for rayleigh, 2 for wiener, 3 for interpolated, 4 no-notch,5 for sine subtraction
+> int phase_flag=3;//0=old phase, 1 = new (random) phase, 2 = interp phase, 3= geometric, 4=simple shift to zero mean
+763c763
+<    
+---
+>     //cout<<"ant is "<<ant<<" V is "<<gr1->GetY()[0]<<"\n";
+766c766
+<    
+---
+>     //cout<<"ant is "<<ant<<" V is "<<grInterp->GetY()[0]<<"\n";
+882,883c882,883
+<     snrPeak_test = getSNR(grFiltered,rmsNoise);
+<     
+---
+>     //snrPeak_test = getSNR(grFiltered,rmsNoise);
+>     //cout<<"ant is "<<ant<<" rmsnoise is "<<rmsNoise<<"\n";
+891a892
+>       noiseBeforeFilter = rmsNoise;
+913c914
+< 
+---
+>     //cout<<"volts[0] is "<<volts[0]<<"\n";
+932c933
+<   noiseBeforeFilter = rmsNoise;
+---
+>   //noiseBeforeFilter = rmsNoise;
+2208c2209
+<  Double_t deltaTInt=1./(2.6*4);
+---
+>  Double_t deltaTInt=1./(2.61*4);
+2213c2214
+<    //cout<<"grEv x0,y0 are "<<grEv[whichPolarization][i]->GetX()[0]<<" "<<grEv[whichPolarization][i]->GetY()[0]<<"\n";
+---
+>    //cout<<"grEv x0,xlast are "<<grEv[whichPolarization][i]->GetX()[0]<<" "<<grEv[whichPolarization][i]->GetX()[255]<<"\n";
+2220a2222
+>   
+2271c2273
+<   }
+---
+>     }
+2272a2275,2280
+> }
+> ///////
+> TGraph *MyCorrelator::getPowerinOverlap(TGraph *gr1, TGraph *gr2, int ant1, int ant2)
+> {
+>   double v1_sq=1.;
+>   double v2_sq=1.;
+2273a2282,2325
+>   TGraph *holder = FFTtools::getCorrelationGraph(gr1,gr2);
+>   //TGraph *tester = FFTtools::getCorrelationGraph(grEvInterp[whichPolarization][ant1],grEvInterp[whichPolarization][ant2]);
+>   //cout<<"first time is "<<tester->GetX()[0]<<"\n";
+>   //cout<<"last time is "<<tester->GetX()[tester->GetN()-1]<<"\n";
+>   int N = gr1->GetN();
+>   int N2 = holder->GetN();
+>   double offset =gr1->GetX()[0] - gr2->GetX()[0];
+>   //cout<<"offset is "<<offset<<"\n";
+>   //cout<<"N, N2 are "<<N<<" "<<N2<<"\n";
+>   double time=0.;
+>   /* for(int j=0;j<N;j++){
+>     cout<<"j is "<<j<<" CorrNormalization "<<CorrNormalization[ant1][j]<<" gr1 time,volts is "<<gr1->GetX()[j]<<" "<<gr1->GetY()[j]<<"\n";
+>   }
+>    for(int j=0;j<N;j++){
+>      cout<<"j is "<<j<<" CorrNormalization "<<CorrNormalization[ant2][j]<<" gr2 time,volts is "<<gr2->GetX()[j]<<" "<<gr2->GetY()[j]<<"\n";
+>   }
+>   */
+>    int k=0;
+>    int k2=1023;
+>   for(int j=N;j<3*N;j++){
+>      time = holder->GetX()[j];
+>     // if(time<=offset){
+>     if(j>N && j <2*N){
+>       v1_sq = CorrNormalization[ant1][k];
+>       v2_sq = CorrNormalizationBack[ant2][k];
+>       k++;
+>       // cout<<"v1,v2 are "<<v1_sq<<" "<<v2_sq<<" ";
+>       // cout<<"j is "<<j<<" time is "<<time<<" v1 is "<<v1_sq<<"\n";
+>     }
+>     
+>     //if(time>offset){
+>     if(j>=2*N && j<3*N){ 
+>       v1_sq = CorrNormalizationBack[ant1][k2];
+>       v2_sq = CorrNormalization[ant2][k2];
+>       k2--;
+>       //cout<<"v1,v2 are "<<v1_sq<<" "<<v2_sq<<" ";
+>       // cout<<"j is "<<j<<" time is "<<time<<" v1 back now is "<<v1_sq<<"\n";
+>     }
+>     //cout<<" time, corrval is "<<time<<" "<<holder->GetY()[j]<<"\n";
+>     holder->GetY()[j] *= 1./(v1_sq * v2_sq);
+>     //cout<<"time, corrval is "<<time<<" "<<holder->GetY()[j]<<"\n";
+>   }
+> 
+>   return holder;
+2275c2327,2328
+< ////////////////////////////////
+---
+> 
+> ////////
+2307c2360
+< 
+---
+>   //cout<<"bin_delay is "<<bin_delay<<"\n";
+2317a2371
+>   //cout<<"total_delay is "<<total_delay<<"\n";
+2319a2374,2376
+> 
+>   TGraph *tester = FFTtools::getCorrelationGraph(gr1,gr2);
+>   //cout<<"delay is "<<delay<<" total delay is "<<total_delay<<" tester has "<<tester->GetN()<<" points, "<<N<<"\n";
+2360a2418
+>     //cout<<" j is "<<delay<<"\n";
+2363a2422,2423
+>   //cout<<"index_try is "<<index_try<<" corr_Val is "<<corr_Val<<" tester val is "<<tester->GetX()[N+index_try+3]<<","<<tester->GetY()[N+index_try+3]<<"\n";
+> 
+2369a2430,2431
+>   //cout<<"returning "<<corr_Val/(v1_sq*v2_sq)<<" tester woudl be "<<tester->GetY()[N+index_try+3]/(v1_sq*v2_sq)<<"\n";
+>   //cout<<"j is "<<delay<<" v1_sq, v2_sq are "<<v1_sq<<" "<<v2_sq<<" normalized is "<<corr_Val/(v1_sq*v2_sq)<<"\n";
+2581c2643
+<   cout<<"signal starts at "<<start_bin<<" noise ends at "<<end_noise_bin<<" noise starts at "<<gr->GetX()[0] <<" noise ending at "<<gr->GetX()[end_noise_bin]<<"\n";
+---
+>   //cout<<"signal starts at "<<start_bin<<" noise ends at "<<end_noise_bin<<" noise starts at "<<gr->GetX()[0] <<" noise ending at "<<gr->GetX()[end_noise_bin]<<"\n";
+2776a2839
+> 	//cout<<"tempF is "<<tempF<<"\n";
+3196c3259
+<   // cout<<"nentries is "<<nentries<<"\n";
+---
+>   //cout<<"nentries is "<<nentries<<"\n";
+3208a3272
+>     //cout<<"vValV is "<<i<<" "<<vValV<<"\n";
+3901a3966
+>   antenna_group_holder.clear();
+3930c3995
+<   cout<<"antenna_groups_size is "<<antenna_groups_size<<"\n";
+---
+>   //cout<<"antenna_groups_size is "<<antenna_groups_size<<"\n";
+5265c5330
+<  cout<<" phi_sector is "<<phi_sector<<"\n";
+---
+>  //cout<<" phi_sector is "<<phi_sector<<"\n";
+6347c6412,6415
+<   //nsToLeaveOut=20;
+---
+>   if(newnotchflag==0){
+>     nsToLeaveOut=20;
+>   }
+>   // nsToLeaveOut=20;
+6510a6579,6580
+>   double preFilter_power=0.;
+>   double postFilter_power=0.;
+6599,6600c6669,6671
+<   double dBCut=2.0;
+<   cout<<"CHANGED dBCut to 2! \n";
+---
+>   double dBCut=4.0;
+>   if(newnotchflag==0) dBCut=2.0;
+>   cout<<"CHANGED dBCut to 4! \n";
+6655a6727,6729
+>     //notchFilterFlag=1;
+>     //phase_flag=0;
+>    
+6665c6739
+<     groupFlag=1;
+---
+>     //groupFlag=1;
+6673c6747
+<   cout<<"antenna_groups.size() is "<<antenna_groups_size<<"\n";
+---
+>   //cout<<"antenna_groups.size() is "<<antenna_groups_size<<"\n";
+6684c6758
+<       cout<<"antenna_group is "<<antenna_groups<<"\n";
+---
+>       //cout<<"antenna_group is "<<antenna_groups<<"\n";
+6741a6816,6825
+>   preFilter_power=0.;
+>   postFilter_power=0.;
+>   for(int i=0;i<40;i++){
+>     if(i==1) i++;
+>     if(triggeredAnt[i]==1){
+>       preFilter_power +=integrateTDPower(grEv[0][i]);
+>     }
+>   }
+> 
+> 
+6980,6981c7064,7071
+<    
+<   
+---
+>     for(int i=0;i<40;i++){
+>     if(i==1) i++;
+>     if(triggeredAnt[i]==1){
+>       postFilter_power +=integrateTDPower(grEv[0][i]);
+>     }
+>   }
+>     pol4_Ptr->preFilter_power = preFilter_power;
+>     pol4_Ptr->postFilter_power = postFilter_power;
+6990,6991c7080,7081
+< 
+<    for(int whichPolarization=0;whichPolarization<NPOL_ANALYSIS;whichPolarization++){ //oindree -- starting big whichPolarization loop here but think about it 
+---
+>     for(int whichPolarization=0;whichPolarization<2;whichPolarization++){ //oindree -- starting big whichPolarization loop here but think about it 
+>    //for(int whichPolarization=0;whichPolarization<NPOL_ANALYSIS;whichPolarization++){ //oindree -- starting big whichPolarization loop here but think about it 
+7009c7099
+<      }
+---
+> s     }
+7105a7196
+>      cout<<"power SNR_coherent is "<<SNR_coherent<<"\n";
+7116c7207
+< 
+---
+> 	cout<<"Theta,phi are "<<peakThetaInterp<<" "<<peakPhiInterp<<"\n";
+7118a7210
+> 	cout<<"polFractionCoherent is "<<polFractionCoherent<<"\n";
+7272c7364
+<      if(drawMaps==1){
+---
+>      if(drawMaps==0){
+7276a7369,7371
+> 
+>        pol4_Ptr->sourceLat[whichPolarization] = sourceLat;
+>        pol4_Ptr->sourceLon[whichPolarization] = sourceLon;
+7425c7520,7521
+<   cout<<"ratioFirstToSecondPeak is "<<ratioFirstToSecondPeak<<"\n";
+---
+>   //cout<<"ratioFirstToSecondPeak is "<<ratioFirstToSecondPeak<<"\n";
+>   //cout<<"thetaMap is "<<thetaMap<<"\n";
+7660,7661c7756,7759
+< 		 bin=0;
+< 		
+---
+> 
+> 		 grCor[ant1][ant2] = getPowerinOverlap(grEvInterp[whichPolarization][ant1],grEvInterp[whichPolarization][ant2],ant1,ant2);
+> 		 /*	 bin=0;
+> 		 
+7669a7768
+> 		     
+7679c7778
+< 		 
+---
+> 		 */
+7735a7835
+> 		      //cout<<"ant1,and2 are "<<ant1<<" "<<ant2<<" timeExpected is "<<timeExpected<<" corVal is "<<corVal<<"\n";
+8098a8199,8205
+> 	      
+> 	       
+> 	    }
+> 	    //cout<<"ant1, 2 are "<<ant1<<" "<<ant2<<"\n";
+> 	    grCor[ant1][ant2] = getPowerinOverlap(grEvInterp[whichPolarization][ant1],grEvInterp[whichPolarization][ant2],ant1,ant2);
+> 	    
+> 	    /*
+8108c8215
+< 		 
+---
+> 		  //cout<<"time_delay, corrVal is "<<time_delay[bin]<<" "<<corrVal[bin]<<"\n";
+8111c8218
+< 	      }
+---
+> 		}
+8116c8223,8225
+< 	    grCor[ant1][ant2] = new TGraph(bin,time_delay,corrVal);
+---
+> 	      grCor[ant1][ant2] = new TGraph(bin,time_delay,corrVal);
+> 	    */
+> 	    
+8119c8228
+< 	    }
+---
+> 	  
+8438c8547
+<   }//end ant1loop
+---
+>    }//end ant1loop
+9211c9320
+<        cout<<"MISSED ANTARCTICA! \n";
+---
+>        cout<<"MISSED ANTARCTICA! LAT \n";
+9218c9327
+<        cout<<"MISSED ANTARCTICA! \n";
+---
+>        cout<<"MISSED ANTARCTICA! HEIGHT \n";
+13663a13773
+>     n=11;

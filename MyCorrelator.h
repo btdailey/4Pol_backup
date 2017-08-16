@@ -95,8 +95,8 @@ const double heightWilly=-49.;//meters
 const int writeData=1;
 const int printFlag=0;
 const int groupDelayFlag=1;
-const int newnotchflag=0;//1 for Brian, 0 for abby
-const int normalization=0;//0 for Abby's normalization, 1 for Brian's
+const int newnotchflag=1;//1 for Brian, 0 for abby
+const int normalization=1;//0 for Abby's normalization, 1 for Brian's
 //const int phase_flag=1;//0=old phase, 1 = new (random) phase, 2 = interp phase;
 
 //const int notchFilterFlag =2;//0 for no-fill,1 for rayleigh, 2 for wiener, 3 for interpolated, 4 for interpolated+noise
@@ -152,6 +152,7 @@ class MyCorrelator
   void getCorrelationNormalizationFront(TGraph *gr1, std::vector<double> &normalization);
   void getCorrelationNormalizationBack(TGraph *gr1, std::vector<double> &normalization);
   double getPowerinOverlap(TGraph *gr1, TGraph *gr2, double delay,int ant1, int ant2);
+  TGraph *getPowerinOverlap(TGraph *gr1, TGraph *gr2, int ant1, int ant2);
   void DrawPowerinOverlap(int eventNumber, int ant1, int ant2, TGraph *gr1, TGraph *gr2, double delay);
   //int getPeakAntenna(int myEventNumber, int nantennas);
   int getPeakAntenna(int myEventNumber, int nantennas, std::vector <int> whichAntennasToUse, int whichPolarization);
@@ -276,7 +277,7 @@ void GetFFTandBaseline_old(int nantennasToUse,std::vector<int>& whichAntennasToU
 		     double &peakTheta, double &peakPhi);
   void findPeakOfMapinBox(double mapCorVal[NUM_BINS_ROUGH_THETA][NUM_BINS_ROUGH_PHI], double &peakVal, double peakTheta, double peakPhi);
 
-  void drawRefinedMap(double mapCorValRefined[NUM_BINS_FINE_THETA][NUM_BINS_FINE_PHI], double peakTheta, double peakPhi, int myEventNumber);
+  void drawRefinedMap(double mapCorValRefined[NUM_BINS_FINE_THETA][NUM_BINS_FINE_PHI], double peakTheta, double peakPhi, int myEventNumber,int polarization);
   void doRefinedMap(int myEventNumber, double mapCorValRefined[NUM_BINS_FINE_THETA][NUM_BINS_FINE_PHI], 
 		    double peakTheta, double peakPhi, int onlyTriggered, int nadirFlag, int whichPolarization);
   void findPeakOfRefinedMap(double mapCorVal[NUM_BINS_FINE_THETA][NUM_BINS_FINE_PHI], double &peakVal, 

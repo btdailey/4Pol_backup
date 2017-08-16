@@ -1,0 +1,36 @@
+Local dir is /home/dailey.110
+argc is 7
+RUN NUMBER: 195
+Error in <TFile::TFile>: file /data/anita/anitaplus/AnitaFlight0809RootData/run195/calEventFile195_1.root does not exist
+Error in <TFile::TFile>: file /data/anita/anitaplus/AnitaFlight0809RootData/SimulatedAnitaHeadFile1.root does not exist
+filter_num, phase num,normalization are 1,0 0
+filename_max is 4096 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run195/headFile195.root
+here! 
+fCurrentBaseDir is /data/anita/anitaplus/AnitaFlight0809RootData
+Eventname is /data/anita/anitaplus/AnitaFlight0809RootData/run195/calEventFile195.root
+loading sim head file! 
+headername is /data/anita/anitaplus/AnitaFlight0809RootData/run195/headFile195.root
+broke at extra = 1
+0x1dd8af0	0x2189530
+71200	71200
+Error in <TFile::TFile>: file /home/dailey.110/analysis_oindree/testrun/ssDataAndToolsgpsSsFile195.root does not exist
+Couldn't open: /home/dailey.110/analysis_oindree/testrun/ssDataAndToolsgpsSsFile195.root
+Opened gps: /data/anita/anitaplus/AnitaFlight0809RootData/run195/gpsFile195.root
+adding 
+added 
+about to exit 
+did ANITAGEROMTOOL 
+reading the rampdem data
+[RampdemReader::readRAMPDEM]  Finished reading in RAMP DEM data.
+did ANITAEVENTCALIBRATOR 
+eventTree_flag is 0
+notchFilterFlag is 1
+thermalSample is 0
+current_dir is /tmp/pulser/195/174000/1/0/Run174000
+outputting to file: /tmp/pulser/195/174000/1/0/Run174000/output195_71200.root
+setting up tree 
+writing data
+exiting loopoverevents 
+Abby
+exited and trying to move file!

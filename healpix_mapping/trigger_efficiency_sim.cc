@@ -767,14 +767,14 @@ int main(int argc, char **argv) {
 
    TH1D *hdenom = new TH1D("denom",";SNR;Efficiency",10,0,200);
    TH1D *hAbby = new TH1D("Abby",";SNR;Efficiency",10,0,200);
-
-   TH1D *hdenom_Brian[15];
-   TH1D *hBrian[15];
+   int num_bins=20;
+   TH1D *hdenom_Brian[num_bins];
+   TH1D *hBrian[num_bins];
 
    TH1D *hefficiency_Abby = new TH1D("efficiency_Abby",";SNR;Efficiency",10,0,200);
-   TH1D *hefficiency_Brian[15];
+   TH1D *hefficiency_Brian[num_bins];
    //char printer1[256];
-   for(int i=0;i<15;i++){
+   for(int i=0;i<num_bins;i++){
      sprintf(printer,"Brian_%i",i);
      hBrian[i]= new TH1D(printer,";SNR;Efficiency",10,0,200);
      
@@ -795,11 +795,16 @@ int main(int argc, char **argv) {
    hefficiency_Brian[7]->SetLineColor(kYellow+2);
    hefficiency_Brian[8]->SetLineColor(kSpring-6);
    hefficiency_Brian[9]->SetLineColor(kViolet);
-   hefficiency_Brian[10]->SetLineColor(kCyan);
+   hefficiency_Brian[10]->SetLineColor(kCyan-5);
    hefficiency_Brian[11]->SetLineColor(kTeal-5);
    hefficiency_Brian[12]->SetLineColor(kPink-3);
    hefficiency_Brian[13]->SetLineColor(kRed+3);
    hefficiency_Brian[14]->SetLineColor(kAzure+6);
+   hefficiency_Brian[15]->SetLineColor(kCyan+3);
+   hefficiency_Brian[16]->SetLineColor(kTeal-8);
+   hefficiency_Brian[17]->SetLineColor(kPink-7);
+   hefficiency_Brian[18]->SetLineColor(kOrange-6);
+   hefficiency_Brian[19]->SetLineColor(kGray);
 
    hefficiency_Brian[0]->SetMarkerColor(kRed);
    hefficiency_Brian[1]->SetMarkerColor(kBlue);
@@ -811,11 +816,16 @@ int main(int argc, char **argv) {
    hefficiency_Brian[7]->SetMarkerColor(kYellow+2);
    hefficiency_Brian[8]->SetMarkerColor(kSpring-6);
    hefficiency_Brian[9]->SetMarkerColor(kViolet);
-   hefficiency_Brian[10]->SetMarkerColor(kCyan);
+   hefficiency_Brian[10]->SetMarkerColor(kCyan-5);
    hefficiency_Brian[11]->SetMarkerColor(kTeal-5);
    hefficiency_Brian[12]->SetMarkerColor(kPink-3);
    hefficiency_Brian[13]->SetMarkerColor(kRed+3);
    hefficiency_Brian[14]->SetMarkerColor(kAzure+6);
+   hefficiency_Brian[15]->SetMarkerColor(kCyan+3);
+   hefficiency_Brian[16]->SetMarkerColor(kTeal-8);
+   hefficiency_Brian[17]->SetMarkerColor(kPink-7);
+   hefficiency_Brian[18]->SetMarkerColor(kOrange-6);
+   hefficiency_Brian[19]->SetMarkerColor(kGray);
 
    hefficiency_Brian[0]->SetMarkerStyle(20);
    hefficiency_Brian[1]->SetMarkerStyle(21);
@@ -832,12 +842,17 @@ int main(int argc, char **argv) {
    hefficiency_Brian[12]->SetMarkerStyle(33);
    hefficiency_Brian[13]->SetMarkerStyle(34);
    hefficiency_Brian[14]->SetMarkerStyle(20);
+   hefficiency_Brian[15]->SetMarkerStyle(21);
+   hefficiency_Brian[16]->SetMarkerStyle(22);
+   hefficiency_Brian[17]->SetMarkerStyle(33);
+   hefficiency_Brian[18]->SetMarkerStyle(29);
+   hefficiency_Brian[19]->SetMarkerStyle(33);
    
 
 
    int rotatedFlag=0;
    double num_events_ctr=0.;
-   myfile.open("Cut_values.txt");
+   myfile.open("Cut_values_0301.txt");
    
    while (myfile >>healpix_bin >> cut_val){
      cout<<"healpix_bin, cutval are "<<healpix_bin<<" "<<cut_val<<"\n";
@@ -1577,12 +1592,12 @@ int main(int argc, char **argv) {
      if(denomA < 1E-5) denomA=1;
      hefficiency_Abby->SetBinContent(i,numA/denomA);
 
-     for(int j=0;j<15;j++){
+     for(int j=0;j<num_bins;j++){
        numB = hBrian[j]->GetBinContent(i);
        denomB = hdenom_Brian[j]->GetBinContent(i);
        if(denomB < 1E-5) denomB=1;
        hefficiency_Brian[j]->SetBinContent(i,numB/denomB);
-       cout<<"i numB, denomB are "<<i<<" "<<numB<<" "<<denomB<<"\n";
+       cout<<"i,bin, numB, denomB are "<<i<<" "<<healpix_bin_vector[j]<<" "<<numB<<" "<<denomB<<"\n";
      }
    }
 
@@ -1641,14 +1656,14 @@ int main(int argc, char **argv) {
    leg.AddEntry(hefficiency_Abby,"Previous Analysis Cuts");
    TLegend leg2 (.65,.85,1,1,"l");
    leg2.SetFillColor(0);
-   for(int j=0;j<7;j++){
+   for(int j=0;j<10;j++){
     
      hefficiency_Brian[j]->Draw("same l P");
      sprintf(printer,"HealPix Bin %i",healpix_bin_vector[j]);
      leg.AddEntry(hefficiency_Brian[j],printer);
    }
 
-    for(int j=7;j<15;j++){
+    for(int j=10;j<20;j++){
     
      hefficiency_Brian[j]->Draw("same l P");
      sprintf(printer,"HealPix Bin %i",healpix_bin_vector[j]);

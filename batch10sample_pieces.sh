@@ -1,9 +1,9 @@
 #!/bin/bash
 cd ~/analysis_oindree/
 
-h_end=138;
+h_end=263;
 end_events=18000;
-delta=1000;
+delta=3000;
 for((phase_number=3;phase_number<4;phase_number++))
 do
     if((phase_number==1 ))
@@ -24,7 +24,7 @@ do
        then phase_number=3
        fi
        
-	h=137;
+	h=12;
 	while (( h < h_end ))
 	do
 	    qstat -u dailey.110 > output.txt

@@ -585,7 +585,7 @@ int main(int argc, char **argv) {
    //read in root file
    
    int  run=12;
-   string temp = "/data/anita/btdailey/final_filter/10sample/geom_4pol_partial_1213/output%d_0.root";
+   string temp = "/data/anita/btdailey/final_filter/10sample/geom_4pol_partial_0301/output%d_0.root";
   
   
   char *rootfile = Form(temp.c_str(),run);
@@ -596,11 +596,11 @@ int main(int argc, char **argv) {
   pol4_Tree->Add(rootfile);
   Pointed_Tree->Add(rootfile);
   //extras
-    for(int extra=13;extra<200;extra++){
+    for(int extra=13;extra<263;extra++){
 	 
 	 for(int delta=0;delta<20000;delta+=3000){
 	   
-	   sprintf(rootfile,"/data/anita/btdailey/final_filter/10sample/geom_4pol_partial_1213/output%d_%d.root",extra,delta);
+	   sprintf(rootfile,"/data/anita/btdailey/final_filter/10sample/geom_4pol_partial_0301/output%d_%d.root",extra,delta);
 	   
 	 TFile *fpTest = TFile::Open(rootfile);
 	 if(!fpTest){ 
@@ -618,7 +618,7 @@ int main(int argc, char **argv) {
 	 }
 	  }//delta
        }//extra
-  
+    /*
     for(int extra=200;extra<261;extra++){
       
       for(int delta=0;delta<15000;delta+=1000){
@@ -642,7 +642,7 @@ int main(int argc, char **argv) {
 	  }//delta
        }//extra
 
- 
+    */
  
   int nevents0 = pol4_Tree->GetEntries();
   
@@ -737,14 +737,14 @@ int main(int argc, char **argv) {
 
    TH1D *hdenom = new TH1D("denom",";SNR;Efficiency",20,0,200);
    TH1D *hAbby = new TH1D("Abby",";SNR;Efficiency",20,0,200);
-
-   TH1D *hdenom_Brian[15];
-   TH1D *hBrian[15];
+   int num_bins=20;
+   TH1D *hdenom_Brian[num_bins];
+   TH1D *hBrian[num_bins];
 
    TH1D *hefficiency_Abby = new TH1D("efficiency_Abby",";SNR;Efficiency",20,0,200);
-   TH1D *hefficiency_Brian[15];
+   TH1D *hefficiency_Brian[num_bins];
    //char printer1[256];
-   for(int i=0;i<15;i++){
+   for(int i=0;i<num_bins;i++){
      sprintf(printer,"Brian_%i",i);
      hBrian[i]= new TH1D(printer,";SNR;Efficiency",20,0,200);
      
@@ -775,7 +775,7 @@ int main(int argc, char **argv) {
 
    int rotatedFlag=0;
    double num_events_ctr=0.;
-   myfile.open("Cut_values.txt");
+   myfile.open("Cut_values_0301.txt");
    
    while (myfile >>healpix_bin >> cut_val){
      cout<<"healpix_bin, cutval are "<<healpix_bin<<" "<<cut_val<<"\n";
@@ -873,7 +873,7 @@ int main(int argc, char **argv) {
 
 
 	y_int=100000;
-	
+	bin_index=100;
 	for(int i =0;i<healpix_bin_vector.size();i++){
 	  if(healpix_bin_vector[i] == pixel_num_event) {
 	    //cout<<"heapix, pixel nun, cut_val are "<<healpix_bin_vector[i]<<" "<<pixel_num_event<<" "<<cut_val_vector[i]<<"\n";
@@ -881,6 +881,8 @@ int main(int argc, char **argv) {
 	    bin_index=i;
 	  }
 	}
+	if(bin_index >99) continue;
+
 	//cout<<"pixel_num, y_int is "<<pixel_num<<" "<<y_int<<"\n";
 
        if ( !mainrfcmflag || shorttraceflag !=0 || dcoffsetflag != 0 || bigenoughpeakflag !=1){
@@ -894,7 +896,7 @@ int main(int argc, char **argv) {
 	 payloadBlastctr++;
 	 continue;
        }
-       
+       //cout<<"bin_index is "<<bin_index<<"\n";
         ////////////fill histograms for all events!/////
        hdenom->Fill(snrcoherent);
        hdenom_Brian[bin_index]->Fill(snrcoherent);
@@ -1331,7 +1333,7 @@ int main(int argc, char **argv) {
      if(denomA < 1E-5) denomA=1;
      hefficiency_Abby->SetBinContent(i,numA/denomA);
 
-     for(int j=0;j<15;j++){
+     for(int j=0;j<num_bins;j++){
        numB = hBrian[j]->GetBinContent(i);
        denomB = hdenom_Brian[j]->GetBinContent(i);
        if(denomB < 1E-5) denomB=1;
@@ -1342,14 +1344,14 @@ int main(int argc, char **argv) {
    }//i
 
    TCanvas *c0 = new TCanvas("c0","c0",880,800);
-   hefficiency_Abby->Draw("C");
+   hefficiency_Abby->Draw("l");
    TLegend leg (.7,.7,1,1,"l");
    leg.SetFillColor(0);
    leg.AddEntry(hefficiency_Abby,"Previous Analysis Cuts");
 
-   for(int j=0;j<15;j++){
+   for(int j=0;j<num_bins;j++){
     
-     hefficiency_Brian[j]->Draw("same C");
+     hefficiency_Brian[j]->Draw("same l");
      sprintf(printer,"HealPix Bin %i",healpix_bin_vector[j]);
      leg.AddEntry(hefficiency_Brian[j],printer);
    }

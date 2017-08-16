@@ -95,6 +95,7 @@ long n_side =pow(2,k_value);
 
 int n_pix_int=12*n_side*n_side; //Total number of pixels
 vector<double> BASE(n_pix_int,0.);
+vector<double> BASE_allcuts(n_pix_int,0.);
 vector<double> weight_frac(n_pix_int,0.);
 vector<int> num_frac(n_pix_int,0);
 vector<int> numevents(n_pix_int,0.);
@@ -128,7 +129,7 @@ void GetTimePerBin(IceModel *antarctica);
 double GetDistance(double Lat1, double Lon1, double Lat2, double Lon2);
 int GetBrianBin(double lat, double lon);
 void BintoLatLon(int binnumber, double& lat, double& lon);
-
+void pix2ang(int nside, int pix, double &theta, double &phi);
 double test_anita_x=0.;
 double test_anita_y=0.;
 double test_anita_z=0.;
@@ -364,7 +365,9 @@ int main(int argc, char **argv) {
   //read in root file
   string filter_name;
  
-  string temp = "/data/anita/btdailey/passingCuts/10sample_partial_passedcuts_1215.root";
+  //string temp = "/data/anita/btdailey/passingCuts/10sample_partial_passedcuts_1215.root";
+  //string temp = "/data/anita/btdailey/passingCuts/10sample_partial_HPol_passedcuts_110.root";
+  string temp = "/data/anita/btdailey/passingCuts/10sample_partial_passedcuts_0301.root";
   char *rootfile;
   rootfile = Form(temp.c_str(),filter_name.c_str());
     
@@ -635,7 +638,7 @@ int main(int argc, char **argv) {
 
       ////////////ROOT OUTPUT
       char filename[150];//simCWdata/largesample/CW2/abby/
-      sprintf(filename,"HealPix_partial_111.root");
+      sprintf(filename,"HealPix_partial_0301_test.root");
       cout<<"outputting to file: "<<filename<<endl;
       TFile *rootfile_out = new TFile(filename,"RECREATE");
   
@@ -652,10 +655,10 @@ int main(int argc, char **argv) {
 
       //////////////////
 
-
+      int polarization=0;//0==VPol, 1 = Hpol
 
       for(int m=0;m<nevents0;m+=1){
-      //	for(int m=0;m<1;m+=1){
+	//for(int m=0;m<1;m+=1){
       //for(int m=1369290;m<nevents0;m++){
 	//	cout<<"m is "<<m<<"\n";
 	if (m % (nevents0 / 100) == 0){
@@ -671,22 +674,22 @@ int main(int argc, char **argv) {
 
 	//cout<<"eventnumber is "<<pol4_Ptr->eventNumber<<"\n";
 	//cout<<"anita is at "<<anitaLat<<" "<<anitaLon<<" "<<anitaAlt<<"\n";
-	lat = pol4_Ptr->sourceLat[0];
-	lon = pol4_Ptr->sourceLon[0];
+	lat = pol4_Ptr->sourceLat[polarization];
+	lon = pol4_Ptr->sourceLon[polarization];
 	
 	
 
 
-	distance_from_source = pol4_Ptr->distance_from_source[0];
-	peakHilbertCoherent = pol4_Ptr->peakHilbertCoherent[0];
-	snrCoherent = pol4_Ptr->SNR_coherent[0];
-	peakVal = pol4_Ptr->peakVal[0];
-	phiMap = pol4_Ptr->phiMap[0];
-	thetaMap = pol4_Ptr->thetaMap[0];
-	ratioFirstToSecondPeak=pol4_Ptr->ratioFirstToSecondPeak[0];
-	thetaMap=pol4_Ptr->thetaMap[0];
+	distance_from_source = pol4_Ptr->distance_from_source[polarization];
+	peakHilbertCoherent = pol4_Ptr->peakHilbertCoherent[polarization];
+	snrCoherent = pol4_Ptr->SNR_coherent[polarization];
+	peakVal = pol4_Ptr->peakVal[polarization];
+	phiMap = pol4_Ptr->phiMap[polarization];
+	thetaMap = pol4_Ptr->thetaMap[polarization];
+	ratioFirstToSecondPeak=pol4_Ptr->ratioFirstToSecondPeak[polarization];
+	thetaMap=pol4_Ptr->thetaMap[polarization];
       
-	polFractionCoherent=pol4_Ptr->polFractionCoherent[0];
+	polFractionCoherent=pol4_Ptr->polFractionCoherent[polarization];
        
 	
 	float limit =0.85;
@@ -765,7 +768,7 @@ int main(int argc, char **argv) {
 	 //cout<<"\n\n";
 	 
 	 errorpoints_return = ErrorPoints(xholder_temp,yholder_temp,zholder_temp,eta,theta_error, phi_error,anitaAlt/1000,event_bin_height);//get error ellipse
-	 
+	 //if (pol4_Ptr->eventNumber == 2489558) cout<<"event is "<<pol4_Ptr->eventNumber<<"error points is "<<errorpoints_return<<"\n";
 	 if(errorpoints_return <4) errorellipse_ctr++;//keep track of number of events that only intersect earth 2 times
 
 	   
@@ -1037,7 +1040,7 @@ int main(int argc, char **argv) {
 		 
 		 if(area_pix[i]>0){
 		   cout<<" eventnumber is "<<pol4_Ptr->eventNumber<<" area is "<<area_pix[i]<<" "<<areas[i]<<"\n";
-		   if(areas[i]<.5) areas[i]=0.;
+		   //if(areas[i]<.5) areas[i]=0.;
 		   weight_frac[area_pix[i]]+=areas[i];
 		   num_frac[area_pix[i]]++;
 		 }
@@ -1048,7 +1051,7 @@ int main(int argc, char **argv) {
 	       for(int i=0;i<4;i++){
 		 
 		 if(area_pix[i]>0){
-		  
+		   
 		    /////FOR PLOTTING EVENTS///////
 		     anitaLat_plot= anitaLat;
 		     anitaLon_plot= anitaLon;
@@ -1077,7 +1080,8 @@ int main(int argc, char **argv) {
 		       point_boundaries[pointctr1]->SetMarkerColor(kRed);
 		       pointctr1++;
 		     }
-		   
+		  
+
 		     //cout<<area_pix[i]<<" "<<areas[i]<<"\n";
 		   
 		   healpix_bin_weights[area_pix[i]].push_back(areas[i]);
@@ -1088,6 +1092,9 @@ int main(int argc, char **argv) {
 		   if(whole_flag ==0){
 		     BASE[area_pix[i]]+=areas[i];
 		     peakVal_vector[area_pix[i]].push_back(peakVal);
+		     if(peakVal >= 0.075){
+		       BASE_allcuts[area_pix[i]]+=areas[i];
+		     }
 		     peakHilbert_vector[area_pix[i]].push_back(peakHilbertCoherent*distance_from_source/1.E6);
 		     SNR_vector[area_pix[i]].push_back(snrCoherent);
 		     ratio_vector[area_pix[i]].push_back(ratioFirstToSecondPeak);
@@ -1147,8 +1154,8 @@ int main(int argc, char **argv) {
         ////////GOT ALL INFO FROM EVENTS. NOW CAN USE FOR OPTIMIZATION and PLOTTING//////////
       double max_base=1.;
       for(int m=0;m<n_pix_int;m++){
-	if(BASE[m]>0) cout<<"pix is "<<m<<" num events is "<<BASE[m]<<"\n";
-	if(BASE[m] > max_base) max_base = BASE[m];
+	if(BASE_allcuts[m]>0) cout<<"pix is "<<m<<" num events is "<<BASE_allcuts[m]<<"\n";
+	if(BASE_allcuts[m] > max_base) max_base = BASE_allcuts[m];
       }
       for(int m=0;m<n_pix_int;m++){
 	//if(num_frac[m]>0) cout<<"pix is "<<m<<" num frac is "<<num_frac[m]<<" weight_frac is "<<weight_frac[m]<<"\n";
@@ -1186,7 +1193,7 @@ int main(int argc, char **argv) {
       TH2F *hhealpix_error = new TH2F("healpix_map error ",";x(km);y(km);Number of Events",200,500,800,200,300,700);
       hhealpix_error->SetMarkerSize(0.5);
      
-
+      /*
       LatLon2phitheta(eventLat_plot,eventLon_plot,phi,theta);
       pixel_num=ang2pix_ring(n_side,theta,phi);
       SphericaltoCart(phi,theta,x_point,y_point);
@@ -1213,7 +1220,7 @@ int main(int argc, char **argv) {
       anitapoint->SetMarkerColor(kMagenta);
       anitapoint->SetMarkerSize(2);
       cout<<"anita is located at "<<anita_pointx<<" "<<anita_pointy<<"\n";
-      
+      */
       /////////fill healpix_map
       double map_step_size = max_healpixmap - min_healpixmap;
       map_step_size = map_step_size/numbin_healpixmap;
@@ -1227,17 +1234,17 @@ int main(int argc, char **argv) {
 	  pixel_num=ang2pix_ring(n_side,theta,phi);
 	  SphericaltoCart(phi,theta,x_map,y_map);
 	
-	  // if(pixel_num==3012 || pixel_num==3030 || pixel_num==3031 || pixel_num==3032 || pixel_num==3033 || pixel_num==3045 || pixel_num==3048 || pixel_num==3051 || pixel_num==3053 || pixel_num==3057 || pixel_num==3061 || pixel_num==3062 || pixel_num==3063 || pixel_num==3066 || pixel_num==3069){
+	  // if(pixel_num==3008 || pixel_num==3010 || pixel_num==3012 || pixel_num==3028 || pixel_num==3029 || pixel_num==3030 || pixel_num==3031 || pixel_num==3032 || pixel_num==3033 ||pixel_num==3037 || pixel_num==3045 ||pixel_num==3046 || pixel_num==3048 || pixel_num==3051 ||pixel_num==3051|| pixel_num==3053 || pixel_num==3057 || pixel_num==3061 || pixel_num==3062 || pixel_num==3063 || pixel_num==3066 || pixel_num==3069){
 	  //if(pixel_num==3069){
 	
 	  // cout<<"bin is "<<bin<<"\n";
 	  
-	  hhealpix_map->Fill(x_map,y_map,BASE[pixel_num]);
+	  hhealpix_map->Fill(x_map,y_map,BASE_allcuts[pixel_num]);
 	  //  hhealpix_map->Fill(x_map,y_map);
 	  //hhealpix_map->SetBinContent(bin,BASE[pixel_num]);
 	  
 	  //cout<<"x_map,y_map,pixel,BASE is "<<x_map<<" "<<y_map<<" "<<pixel_num<<" "<<BASE[pixel_num]<<"\n";
-	  //  }//pixel
+	  // }//pixel
 	}
        }
       
@@ -1257,7 +1264,47 @@ int main(int argc, char **argv) {
       TCanvas *c2 = new TCanvas("c2","c2",880,800);
       c2->SetLogz();
       //haxes->Draw();
+
+      
+
+      double pixel_theta;
+      double pixel_phi;
+      double x_pos;
+      double y_pos;
+      TPaveText *pt;
       hhealpix_map->Draw("zcol");
+      
+
+        TFile *flightpath_file = new TFile("anita2flightpath.root"); 
+      flightpath_file -> ls(); 
+      TGraph *flightpath_graph = (TGraph*)flightpath_file -> Get("Graph");
+      flightpath_graph->SetLineColor(kViolet-1);
+      flightpath_graph->SetLineWidth(4);    
+      flightpath_graph->Draw("L same");  
+
+
+        for(int m=2988;m<3072;m++){
+	  // if(m==3008 || m==3010 || m==3012 || m==3028 || m==3029 || m==3030 || m==3031 || m==3032 || m==3033 ||m==3037 || m==3045 ||m==3046 || m==3048 || m==3051 ||m==3051|| m==3053 || m==3057 || m==3061 || m==3062 || m==3063 || m==3066 || m==3069){
+	  if(BASE_allcuts[m]>1E-2){
+	    pix2ang(n_side,m,pixel_theta,pixel_phi);
+	    //cout<<"pixel_theta, phi are "<<pixel_theta<<" "<<pixel_phi<<"\n ";
+	    SphericaltoCart(pixel_phi, pixel_theta, x_pos, y_pos);
+	    //cout<<"x_pos, y_pos is "<<x_pos<<" "<<y_pos<<"\n";
+	    
+	    pt = new TPaveText(x_pos-100,y_pos-100,x_pos+100,y_pos+100);
+	    // pt->SetTextColor(kRed);
+	    //pt->SetFillColor(kRed);
+	    pt->SetFillStyle(4000);
+	    sprintf(printer,"%i",m);
+	    pt->AddText(printer);
+	    pt->Draw("same");
+	    //delete pt;
+	     }
+	  // }//pixel_num
+      }
+
+    
+
       for(int j=0;j<pointctr;j++){
 	point_sources[j]->Draw("same");
       }
@@ -1267,8 +1314,9 @@ int main(int argc, char **argv) {
        //hhealpix_error->Draw("same");
       //point->Draw("same");
       //anitapoint->Draw("same");
-      c2->Print("healpix_map_events.png");
-      c2->Print("healpix_map.eps");
+      flightpath_graph->Draw("L same");  
+      c2->Print("healpix_map_0501_used.png");
+      c2->Print("healpix_map_0501.eps");
       
       
      
@@ -2977,6 +3025,24 @@ void BintoLatLon(int binnumber, double& lat, double& lon){
   
   lon = binnumber-(lat*360);
  
+
+}
+
+void pix2ang(int nside, int pix, double &theta, double &phi){
+
+
+  static const double halfpi=1.570796326794896619231321691639751442099;
+  long npix=12*nside*nside;
+  double fact2  = 4./npix;
+  double z;
+    
+  int ip = npix - pix;
+  int iring = (int)(0.5*(1+sqrt(2*ip-1))); /* counted from South pole */
+  int iphi  = 4*iring + 1 - (ip - 2*iring*(iring-1));
+
+  z = -1.0 + (iring*iring)*fact2;
+  phi = (iphi-0.5) * halfpi/iring;
+  theta=acos(z);
 
 }
 

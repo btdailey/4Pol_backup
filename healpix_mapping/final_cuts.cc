@@ -740,9 +740,11 @@ int main(int argc, char **argv) {
 
    }
    cout<<"number of events in sample is "<<nevents0<<"\n";
+   int polarization=1;//VPol =0, HPol=1
       //////////////////
    for(int m=0;m<nevents0;m++){
        // for(int m=0;m<0;m++){
+     //cout<<" m is "<<m<<"\n";
        	if (m % (nevents0 / 100) == 0){
 	  cout << m << " events. " <<(double(m)/double(nevents0)) * 100 << "% complete.\n";
 	}
@@ -753,13 +755,13 @@ int main(int argc, char **argv) {
        
        //cout<<"Anita is at "<<AnitaLat<<" "<<AnitaLon<<" "<<AnitaAlt<<"\n";
        eventNumber_cut = pol4_Ptr->eventNumber;
-       peakHilbertCoherent=pol4_Ptr->peakHilbertCoherent[0];
-       peakVal=pol4_Ptr->peakVal[0];
-       ratioFirstToSecondPeak=pol4_Ptr->ratioFirstToSecondPeak[0];
-       thetaMap=pol4_Ptr->thetaMap[0];
-       phiMap = pol4_Ptr->phiMap[0];
-       snrcoherent = pol4_Ptr->SNR_coherent[0];
-       polFractionCoherent=pol4_Ptr->polFractionCoherent[0];
+       peakHilbertCoherent=pol4_Ptr->peakHilbertCoherent[polarization];
+       peakVal=pol4_Ptr->peakVal[polarization];
+       ratioFirstToSecondPeak=pol4_Ptr->ratioFirstToSecondPeak[polarization];
+       thetaMap=pol4_Ptr->thetaMap[polarization];
+       phiMap = pol4_Ptr->phiMap[polarization];
+       snrcoherent = pol4_Ptr->SNR_coherent[polarization];
+       polFractionCoherent=pol4_Ptr->polFractionCoherent[polarization];
        anitaLat = pol4_Ptr->anitaLat;
        anitaLon = pol4_Ptr->anitaLon;
        anitaAlt = pol4_Ptr->anitaAlt;
@@ -769,13 +771,13 @@ int main(int argc, char **argv) {
 	 anitaLon = anitaLon+180;
 
        //if(peakHilbertCoherent != peakHilbertCoherent) cout<<"eventnumber is "<<eventNumber_cut<<" snr is "<<snrcoherent<<"\n";
-       hwTriggerFlag=pol4_Ptr->hwTriggerFlag[0];
-       snrPeak = pol4_Ptr->snrPeakAfterFilter[0];
+       hwTriggerFlag=pol4_Ptr->hwTriggerFlag[polarization];
+       snrPeak = pol4_Ptr->snrPeakAfterFilter[polarization];
        
-       varnerFlag = pol4_Ptr->varnerFlag[0];
-       didIFilter = pol4_Ptr->didIFilter[0];
-       eventTracedFlag2 = pol4_Ptr->eventTracedFlag[0];
-       varnerFlag2 = pol4_Ptr->varnerFlag2[0];
+       varnerFlag = pol4_Ptr->varnerFlag[polarization];
+       didIFilter = pol4_Ptr->didIFilter[polarization];
+       eventTracedFlag2 = pol4_Ptr->eventTracedFlag[polarization];
+       varnerFlag2 = pol4_Ptr->varnerFlag2[polarization];
       
       
        mainrfcmflag=  pol4_Ptr->mainrfcmflag;
@@ -783,11 +785,11 @@ int main(int argc, char **argv) {
        dcoffsetflag=pol4_Ptr->dcoffsetflag;
        shorttraceflag=pol4_Ptr->shorttraceflag;
        nadirrfcmflag=pol4_Ptr->nadirrfcmflag;
-       badNoiseFlag = pol4_Ptr->noiseFlag[0];
+       badNoiseFlag = pol4_Ptr->noiseFlag[polarization];
 
 
-       	lat = pol4_Ptr->sourceLat[0];
-	lon = pol4_Ptr->sourceLon[0];
+       	lat = pol4_Ptr->sourceLat[polarization];
+	lon = pol4_Ptr->sourceLon[polarization];
 	
 	//////////Get Pixel Num for Event//////
 	lat = 90-lat;

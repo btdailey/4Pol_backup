@@ -1,0 +1,161 @@
+nevents0 is 40
+eventNumber_cut is 830693
+event is 830693pol is 0 peakHilbert is 22.8156 realtime is 1229826584 lat,lon are -75.4789 150.747
+eventNumber_cut is 830693
+event is 830693pol is 1 peakHilbert is 35.1943 realtime is 1229826584 lat,lon are -59.9941 -131.289
+eventNumber_cut is 4787105
+event is 4787105pol is 0 peakHilbert is 12.5806 realtime is 1230141236 lat,lon are -83.7288 -169.493
+eventNumber_cut is 4787105
+event is 4787105pol is 1 peakHilbert is 39.8224 realtime is 1230141236 lat,lon are -80.886 -174.963
+eventNumber_cut is 5276383
+event is 5276383pol is 0 peakHilbert is 38.5174 realtime is 1230194192 lat,lon are -81.7717 -151.498
+eventNumber_cut is 5276383
+event is 5276383pol is 1 peakHilbert is 115.125 realtime is 1230194192 lat,lon are -81.8081 -149.778
+eventNumber_cut is 7382414
+event is 7382414pol is 0 peakHilbert is 17.4021 realtime is 1230330110 lat,lon are -77.7577 165.496
+eventNumber_cut is 7382414
+event is 7382414pol is 1 peakHilbert is 37.78 realtime is 1230330110 lat,lon are -74.7101 159.062
+eventNumber_cut is 7405516
+event is 7405516pol is 0 peakHilbert is 16.6616 realtime is 1230331449 lat,lon are -77.7298 166.16
+eventNumber_cut is 7405516
+event is 7405516pol is 1 peakHilbert is 46.0952 realtime is 1230331449 lat,lon are -74.9551 158.848
+eventNumber_cut is 7421818
+event is 7421818pol is 0 peakHilbert is 20.3427 realtime is 1230332403 lat,lon are -74.5351 159.58
+eventNumber_cut is 7421818
+event is 7421818pol is 1 peakHilbert is 44.6735 realtime is 1230332403 lat,lon are -74.8573 158.274
+eventNumber_cut is 7460738
+event is 7460738pol is 0 peakHilbert is 18.5712 realtime is 1230334689 lat,lon are -74.4731 158.066
+eventNumber_cut is 7460738
+event is 7460738pol is 1 peakHilbert is 35.3723 realtime is 1230334689 lat,lon are -74.5869 157.908
+eventNumber_cut is 7486629
+event is 7486629pol is 0 peakHilbert is 13.2414 realtime is 1230336152 lat,lon are -74.8847 156.349
+eventNumber_cut is 7486629
+event is 7486629pol is 1 peakHilbert is 44.9197 realtime is 1230336152 lat,lon are -74.891 156.276
+eventNumber_cut is 8099585
+event is 8099585pol is 0 peakHilbert is 15.988 realtime is 1230393490 lat,lon are -59.9988 125.203
+eventNumber_cut is 8099585
+event is 8099585pol is 1 peakHilbert is 44.3126 realtime is 1230393490 lat,lon are -75.3755 127.215
+eventNumber_cut is 8306117
+event is 8306117pol is 0 peakHilbert is 30.8415 realtime is 1230425934 lat,lon are -75.2876 123.729
+eventNumber_cut is 8306117
+event is 8306117pol is 1 peakHilbert is 32.4166 realtime is 1230425934 lat,lon are -63.6491 99.9485
+eventNumber_cut is 8370486
+event is 8370486pol is 0 peakHilbert is 29.0887 realtime is 1230441292 lat,lon are -75.3853 123.475
+eventNumber_cut is 8370486
+event is 8370486pol is 1 peakHilbert is 78.874 realtime is 1230441292 lat,lon are -75.5203 123.372
+eventNumber_cut is 8381355
+event is 8381355pol is 0 peakHilbert is 26.949 realtime is 1230443177 lat,lon are -77.2264 115.211
+eventNumber_cut is 8381355
+event is 8381355pol is 1 peakHilbert is 30.4277 realtime is 1230443177 lat,lon are -67.4988 -173.324
+eventNumber_cut is 8394834
+event is 8394834pol is 0 peakHilbert is 59.7364 realtime is 1230445275 lat,lon are -75.3067 123.525
+eventNumber_cut is 8394834
+event is 8394834pol is 1 peakHilbert is 31.3873 realtime is 1230445275 lat,lon are -66.6329 162.807
+eventNumber_cut is 8456337
+event is 8456337pol is 0 peakHilbert is 78.7732 realtime is 1230453763 lat,lon are -75.222 123.221
+eventNumber_cut is 8456337
+event is 8456337pol is 1 peakHilbert is 67.188 realtime is 1230453763 lat,lon are -75.1715 123.556
+eventNumber_cut is 8456989
+event is 8456989pol is 0 peakHilbert is 63.784 realtime is 1230453850 lat,lon are -75.1556 123.27
+eventNumber_cut is 8456989
+event is 8456989pol is 1 peakHilbert is 196.611 realtime is 1230453850 lat,lon are -75.2051 123.569
+eventNumber_cut is 8527491
+event is 8527491pol is 0 peakHilbert is 55.7916 realtime is 1230464805 lat,lon are -75.321 123.287
+eventNumber_cut is 8527491
+event is 8527491pol is 1 peakHilbert is 113.012 realtime is 1230464805 lat,lon are -75.6239 123.015
+eventNumber_cut is 8529722
+event is 8529722pol is 0 peakHilbert is 30.3629 realtime is 1230465059 lat,lon are -75.2042 123.554
+eventNumber_cut is 8529722
+event is 8529722pol is 1 peakHilbert is 112.736 realtime is 1230465059 lat,lon are -75.6127 123.07
+eventNumber_cut is 8529726
+event is 8529726pol is 0 peakHilbert is 38.4606 realtime is 1230465059 lat,lon are -75.291 123.405
+eventNumber_cut is 8529726
+event is 8529726pol is 1 peakHilbert is 66.2612 realtime is 1230465059 lat,lon are -75.6026 122.994
+eventNumber_cut is 8529903
+event is 8529903pol is 0 peakHilbert is 39.7721 realtime is 1230465084 lat,lon are -75.2556 123.324
+eventNumber_cut is 8529903
+event is 8529903pol is 1 peakHilbert is 74.1721 realtime is 1230465084 lat,lon are -75.4958 123.276
+eventNumber_cut is 8532837
+event is 8532837pol is 0 peakHilbert is 115.753 realtime is 1230465461 lat,lon are -75.2135 123.279
+eventNumber_cut is 8532837
+event is 8532837pol is 1 peakHilbert is 168.527 realtime is 1230465461 lat,lon are -75.7432 122.867
+eventNumber_cut is 11199059
+event is 11199059pol is 0 peakHilbert is 20.9745 realtime is 1230817438 lat,lon are -80.4947 -22.0723
+eventNumber_cut is 11199059
+event is 11199059pol is 1 peakHilbert is 36.1771 realtime is 1230817438 lat,lon are -80.5359 -20.7458
+eventNumber_cut is 12233576
+event is 12233576pol is 0 peakHilbert is 83.4066 realtime is 1230937347 lat,lon are -80.3477 -81.3471
+eventNumber_cut is 12233576
+event is 12233576pol is 1 peakHilbert is 59.0394 realtime is 1230937347 lat,lon are -80.3891 -80.7948
+eventNumber_cut is 16024399
+event is 16024399pol is 0 peakHilbert is 34.8779 realtime is 1231309848 lat,lon are -80.4028 -175.493
+eventNumber_cut is 16024399
+event is 16024399pol is 1 peakHilbert is 145.376 realtime is 1231309848 lat,lon are -80.407 -175.72
+eventNumber_cut is 16025033
+event is 16025033pol is 0 peakHilbert is 47.0509 realtime is 1231309879 lat,lon are -80.4196 -175.906
+eventNumber_cut is 16025033
+event is 16025033pol is 1 peakHilbert is 168.012 realtime is 1231309879 lat,lon are -80.3514 -175.982
+eventNumber_cut is 18523070
+event is 18523070pol is 0 peakHilbert is 29.2848 realtime is 1231452699 lat,lon are -77.4813 124.352
+eventNumber_cut is 18523070
+event is 18523070pol is 1 peakHilbert is 168.457 realtime is 1231452699 lat,lon are -77.7652 126.583
+eventNumber_cut is 18523574
+event is 18523574pol is 0 peakHilbert is 33.4094 realtime is 1231452730 lat,lon are -76.9544 122.303
+eventNumber_cut is 18523574
+event is 18523574pol is 1 peakHilbert is 141.783 realtime is 1231452730 lat,lon are -77.7785 126.177
+eventNumber_cut is 18524721
+event is 18524721pol is 0 peakHilbert is 30.8105 realtime is 1231452794 lat,lon are -77.3667 124.75
+eventNumber_cut is 18524721
+event is 18524721pol is 1 peakHilbert is 119.387 realtime is 1231452794 lat,lon are -77.6379 126.99
+eventNumber_cut is 18538216
+event is 18538216pol is 0 peakHilbert is 42.0545 realtime is 1231453583 lat,lon are -77.1462 123.756
+eventNumber_cut is 18538216
+event is 18538216pol is 1 peakHilbert is 126.669 realtime is 1231453583 lat,lon are -77.1915 124.561
+eventNumber_cut is 18543601
+event is 18543601pol is 0 peakHilbert is 121.465 realtime is 1231453900 lat,lon are -79.8133 157.844
+eventNumber_cut is 18543601
+event is 18543601pol is 1 peakHilbert is 140.057 realtime is 1231453900 lat,lon are -79.9075 157.655
+eventNumber_cut is 18543731
+event is 18543731pol is 0 peakHilbert is 143.499 realtime is 1231453907 lat,lon are -79.7983 157.919
+eventNumber_cut is 18543731
+event is 18543731pol is 1 peakHilbert is 154.638 realtime is 1231453907 lat,lon are -79.878 156.025
+eventNumber_cut is 18543760
+event is 18543760pol is 0 peakHilbert is 189.516 realtime is 1231453908 lat,lon are -79.7977 157.787
+eventNumber_cut is 18543760
+event is 18543760pol is 1 peakHilbert is 160.902 realtime is 1231453908 lat,lon are -79.8504 155.821
+eventNumber_cut is 18543785
+event is 18543785pol is 0 peakHilbert is 180.366 realtime is 1231453909 lat,lon are -79.7949 157.864
+eventNumber_cut is 18543785
+event is 18543785pol is 1 peakHilbert is 166.94 realtime is 1231453909 lat,lon are -79.8444 156.361
+eventNumber_cut is 18543833
+event is 18543833pol is 0 peakHilbert is 137.809 realtime is 1231453912 lat,lon are -79.8006 157.88
+eventNumber_cut is 18543833
+event is 18543833pol is 1 peakHilbert is 112.254 realtime is 1231453912 lat,lon are -79.8589 156.357
+eventNumber_cut is 18561517
+event is 18561517pol is 0 peakHilbert is 13.2015 realtime is 1231455218 lat,lon are -79.1767 139.69
+eventNumber_cut is 18561517
+event is 18561517pol is 1 peakHilbert is 52.6575 realtime is 1231455218 lat,lon are -78.0491 128.008
+eventNumber_cut is 23191802
+event is 23191802pol is 0 peakHilbert is 45.1068 realtime is 1232031781 lat,lon are -83.3736 -57.7622
+eventNumber_cut is 23191802
+event is 23191802pol is 1 peakHilbert is 75.998 realtime is 1232031781 lat,lon are -83.2472 -57.8472
+eventNumber_cut is 23350827
+event is 23350827pol is 0 peakHilbert is 94.0498 realtime is 1232053013 lat,lon are -83.5978 -58.3746
+eventNumber_cut is 23350827
+event is 23350827pol is 1 peakHilbert is 84.6713 realtime is 1232053013 lat,lon are -83.3152 -58.0727
+eventNumber_cut is 23358924
+event is 23358924pol is 0 peakHilbert is 46.4073 realtime is 1232054020 lat,lon are -83.5616 -58.6398
+eventNumber_cut is 23358924
+event is 23358924pol is 1 peakHilbert is 80.472 realtime is 1232054020 lat,lon are -83.4547 -58.5552
+eventNumber_cut is 23434742
+event is 23434742pol is 0 peakHilbert is 55.9461 realtime is 1232062778 lat,lon are -82.8649 -53.5439
+eventNumber_cut is 23434742
+event is 23434742pol is 1 peakHilbert is 120.419 realtime is 1232062778 lat,lon are -82.849 -53.7538
+eventNumber_cut is 25887362
+event is 25887362pol is 0 peakHilbert is 28.036 realtime is 1232309264 lat,lon are -81.8748 -158.983
+eventNumber_cut is 25887362
+event is 25887362pol is 1 peakHilbert is 29.9614 realtime is 1232309264 lat,lon are -79.9072 -134.322
+eventNumber_cut is 26009469
+event is 26009469pol is 0 peakHilbert is 46.6068 realtime is 1232323911 lat,lon are -81.1166 -151.421
+eventNumber_cut is 26009469
+event is 26009469pol is 1 peakHilbert is 127.778 realtime is 1232323911 lat,lon are -81.1498 -151.239
