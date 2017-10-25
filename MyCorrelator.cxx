@@ -4106,55 +4106,57 @@ void MyCorrelator::getTriggeredAntOf3PhiSectors(int triggeredPhi[NUM_PHI_SECTORS
 int MyCorrelator::allowedPhisPairOfAntennas(double &lowerAngle, double &higherAngle, double &centerTheta1, double &centerTheta2, double &centerPhi1, double &centerPhi2, int ant1, int ant2)
 {
 
-  int phi1=fUPGeomTool->getPhiFromAnt(ant1);
-  int phi2=fUPGeomTool->getPhiFromAnt(ant2);
-  int allowedFlag=0;
+  int phi1=fUPGeomTool->getPhiFromAnt(ant1); // OB: calling a function to figure out phi sector of antenna by inputting ant1 
+  int phi2=fUPGeomTool->getPhiFromAnt(ant2); // OB: calling function again to figure out phi sector of antenna by inputting ant2
+  int allowedFlag=0; // OB: initializing allowedFlag which will be returned by this function at the end
   
-  int upperlimit=phi2+2;//2 phi sectors on either side
-  int lowerlimit=phi2-2;
+  int upperlimit = phi2 + 2; // BD: 2 phi sectors on either side, OB: note that phi2 is used here, and plus 2 
+  int lowerlimit = phi2 - 2; // OB: phi2 is used here again, minus 2, so total 5 phi sectors are in the range looks like
 
-  if(upperlimit>NUM_PHI_SECTORS-1)upperlimit-=NUM_PHI_SECTORS;
-  if(lowerlimit<0)lowerlimit+=NUM_PHI_SECTORS;
+  if ( upperlimit > NUM_PHI_SECTORS - 1 ) upperlimit -= NUM_PHI_SECTORS; // OB: if upperlimit > 15 then upperlimit = upperlimit - 16, so if upperlimit = 16 > 15, then set upperlimit to 0
+  if ( lowerlimit < 0 ) lowerlimit += NUM_PHI_SECTORS; // OB: if lowerlimit < 0 then lowerlimit = lowerlimit + 16, so if lowerlimit = -1 < 0, then set lowerlimit to 15
 
-  if (upperlimit>lowerlimit){
-    if (phi1<=upperlimit && phi1>=lowerlimit){//within 2 phi sectors of eachother
-      allowedFlag=1;
+  if ( upperlimit > lowerlimit ) { // OB: if upperlimit greater than lowerlimit so like upperlimit = 15 and lowerlimit = 11
+    if ( phi1 <= upperlimit && phi1 >= lowerlimit ) { // BD: within 2 phi sectors of eachother, OB: something like 11 <= phi1 <= 15 
+      allowedFlag = 1; // OB: this is allowed
     }
   }
-  if (upperlimit<lowerlimit){
-    if (phi1<=upperlimit || phi1>=lowerlimit){
-      allowedFlag=1;
 
+  if ( upperlimit < lowerlimit ) { // OB: so like upperlimit = 11 and lowerlimit = 15 
+    if ( phi1 <= upperlimit || phi1 >= lowerlimit ) { // OB: meaning if phi1 <= 1 or phi1 >= 15  
+    //if ( phi1 >= upperlimit && phi1 <= lowerlimit ) { // OB: so like 11 <= phi1 <= 15 should it be this instead?????? No
+      allowedFlag = 1; // OB: this is allowed
     }
   }
-  
-  double centerAngle1, centerAngle2;
-  if (allowedFlag==1){
-    centerAngle1=phi1*PHI_SECTOR_ANGLE-ADU5_FORE_PHI;
-    centerAngle2=phi2*PHI_SECTOR_ANGLE-ADU5_FORE_PHI;
 
-    // cout<<"centerAngle1 for ant "<<ant1<<" is "<<centerAngle1<<"\n";
-   
+  double centerAngle1 = 0.0; 
+  double centerAngle2 = 0.0; 
+  if ( allowedFlag == 1 ) {
+    centerAngle1 = phi1 * PHI_SECTOR_ANGLE - ADU5_FORE_PHI;  // OB: centerAngle1 = (phi1 times 22.5) - 22.5
+    centerAngle2 = phi2 * PHI_SECTOR_ANGLE - ADU5_FORE_PHI;  // OB: centerAngle2 = (phi2 times 22.5) - 22.5
+    cout << "centerAngle1 for ant1 " << ant1 << " is " << centerAngle1 <<"\n";
+    cout << "centerAngle2 for ant2 " << ant2 << " is " << centerAngle2 <<"\n";
+    cout << "phi1 and phi2 are " << phi1 << " and " << phi2 <<"\n";
+    if ( centerAngle2 > centerAngle1 ) { //NUM_DEGREES =75
+      lowerAngle = centerAngle2 - NUM_DEGREES_OFF_CENTER;  // BD: lowest angle both antennas can see, OB: lowerAngle = centerAngle2 - 75
+      higherAngle = centerAngle1 + NUM_DEGREES_OFF_CENTER; // BD: highest angle both antennas can see, OB: higherAngle = centerAngle1 + 75
+    }
+    if ( centerAngle1 > centerAngle2 ) {
+      lowerAngle = centerAngle1 - NUM_DEGREES_OFF_CENTER;  // OB: lowerAngle = centerAngle1 - 75
+      higherAngle = centerAngle2 + NUM_DEGREES_OFF_CENTER; // OB: higherAngle = centerAngle2 + 75
+    }
+    if ( lowerAngle < 0 ) lowerAngle += 360;  
+    if ( higherAngle > 360) higherAngle -= 360;
 
-    if (centerAngle2>centerAngle1){//NUM_DEGREES =75
-      lowerAngle=centerAngle2-NUM_DEGREES_OFF_CENTER;//lowest angle both antennas can see
-      higherAngle=centerAngle1+NUM_DEGREES_OFF_CENTER;//highest angle both antennas can see
-    }
-    if (centerAngle1>centerAngle2){
-      lowerAngle=centerAngle1-NUM_DEGREES_OFF_CENTER;
-      higherAngle=centerAngle2+NUM_DEGREES_OFF_CENTER; 
-    }
-    if (lowerAngle<0) lowerAngle+=360;
-    if (higherAngle>360) higherAngle-=360;
-    
-  }
-  centerTheta1=10;//degrees down
-  centerTheta2=10;//degrees down
-  centerPhi1=centerAngle1;
-  centerPhi2=centerAngle2;
+    cout << "lowerAngle is " << lowerAngle << " higherAngle is " << higherAngle << endl;   
+  } 
   
+  centerTheta1 = 10; // BD: degrees down
+  centerTheta2 = 10; // BD: degrees down
+  centerPhi1 = centerAngle1;
+  centerPhi2 = centerAngle2;
+
   return allowedFlag;
-
 }
 ////////////////////////////////
 int MyCorrelator::isPhiMaskingOn(int eventNumber, int phiMaskedArray[NUM_PHI_SECTORS])
@@ -6525,7 +6527,7 @@ TGraph *MyCorrelator::makeCoherentlySummedWaveform(int myEventNumber, double pea
       grCoherentWaveform[polFlag]->SetMaximum(60);
       
       sprintf(printer,"Coherent_%i_%i.png",myEventNumber,polFlag);
-      cCoherent->Print(printer);
+      //cCoherent->Print(printer);
 
       delete cCoherent;
   }
@@ -6675,6 +6677,8 @@ int MyCorrelator::pointThisEvent(int eventNumber, int drawMaps, analysis_info_4p
   
   //define variables needed for filter
   double mapCorVal[NUM_BINS_ROUGH_THETA][NUM_BINS_ROUGH_PHI];
+  std::vector<std::vector<std::vector<double> > > mapCorValPair(NUM_PAIR_VECTOR_SIZE,vector< vector<double> >(NUM_PAIR_VECTOR_SIZE,vector<double>(NUM_PAIR_VECTOR_SIZE,0.0))); 
+  double timeExpectedArray[NUM_BINS_ROUGH_THETA][NUM_BINS_ROUGH_PHI];
   int myEventNumber=eventNumber;
   double peakVal=0;
   double peakTheta=0;
@@ -7119,9 +7123,10 @@ int MyCorrelator::pointThisEvent(int eventNumber, int drawMaps, analysis_info_4p
    //for(int whichPolarization=0;whichPolarization<NPOL_ANALYSIS;whichPolarization++){ //oindree -- starting big whichPolarization loop here but think about it 
     whichAntennasCoherent.clear();
          cout<<"going through whichPol == "<<whichPolarization<<"\n";
-     for(int ant1=0;ant1<NUM_ANTS_WITH_NADIRS;ant1++){
-       for(int ant2=0;ant2<NUM_ANTS_WITH_NADIRS;ant2++){
+     for( int ant1 = 0; ant1 < NUM_ANTS_WITH_NADIRS; ant1++ ){
+       for( int ant2 = 0; ant2 < NUM_ANTS_WITH_NADIRS; ant2++ ){
 	 mapCorVal[ant1][ant2]=0.;
+         timeExpectedArray[ant1][ant2]=0.0; 
 	 mapCorValRefined[ant1][ant2]=0.;
 	 mapCorValRefined2[ant1][ant2]=0.;
 	 delete grCor[ant1][ant2];
@@ -7130,6 +7135,15 @@ int MyCorrelator::pointThisEvent(int eventNumber, int drawMaps, analysis_info_4p
 	 CorrNormalizationBack.clear();
        }
      }
+
+     //for (int i = 0; i < NUM_ANT_PAIRS_MAP_CORR_VAL; i++){ 
+       //for (int ant1 = 0;ant1 < NUM_ANTS_WITH_NADIRS; ant1++){
+         //for (int ant2 = 0;ant2 < NUM_ANTS_WITH_NADIRS; ant2++){
+	   //mapCorValPair[ant1][ant2][i] = 0.0; 
+         //}
+       //}
+     //} 
+
      /* char namer[256];
      if(whichPolarization==0){
        sprintf(namer,"36_after");
@@ -7139,9 +7153,9 @@ s     }
      // cout<<"made it past clearing loops \n";
      GetInterpolatedGraphs(whichPolarization);
      //cout<<"triggeronlyFlag, nadirFlag,whichPol are "<<triggerOnlyFlag<<" "<<nadirFlag<<" "<<whichPolarization<<"\n";
-     doCorrelationMap(myEventNumber, mapCorVal,triggerOnlyFlag,nadirFlag,whichPolarization);
+     doCorrelationMap(myEventNumber, timeExpectedArray, mapCorVal, mapCorValPair, triggerOnlyFlag,nadirFlag,whichPolarization);
     
-     if (drawMaps==1) drawCorrelationMap(mapCorVal,myEventNumber,whichPolarization);
+     if (drawMaps==1) drawCorrelationMap(mapCorVal,mapCorValPair,myEventNumber,whichPolarization,timeExpectedArray);
      //drawCorrelationMap(mapCorVal,myEventNumber,whichPolarization);
      //cout<<"finding peak \n";
      //get peak of main map
@@ -7167,7 +7181,7 @@ s     }
      cout<<"peakTheta before refined is "<<peakTheta<<"\n";
      cout<<"peakPhi is "<<peakPhi<<"\n";
      //now do a refined map around the peak.
-     doRefinedMap(myEventNumber, mapCorValRefined,peakTheta,peakPhi, triggerOnlyFlag, nadirFlag,whichPolarization);
+     //doRefinedMap(myEventNumber, mapCorValRefined,peakTheta,peakPhi, triggerOnlyFlag, nadirFlag,whichPolarization);
      if (drawMaps==1) drawRefinedMap(mapCorValRefined,peakTheta,peakPhi,myEventNumber,whichPolarization);
      
      //get peak of refined map
@@ -7229,7 +7243,7 @@ s     }
      grCoherent[whichPolarization]=makeCoherentlySummedWaveform(myEventNumber, peakThetaInterp, peakPhiInterp,nadirFlag, whichPolarization, 9,drawMaps,0);//10
 
      
-   if(drawMaps==1 && whichPolarization==0){
+   if(drawMaps==1){
       TCanvas *cTime = new TCanvas("cTime","cTime",4000,1200);
       cTime->Divide(16,4);
       TCanvas *cTime_used = new TCanvas("cTime_used","cTime_used",800,880);
@@ -7252,7 +7266,12 @@ s     }
       int used_flag=0;
        FFTtools f;
        FFTtools f2;
-       int pol_flag=hpol;
+       int pol_flag = hpol; 
+       if (whichPolarization == 1) pol_flag=hpol;
+       if (whichPolarization == 0) pol_flag=vpol;
+       if (whichPolarization == 2) pol_flag=lpol;
+       if (whichPolarization == 3) pol_flag=rpol;
+      
        for(int i=0;i<40;i++){
 	 used_flag=0;
 	 if(i==1) i++;
@@ -7262,13 +7281,13 @@ s     }
 	 }
 	 grEv[pol_flag][i]->GetXaxis()->SetTitle("Time (ns)");
 	 grEv[pol_flag][i]->GetYaxis()->SetTitle("Volts (mV)");
-	 grEv[pol_flag][i]->SetMinimum(-100);
-	 grEv[pol_flag][i]->SetMaximum(100);
+	 grEv[pol_flag][i]->SetMinimum(-150);
+	 grEv[pol_flag][i]->SetMaximum(150);
 
 	 grEvUnfiltered[pol_flag][i]->GetXaxis()->SetTitle("Time (ns)");
 	 grEvUnfiltered[pol_flag][i]->GetYaxis()->SetTitle("Volts (mV)");
-	 grEvUnfiltered[pol_flag][i]->SetMinimum(-100);
-	 grEvUnfiltered[pol_flag][i]->SetMaximum(100);
+	 grEvUnfiltered[pol_flag][i]->SetMinimum(-150);
+	 grEvUnfiltered[pol_flag][i]->SetMaximum(150);
 	 
 
 
@@ -7335,38 +7354,38 @@ s     }
 	 
        }
 
-       
+       cout<<"HERE \n";
 
        char printer[256];
-       sprintf(printer,"Time_Voltage_%i.png",myEventNumber);
-       cTime->Print(printer);
-       sprintf(printer,"Time_Voltage_%i.eps",myEventNumber);
-       cTime->Print(printer);
+       sprintf(printer,"Time_Voltage_%i_pol%i.png",myEventNumber,whichPolarization);
+       //cTime->Print(printer);
+       //sprintf(printer,"Time_Voltage_%i.eps",myEventNumber);
+       //cTime->Print(printer);
 
-       sprintf(printer,"Time_Voltage_used_%i.png",myEventNumber);
-       cTime_used->Print(printer);
-       sprintf(printer,"Time_Voltage_used_%i.eps",myEventNumber);
-       cTime_used->Print(printer);
+       sprintf(printer,"Time_Voltage_used_%i_pol%i.png",myEventNumber,whichPolarization);
+       //cTime_used->Print(printer);
+       //sprintf(printer,"Time_Voltage_used_%i.eps",myEventNumber);
+       //cTime_used->Print(printer);
 
-       sprintf(printer,"Amplitude_%i.png",myEventNumber);
-       cAmplitude->Print(printer);
-       sprintf(printer,"Amplitude_%i.eps",myEventNumber);
-       cAmplitude->Print(printer);
+       sprintf(printer,"Amplitude_%i_pol%i.png",myEventNumber,whichPolarization);
+       //cAmplitude->Print(printer);
+       //sprintf(printer,"Amplitude_%i.eps",myEventNumber);
+       //cAmplitude->Print(printer);
 
-        sprintf(printer,"Amplitude_used_%i.png",myEventNumber);
-       cAmplitude_used->Print(printer);
-       sprintf(printer,"Amplitude_used_%i.eps",myEventNumber);
-       cAmplitude_used->Print(printer);
+        sprintf(printer,"Amplitude_used_%i_pol%i.png",myEventNumber,whichPolarization);
+       //cAmplitude_used->Print(printer);
+       //sprintf(printer,"Amplitude_used_%i.eps",myEventNumber);
+       //cAmplitude_used->Print(printer);
 
-       sprintf(printer,"Time_Voltage_used_unfiltered_%i.png",myEventNumber);
-       cTime_used_unfiltered->Print(printer);
-       sprintf(printer,"Time_Voltage_used_unfiltered_%i.eps",myEventNumber);
-       cTime_used_unfiltered->Print(printer);
+       sprintf(printer,"Time_Voltage_used_unfiltered_%i_pol%i.png",myEventNumber,whichPolarization);
+       //cTime_used_unfiltered->Print(printer);
+       //sprintf(printer,"Time_Voltage_used_unfiltered_%i.eps",myEventNumber);
+       //cTime_used_unfiltered->Print(printer);
 
-       sprintf(printer,"Amplitude_used_unfiltered_%i.png",myEventNumber);
-       cAmplitude_used_unfiltered->Print(printer);
-       sprintf(printer,"Amplitude_used_unfiltered_%i.eps",myEventNumber);
-       cAmplitude_used_unfiltered->Print(printer);
+       sprintf(printer,"Amplitude_used_unfiltered_%i_pol%i.png",myEventNumber,whichPolarization);
+       //cAmplitude_used_unfiltered->Print(printer);
+       //sprintf(printer,"Amplitude_used_unfiltered_%i.eps",myEventNumber);
+       //cAmplitude_used_unfiltered->Print(printer);
 
     }
      
@@ -7771,17 +7790,18 @@ void MyCorrelator::drawRefinedMap(double mapCorValRefined[NUM_BINS_FINE_THETA][N
   //  cout<<"Min of Histogram in phi: "<<peakPhi-5<<", max: "<<peakPhi+5<<endl;
   // cout<<"Min of Histogram in theta: "<<peakTheta-5<<", max: "<<peakTheta+5<<endl;
   hmap2->Draw("colz");
-  c2->Print("refinedMap.eps");
+  //c2->Print("refinedMap.eps");
   //c2->Print("c2.png");
    char printer[256];
   
-   sprintf(printer,"refinedMap_%i_%i.png",myEventNumber,polarization);
-  c2->Print(printer);
+  sprintf(printer,"refinedMap_%i_%i.png",myEventNumber,polarization);
+  //c2->Print(printer);
   //  haxes->Draw("");
   delete hmap2;
   delete c2; 
 }
 ///////////////////////////
+/*
 void MyCorrelator::doRefinedMap(int myEventNumber, 
 				double mapCorValRefined[NUM_BINS_FINE_THETA][NUM_BINS_FINE_PHI], 
 				double peakTheta, double peakPhi, int onlyTriggered, 
@@ -7930,16 +7950,16 @@ void MyCorrelator::doRefinedMap(int myEventNumber,
 	    step_size_cos_fine = min_theta_cos - max_theta_cos; //positive number
 	     step_size_cos_fine = step_size_cos_fine/NUM_BINS_FINE_THETA;
 	     //cout<<"step_size_cos_fine is "<<step_size_cos_fine<<"\n";
-	     /* if ((fabs(deltaPhi1_deg*deltaPhi1_deg+
+	     if ((fabs(deltaPhi1_deg*deltaPhi1_deg+
 	       (peakTheta-centerTheta1)*(peakTheta-centerTheta1))<NUM_DEGREES_OFF_CENTER*NUM_DEGREES_OFF_CENTER) &&
 	       (fabs(deltaPhi2_deg*deltaPhi2_deg+
-	       (peakTheta-centerTheta2)*(peakTheta-centerTheta2))<NUM_DEGREES_OFF_CENTER*NUM_DEGREES_OFF_CENTER)){*/
+	       (peakTheta-centerTheta2)*(peakTheta-centerTheta2))<NUM_DEGREES_OFF_CENTER*NUM_DEGREES_OFF_CENTER)){
 	     if((angle1 <NUM_DEGREES_OFF_CENTER && angle2 <NUM_DEGREES_OFF_CENTER)||thermalSample==1 ){
 	  
 	       if(!grCor[ant1][ant2]){
 
 		 grCor[ant1][ant2] = getPowerinOverlap(grEvInterp[whichPolarization][ant1],grEvInterp[whichPolarization][ant2],ant1,ant2);
-		 /*	 bin=0;
+		 	 bin=0;
 		 
 		 for(double j=-20;j<20;j+=bin_spacing){
 		   //cout<<"j is "<<j<<"\n";
@@ -7959,14 +7979,14 @@ void MyCorrelator::doRefinedMap(int myEventNumber,
 		 grCor[ant1][ant2] = new TGraph(bin,time_delay,corrVal);
 		 
 		 //delete holderplot;
-		 */
+		 
 	       }
-	       /*
+	       
 		 if (!grCor[ant1][ant2]){ 
 		 if (whichPolarization==0) grCor[ant1][ant2] = FFTtools::getInterpolatedCorrelationGraph(grEv[ant1],grEv[ant2],deltaTInt);
 		 else grCor[ant1][ant2] = FFTtools::getInterpolatedCorrelationGraph(grEvHoriz[ant1],grEvHoriz[ant2],deltaTInt);
 		 }
-	  */
+	  
 	      grCor[ant1][ant2]->GetPoint(0,tVal0,corVal0);
 	      grCor[ant1][ant2]->GetPoint(grCor[ant1][ant2]->GetN()-1,tValend,corValend);
 	      lengthOfTrace=tValend-tVal0;
@@ -8090,21 +8110,43 @@ void MyCorrelator::doRefinedMap(int myEventNumber,
   
  
 }
+
+*/
+
 //////////////////////////////////
-void MyCorrelator::drawCorrelationMap(double mapCorVal[NUM_BINS_ROUGH_THETA][NUM_BINS_ROUGH_PHI], int myEventNumber, int whichPolarization)
+void MyCorrelator::drawCorrelationMap(double mapCorVal[NUM_BINS_ROUGH_THETA][NUM_BINS_ROUGH_PHI], std::vector<std::vector<std::vector<double> > > mapCorValPair, int myEventNumber, int whichPolarization, double timeExpectedArray[NUM_BINS_ROUGH_THETA][NUM_BINS_ROUGH_PHI])
 {
   //  cout<<"Drawing Map"<<endl;
   TH2F *hmap1;
+  TH2F *hmapPair[NUM_ANT_PAIRS_MAP_CORR_VAL];
+  TH2F *htimeExpected;
+  char histname[20]; 
+ 
   // TH2F *hmap1=new TH2F("hmap1","MAP!",NUM_BINS_ROUGH_PHI,0,360,NUM_BINS_ROUGH_THETA,-90,90);
   if(cos_reconstruction_flag==1){
     hmap1=new TH2F("hmap1","MAP!",NUM_BINS_ROUGH_PHI,0,360,NUM_BINS_PLOT_COS,-1,1);
+    htimeExpected = new TH2F("htimeExpected","MAP!",NUM_BINS_ROUGH_PHI,0,360,NUM_BINS_PLOT_COS,-1,1); 
   }
   else{
     hmap1=new TH2F("hmap1","MAP!",NUM_BINS_ROUGH_PHI,0,360,NUM_BINS_ROUGH_THETA,-90,90);
+    htimeExpected=new TH2F("htimeExpected","MAP!",NUM_BINS_ROUGH_PHI,0,360,NUM_BINS_ROUGH_THETA,-90,90);
+  }
+
+
+  for (int ihist = 0; ihist < NUM_ANT_PAIRS_MAP_CORR_VAL; ihist++) 
+  { 
+    sprintf(histname,"hmapPair_%i",ihist);
+    // TH2F *hmap1=new TH2F("hmap1","MAP!",NUM_BINS_ROUGH_PHI,0,360,NUM_BINS_ROUGH_THETA,-90,90);
+    if(cos_reconstruction_flag==1){
+      hmapPair[ihist] = new TH2F(histname,"MAP!",NUM_BINS_ROUGH_PHI,0,360,NUM_BINS_PLOT_COS,-1,1); 
+    }
+    else{
+      hmapPair[ihist] = new TH2F(histname,"MAP!",NUM_BINS_ROUGH_PHI,0,360,NUM_BINS_ROUGH_THETA,-90,90);
+     }
+
   }
   //cout<<"step_size_cos_rough is "<<step_size_cos_rough<<" cosHighestTheta is "<<cosHighestTheta<<"\n";
- 
-  
+    
   for (int i=0;i<NUM_BINS_ROUGH_PHI;i++){
     
     for (int j=0;j<NUM_BINS_ROUGH_THETA;j++){
@@ -8123,31 +8165,110 @@ void MyCorrelator::drawCorrelationMap(double mapCorVal[NUM_BINS_ROUGH_THETA][NUM
       }
     }//j
   }//i
-  
+
+
+  for (int ipair = 0; ipair < NUM_PAIR_VECTOR_SIZE; ipair++){
+    for (int i = 0; i < NUM_PAIR_VECTOR_SIZE; i++){
+      for (int j = 0; j < NUM_PAIR_VECTOR_SIZE; j++){
+        if (mapCorValPair[j][i][ipair] != 0.0){
+          double phi = ROUGH_BIN_SIZE * ( i + 0.5 );
+          //double theta=(ROUGH_BIN_SIZE*-1.*(j+0.5))+HIGHEST_THETA;
+          if ( cos_reconstruction_flag == 1 ) {
+	    double costheta = (-1)*(step_size_cos_rough*( j + 0.5 ) + cosHighestTheta );//cosHighestTheta is negative (costheta =1 is straight down to match abby's)
+	    // if (theta<=HIGHEST_THETA)
+	    if (costheta < (-1) * cosHighestTheta) hmapPair[ipair] -> Fill( phi,costheta,mapCorValPair[j][i][ipair] );
+	  //cout<<"phi, costheta, macpval are "<<phi<<" "<<costheta<<" "<<mapCorVal[j][i]<<"\n";
+          } //cos_reconstruction_flag
+          else{
+	    double theta = ( ROUGH_BIN_SIZE * -1. *( j + 0.5 )) + HIGHEST_THETA;
+	    if (theta <= HIGHEST_THETA) hmapPair[ipair] -> Fill( phi,theta,mapCorValPair[j][i][ipair] );
+          } // else
+        } // if != 0.0
+      } // j
+    } // i
+  } // ipair
+
+  for (int i=0;i<NUM_BINS_ROUGH_PHI;i++){
+    
+    for (int j=0;j<NUM_BINS_ROUGH_THETA;j++){
+      double phi=ROUGH_BIN_SIZE*(i+0.5);
+      //double theta=(ROUGH_BIN_SIZE*-1.*(j+0.5))+HIGHEST_THETA;
+      if(cos_reconstruction_flag==1){
+	double costheta = (-1)*(step_size_cos_rough*(j+0.5)+cosHighestTheta);//cosHighestTheta is negative (costheta =1 is straight down to match abby's)
+	
+	// if (theta<=HIGHEST_THETA)
+	if (costheta < (-1)*cosHighestTheta) htimeExpected->Fill(phi,costheta,timeExpectedArray[j][i]);
+	//cout<<"phi, costheta, macpval are "<<phi<<" "<<costheta<<" "<<mapCorVal[j][i]<<"\n";
+      }//cos
+      else{
+	double theta=(ROUGH_BIN_SIZE*-1.*(j+0.5))+HIGHEST_THETA;
+	if (theta<=HIGHEST_THETA) htimeExpected->Fill(phi,theta,timeExpectedArray[j][i]);
+      }
+    }//j
+  }//i
+
   gStyle->SetPalette(1);
   
-  TCanvas *c1=new TCanvas("c1","c1",400,400);
+  char printer[256];
+  TCanvas *c1=new TCanvas("c1","c1",1000,800);
   
   c1->cd(0);
   gStyle->SetOptStat(kFALSE);
   
   // hmap1->SetMaximum(.15);
-  hmap1->SetMinimum(-.05);
+  //hmap1->SetMinimum(-.05);
   //hmap1->SetMaximum(.07);
   hmap1->Draw("colz");
+  hmap1->GetZaxis()->SetRangeUser(-0.06,0.3); 
   hmap1->GetXaxis()->SetTitle("Payload Azimuth (Degrees)");
   hmap1->GetYaxis()->SetTitle("Elevation (cos(#theta))");
-  //c1->Print("mainMap.eps");
-  char printer[256];
-  
-  sprintf(printer,"mainMap_%i_%i.png",myEventNumber,whichPolarization);
+  sprintf(printer,"mapCorVal_%i_%i.png",myEventNumber,whichPolarization);
   c1->Modified();
   c1->Update();
   c1->Print(printer);
-  cout<<"printed? \n";
-   // c1->Print("c1.png");
-  delete hmap1;
-  delete c1; 
+
+  delete hmap1; 
+  delete c1;
+
+  TLine line(157.988,-1.,157.988,1.);
+  TLine line2(70.,-1.,70.,1.); 
+  
+  for (int idraw = 0; idraw < NUM_ANT_PAIRS_MAP_CORR_VAL; idraw++)
+  { 
+    TCanvas *c2 = new TCanvas("c2","c2",1000,800);
+    hmapPair[idraw]->Draw("colz");
+    line.Draw("same");
+    line.SetLineColor(1); 
+    line.SetLineWidth(3); 
+    line2.Draw("same"); 
+    line2.SetLineColor(2);
+    line2.SetLineWidth(3); 
+    //hmapPair[idraw]->GetZaxis()->SetRangeUser(-0.06,0.3); 
+    hmapPair[idraw]->GetXaxis()->SetTitle("Payload Azimuth (Degrees)");
+    hmapPair[idraw]->GetYaxis()->SetTitle("Elevation (cos(#theta))");
+    sprintf(printer,"mapCorValPair_event%i_pol%i_pair%i.png",myEventNumber,whichPolarization,idraw);
+    c2->Modified();
+    c2->Update();
+    //c2->Print(printer);
+    //cout<<"printed? \n";
+    delete hmapPair[idraw];  
+    delete c2; 
+  }
+
+  //TCanvas *c3 = new TCanvas("c3","c3",1000,800);
+  //htimeExpected->Draw("colz"); 
+  //hmap1->GetZaxis()->SetRangeUser(-0.06,0.3); 
+  //htimeExpected->GetXaxis()->SetTitle("Payload Azimuth (Degrees)");
+  //htimeExpected->GetYaxis()->SetTitle("Elevation (cos(#theta))");
+  //sprintf(printer,"timeExpected_%i_%i.png",myEventNumber,whichPolarization);
+  //c3->Modified();
+  //c3->Update();
+  //c3->Print(printer);
+  //cout<<"printed? \n";
+  // c1->Print("c1.png");
+  
+  delete htimeExpected;
+  //delete c3; 
 
   
  // for (int i=0;i<NUM_BINS_ROUGH_PHI;i++){
@@ -8156,136 +8277,69 @@ void MyCorrelator::drawCorrelationMap(double mapCorVal[NUM_BINS_ROUGH_THETA][NUM
 	 
 }
 ////////////////////////////////////////////////////
-void MyCorrelator::doCorrelationMap(int myEventNumber, 
+void MyCorrelator::doCorrelationMap(int myEventNumber,double timeExpectedArray[NUM_BINS_ROUGH_THETA][NUM_BINS_ROUGH_PHI],
 				    double mapCorVal[NUM_BINS_ROUGH_THETA][NUM_BINS_ROUGH_PHI], 
-				    int onlyTriggered, int nadirFlag, int whichPolarization)
-{
-//FOR TIME EXPECTED: Theta =0 horizon, Theta+ to ground
-  //struct timeb timebuffer;
-  //char *timeline;
-  
-  //ftime( &timebuffer );
-  //timeline = ctime( & ( timebuffer.time ) );
-  // printf( "The time is %.19s.%hu %s", timeline, timebuffer.millitm, &timeline[20] );
-
+                                    std::vector<std::vector<std::vector<double> > > &mapCorValPair,
+				    int onlyTriggered, int nadirFlag, int whichPolarization){
+  //FOR TIME EXPECTED: Theta =0 horizon, Theta+ to ground
   if (eventStartedFlag!=myEventNumber) eventStartedFlag=startEachEvent(myEventNumber);
   if (eventEntryGottenFlag!=(int)myEventNumber) eventEntryGottenFlag=getEventEntry();
-  //myCally->setClockUpSampleFactor(4);
-  Double_t abbyTheta=0;
-  Double_t abbyPhi=0;
-  /*double test_phi=204;
-  double test_theta = 12;
-  double timeExpected_test;
-  for(int i=0;i<40;i++){
-    timeExpected_test=getDeltaTExpected(i, 0, test_phi, test_theta);
-    cout<<"timeExpected is "<<timeExpected_test<<"\n";
-  }
-  */
+  Double_t abbyTheta = 0;
+  Double_t abbyPhi = 0;
   int triggeredPhi[NUM_PHI_SECTORS];
   int triggeredAnt[NUM_ANTS_WITH_NADIRS];
   int phiMaskArray[NUM_PHI_SECTORS];
   int phiMaskedAnts[NUM_ANTS_WITH_NADIRS]; 
   int bestPhiSector;
   int phiOKToUse[360];
- 
-  int nantennas=0;
-  if (nadirFlag==0) nantennas=NUM_ANTS_NO_NADIRS;
-  if (nadirFlag==1) nantennas=NUM_ANTS_WITH_NADIRS;
-
+  int nantennas = 0;
+  if (nadirFlag == 0) nantennas = NUM_ANTS_NO_NADIRS;
+  if (nadirFlag == 1) nantennas = NUM_ANTS_WITH_NADIRS;
   double rms[nantennas];
   double mapCtr[NUM_BINS_ROUGH_THETA][NUM_BINS_ROUGH_PHI];
   TGraph *grCor_scaled[NUM_ANTS_WITH_NADIRS][NUM_ANTS_WITH_NADIRS];
-  for (int i=0;i<NUM_BINS_ROUGH_THETA;i++){
-    for (int j=0;j<NUM_BINS_ROUGH_PHI;j++){
+
+  for ( int i = 0; i < NUM_BINS_ROUGH_THETA; i++ ){
+    for ( int j = 0; j < NUM_BINS_ROUGH_PHI; j++ ){
       mapCorVal[i][j]=0.;
       mapCtr[i][j]=0.;
     }
   }
-  double max_rms=0;
-  for (int ant=0;ant<nantennas;ant++){
-    rms[ant]=getRMS(grEv[whichPolarization][ant]); 
-     RMS_ants[ant]=rms[ant];
-    //cout<<"rms[ant] is "<<rms[ant]<<"\n";
-    if(rms[ant]> max_rms) max_rms=rms[ant];
-    //cout<<"ant is "<<ant<<" rms is "<<rms[ant]<<"\n";
-    if(rms[ant]<1E-10){
-      //rms[ant]=1;
-    }
+  //oindree
+  //for ( int itheta = 0; itheta < NUM_BINS_ROUGH_THETA; itheta++ ){
+    //for ( int jphi = 0; jphi < NUM_BINS_ROUGH_PHI; jphi++ ){
+      //for ( int kpair = 0; kpair < NUM_ANT_PAIRS_MAP_CORR_VAL; kpair++ ){
+        //mapCorValPair[itheta][jphi][kpair] = 0.0; 
+      //}
+    //}
+  //}
+  double max_rms = 0;
+  for ( int ant = 0; ant < nantennas; ant++ ){
+    rms[ant] = getRMS(grEv[whichPolarization][ant]); 
+    RMS_ants[ant] = rms[ant];
+    if(rms[ant] > max_rms) max_rms = rms[ant];
   }
- 
-  // if ((fHeadPtr->trigType(1<<0))){//means to look for RF triggers, 1<<1 would be PPSs (I think)
-
   //get the event and triggered antennas
- 
-  if (onlyTriggered==1){
+  if ( onlyTriggered == 1 ){
     getTriggeredL2Phi(fHeadPtr,triggeredPhi);
     getTriggeredAntpm1PhiSector(triggeredPhi,triggeredAnt);
-    int thisPhiMask=isPhiMaskingOn(fHeadPtr->eventNumber,phiMaskArray); 
-    thisPhiMask=0;
+    int thisPhiMask = isPhiMaskingOn(fHeadPtr->eventNumber,phiMaskArray); 
+    thisPhiMask = 0;
     getPhiMaskedAntspm1(phiMaskArray,phiMaskedAnts);
   }
-  
-  if (onlyTriggered==0){
-    for (int ant=0;ant<nantennas;ant++) triggeredAnt[ant]=1;   
-    for (int i=0;i<360;i++) phiOKToUse[i]=1;
+  if ( onlyTriggered == 0 ){
+    for ( int ant = 0; ant < nantennas; ant++ ) triggeredAnt[ant] = 1;   
+    for ( int i = 0; i < 360; i++ ) phiOKToUse[i] = 1;
   }
   int nextPhiSector;
   int lastPhiSector;
-  if (onlyTriggered==1){
-    for (int ant=0;ant<nantennas;ant++){
-      // if (phiMaskedAnts[ant] || triggeredAnt[ant]) triggeredAnt[ant]=1;
+  if ( onlyTriggered == 1 ){
+    for ( int ant = 0; ant < nantennas; ant++){
       if (triggeredAnt[ant]){
 	triggeredAnt[ant]=1;
-	//cout<<"triggered ant is "<<ant<<"\n";
       }
     }
-    /* for (int i=0;i<360;i++){
-      bestPhiSector=getBestPhiSector(i*deg2rad);
-      // cout<<"bestPhiSector is "<<bestPhiSector<<"\n";
-      // if (triggeredPhi[bestPhiSector]|| phiMaskArray[bestPhiSector]) phiOKToUse[i]=1;
-      nextPhiSector = bestPhiSector++;
-      lastPhiSector = bestPhiSector--;
-      if(nextPhiSector > 15) nextPhiSector-=16;
-      if(lastPhiSector < 0) lastPhiSector+=16;
-      
-      if (triggeredPhi[bestPhiSector] || triggeredPhi[lastPhiSector] || triggeredPhi[nextPhiSector]){
-       	phiOKToUse[i]=1;
-	//cout<<"using phi sector "<<bestPhiSector<<"\n";
-	
-	//i++;
-      }
-      else phiOKToUse[i]=0;
-     
-    }
-    */
-   
-    /*
-    for(int phisector=0;phisector<16;phisector++){
-      nextPhiSector = phisector+1;
-      lastPhiSector = phisector-1;
-     
-      if(nextPhiSector > 15) nextPhiSector-=16;
-      if(lastPhiSector < 0) lastPhiSector+=16;
-
-      if (triggeredPhi[phisector] || triggeredPhi[lastPhiSector] || triggeredPhi[nextPhiSector]){
-	cout<<"triggered phi sectors are "<<phisector<<"\n";
-	 for (int i=0;i<360;i++){
-	   bestPhiSector=getBestPhiSector(i*deg2rad);
-	   if(bestPhiSector==phisector){
-	     phiOKToUse[i]=1;
-	   }//bestPhi==phi
-	 }//i
-	
-
-      }//triggered
-    }//phisector
-    */
   }
-
-    
-  
-  
-
   int abbyPhi_deg_this;
   int deltaPhi1_deg, deltaPhi2_deg;
   int centerPhi1Int, centerPhi2Int;
@@ -8299,18 +8353,11 @@ void MyCorrelator::doCorrelationMap(int myEventNumber,
   int allowedFlag;
   int npoints;
   Double_t deltaTInt=1./(2.6*4);
-  //  TGraph *grCor[ant1][ant2];
-
-  //double max_corval;
-  //double ant1_max;
-  //double ant2_max;
-  // cout<<"Beginning correlation map"<<endl;
   int loop_flag=0;
   int flagged=0;
   int draw_flag=0;
   double max_cor=0.;
   int index_cor=0;
-  // double *array;
   char printer[256];
   double max_delay=0.;
   double power_norm=0.;
@@ -8321,179 +8368,102 @@ void MyCorrelator::doCorrelationMap(int myEventNumber,
   int bin=0;
   TGraph *gr_holder1;
   TGraph *gr_holder2;
-
   double max_cor_total=0.;
   double max_cor_time;
   int max_cor_ant1;
   int max_cor_ant2;
-  
-  for (int ant1=0;ant1<nantennas;ant1++){
-    // cout<<"phi sector is for ant "<<ant1<<" is "<<fUPGeomTool->getPhiFromAnt(ant1)<<"\n";
-    //cout<<" phi is "<<fUPGeomTool->getPhiFromAnt(ant1)*PHI_SECTOR_ANGLE-ADU5_FORE_PHI<<"\n";
-    
-    for (int ant2=0;ant2<nantennas;ant2++){
-      
+  int oindreeAntPairCount = 0; //third index in mapCorValPair
+  //////////////////////LOOPS OVER ANTENNAS START HERE///////////////////////////////////////
+  for ( int ant1 = 0; ant1 < nantennas; ant1++ ) {
+    //for ( int ant2 = 0; ant2 < nantennas; ant2++ ) {
+    for ( int ant2 = ant1 + 1; ant2 < nantennas; ant2++ ) {
       loop_flag=0;
       flagged=1;
       draw_flag=0;
-      if(ant1==18 || ant2==18){
-	flagged=0;
+      if( ant1 == 18 || ant2 == 18){
+        flagged=0;
       }
-      if(onlyTriggered==0){
-	if (ant1<ant2 && ant1!=1 && ant2!=1 && saturatedChannels[ant1+whichPolarization*NUM_ANTS_WITH_NADIRS]==0 
-	    && saturatedChannels[ant2+whichPolarization*NUM_ANTS_WITH_NADIRS]==0){//take out 2V
-	  loop_flag=1;
+      if(onlyTriggered == 0) {
+        if (ant1 < ant2 && ant1 != 1 && ant2 != 1 && saturatedChannels[ ant1 + whichPolarization * NUM_ANTS_WITH_NADIRS ] == 0 
+	    && saturatedChannels[ ant2 + whichPolarization * NUM_ANTS_WITH_NADIRS ] == 0) {//take out 2V
+	  loop_flag = 1;
 	}
       }//onlyTrigger==0
-      if(onlyTriggered==1){
+      if(onlyTriggered == 1){
 	//	if ((triggeredAnt[ant1]==1 || triggeredAnt[ant2]==1) && ant1<ant2 && ant1!=1 && ant2!=1 &&  saturatedChannels[ant1+whichPolarization*NUM_ANTS_WITH_NADIRS]==0 
 	//    && saturatedChannels[ant2+whichPolarization*NUM_ANTS_WITH_NADIRS]==0){//take out 2V
-	  if (ant1<ant2 && ant1!=1 && ant2!=1 &&  saturatedChannels[ant1+whichPolarization*NUM_ANTS_WITH_NADIRS]==0 
-	      && saturatedChannels[ant2+whichPolarization*NUM_ANTS_WITH_NADIRS]==0){//take out 2V
-	  loop_flag=1;
+        if ( ant1 < ant2 && ant1 != 1 && ant2 != 1 && saturatedChannels[ ant1 + whichPolarization * NUM_ANTS_WITH_NADIRS ] == 0 
+	      && saturatedChannels[ ant2 + whichPolarization * NUM_ANTS_WITH_NADIRS ] == 0 ) {//take out 2V
+	  loop_flag = 1;
 	}
       }//onlyTrigger==1
-      if(loop_flag==1){
-	allowedFlag=allowedPhisPairOfAntennas(lowerAngleThis,higherAngleThis,
-					      centerTheta1, centerTheta2, centerPhi1, 
-					      centerPhi2, ant1,ant2);//checks ants are within 2 phi sectors
-	centerPhi2Int=int(centerPhi2);//degrees
-	centerPhi1Int=int(centerPhi1);//degrees
+      if( loop_flag == 1 ) { 
+        allowedFlag = allowedPhisPairOfAntennas( lowerAngleThis, higherAngleThis, centerTheta1, centerTheta2, centerPhi1, centerPhi2, ant1,ant2 ); // CHECKS ANTENNAS ARE WITHIN 2 PHI SECTORS
+	centerPhi2Int=int(centerPhi2); //degrees
+	centerPhi1Int=int(centerPhi1); //degrees
 	centerTheta1Int=int(centerTheta1);
 	centerTheta2Int=int(centerTheta2);
-	
-	if(ant1==26 || ant2==26){
-	  //cout<<"pair is "<<ant1<<" "<<ant2<<" lowestAngle, HighestAngle is "<<lowerAngleThis<<" "<<higherAngleThis<<"\n";
-	}
 
-	if (higherAngleThis<lowerAngleThis)higherAngleThis+=360;
-	if (allowedFlag==1){
-	  //cout<<"ants are "<<ant1<<" "<<ant2<<" lower,hihger are "<<lowerAngleThis<<" "<<higherAngleThis<<"\n";
-	  //now get cross correlation graph
-	  //cout<<"grEv[whichPolarization] has "<<grEv[whichPolarization][ant1]->GetN()<<" number of points \n";
-	  // cout<<"ants are "<<ant1<<" "<<ant2<<"\n";
-	  
-	  if(normalization==1){
-	  
-	    // cout<<"ant1 start time and end time are "<<grEv[whichPolarization]Interp[ant1]->GetX()[0]<<" "<<grEv[whichPolarization]Interp[ant1]->GetX()[1020]<<"\n";
-	    //cout<<"ant2 start time and end time are "<<grEv[whichPolarization]Interp[ant2]->GetX()[0]<<" "<<grEvInterp[whichPolarization][ant2]->GetX()[1020]<<"\n";
-	    
-	    if(!grCor[ant1][ant2]){
+	if ( higherAngleThis < lowerAngleThis ) higherAngleThis += 360; 
+	if ( allowedFlag == 1 ) {
+          cout << "lowerAngleThis is " << lowerAngleThis << " higherAngleThis is " << higherAngleThis << endl;
+          cout << "higherAngleThis - lowerAngleThis = " << higherAngleThis - lowerAngleThis << endl;  
+	  if( normalization == 1) {
+	    if( !grCor[ant1][ant2] ) {
 	      bin=0;
-	      //cout<<"ant1 and 2 are "<<ant1<<" "<<ant2<<"\n";
-	      //cout<<"getting correlation value! \n";
-	      
-	       
 	    }
-	    //cout<<"ant1, 2 are "<<ant1<<" "<<ant2<<"\n";
-	    grCor[ant1][ant2] = getPowerinOverlap(grEvInterp[whichPolarization][ant1],grEvInterp[whichPolarization][ant2],ant1,ant2);
-	    
-	    /*
-	      for(double j=-20;j<=20;j+=bin_spacing){
-		
-		if(bin <num_bins){
-		  // cout<<"time delay is "<<j<<"\n";
-		  time_delay[bin] = j;
-		 
-		  corrVal[bin] = getPowerinOverlap(grEvInterp[whichPolarization][ant1],grEvInterp[whichPolarization][ant2],j,ant1,ant2);
-		  //cout<<"ant1, ant2, bin, corVal is "<<ant1<<" "<<ant2<<" "<<bin<<" "<<corrVal[bin]<<"\n";
-		  
-		  //cout<<"time_delay, corrVal is "<<time_delay[bin]<<" "<<corrVal[bin]<<"\n";
-		  // cout<<"j is "<<j<<" corVal is "<<corrVal[bin]<<"\n";
-		  
-		}
-		bin++;
-	      }
-	      
-	     
-	      grCor[ant1][ant2] = new TGraph(bin,time_delay,corrVal);
-	    */
-	    
-	   
-	    
-	  
-	  }//normalization
-	  //cout<<"gr corr has "<<grCor[ant1][ant2]->GetN()<<" numpoints \n";
+	    grCor[ant1][ant2] = getPowerinOverlap( grEvInterp[whichPolarization][ant1], grEvInterp[whichPolarization][ant2], ant1, ant2 );
+	  } // if normalization == 1
 	  else{
-	  
-	    if (!grCor[ant1][ant2]){
-	      grCor[ant1][ant2] = FFTtools::getInterpolatedCorrelationGraph(grEv[whichPolarization][ant1],grEv[whichPolarization][ant2],deltaTInt);
-	      
+	    if ( !grCor[ant1][ant2] ) {
+	      grCor[ant1][ant2] = FFTtools::getInterpolatedCorrelationGraph( grEv[whichPolarization][ant1], grEv[whichPolarization][ant2], deltaTInt );
 	    }
 	  }
-	  //cout<<"grCor[ant1][ant2]->GetN() is "<<grCor[ant1][ant2]->GetN()<<"\n";
-	  grCor[ant1][ant2]->GetPoint(0,tVal0,corVal0);//get first point
-	  //cout<<"tVal0, corVal0 is "<<tVal0<<" "<<corVal0<<"\n";
-	  grCor[ant1][ant2]->GetPoint(grCor[ant1][ant2]->GetN()-1,tValend,corValend);//get last point
-	  //cout<<"tVal0, tValend are "<<tVal0<<" "<<tValend<<"\n";
-	  lengthOfTrace=tValend-tVal0;
-	  
-	  npoints=grCor[ant1][ant2]->GetN(); 
-	  
-	  double *array = grCor[ant1][ant2]->GetY();
-	  
-	  max_cor = getMaximum(npoints,array,index_cor);
-	  //cout<<"max_cor is "<<max_cor<<"\n";
-	  max_correlation[ant1][ant2]=grCor[ant1][ant2]->GetX()[index_cor];
-
-	  max_time_delay[ant1][ant2]=max_cor;
+	  grCor[ant1][ant2] -> GetPoint( 0, tVal0, corVal0 );//get first point
+	  grCor[ant1][ant2] -> GetPoint( grCor[ant1][ant2] -> GetN() - 1, tValend, corValend);//get last point
+	  lengthOfTrace = tValend - tVal0;
+	  npoints = grCor[ant1][ant2] -> GetN(); 
+	  double *array = grCor[ant1][ant2] -> GetY();
+	  max_cor = getMaximum( npoints, array, index_cor );
+	  max_correlation[ant1][ant2] = grCor[ant1][ant2] -> GetX()[ index_cor ];
+	  max_time_delay[ant1][ant2] = max_cor;
 	  // delete array;
-	  
 	  if(max_cor > max_cor_total){
 	    max_cor_total = max_cor;
 	    max_cor_time = grCor[ant1][ant2]->GetX()[index_cor];
 	    max_cor_ant1 = ant1;
 	    max_cor_ant2 = ant2;
 	  }
-	  
-	    if(ant1==25 && ant2==37){
+	  if(ant1==25 && ant2==37){
 	    draw_flag=0;
 	  }
-	   if(draw_flag==1){
-	     int numpoint = grEvInterp[whichPolarization][ant1]->GetN();
-	     double times[numpoint];
-	     double volts[numpoint];
-	     double power_check=0.;
-	    
-	     double delta_t2 = grEvInterp[whichPolarization][ant1]->GetX()[1]-grEvInterp[whichPolarization][ant1]->GetX()[2];
-	     for(int j=0;j<numpoint;j++){
-	       times[j] = grEvInterp[whichPolarization][ant1]->GetX()[j];//+60.;
-	       volts[j] = grEvInterp[whichPolarization][ant1]->GetY()[j];
-	       //cout<<"times is "<<times[j]<<" volts are "<<volts[j]<<"\n";
-	       // cout<<"volts original is "<<grEvInterp[whichPolarization][ant1]->GetY()[j];
-	       //cout<<"j is "<<j;
-	       if(j+600 < numpoint){
-		 volts[j] = grEvInterp[whichPolarization][ant1]->GetY()[j+600];
-		 //cout<<" is using j+600 ("<<j+600<<") value \n";
-	       }
-	       else{
-		 volts[j] = grEvInterp[whichPolarization][ant1]->GetY()[j+600-numpoint];
-		 //cout<<" is using numpoint-j-600 ("<<j+600-numpoint<<") \n";
-	       }
-	       //cout<<" times, volts are "<<times[j]<<" "<<volts[j]<<"\n";
-	       power_check += pow(volts[j],2);
-	     }
-
-	     power_check= sqrt(power_check*(times[1]-times[0]));
-	     cout<<"power of waveform is "<<power_check<<"\n";
-	     TGraph *grShifted = new TGraph(numpoint,times,volts);
-	     //double rmsShifted = getRMS(grShifted);
-	     grCor_scaled[ant1][ant2] = grCor[ant1][ant2];
-	    
-	     char namer[256];
-	     sprintf(namer,"ant1");
-	     DrawFreqDomain(grEv[whichPolarization][ant1], myEventNumber,namer);
-
-	     sprintf(namer,"ant2");
-	     DrawFreqDomain(grEv[whichPolarization][ant2], myEventNumber,namer);
-	     
-	     
-
-	     
-
-	     
-
-	     TH2F *haxes_corr = new TH2F("wave",";Time Delay (ns);Corr Val",10,-30,30,10,-1.5*max_cor,1.5*max_cor);
+	  if( draw_flag == 1 ){
+	    int numpoint = grEvInterp[whichPolarization][ant1]->GetN();
+	    double times[numpoint];
+	    double volts[numpoint];
+	    double power_check=0.;
+	    double delta_t2 = grEvInterp[whichPolarization][ant1]->GetX()[1]-grEvInterp[whichPolarization][ant1]->GetX()[2];
+	    for(int j=0;j<numpoint;j++){
+	      times[j] = grEvInterp[whichPolarization][ant1]->GetX()[j];//+60.;
+	      volts[j] = grEvInterp[whichPolarization][ant1]->GetY()[j];
+	      if(j+600 < numpoint){
+                volts[j] = grEvInterp[whichPolarization][ant1]->GetY()[j+600];
+	      }
+	      else{
+	        volts[j] = grEvInterp[whichPolarization][ant1]->GetY()[j+600-numpoint];
+	      }
+	      power_check += pow(volts[j],2);
+	    }
+	    power_check= sqrt(power_check*(times[1]-times[0]));
+	    cout<<"power of waveform is "<<power_check<<"\n";
+	    TGraph *grShifted = new TGraph(numpoint,times,volts);
+	    grCor_scaled[ant1][ant2] = grCor[ant1][ant2];
+	    char namer[256];
+	    sprintf(namer,"ant1");
+	    DrawFreqDomain(grEv[whichPolarization][ant1], myEventNumber,namer);
+	    sprintf(namer,"ant2");
+	    DrawFreqDomain(grEv[whichPolarization][ant2], myEventNumber,namer);
+	    TH2F *haxes_corr = new TH2F("wave",";Time Delay (ns);Corr Val",10,-30,30,10,-1.5*max_cor,1.5*max_cor);
 	    TCanvas *c_volts = new TCanvas("c_volts","c_volts",800,800);
 	    c_volts->Divide(1,3);
 	    c_volts->cd(1);
@@ -8505,15 +8475,7 @@ void MyCorrelator::doCorrelationMap(int myEventNumber,
 	    grCor[ant1][ant2]->Draw("l same");
 	    sprintf(printer,"corr_Val_%i_%i.png",ant1,ant2);
 	    c_volts->Print(printer);
-	    //c_volts->Print("ants_25_37.png");
-
 	    delete c_volts;
-
-
-	    //grCor[ant1][ant1] = FFTtools::getCorrelationGraph(grEvInterp[whichPolarization][ant1],grEvInterp[whichPolarization][ant1]);
-	    //grCor[ant1][ant1] = FFTtools::getInterpolatedCorrelationGraph(grEv[ant1],grShifted,deltaTInt);
-	    
-	    
 	    if(!grCor[ant1][ant1]){
 	      bin=0;
 	      double time_delay2[2000];
@@ -8521,37 +8483,25 @@ void MyCorrelator::doCorrelationMap(int myEventNumber,
 	      double spacing2 = (180./1000.);
 	      cout<<"spacing2 is "<<spacing2<<"\n";
 	      for(double j=-90;j<90;j+=spacing2){
-		cout<<"j is "<<j<<"\n";
+	       	cout<<"j is "<<j<<"\n";
 		if(bin <2000){
-		  //cout<<"j is "<<j<<" ";
 		  time_delay2[bin] = j;
 		  corrVal2[bin] = getPowerinOverlap(grEvInterp[whichPolarization][ant1],grShifted,j,ant1,ant1);
-		  // cout<<"bin time, corrVal are "<<bin<<" "<<time_delay[bin]<<" "<<corrVal[bin]<<"\n";
 		}
 		bin++;
 	      }
-	      
-	      //TGraph *holderplot = new TGraph(bin-1,time_delay,corrVal);
-	      
 	      grCor[ant1][ant1] = new TGraph(bin,time_delay2,corrVal2);
-	      
-	      //delete holderplot;
-	      
 	    }
 	    grCor_scaled[ant1][ant1] = grCor[ant1][ant1];
-
-	     double *array_scaled = grCor_scaled[ant1][ant1]->GetY();
-	     npoints = grCor_scaled[ant1][ant1]->GetN();
-	     max_cor = getMaximum(npoints,array_scaled,index_cor);
-	     cout<<"max corr for scale is "<<max_cor<<"\n";
-	     TCanvas *c_volts0 = new TCanvas("c_volts","c_volts",800,800);
-	    //haxes_corr->Draw();
-	     
+	    double *array_scaled = grCor_scaled[ant1][ant1]->GetY();
+	    npoints = grCor_scaled[ant1][ant1]->GetN();
+	    max_cor = getMaximum(npoints,array_scaled,index_cor);
+	    cout<<"max corr for scale is "<<max_cor<<"\n";
+	    TCanvas *c_volts0 = new TCanvas("c_volts","c_volts",800,800);
 	    grCor[ant1][ant1]->Draw("Al");
 	    sprintf(printer,"corr_Val_%i_%i.png",ant1,ant1);
 	    c_volts0->Print(printer);
 	    delete c_volts0;
-
 	    TCanvas *c_volts1 = new TCanvas("c_volts1","c_volts1",800,800);
 	    c_volts1->Divide(1,2);
 	    c_volts1->cd(1);
@@ -8560,9 +8510,7 @@ void MyCorrelator::doCorrelationMap(int myEventNumber,
 	    grShifted->Draw("AsL");
 	    sprintf(printer,"plots_corr_Val_%i_%i.png",ant1,ant1);
 	    c_volts1->Print(printer);
-	  }
-	  
-
+	  }//if drawflag == 1
 	  double abbyTheta_deg;
 	  double abbyTheta_cos;
 	  int inside_cone_flag;
@@ -8570,219 +8518,112 @@ void MyCorrelator::doCorrelationMap(int myEventNumber,
 	  double cos_angle1;
 	  double angle2;
 	  double cos_angle2;
-
-	  //do the scan of the sky once we've picked two antennas we are interested in
-	  //cout<<"ant1,2 are "<<ant1<<" "<<ant2<<" lowest Phi is "<<lowerAngleThis<<" highest Phi is "<<higherAngleThis<<" bin size is "<<ROUGH_BIN_SIZE<<"\n";
-	  
-	  for (int abbyPhi_deg=int(lowerAngleThis);abbyPhi_deg<higherAngleThis;abbyPhi_deg+=ROUGH_BIN_SIZE){//go through all phi angles between the two antennas
-	   
-	    abbyPhi_deg_this=abbyPhi_deg;
-	    if (abbyPhi_deg_this>=360) abbyPhi_deg_this-=360;
-	    abbyPhi=abbyPhi_deg_this*deg2rad;
-	    deltaPhi1_deg=abbyPhi_deg-centerPhi1Int;
-	    deltaPhi2_deg=abbyPhi_deg-centerPhi2Int;
-	    if (deltaPhi1_deg>180 && deltaPhi1_deg<540) deltaPhi1_deg-=360;
-	    if (deltaPhi2_deg>180 && deltaPhi2_deg<540) deltaPhi2_deg-=360;
-	    if (deltaPhi1_deg>=540) deltaPhi1_deg-=720;
-	    if (deltaPhi2_deg>=540) deltaPhi2_deg-=720;
-	    if (deltaPhi1_deg<-180) deltaPhi1_deg+=360;
-	    if (deltaPhi2_deg<-180) deltaPhi2_deg+=360;
-	    // cout<<"ants are "<<ant1<<" "<<ant2<<" abbyPhi_deg is "<<abbyPhi_deg_this<<"\n";
-	    if(cos_reconstruction_flag==1){
-	      for (int ctrTheta=0;ctrTheta<=NUM_BINS_ROUGH_COS;ctrTheta++){
-		abbyTheta_cos = ctrTheta*step_size_cos_rough + cosHighestTheta;
-		
-		//cout<<"ctr theta is "<<ctrTheta<<" and abbyTheta_cos is "<<abbyTheta_cos;
-		// abbyTheta=abbyTheta_deg*deg2rad;
+          //cout << "before phi loop starts.. ant1,ant2 are (" << ant1 << "," << ant2 << ")" << endl;  
+          //oindreeAntPairCount = oindreeAntPairCount + 1; 
+          //cout << "before phi loop starts antenna pair # " << oindreeAntPairCount << " ant1,ant2 are (" << ant1 << "," << ant2 << ")" << endl; 
+	  for ( int abbyPhi_deg = int(lowerAngleThis); abbyPhi_deg < higherAngleThis; abbyPhi_deg += ROUGH_BIN_SIZE ){ //go through all phi angles between the two antenna
+	    abbyPhi_deg_this = abbyPhi_deg;
+	    if ( abbyPhi_deg_this >= 360 ) abbyPhi_deg_this -= 360; // OB: this is where it takes care of higherAngleThis > 360 which I saw in output
+	    abbyPhi = abbyPhi_deg_this * deg2rad;
+	    deltaPhi1_deg = abbyPhi_deg - centerPhi1Int;
+	    deltaPhi2_deg = abbyPhi_deg - centerPhi2Int;
+	    if (deltaPhi1_deg > 180 && deltaPhi1_deg < 540) deltaPhi1_deg -= 360;
+	    if (deltaPhi2_deg > 180 && deltaPhi2_deg < 540) deltaPhi2_deg -= 360;
+	    if (deltaPhi1_deg >= 540) deltaPhi1_deg -= 720;
+	    if (deltaPhi2_deg >= 540) deltaPhi2_deg -= 720;
+	    if (deltaPhi1_deg <- 180) deltaPhi1_deg += 360;
+	    if (deltaPhi2_deg <- 180) deltaPhi2_deg += 360;
+	    if( cos_reconstruction_flag == 1 ){
+	      for ( int ctrTheta = 0; ctrTheta <= NUM_BINS_ROUGH_COS; ctrTheta++ ){
+                abbyTheta_cos = ctrTheta * step_size_cos_rough + cosHighestTheta;
 		abbyTheta = acos(abbyTheta_cos);
 		abbyTheta = pi/2 - abbyTheta;
-		abbyTheta_deg = abbyTheta*rad2deg;
-		
-		
-		cos_angle1 = cos(abbyTheta)*cos(centerTheta1Int*deg2rad)+sin(abbyTheta)*sin(centerTheta1Int*deg2rad)*cos(deltaPhi1_deg*deg2rad);
-		cos_angle2 = cos(abbyTheta)*cos(centerTheta2Int*deg2rad)+sin(abbyTheta)*sin(centerTheta2Int*deg2rad)*cos(deltaPhi2_deg*deg2rad);
-		
+		abbyTheta_deg = abbyTheta * rad2deg;
+		cos_angle1 = cos(abbyTheta) * cos(centerTheta1Int*deg2rad)+sin(abbyTheta) * sin(centerTheta1Int*deg2rad) * cos(deltaPhi1_deg*deg2rad);
+		cos_angle2 = cos(abbyTheta) * cos(centerTheta2Int*deg2rad)+sin(abbyTheta) * sin(centerTheta2Int*deg2rad) * cos(deltaPhi2_deg*deg2rad);
 		angle1 = acos(cos_angle1);
 		angle2 = acos(cos_angle2);
-		
-		angle1=angle1*rad2deg;
-		angle2=angle2*rad2deg;
-		
-		if(angle1 < NUM_DEGREES_OFF_CENTER && angle2 <NUM_DEGREES_OFF_CENTER && phiOKToUse[int(abbyPhi_deg_this)]==1){
-		  
-		  timeExpected=getDeltaTExpected(ant1, ant2, abbyPhi_deg, abbyTheta_deg);
-		  if(abs(timeExpected) > max_delay) max_delay = abs(timeExpected);
-		 
-		  /* if((ant2 ==38 || ant1==38)){
-		    cout<<"ant 1 is "<<ant1<<" ant2 is "<<ant2<<" time Expected is "<<timeExpected<<" phi, theta is "<<abbyPhi_deg<<" "<<abbyTheta_deg<<"\n";
-		    if(flagged==0){
-		      flagged=1;
-		    TCanvas *wtf = new TCanvas("wtf","wtf",800,800);
-		    wtf->Divide(1,2);
-		    wtf->cd(1);
-		    grEv[ant1]->Draw();
-		    
-		    wtf->cd(2);
-		    grEv[ant2]->Draw();
-		    
-		    char printer[256];
-		    sprintf(printer,"Ant_%d_%d.png",ant1,ant2);
-		    wtf->Print(printer);
-
-		    delete wtf;
-		    }
-		  }
-		  */
-		  //cout<<"timeExpected for ants "<<ant1<<" "<<ant2<<" angles "<<abbyPhi_deg<<" "<<abbyTheta_deg<<" is "<<timeExpected<<"\n";
-		  //double timeExp1ected=0;
-		  //get the value of the cross correlation graph at this delay.
-		  // cout<<"timeExpected for ant1,ant2 is "<<timeExpected<<" "<<ant1<<" "<<ant2<<"\n";
-		  bin1=int((timeExpected-tVal0)/lengthOfTrace*npoints);
-		  bin2=bin1+1;
+		angle1 = angle1 * rad2deg;
+		angle2 = angle2 * rad2deg;
+		if( angle1 < NUM_DEGREES_OFF_CENTER && angle2 < NUM_DEGREES_OFF_CENTER && phiOKToUse[int( abbyPhi_deg_this )] == 1){
+		  timeExpected = getDeltaTExpected(ant1, ant2, abbyPhi_deg, abbyTheta_deg);
+		  if( abs( timeExpected ) > max_delay ) max_delay = abs( timeExpected );
+		  bin1 = int(( timeExpected - tVal0 ) / lengthOfTrace * npoints);
+		  bin2 = bin1 + 1;
 		  grCor[ant1][ant2]->GetPoint(bin1,tVal1,corVal1);
 		  grCor[ant1][ant2]->GetPoint(bin2,tVal2,corVal2);
-		  //cout<<"timeExpected corVal1, corVal2 are "<<timeExpected<<" "<<corVal1<<" "<<corVal2<<"\n";
-		  corVal=(corVal2-corVal1)*(timeExpected-tVal1)/(tVal2-tVal1)+corVal1;//interpolate between 2 bins
-		  //cout<<"timeExpected corVal1, corVal2 are "<<timeExpected<<" "<<corVal1<<" "<<corVal2<<" "<<corVal<<"\n";
-		   
-		  
+		  corVal = ( corVal2 - corVal1 ) * ( timeExpected - tVal1 ) / ( tVal2 - tVal1 ) + corVal1; //interpolate between 2 bins
 		  if(rms[ant1] <1E-10 || rms[ant2]<1E-10){
 		    corVal=0.;
-		    //ctrPhi=NUM_BINS_FINE_PHI+1;
-		    //abbyPhi_deg = higherAngleThis+1;
-		    //cout<<"rms["<<ant1<<"] is "<<rms[ant1]<<" rms["<<ant2<<"] is "<<rms[ant2]<<"\n";
-		    //mapCorVal[ctrTheta][int((abbyPhi_deg_this)/ROUGH_BIN_SIZE)]+=corVal;//add this correlation to the bin
-		    //mapCtr[ctrTheta][int((abbyPhi_deg_this)/ROUGH_BIN_SIZE)]+=1;//keep track of the number of points in that bin
-		
 		  }
 		  else{
-		    double  theta_trial=ctrTheta*step_size_cos_rough+cosHighestTheta;//ROUGH_BIN_SIZE*i-HIGHEST_THETA;
-		    if(abbyPhi_deg_this>83 && abbyPhi_deg_this< 85){
-		      if(theta_trial>.129 && theta_trial < .130){
-		     
-
-			/* if(abbyPhi_deg_this>131 && abbyPhi_deg_this< 133){
-		      if(theta_trial>.159 && theta_trial < .161){
-			*/
-			//cout<<"ants are "<<ant1<<" "<<ant2<<" time is "<<timeExpected<<" abbyPhi and Theta is "<<abbyPhi_deg_this<<" "<<theta_trial<<" corVal is "<<corVal/(rms[ant1]*rms[ant2])<<"\n";
-		      }
-		  }
-		    if(normalization==1){
-		      mapCorVal[ctrTheta][int((abbyPhi_deg_this)/ROUGH_BIN_SIZE)]+=corVal;//add this correlation to the bin
-		      //cout<<"ctrTheta, ctrPhi, corVal is "<<ctrTheta<<" "<<abbyPhi_deg_this/ROUGH_BIN_SIZE<<" "<<corVal<<"\n";
+		    double theta_trial = ctrTheta * step_size_cos_rough + cosHighestTheta; //ROUGH_BIN_SIZE*i-HIGHEST_THETA;
+		    if( normalization == 1 ){
+		      //cout << "mapCorVal before " << mapCorVal[ ctrTheta ][ int(( abbyPhi_deg_this ) / ROUGH_BIN_SIZE ) ] << endl; 
+                      //cout << "corVal " << corVal << endl;  
+		      mapCorVal[ ctrTheta ][ int(( abbyPhi_deg_this ) / ROUGH_BIN_SIZE ) ] += corVal; //add this correlation to the bin
+		      //cout << "mapCorVal after " << mapCorVal[ ctrTheta ][ int(( abbyPhi_deg_this ) / ROUGH_BIN_SIZE ) ] << endl; 
+		      mapCorValPair[ ctrTheta ][ int( ( abbyPhi_deg_this ) / ROUGH_BIN_SIZE ) ][ oindreeAntPairCount ] = corVal;
+		      //cout << "mapCorValPair " << mapCorValPair[ ctrTheta ][ int( ( abbyPhi_deg_this ) / ROUGH_BIN_SIZE ) ][ oindreeAntPairCount ] << endl; 
+                      //cout << "Right after mapCorValPair: ant1,ant2 (" << ant1 << "," << ant2 << ")" << endl;  
 		    }
 		    else{
-		      mapCorVal[ctrTheta][int((abbyPhi_deg_this)/ROUGH_BIN_SIZE)]+=(corVal/1021)/(rms[ant1]*rms[ant2]);//add this correlation to the bin
+		      mapCorVal[ ctrTheta ][ int( ( abbyPhi_deg_this ) / ROUGH_BIN_SIZE ) ] += ( corVal / 1021 ) / ( rms[ ant1 ] * rms[ ant2 ] ); //add this correlation to the bin
+		      mapCorValPair[ ctrTheta ][ int( ( abbyPhi_deg_this ) / ROUGH_BIN_SIZE) ] [ oindreeAntPairCount ] = ( corVal / 1021 ) / ( rms[ ant1 ] * rms[ ant2 ] ); 
 		    }
-		    
-		    mapCtr[ctrTheta][int((abbyPhi_deg_this)/ROUGH_BIN_SIZE)]+=1;//keep track of the number of points in that bin
-			// }
-			//}
-		  }		
-		}
-		
-	      }//end theta loop
-	    }//cos_reconstruction
+		    mapCtr[ ctrTheta ][ int ( ( abbyPhi_deg_this ) / ROUGH_BIN_SIZE ) ] += 1; //keep track of the number of points in that bin
+		  } // else 		
+		} // if angle1 < NUM_DEGREES_OFF_CENTER && .... 
+	      } // end theta loop
+	    } // if cos_reconstruction_flag == 1
 	    else{
-	      for (int abbyTheta_deg=-1*HIGHEST_THETA;abbyTheta_deg<LOWEST_THETA; abbyTheta_deg+=ROUGH_BIN_SIZE){ //Highest theta==25, lowest theta=60
-	
-		abbyTheta=abbyTheta_deg*deg2rad;
+	      for ( int abbyTheta_deg = -1 * HIGHEST_THETA; abbyTheta_deg < LOWEST_THETA; abbyTheta_deg += ROUGH_BIN_SIZE ){ //Highest theta==25, lowest theta=60
+	        abbyTheta=abbyTheta_deg*deg2rad;
 		//now see if the point is within the beamwidth (generous) of both antennas in 3D angles
-		if ((fabs(deltaPhi1_deg*deltaPhi1_deg+
-			  (abbyTheta_deg-centerTheta1Int)*
-			  (abbyTheta_deg-centerTheta1Int))<NUM_DEGREES_OFF_CENTER*NUM_DEGREES_OFF_CENTER) &&
-		    (fabs(deltaPhi2_deg*deltaPhi2_deg+
-			  (abbyTheta_deg-centerTheta2Int)*
-			  (abbyTheta_deg-centerTheta2Int))<NUM_DEGREES_OFF_CENTER*NUM_DEGREES_OFF_CENTER)
-		    && phiOKToUse[int(abbyPhi_deg_this)]==1){
+		if ( ( fabs( deltaPhi1_deg * deltaPhi1_deg +
+			  ( abbyTheta_deg - centerTheta1Int ) *
+			  ( abbyTheta_deg - centerTheta1Int ) ) < NUM_DEGREES_OFF_CENTER * NUM_DEGREES_OFF_CENTER ) &&
+		    ( fabs ( deltaPhi2_deg * deltaPhi2_deg +
+			  ( abbyTheta_deg - centerTheta2Int ) *
+			  ( abbyTheta_deg - centerTheta2Int ) ) < NUM_DEGREES_OFF_CENTER * NUM_DEGREES_OFF_CENTER )
+		    && phiOKToUse[ int( abbyPhi_deg_this ) ] == 1 ){
 		  
 		  timeExpected=getDeltaTExpected(ant1, ant2, abbyPhi_deg, abbyTheta_deg);
-		  
-		  if(ant1==0 && (ant2 ==1 || ant2 == 7 || ant2== 9 || ant2 == 15)){
-		    // cout<<"timeExpected for these  antennas 0,"<<ant2<<" at phi = "<<abbyPhi_deg<<" theta = "<<abbyTheta_deg<<" is "<<timeExpected<<"\n";
-		    
-		  }
-		  
-		  //double timeExpected=0;
-		  //get the value of the cross correlation graph at this delay.
-		  
-		  
 		  bin1=int((timeExpected-tVal0)/lengthOfTrace*npoints);
 		  bin2=bin1+1;
 		  grCor[ant1][ant2]->GetPoint(bin1,tVal1,corVal1);
 		  grCor[ant1][ant2]->GetPoint(bin2,tVal2,corVal2);
 		  corVal=(corVal2-corVal1)*(timeExpected-tVal1)/(tVal2-tVal1)+corVal1;//interpolate between 2 bins
-		  /* if(rms[ant1] <1E-10 || rms[ant2]<1E-10){
-		    //ctrPhi=NUM_BINS_FINE_PHI+1;
-		    abbyPhi_deg = higherAngleThis+1;
-		  }
-		  else{*/
-		  mapCorVal[int((abbyTheta_deg+HIGHEST_THETA)/ROUGH_BIN_SIZE)][int((abbyPhi_deg_this)/ROUGH_BIN_SIZE)]
-		    +=corVal/(rms[ant1]*rms[ant2]);//add this correlation to the bin
-		  mapCtr[int((abbyTheta_deg+HIGHEST_THETA)/ROUGH_BIN_SIZE)][int((abbyPhi_deg_this)/ROUGH_BIN_SIZE)]+=1;//keep track of the number of points in that bin
-		  // }
-		}
-		
-	      }//end theta loop
-	    }//cos_reconstruction
-	  }//end phi loop
-	  
-	}//allowed flag
-      }//end trig==1 cut loop
-    }//end ant2loop
-   }//end ant1loop
-  //cout<<"max delay for ANITA is "<<max_delay<<"\n";
-  /*
-  if(whichPolarization==0){
-    cout<<"max_corr is "<<max_cor_total<<"\n";
-    DrawPowerinOverlap(myEventNumber,max_cor_ant1,max_cor_ant2, grEvInterp[0][max_cor_ant1],grEvInterp[0][max_cor_ant2],max_cor_time);
-  }
-  */
-  ///12_5: CHECK IS mapCorVals are same in loop as pointed. 
-  for (int i=0;i<NUM_BINS_ROUGH_THETA;i++){
-    for (int j=0;j<NUM_BINS_ROUGH_PHI;j++){
-      //cout<<"i,j,mapCorVal,Mapctr = "<<i<<" "<<j<<" "<<mapCorVal[i][j]<<" "<<mapCtr[i][j]<<"\n";
-      //was 2!
-      if (mapCtr[i][j]>2) mapCorVal[i][j]=mapCorVal[i][j]/mapCtr[i][j]; //require 3 antennas to contribute to location
-      else mapCorVal[i][j]=0;
-      //cout<<"i,j CorVal is "<<i<<" "<<j<<" "<<mapCorVal[i][j]<<"\n";
-      if(mapCorVal[i][j] != mapCorVal[i][j]){
-	mapCorVal[i][j]=0;
-      }
-      //cout<<"i,j CorVal is "<<i<<" "<<j<<" "<<mapCorVal[i][j]<<"\n";
-      
-    }
-  }
- 
-  
+		  mapCorVal [ int( ( abbyTheta_deg + HIGHEST_THETA ) / ROUGH_BIN_SIZE ) ][ int( ( abbyPhi_deg_this ) / ROUGH_BIN_SIZE ) ]
+		    += corVal / ( rms[ ant1 ] * rms[ ant2 ] );//add this correlation to the bin
+                  mapCorValPair [int( ( abbyTheta_deg + HIGHEST_THETA ) / ROUGH_BIN_SIZE ) ][ int( ( abbyPhi_deg_this ) / ROUGH_BIN_SIZE ) ][ oindreeAntPairCount ]
+		   = corVal / ( rms[ ant1 ] * rms[ ant2 ] );
+		  timeExpectedArray[ int ( ( abbyTheta_deg + HIGHEST_THETA ) / ROUGH_BIN_SIZE ) ][ int( ( abbyPhi_deg_this ) / ROUGH_BIN_SIZE ) ]
+		    = timeExpected;
+		  mapCtr[ int( ( abbyTheta_deg + HIGHEST_THETA ) / ROUGH_BIN_SIZE ) ][ int( ( abbyPhi_deg_this ) / ROUGH_BIN_SIZE ) ] += 1;//keep track of the number of points in that bin
+		} // if fabs(....
+	      } // end theta loop 
+	    } // else cos_reconstruction_flag 
+	  } // end phi loop
+          oindreeAntPairCount = oindreeAntPairCount + 1; 
+          cout << "antenna pair # " << oindreeAntPairCount << " ant1,ant2 are (" << ant1 << "," << ant2 << ")" << endl; 
+          cout << "             " << endl; 
+	} // allowed flag == 1
+      } // if loop flag == 1
+    } // end ant2 loop
+  } // end ant1 loop
 
-  //  ftime( &timebuffer );
-  //timeline = ctime( & ( timebuffer.time ) );
-  
-  //printf( "The time is %.19s.%hu %s", timeline, timebuffer.millitm, &timeline[20] );
-
-  /*if (drawMaps==1){
-    TCanvas *cantennaMap=new TCanvas("cantennaMap","cantennaMap",800,400);
-    TH2F *hantennaMap=new TH2F("hantennaMap","hantennaMap",NUM_BINS_ROUGH_PHI,0,360,NUM_BINS_ROUGH_THETA,-90,90);
-    
-    for (int i=0;i<NUM_BINS_ROUGH_PHI;i++){
-      for (int j=0;j<NUM_BINS_ROUGH_THETA;j++){
-	double phi=ROUGH_BIN_SIZE*(i+0.5);
-	double theta=(ROUGH_BIN_SIZE*-1.*(j+0.5))+HIGHEST_THETA;
-	if (theta<=HIGHEST_THETA)
-	  if (mapCtr[j][i]>2) hantennaMap->Fill(phi,theta,mapCtr[j][i]);
+  for ( int i = 0; i < NUM_BINS_ROUGH_THETA; i++ ) {
+    for ( int j = 0; j < NUM_BINS_ROUGH_PHI; j++ ) {
+      if ( mapCtr[i][j] > 2 ) mapCorVal[i][j] = mapCorVal[i][j] / mapCtr[i][j]; // require 3 antennas to contribute to location
+      else mapCorVal[i][j] = 0;
+      if( mapCorVal[i][j] != mapCorVal[i][j] ) {
+        mapCorVal[i][j] = 0;
       }
     }
-    gStyle->SetPalette(1);
-    cantennaMap->cd(0);
-    gStyle->SetOptStat(kFALSE);
-    hantennaMap->Draw("colz");
-    cantennaMap->Print("antennaNumberMap.eps");
-    }*/
-  
-  
-  //}//end if RF trigger
-}
+  }
+
+} // end of function doCorrelationMap
 ///////////////////////////
 void MyCorrelator::findPeakOfMap(double mapCorVal[NUM_BINS_ROUGH_THETA][NUM_BINS_ROUGH_PHI], double &peakVal, 
 				 double &peakTheta, double &peakPhi)
